@@ -13,7 +13,7 @@ The page is plain HTML, CSS and JavaScript, with no build step or framework. It 
 
 1. In the repository go to **Settings → Pages**.
 2. Under **Build and deployment → Source**, choose **GitHub Actions**.
-3. Push to `master`, or open **Actions → Dashboard Pages → Run workflow**.
+3. Open **Actions → Dashboard Pages → Run workflow** once. After that, it redeploys automatically whenever a push to `master` changes `dashboard/`.
    The workflow (`.github/workflows/dashboard-pages.yml`) runs the dashboard tests and then deploys only the `dashboard/` folder.
 
 ## Add it to your iPhone home screen
@@ -33,7 +33,7 @@ It then opens full screen like an app. Android (Chrome): **⋮ menu → Add to H
 
 ## Refresh and rate limit
 
-- Auto-refresh every 2 minutes while the page is visible. Tap **Refresh** or pull down from the top of the page to refresh now.
+- Auto-refresh every 2 minutes while the page is visible. Tap **Refresh** or pull down from the top of the page to refresh now (at most once every 20 seconds).
 - Unauthenticated GitHub API calls are limited to **60 per hour** per network. The page reads `x-ratelimit-remaining` and `x-ratelimit-reset` and saves requests in these ways:
   - Open PRs are fetched on every refresh, Actions runs and closed PRs on every 5th, and repository details on every 30th.
   - A PR's check status is fetched again only while it's pending or its head commit changes.

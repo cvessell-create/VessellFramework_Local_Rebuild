@@ -13,6 +13,7 @@
   const RESERVE = 6; // requests kept back for a manual refresh
   const LOW_THRESHOLD = 15;
   const CACHE_PREFIX = 'vf-display-mode:v1:';
+  const MANUAL_COOLDOWN_MS = 20 * 1000;
 
   const L = window.DashboardLogic;
   const html = L.html;
@@ -30,6 +31,7 @@
     tick: 0,
     busy: false,
     lastRefreshAt: null,
+    lastManualAt: 0,
     nextAt: null,
     timer: null,
     dueWhileHidden: false,
@@ -104,8 +106,12 @@
       throw new Error('network error (offline or GitHub unreachable)');
     }
     readRate(res.headers);
-    if ((res.status === 403 || res.status === 429) && (state.rate.remaining === 0 || res.headers.get('retry-after'))) {
+    const retryAfter = Number(res.headers.get('retry-after'));
+    if ((res.status === 403 || res.status === 429) && (state.rate.remaining === 0 || retryAfter > 0)) {
       state.rate.remaining = 0;
+      if (retryAfter > 0) {
+        state.rate.reset = Math.max(state.rate.reset || 0, Math.ceil(Date.now() / 1000) + retryAfter);
+      }
       throw new BudgetError('GitHub API rate limit reached');
     }
     if (!res.ok) throw new Error(`GitHub API returned ${res.status}`);
@@ -173,6 +179,15 @@
 
   async function refresh(manual) {
     if (state.busy) return;
+    if (manual) {
+      // Debounce repeated taps / pulls so they can't burn the hourly budget.
+      if (Date.now() - state.lastManualAt < MANUAL_COOLDOWN_MS) {
+        els.lastUpdated.textContent = 'Just refreshed. Try again in a few seconds.';
+        window.setTimeout(renderStatus, 3000);
+        return;
+      }
+      state.lastManualAt = Date.now();
+    }
     state.busy = true;
     state.reserve = manual ? 0 : RESERVE;
     els.refresh.disabled = true;
@@ -242,6 +257,19 @@
 
   function iso(ms) {
     return new Date(ms).toISOString();
+  }
+
+  /** Relative time that is kept current in place by updateRelativeTimes(). */
+  function rel(isoString, now) {
+    return html`<time datetime="${isoString}" data-rel="1">${L.relativeTime(isoString, now)}</time>`;
+  }
+
+  function updateRelativeTimes() {
+    const now = Date.now();
+    for (const node of els.content.querySelectorAll('time[data-rel]')) {
+      const text = L.relativeTime(node.getAttribute('datetime'), now);
+      if (node.textContent !== text) node.textContent = text;
+    }
   }
 
   function renderStatus() {
@@ -321,7 +349,7 @@
   <h3>${pr.title}</h3>
   ${reason ? html`<p class="reason">${reason}</p>` : ''}
   <p class="meta"><span class="sr-only">Merges into </span><code>${pr.base.ref}</code> ← <span class="sr-only">from </span><code>${pr.head.label || pr.head.ref}</code></p>
-  <p class="meta">${reason ? html`${repoName} · ` : ''}by ${author} ${copilot ? html`<span class="badge badge-copilot">Copilot agent</span>` : ''} · updated ${L.relativeTime(pr.updated_at, now)}</p>
+  <p class="meta">${reason ? html`${repoName} · ` : ''}by ${author} ${copilot ? html`<span class="badge badge-copilot">Copilot agent</span>` : ''} · updated ${rel(pr.updated_at, now)}</p>
   <div class="actions">
     ${actionLink(prUrl(full, pr.number), 'Open PR', `Open pull request #${pr.number} on GitHub`)}
     ${actionLink(prUrl(full, pr.number, '/files'), 'Files changed', `Files changed in #${pr.number}`)}
@@ -344,7 +372,7 @@
     if (!runs || !runs.items.length) return html`<p class="empty">No workflow runs.</p>`;
     return html`<ul class="list">${runs.items.map((run) => html`<li><a href="${L.safeGithubUrl(run.html_url)}" target="_blank" rel="noopener noreferrer">
   <span class="line1">${runBadge(run)} <strong>${run.name}</strong></span>
-  <span class="line2">${run.display_title} · ${run.head_branch} · ${run.event} · ${L.relativeTime(run.created_at, now)}</span>
+  <span class="line2">${run.display_title} · ${run.head_branch} · ${run.event} · ${rel(run.created_at, now)}</span>
 </a></li>`)}</ul>`;
   }
 
@@ -352,7 +380,7 @@
     if (!closed || !closed.items.length) return html`<p class="empty">No recently closed pull requests.</p>`;
     return html`<ul class="list">${closed.items.map((pr) => html`<li><a href="${prUrl(full, pr.number)}" target="_blank" rel="noopener noreferrer">
   <span class="line1">${pr.merged_at ? html`<span class="badge badge-merged">Merged</span>` : html`<span class="badge badge-closed">Closed</span>`} <strong>#${pr.number}</strong> ${pr.title}</span>
-  <span class="line2">by ${pr.user ? pr.user.login : 'unknown'} · ${pr.merged_at ? 'merged' : 'closed'} ${L.relativeTime(pr.merged_at || pr.closed_at, now)} · into ${pr.base.ref}</span>
+  <span class="line2">by ${pr.user ? pr.user.login : 'unknown'} · ${pr.merged_at ? 'merged' : 'closed'} ${rel(pr.merged_at || pr.closed_at, now)} · into ${pr.base.ref}</span>
 </a></li>`)}</ul>`;
   }
 
@@ -375,7 +403,7 @@
     ${entry.stale ? html`<span class="badge badge-stale">STALE</span>` : ''}
   </div>
   <p class="meta">Default branch <code>${meta.default_branch || '?'}</code> · ${branchText}</p>
-  ${entry.stale && entry.savedAt ? html`<p class="meta">STALE: showing saved data from ${clock(entry.savedAt)} (${L.relativeTime(iso(entry.savedAt), now)}).</p>` : ''}
+  ${entry.stale && entry.savedAt ? html`<p class="meta">STALE: showing saved data from ${clock(entry.savedAt)} (${rel(iso(entry.savedAt), now)}).</p>` : ''}
   ${entry.error ? html`<p class="meta">Last refresh problem: ${entry.error}</p>` : ''}
   <h3 class="subhead">Open pull requests (${entry.open.items.length})</h3>
   ${entry.open.items.length
@@ -453,14 +481,15 @@ ${REPOS.map((full, index) => repoSection(full, index, now))}`;
         state.dueWhileHidden = false;
         refresh(false);
       } else {
-        render();
+        updateRelativeTimes();
+        renderStatus();
       }
     });
     // Keep relative times fresh without spending API requests.
     window.setInterval(() => {
       if (document.hidden || state.busy) return;
-      if (els.content.contains(document.activeElement)) renderStatus();
-      else render();
+      updateRelativeTimes();
+      renderStatus();
     }, 30 * 1000);
     await primeRateLimit();
     await refresh(false);

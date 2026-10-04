@@ -3,6 +3,9 @@ name: Dashboard Pages
 on:
   push:
     branches: [master]
+    paths:
+      - 'dashboard/**'
+      - '.github/workflows/dashboard-pages.yml'
   workflow_dispatch:
 
 permissions:

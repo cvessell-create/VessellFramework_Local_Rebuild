@@ -92,8 +92,9 @@
   }
 
   /**
-   * "Waiting on you": open PRs that are no longer WIP and are either draft
-   * (needs "Ready for review") or ready (needs review / merge). Oldest first.
+   * "Waiting on you": open PRs whose title no longer starts with "[WIP]"
+   * (the agent finished), whether still draft (needs "Ready for review") or
+   * ready (needs review / merge). Draft status alone is not WIP. Oldest first.
    */
   function waitingOnYou(prs) {
     return (prs || [])
