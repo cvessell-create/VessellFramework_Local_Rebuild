@@ -319,6 +319,7 @@ remove a miss.
 - The Theater/General Intelligence Briefer supplies timelines, actors, collection gaps, and candidate indicators.
 - Applied Analytics supplies baselines, uncertainty, measurement design, and scoring support.
 - Professional Marketing/Positioning translates approved findings without deleting probability or uncertainty limits.
+- The [Posture Agent](VesselFramework_Posture_Agent_SKILL_v0.1.md) checks positioning claims with labelled theatrical personas; it creates no evidence or action clearance.
 - The Forensic Auditor checks hindsight contamination, changed resolution criteria, hidden misses, and doctrine/code drift.
 - The Harm Gate and Forward-Posture controls remain authoritative over consequential preparation or action.
 

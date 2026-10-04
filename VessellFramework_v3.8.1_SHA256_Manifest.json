@@ -5,7 +5,27 @@
   "files": [
     {
       "path": "SKILL.md",
-      "sha256": "04bf886d87e69045f7041c8320aa8b079a64b558a5ec15c6776544aadb782a91"
+      "sha256": "fbd044f0e7f41eaf58f59f9cfb9cfa3cc7a7b500ebd9b8a769bc70289ce939a8"
+    },
+    {
+      "path": "README.md",
+      "sha256": "4ebef191c69b39f55b7b51315e42199e53e3c03e1064cd56673fd01e3ede371a"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "ed455f1bec4d8e66e0d2219ddef2605ee0ff8fc5d6bdcc2932c575b2a7bd9119"
+    },
+    {
+      "path": "VesselFramework_Posture_Agent_SKILL_v0.1.md",
+      "sha256": "be220166908ea0123153d5b5b63244217e35119e55fb6c0601f09956508f09c5"
+    },
+    {
+      "path": "vessell/posture_agent.py",
+      "sha256": "91ad1084d7b0d1890b3096c35ee02efb1407948c8960ba982f8effe0d45b081a"
+    },
+    {
+      "path": "tests/test_posture_agent.py",
+      "sha256": "4a2b13c4da58cb078c94f49aad3b13afc3ea26242a08a4b0bf267fc68020b98e"
     },
     {
       "path": "VesselFramework_Hardening_Patch_Registry_v3.8.md",

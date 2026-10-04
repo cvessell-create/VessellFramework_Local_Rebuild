@@ -207,6 +207,28 @@ Five-minute tour (see `VessellFramework_Portfolio_Showcase_SKILL_v1.0.md` for th
 
 Engineering signals: typed Python, mypy + ruff gates, JSON schemas for machine-readable contracts, SHA-256 integrity manifest (`python verify_manifest.py`), CI on Python 3.13, Apache-2.0 licensed.
 
+## Posture Agent
+
+The [VesselFramework Posture Agent skill](VesselFramework_Posture_Agent_SKILL_v0.1.md)
+checks positioning claims for AI, SI, and human audiences. The Closer deliberately
+overclaims (always labelled **do not ship**); the Advocate makes the defensible
+pitch, and the Posture Corrector issues the verdict. These are theatrical
+personas, not the operator's voice.
+
+```powershell
+vf-posture-agent --claim "VesselFramework predicts threats" --audience AI
+vf-posture-agent --claim "VesselFramework predicts threats" --audience SI --format json
+```
+
+The offline, deterministic keyword policy returns `OVERCLAIM`, `CALIBRATED`,
+`UNDERSOLD`, or `UNSUPPORTED` with an evidence status, ship line, and upgrade path.
+Mixed claims use the least-established matching area; AI and SI share verdict
+rules. It is NEW / PROSPECTIVE / NOT VALIDATED: it creates no evidence, does not
+verify arbitrary natural-language claims, and grants no action clearance.
+Check board freshness against the repository before relying on a pitch; stale
+evidence requires `FRAMEWORK STATE: DEGRADED — VERSION / RUNTIME DRIFT`.
+The Harm Gate and Forward-Posture remain authoritative.
+
 ## License
 
 Apache License 2.0 — see [LICENSE](LICENSE). Copyright 2026 Christopher R. Vessell.
