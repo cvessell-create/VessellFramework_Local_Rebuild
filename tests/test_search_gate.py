@@ -227,10 +227,19 @@ def test_40k_and_unknown_licenses_always_blocked(license, kind):
         ("GPL-2.0+", "unknown", GateStatus.BLOCKED),
         ("CC-BY-SA-4.0", "Apache-2.0", GateStatus.BLOCKED),
         ("MIT", "Apache-2.0", GateStatus.CLEARED),
+        ("Apache-2.0", "GPL-2.0-only", GateStatus.BLOCKED),
+        ("Apache License 2.0", "GPL-2.0", GateStatus.BLOCKED),
+        ("Apache-2.0", "GPL-3.0", GateStatus.CLEARED),
     ],
 )
 def test_conservative_import_compatibility(source, project, expected):
     assert check_import("code", source, project).status is expected
+
+
+def test_apache_code_in_gpl_or_later_requires_recorded_version_selection():
+    result = check_import("code", "Apache-2.0", "GPL-2.0-or-later")
+    assert result.status is GateStatus.CLEARED
+    assert "Select and record GPL-3.0 or later" in result.reasons[0]
 
 
 def test_records_are_frozen():

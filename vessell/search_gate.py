@@ -234,6 +234,22 @@ def check_import(
             GateStatus.CLEARED,
             ("Attribution required; record source, CC-BY-4.0 licence and modifications.",),
         )
+    if source in {"apache-2.0", "apache license 2.0"} and asset_kind == "code":
+        if project in _GPL2_ONLY:
+            return SearchGateResult(
+                GateStatus.BLOCKED,
+                ("Apache-2.0 code is not cleared for a GPL-2.0-only project.",),
+            )
+        if project in _GPL2_LATER:
+            return SearchGateResult(
+                GateStatus.CLEARED,
+                (
+                    (
+                        "Select and record GPL-3.0 or later for the combined work; preserve Apache "
+                        "licence, attribution and applicable notices."
+                    ),
+                ),
+            )
     return SearchGateResult(
         GateStatus.CLEARED, ("Preserve licence, attribution and applicable notices.",)
     )
