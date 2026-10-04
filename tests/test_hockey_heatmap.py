@@ -16,12 +16,19 @@ TEAM_IDS = {"STL": 19, "COL": 21, "DAL": 25, "CHI": 16}
 
 
 def _play(
-    kind: str, owner: int, x: float, y: float, side: str | None = "left", **extra: Any
+    kind: str,
+    owner: int,
+    x: float,
+    y: float,
+    side: str | None = "left",
+    *,
+    period_type: str = "REG",
+    situation: str = "1551",
 ) -> dict[str, Any]:
     play: dict[str, Any] = {
         "typeDescKey": kind,
-        "periodDescriptor": {"number": 1, "periodType": extra.pop("period_type", "REG")},
-        "situationCode": extra.pop("situation", "1551"),
+        "periodDescriptor": {"number": 1, "periodType": period_type},
+        "situationCode": situation,
         "details": {"xCoord": x, "yCoord": y, "eventOwnerTeamId": owner},
     }
     if side is not None:
