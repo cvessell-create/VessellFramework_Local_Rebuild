@@ -30,3 +30,16 @@ Assurance, the provenance firewall and the Harm Gate.
 Unverified external claims return
 `FRAMEWORK STATE: DEGRADED — UNVERIFIED EXTERNAL CLAIM`.
 The deterministic offline checker evaluates supplied records, not their truth.
+
+# Token budget
+
+The owner often reviews from a phone. Keep work and output lean without
+weakening any check above.
+
+- Keep PR descriptions short: what changed, test count, merge order, and
+  anything unverified. Put long inventories in a collapsed `<details>` block.
+- Bundle related small fixes into one task and one PR instead of separate sessions.
+- Don't re-read or re-run unchanged work; run targeted tests while iterating,
+  then the full suite once before finishing.
+- Don't paste large files, logs or diffs into PR text; link or cite paths instead.
+- Never skip the Search Gate, Harm Gate, tests or verification to save tokens.
