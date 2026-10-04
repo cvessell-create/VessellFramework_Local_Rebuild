@@ -1,10 +1,10 @@
 # Copyright 2026 Christopher R. Vessell. Licensed under the Apache License, Version 2.0. See LICENSE.
-"""Tests for the hash-chained claim-event log (case-study Section 4).
+"""Tests for the hash-chained claim-event log (later implementation extension).
 
 Every lifecycle transition is recorded as an event hashed into a
 per-claim chain; verify_event_chain() recomputes every hash and checks
 every link, so reordering, deletion, or alteration of an event is
-detectable. Worked example: the September 30 "blacklisted" disavowal.
+detectable. The disavowal fixture is not a historical event-log replay.
 """
 
 import itertools

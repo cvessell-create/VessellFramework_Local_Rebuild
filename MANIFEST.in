@@ -2,5 +2,8 @@ include vesselframework_reference_v1.1_provenance_firewall.py
 recursive-include schemas *.json
 recursive-include case_studies *.json
 include docs/operational-case-studies.md
+include docs/claim-correction-case-study.md
+include docs/paper-source-reconciliation.md
+include docs/paper-source-reconciliation.json
 include GAME_DEVELOPMENT_SKILL.md
 include docs/game-component-map.json

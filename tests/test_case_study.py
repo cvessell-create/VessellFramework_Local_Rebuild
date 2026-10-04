@@ -49,6 +49,8 @@ def test_comparison_measures_real_managed_files_and_restart_receipts(tmp_path):
     assert control["framework"]["consequential_uses_allowed"] == 2
     assert verify_receipts(tmp_path / "study/framework") == 7
     assert result["independent_external_validation"] is False
+    assert result["source_document_sha256"] == spec()["source_document_sha256"]
+    assert "Source-document hash establishes identity, not historical truth or independent validation." in result["limitations"]
 
 
 def test_receipt_verification_detects_file_drift(tmp_path):

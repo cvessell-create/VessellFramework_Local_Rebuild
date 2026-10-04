@@ -47,30 +47,36 @@ Narrative dates travel separately from actual lifecycle execution timestamps.
 Noon UTC in the frozen specification is a normalized reconstruction value,
 not a verified time from original operational logs.
 
-## Source-document findings applied before publication
+## Author-source reconciliation (2026-10-04)
 
-The supplied *From AI to SI Claim Provenance and Correction Propagation* DOCX
-was retained locally. Its SHA-256 is pinned in the deidentified specification;
-the original, personal details and external configuration files are not
-published. Paragraph numbers refer to the extracted document body, not pages.
+The governing source is now the author's supplied
+[How an Unverified Sentence Became System Behavior — and How to Stop It](claim-correction-case-study.md).
+It is preserved byte-for-byte, with SHA-256
+`42b20766faa8192fb720f938980dc824b84f138ec34c60965d2aef3792305b75`.
+The [reconciliation artifact](paper-source-reconciliation.md) explains the
+differences from the superseded LLM-expanded narrative.
 
-| Source requirement / finding | Executable response | Evidence boundary |
+The earlier 3.9.0 reconstruction pinned a different DOCX with SHA-256
+`edbfb32d793a313b1a5dc6451221c0798bd17164822ec7dc9bb80e2ac945c475`.
+Its paragraph-number mapping and policy-terminology discussion are no longer
+requirements attributed to the author's paper. Those historical evaluations
+remain associated with their original source/spec hashes; they are not
+retroactively relabeled as runs of the corrected specification.
+
+| Author-source requirement | Executable response | Evidence boundary |
 |---|---|---|
-| 19-23: unverified intake becomes a consequential constraint | Provenance snapshot and consequential gate; positive control | Local gate behavior, not corroboration of the historical report |
-| 24, 29-30: downstream systems lack enforcement | Managed JSON adapter with registered dependencies | No external connector or CAPTCHA bypass |
-| 80-81: supersession and verified propagation | Original retained in receipts/events; write/read-back before acknowledgment | Tests are not a machine-checked causal-broadcast proof |
-| 82: claim decay and revalidation | Existing stale-claim fail-closed lifecycle tests remain applicable | This comparison has no long-duration field follow-up |
-| 76, 101: repository described as private | Release points to the public local-rebuild repository | Historical document not silently rewritten |
-| 29, 76, 102: AI-to-SI executive-order terminology | The cited official White House fact sheet was retrieved and supports the terminology summary | Terminology is not evidence of this software's intelligence or efficacy; the order's full legal text was not reviewed |
-| 74, 81, 86: formal/SI or operational proof language | Explicit local-software evidence level in every study report | No formal certification, external efficacy or independent field proof |
+| Sections 1, 2.1, 3: preserve the unverified intake caveat | Provenance snapshot and consequential gate | Tests do not establish the reported historical events |
+| Sections 2.2, 4.2-4.3: corroboration or explicit waiver | Existing consequential gate and waiver tests; positive control | No actual eligibility or employment finding |
+| Sections 2.4, 3, 4.4-4.5: supersession, dependent enumeration and verified update | Registered managed JSON consumers, original retained, write/read-back before acknowledgment | Only registered local consumers; not arbitrary external systems |
+| Sections 2.3, 4.6: claim decay and revalidation | Existing stale-claim fail-closed lifecycle tests | No long-duration field follow-up or automatic schedule inferred |
 
-Required primary records for a historical replay remain absent: original
-configurations, memory exports, scheduled-job logs, receipts and actual outcome
-labels. The reconstruction does not fill those missing records with fiction.
-
-The terminology source is the [White House fact sheet dated September 29,
-2026](https://www.whitehouse.gov/fact-sheets/2026/09/fact-sheet-president-donald-j-trump-inaugurates-the-era-of-super-intelligence/).
-The release does not convert its policy terminology into a capability claim.
+The paper is primary evidence of what the author wrote, not independent
+verification of the incident. Original configurations, memory exports,
+scheduled-job logs and external receipts remain absent for historical replay.
+Its phrases "structurally impossible" and "proof" are preserved as authored
+language, not adopted as universal software guarantees. The executable
+comparison is still a deidentified reconstruction plus a synthetic positive
+control, not the original assistant's measured behavior.
 
 ## Durable state and scope
 
@@ -101,9 +107,15 @@ separate evidence streams; their results are not new framework field outcomes.
 Executable source evaluated at commit
 `6b4447d030911485a144d0e5e86c8973cb3259fa`; subsequent release changes only
 document the measurements and update the source-integrity manifest.
-The frozen specification SHA-256 is
+The historical 3.9.0 frozen specification SHA-256 is
 `c4c274bf47fbc54ba088037ba29ccea30e440487c6eb34b5ee654a0335d2903e`.
-The case-study implementation SHA-256 is
+The corrected specification now pins the supplied Markdown source and has
+SHA-256 `ebd9f4c7736eaa6d1bcc2653b078cfcc86ee3289764876e7c2d43dd4284b13dc`.
+Only the spec's source-document hash changed; scenario inputs and runtime
+policies were not rewritten. Report limitation text was also corrected to stop
+calling the restored paper local-only. New runs identify the corrected spec
+and their current implementation digest, not the old ones.
+The historical 3.9.0 case-study implementation SHA-256 is
 `28eb28f7a1ec294583665a0ef08a4887a1635ee8c7cb846134b1a395ddef655d`.
 
 | Local outcome | Snapshot-only baseline | Framework |

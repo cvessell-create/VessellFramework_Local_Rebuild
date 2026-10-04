@@ -56,6 +56,11 @@ The claim-correction case study ([docs/claim-correction-case-study.md](docs/clai
 is a governing requirement source. Its six-step playbook has executable local
 mechanisms; external integration and field validation remain separate work:
 
+The canonical paper preserves the author's supplied text. The
+[source reconciliation](docs/paper-source-reconciliation.md) explains why the
+LLM-expanded version was superseded, records source hashes, and separates the
+paper's narrative from measured software outcomes and later extensions.
+
 1. **Tag at intake** — every claim enters with source, tier, kind (ICD 203 report/assumption/judgment),
    uncertainty, and observation date (`vessell.provenance.intake_claim`; `vessell.validation.require_provenance_fields`).
 2. **Corroborate before operationalizing** — consequential use passes through `gate_for_use` /
@@ -65,10 +70,11 @@ mechanisms; external integration and field validation remain separate work:
    named approval + change ticket is the operational equivalent.
 4. **Disavow by supersession, never erasure** — `disavow` keeps the original record and links the
    correction; corrections inherit kind, uncertainty, and revalidation schedule.
-5. **Propagate, then verify the update landed** — `register_dependent` on every operational use;
+5. **Propagate, then verify the update landed** — supported operational-use adapters call `register_dependent`;
    the managed case-study adapter writes and reads back JSON consumers before
    calling `confirm_dependent_update`. Registry acknowledgment alone does not
    verify arbitrary external systems.
+   Unregistered consumers are not automatically discovered or corrected.
 6. **Re-validate on schedule** — `valid_until` + `is_stale` + `revalidate_claim`; stale corroborated
    claims fail closed for consequential use.
 
@@ -76,8 +82,11 @@ Step-by-step traceability lives in [docs/traceability/doctrine_code_matrix.md](d
 
 ## Foundations — works this builds on
 
-The correction playbook operationalizes three published results. Full
-citations are in [docs/references.md](docs/references.md):
+The author's paper draws on provenance, automation misuse, data cascades,
+truth maintenance and ICD 203. Its references and the separately identified
+later implementation literature are in [docs/references.md](docs/references.md).
+The following causal-order works inform implementation extensions; they are
+not citations or historical incidents in the author's supplied paper:
 
 - **Lamport (1978)** — the happens-before relation (*a → b*): every rule of
   the playbook is a rule about causal paths — which events may follow which,
@@ -85,7 +94,7 @@ citations are in [docs/references.md](docs/references.md):
 - **Castello, Redmond & Kuper (2024)** — *Inductive diagrams for causal
   reasoning* (arXiv:2307.10484): causal relationships are *witnessed by the
   paths information follows* — happens-before as paths, mechanized in Agda.
-  The spine of the case study's Section 4; correction records carry
+  A later implementation analogy, not the paper's Section 4; correction records carry
   `causal_path`, dependents register *how* a claim reached them, and a
   negative finding's search history is its witnessed path.
 - **Redmond, Shen, Vazou & Kuper (2022)** — *Verified causal broadcast with

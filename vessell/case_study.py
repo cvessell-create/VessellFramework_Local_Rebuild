@@ -310,7 +310,7 @@ def compare(spec_path: Path, output: Path) -> dict[str, Any]:
             "Measured local software outcomes, not a randomized field or user-effectiveness study.",
             "Comparator deliberately omits gating and correction delivery; not a competitor benchmark.",
             "Official-record control is a constructed positive control, not a verified real event.",
-            "Personal source document remains local; its hash establishes identity, not truth.",
+            "Source-document hash establishes identity, not historical truth or independent validation.",
             "No employment, application, external automation or production control outcome measured.",
             "No formal verification, SI capability certification or causal efficacy established.",
         ],

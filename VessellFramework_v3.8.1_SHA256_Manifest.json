@@ -1,6 +1,6 @@
 {
   "package_version": "3.8.1",
-  "generated_utc": "2026-10-03T09:47:53.209638+00:00",
+  "generated_utc": "2026-10-04T18:10:39.904575+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "files": [
     {
@@ -61,7 +61,7 @@
     },
     {
       "path": "MANIFEST.in",
-      "sha256": "13dc0bd9e775982cd733a97ae99cab6ca60cc41150532a1640db7dd7638ce25b"
+      "sha256": "1edd99429c257a07ce8f09472a8e1540f3c7443c95a509ba5971a3fc4d175fd4"
     },
     {
       "path": "META_REVIEW_AND_ROADMAP.md",
@@ -261,7 +261,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "4f86bcba6f270f6404cb27510f80be17d97b4f7596cd5ad4f01f7cefba354852"
+      "sha256": "12bcb30f3d58887f8e2e38297c6aa862c1259d3f9608ac6c0ed3b70b7d9b586f"
     },
     {
       "path": "SKILL.md",
@@ -381,7 +381,7 @@
     },
     {
       "path": "case_studies/claim_correction/spec.json",
-      "sha256": "c4c274bf47fbc54ba088037ba29ccea30e440487c6eb34b5ee654a0335d2903e"
+      "sha256": "ebd9f4c7736eaa6d1bcc2653b078cfcc86ee3289764876e7c2d43dd4284b13dc"
     },
     {
       "path": "case_studies/game_patterns/workflow.json",
@@ -389,7 +389,7 @@
     },
     {
       "path": "docs/claim-correction-case-study.md",
-      "sha256": "cf08d66d0e7259bd0d5456f5a27f960195b2292e645779c6a524b475543db0ce"
+      "sha256": "42b20766faa8192fb720f938980dc824b84f138ec34c60965d2aef3792305b75"
     },
     {
       "path": "docs/claim-lifecycle.md",
@@ -421,15 +421,23 @@
     },
     {
       "path": "docs/operational-case-studies.md",
-      "sha256": "c87f6dba3db8faa6cb487a3a0ded774c72b5bfa960ebadf4fc68134b66f42ecb"
+      "sha256": "167c366df9d35cf5570c4d45b22e35f44e4bb1910b791080184c4e2f345445bc"
     },
     {
       "path": "docs/os-sandbox.md",
       "sha256": "9ec846d08f26125ea1cfa99f464c1d68c73ddf11297877b0f214044d4c70c8f6"
     },
     {
+      "path": "docs/paper-source-reconciliation.json",
+      "sha256": "19e5aa427aa1c2678711f8297ae206951c2360b49aa1be35131949bb4b511c35"
+    },
+    {
+      "path": "docs/paper-source-reconciliation.md",
+      "sha256": "9700ce22a59dfa75beb1e779f7d64f283bb4bfcbd14adf754a238d0579e2022a"
+    },
+    {
       "path": "docs/references.md",
-      "sha256": "8076e0f7a996af057d4b435d257a65f9ab1d337312f5e0a176aeb5ef74b0e517"
+      "sha256": "436818ff9069a5e53a0e2e3a1781885877fa62d6e76ddef25f37161430a0451b"
     },
     {
       "path": "docs/replay-lab.md",
@@ -441,7 +449,7 @@
     },
     {
       "path": "docs/traceability/doctrine_code_matrix.md",
-      "sha256": "019a86c7eab934ad46faa608e9c4579ce802bd28677b3b3cf532afef46072090"
+      "sha256": "fd2993972bc8f0d538defa354e8f762c4d56c3544d7f305157da577b96c6f715"
     },
     {
       "path": "docs/trade-secrets-notice.md",
@@ -805,7 +813,7 @@
     },
     {
       "path": "tests/test_case_study.py",
-      "sha256": "70713eded9bd2bdc47d5b71a59a7a8a9ff747690f4bfe3d117aa2a28f69c7a90"
+      "sha256": "b70a9087fcf611dffa2b3b73a57984ae55f794526b9e874409b7bb197b12bd22"
     },
     {
       "path": "tests/test_causal_paths.py",
@@ -872,6 +880,10 @@
       "sha256": "dface3685901f2f07f32ada1265f18c156378d809093855ec721ee3d2ec003f8"
     },
     {
+      "path": "tests/test_paper_source.py",
+      "sha256": "0763aac9a1586bea21eaca96bda0d774ca3ec402891f0c921abe20ab00c00cbe"
+    },
+    {
       "path": "tests/test_path_sync.py",
       "sha256": "07c8e536b79aec0eec75b1b587198dc6cecea5b7cb497c845604b66907b6ae60"
     },
@@ -885,7 +897,7 @@
     },
     {
       "path": "tests/test_provenance_events.py",
-      "sha256": "42f0279333dbdabf6832b28c1c776306c8dc34c46a8756427d02b3bebbe196cb"
+      "sha256": "a986cf234965fe1c607f47e16dfd7616b6eab1dd0457b2c71a82598613030f04"
     },
     {
       "path": "tests/test_recognition_gate.py",
@@ -933,7 +945,7 @@
     },
     {
       "path": "tests/test_verify.py",
-      "sha256": "5b28def9cb373f5f752ba5392af53e27fb0cbe9d636d8f5c8bf26a90bfe5a4fc"
+      "sha256": "9bbfd53685ca046440aff2ce8fd44f6a1f43ca55572b70bd702a9ac5df4809c4"
     },
     {
       "path": "tests/test_weighter.py",
@@ -1037,7 +1049,7 @@
     },
     {
       "path": "vessell/case_study.py",
-      "sha256": "28eb28f7a1ec294583665a0ef08a4887a1635ee8c7cb846134b1a395ddef655d"
+      "sha256": "7b760bc63c5c9449f8b4eb128c10032680acb0b9930822200eba6d757e940ae2"
     },
     {
       "path": "vessell/cli.py",
@@ -1117,7 +1129,7 @@
     },
     {
       "path": "vessell/verify.py",
-      "sha256": "92b374e7deb2ba7acee6839413be37e8074a619bc35512044ed40b78d9eddf1e"
+      "sha256": "e02a98a5364fd11e212ebd63d393bcd7f093c3b906c4c7bd67ac6a8867d06d30"
     },
     {
       "path": "vessell/weighter.py",
