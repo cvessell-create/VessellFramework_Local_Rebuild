@@ -12,7 +12,7 @@ Date: 2026-09-06
 - No claim is made that this package has modified any private runtime path.
 
 ## Current state
-- Package specification: v3.8.1
+- Package specification: v3.9.1
 - Runtime/private-path state: UNVERIFIED/NOT APPLIED unless independently verified after installation.
 
 ## Verification and State Lifecycle

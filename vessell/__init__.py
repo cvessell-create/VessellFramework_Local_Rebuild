@@ -102,7 +102,7 @@ from vessell.weights import (
     WeightRecord,
 )
 
-__version__ = "3.8.1"
+__version__ = "3.9.1"
 
 __all__ = [
     "BURST_MIN_SOURCES",

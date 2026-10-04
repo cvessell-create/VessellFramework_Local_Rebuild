@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Copyright 2026 Christopher R. Vessell. Licensed under the Apache License, Version 2.0. See LICENSE.
 """
-VesselFramework v3.8.1 Shared Private Path Synchronizer
+VesselFramework v3.9.1 Shared Private Path Synchronizer
 
 Purpose
 -------
@@ -34,7 +34,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-VERSION = "3.8"
+VERSION = "3.9.1"
 MANAGED_START = "<!-- VESSELFRAMEWORK MANAGED START -->"
 MANAGED_END = "<!-- VESSELFRAMEWORK MANAGED END -->"
 
@@ -229,8 +229,9 @@ def sync_one(target_text: str, cfg: dict[str, Any], apply: bool, create_missing:
             raise ValueError(f"Unknown sync mode: {cfg['mode']}")
 
         event["post_hash"] = sha256_path(target)
-        if event["post_hash"] is None:
-            raise RuntimeError("Write returned without readable post-write hash.")
+        expected_hash = hashlib.sha256(content.encode("utf-8")).hexdigest()
+        if event["post_hash"] != expected_hash:
+            raise RuntimeError("Post-write hash does not match the expected synchronized content.")
         event["status"] = "UPDATED"
         return event
 

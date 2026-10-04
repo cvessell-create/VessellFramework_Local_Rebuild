@@ -62,9 +62,9 @@ def _gate(**changes: Any) -> dict[str, Any]:
     return gate
 
 
-def test_example_case_still_runs(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]) -> None:
-    assert _run_case(tmp_path, monkeypatch, BASE_CASE) == 0
-    assert "RUNNER STATUS: READY FOR ANALYST REVIEW" in capsys.readouterr().out
+def test_partial_example_case_requires_review(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]) -> None:
+    assert _run_case(tmp_path, monkeypatch, BASE_CASE) == 1
+    assert "RUNNER STATUS: REVIEW REQUIRED" in capsys.readouterr().out
 
 
 @pytest.mark.parametrize(
@@ -85,8 +85,8 @@ def test_example_case_still_runs(tmp_path: Path, monkeypatch: pytest.MonkeyPatch
         (_mutated(maskirovka=_mask(notes=7)), "notes must be a string"),
         (_mutated(analysis=[1]), "analysis field must be an object"),
         (_mutated(harm_gate=[1]), "harm_gate field must be an object"),
-        (_mutated(harm_gate=_gate(benefit_proportionate="false")), "benefit_proportionate must be true or false"),
-        (_mutated(harm_gate=_gate(accuracy_risk="no")), "accuracy_risk must be true or false"),
+        (_mutated(harm_gate=_gate(benefit_proportionate="false")), "benefit_proportionate must be a boolean"),
+        (_mutated(harm_gate=_gate(accuracy_risk="no")), "accuracy_risk must be a boolean"),
         (
             _mutated(harm_gate=_gate(current_posture="CONTAIN", evidence_threshold_met=True, action_authorized="false")),
             "action_authorized must be true or false",
