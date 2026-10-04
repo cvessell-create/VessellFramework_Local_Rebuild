@@ -33,7 +33,7 @@
     },
     {
       "path": "install_vesselframework_v3_8.py",
-      "sha256": "98f7c09920ed106c92472c05865c1a4b679e7edc81f02339a6d3a1dd69cd747b"
+      "sha256": "f9a0b6578ec0bd692b986cbf2cec61098faa2ad5a3d15dbc96478134ad59d702"
     },
     {
       "path": "verify_manifest.py",
@@ -141,7 +141,7 @@
     },
     {
       "path": "tests/test_path_sync.py",
-      "sha256": "9a8e2245d356932c3e48e99d5b02df8f4463e3037d0fa8797d029985a6c93fab"
+      "sha256": "83d7e0b684939891084db5957aedb742732632891a638786a4844ea21ae8d2d1"
     },
     {
       "path": "tests/test_distribution_manifest.py",
