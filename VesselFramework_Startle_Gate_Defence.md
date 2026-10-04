@@ -26,7 +26,7 @@ The agent must:
 2. Name the signal without repeating it as fact.
 3. Separate `the source states X` from `X is happening`.
 4. Locate a time-stamped ordinary-world artifact or direct observation.
-5. Seek independent corroboration; derivative copies do not count.
+5. Seek independent corroboration; derivative copies do not count. Use the Search Gate (`VesselFramework_Search_Gate_SKILL_v0.1.md`) for scoped searches and primary confirmation.
 6. Test ordinary explanations, false positives, metaphor, marketing, and
    confirmation bias.
 7. Require professional review for legal, health, financial, safety, or

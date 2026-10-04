@@ -5,7 +5,7 @@
   "files": [
     {
       "path": "SKILL.md",
-      "sha256": "04bf886d87e69045f7041c8320aa8b079a64b558a5ec15c6776544aadb782a91"
+      "sha256": "b9b754f10d7f084f36d0029706a79484359a486353886b1d30a9628e0c571c89"
     },
     {
       "path": "VesselFramework_Hardening_Patch_Registry_v3.8.md",
@@ -130,6 +130,50 @@
     {
       "path": "tests/test_causal_paths.py",
       "sha256": "007fb68a2e42d14eaef4849ecddd4a6f9eda600b7e4e7b6e34f4b1924075f9c2"
+    },
+    {
+      "path": "README.md",
+      "sha256": "ee92eb641dba84b8aa91083310dfd63242ba50c2076d9c19ccdea547f218165c"
+    },
+    {
+      "path": "VesselFramework_Forecasting_SKILL_v1.0.md",
+      "sha256": "6c257fab03508fffc0b51dde744a2560028fd077e97732181ad5b71f4c7db639"
+    },
+    {
+      "path": "VesselFramework_Startle_Gate_Defence.md",
+      "sha256": "6217164d9425f96e3938e7f9e00b69d9f864dfd8f9339c654b932f60e88fca91"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "713dc32585a86ed27e0394ece8b40c0bd249ea001a5783aacc84f8cc25e5406a"
+    },
+    {
+      "path": ".github/copilot-instructions.md",
+      "sha256": "081eca7976e8882d1002e920890216671b8be8bfd089296b941ea2a7fe1bbb64"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "b7d2bb33fe44250702a4aed3418f0a5abb80157babec7e040a0e63ba29e34ec4"
+    },
+    {
+      "path": "VesselFramework_Search_Gate_SKILL_v0.1.md",
+      "sha256": "a6ecbec09ebbea4d31318a2b28e854ef05a29eb9d3130d4faf0eb34116f0847e"
+    },
+    {
+      "path": "mnt/skills/user/vessel-framework-analyst/SKILL.md",
+      "sha256": "b9b754f10d7f084f36d0029706a79484359a486353886b1d30a9628e0c571c89"
+    },
+    {
+      "path": "vessell/search_gate.py",
+      "sha256": "71fa4b634874d16c3c597a2bb3109a0e9f1c732744d6120f5b8b66828b1b74a1"
+    },
+    {
+      "path": "vessell/schemas/search.record.schema.json",
+      "sha256": "bdc3e1a12ef40a88639be3251eb6d082ddcefed1670c71fd4daf45e570168088"
+    },
+    {
+      "path": "tests/test_search_gate.py",
+      "sha256": "12460ff9ac526c0781cf5d0a1fa1f978159c7d46cbeaa111a76acc4d6a2c7237"
     }
   ]
 }

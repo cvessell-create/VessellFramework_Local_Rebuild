@@ -32,6 +32,7 @@ vf-attack-surface = "vessell.attack_surface:main"
 vessell-attack-surface = "vessell.attack_surface:main"
 vf-hockey-heatmap = "vessell.hockey_heatmap:main"
 vessell-hockey-heatmap = "vessell.hockey_heatmap:main"
+vf-search-gate = "vessell.search_gate:main"
 
 [tool.setuptools.packages.find]
 include = ["vessell*"]

@@ -49,6 +49,8 @@ ordinary Evidence Assurance, Harm Gate, Forward Posture, and Startle Gate rules.
 
 ## Core Forecasting Principle
 
+Current-state claims require Search Gate search records and opened primary confirmation (`VesselFramework_Search_Gate_SKILL_v0.1.md`).
+
 A forecast is not "what story seems most plausible."
 
 A forecast is: given current evidence, constraints, alternatives, and assumptions,
