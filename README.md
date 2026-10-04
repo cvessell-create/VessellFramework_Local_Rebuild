@@ -147,6 +147,25 @@ vf-attack-surface tests/fixtures/attack_surface/nmap.xml tests/fixtures/attack_s
 - `--scan-local trivy|osv-scanner PATH` runs a locally installed code scanner.
 - In the remediation control room (`vf-remediator`), `GET /attack-surface` renders the same heat map from the reports in `ATTACK_SURFACE_DIR`.
 
+### Hockey scoring-chance heat map
+
+`vf-hockey-heatmap` projects expected goals (xG) by rink zone for one NHL team against an opponent. It works from public play-by-play data from `api-web.nhle.com`, the feed behind NHL.com Gamecenter.
+
+```powershell
+# Pull each team's last 20 completed regular-season games, then project STL @ COL on 2026-10-03
+vf-hockey-heatmap --team STL --opponent COL --date 2026-10-03 --fetch --games 20 `
+  --observed 2026020032 --format html -o outputs/hockey/stl_col_2026-10-03.html
+```
+
+How the projection is built:
+- **Shots counted:** unblocked attempts only (goals, shots on goal and missed shots). Blocked shots, shootouts and empty-net attempts are excluded. Coordinates are normalised so every attempt attacks the same net.
+- **Shot quality:** a distance-based logistic xG prior with empirical-Bayes conversion rates per zone.
+- **Matchup:** each team's attempts per game are adjusted by the opponent's attempts allowed per game (log5).
+- **Observed overlay:** `--observed` adds the actual shot map for a game already played.
+- **Cutoff:** `--date` restricts the sample to games played before that date.
+- **Offline use:** play-by-play JSON files or directories can be passed instead of `--fetch`. Downloads are cached in `--cache-dir`.
+- **Limits:** this is a statistical projection from historical shot locations. Lineups, goaltenders, injuries and score effects are not modelled.
+
 Use it as a library:
 
 ```python
