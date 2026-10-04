@@ -215,6 +215,29 @@ not merely that a hash can be read. Tests cover corrupted writes and byte-level
 agreement of the packaged skill copy; this does not attest to other machines
 or a private runtime that was not inspected.
 
+## Hockey scoring-chance heat map
+
+`vf-hockey-heatmap` projects expected goals (xG) by rink zone from public NHL
+play-by-play at `api-web.nhle.com`. Install with `python -m pip install -e .`,
+then run:
+
+```sh
+vf-hockey-heatmap --team STL --opponent COL --date 2026-10-03 --fetch --games 20 --observed 2026020032 --format html -o outputs/hockey/stl_col_2026-10-03.html
+```
+
+This fetches each team's last 20 completed regular-season games before the
+cutoff date and adds observed maps for the supplied game ID, if available.
+The example is not a claim that the game has been played or its result verified.
+Only unblocked attempts are counted; shootouts and empty-net attempts are
+excluded. Shot quality combines a distance-based logistic prior with zone
+conversion rates; the matchup adjusts attempts by the opponent's attempts allowed.
+Lineups, goalies, injuries and score effects are not modelled.
+
+For offline use, pass play-by-play JSON files or directories instead of
+`--fetch`, and a local file to `--observed`. Downloads are cached in
+`--cache-dir`. Formats: HTML, terminal text, CSV and JSON. Tests use synthetic
+game data only; no fabricated real-game data is included.
+
 ## License
 
 Apache License 2.0 — see [LICENSE](LICENSE). Copyright 2026 Christopher R. Vessell.

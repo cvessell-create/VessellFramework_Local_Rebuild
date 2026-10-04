@@ -261,7 +261,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "4f86bcba6f270f6404cb27510f80be17d97b4f7596cd5ad4f01f7cefba354852"
+      "sha256": "0d275b01d2fa4f9cdf96326e8d81499dc5af8838a5dab980f934bcf3c77de9ed"
     },
     {
       "path": "SKILL.md",
@@ -649,7 +649,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "8b031ec2871b174eda84b174cb3ff338e567f531375d47b097f60e64d88f2ad9"
+      "sha256": "8b88936cfd5eb2fa129e47520fa72328442e340c38b830fd4bd7f4cd540a4023"
     },
     {
       "path": "requirements/agent.txt",
@@ -854,6 +854,10 @@
     {
       "path": "tests/test_harm_gate.py",
       "sha256": "1b5898f25db5c5a4355bbdd9e19733e80148f9bbec41535f6a3ad7574c67c506"
+    },
+    {
+      "path": "tests/test_hockey_heatmap.py",
+      "sha256": "9739b69a387f0b1227adc8a8dd06da73de5aa30b8f417047ddaed9afa290b4fd"
     },
     {
       "path": "tests/test_live_event_verification.py",
@@ -1066,6 +1070,10 @@
     {
       "path": "vessell/harm_gate.py",
       "sha256": "4e95c2e7952b32a8fbc6643a1484529e9e240538c2c7081dda8cf92b052fd3af"
+    },
+    {
+      "path": "vessell/hockey_heatmap.py",
+      "sha256": "c784fb8f359a64eac4c46db24f6fa5cc7895c303d145b78b1d285afbd366d850"
     },
     {
       "path": "vessell/malware_triage.py",
