@@ -1,8 +1,12 @@
 {
   "package_version": "3.8.1",
-  "generated_utc": "2026-10-04T18:10:39.904575+00:00",
+  "generated_utc": "2026-10-07T14:52:02.640771+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "files": [
+    {
+      "path": ".dockerignore",
+      "sha256": "261224f12cc61c005e49497e40e5f265a6a5c07b220cda0689c9af4f9d44989a"
+    },
     {
       "path": ".env.example",
       "sha256": "5616a4379db603b40d5fed575784a60eda94897940eaa4fb2982957c2eff0860"
@@ -13,11 +17,11 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "6484f39445a929932cc76eb19d86a1c4acae9826cde7f74a8378e5ac4427e2cb"
+      "sha256": "e634d659d9bf3dd968a7abee0976684b7094b062c63b5e7ee5298178df60ef34"
     },
     {
       "path": ".gitignore",
-      "sha256": "d360f049b5db1b11d97aa90f970e3da4961bda8c0cb95a1f091a6304e30eab38"
+      "sha256": "aa08b529c0c5c6d5b5aa11f37dd4bc6284b719c86027ee0d71ae70619f18f67f"
     },
     {
       "path": ".vscode/extensions.json",
@@ -61,7 +65,7 @@
     },
     {
       "path": "MANIFEST.in",
-      "sha256": "1edd99429c257a07ce8f09472a8e1540f3c7443c95a509ba5971a3fc4d175fd4"
+      "sha256": "3b37408995ea9f367e209572810658b819baf336e4cce9255f3fae47173884cf"
     },
     {
       "path": "META_REVIEW_AND_ROADMAP.md",
@@ -261,7 +265,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "12bcb30f3d58887f8e2e38297c6aa862c1259d3f9608ac6c0ed3b70b7d9b586f"
+      "sha256": "cae47df34338467fc4314a713bb6ae31b20ce669ca4d9071568247845b9afa58"
     },
     {
       "path": "SKILL.md",
@@ -380,12 +384,32 @@
       "sha256": "2b003dfb6f4acc7fcbaecabe77ae3bd5c2ab1526c36e64cf43631de458858e86"
     },
     {
+      "path": "case_studies/ambient/event.json",
+      "sha256": "2a077f86317b45c07953055d8c1165b7249d9fa5af2928d2a1fe96b0c18e6284"
+    },
+    {
       "path": "case_studies/claim_correction/spec.json",
       "sha256": "ebd9f4c7736eaa6d1bcc2653b078cfcc86ee3289764876e7c2d43dd4284b13dc"
     },
     {
       "path": "case_studies/game_patterns/workflow.json",
       "sha256": "6d9022d1798c7cb34ddd6eaa78e71156c20c37e58299c592638aef68e4ad6be3"
+    },
+    {
+      "path": "compose.ambient.yml",
+      "sha256": "aa3c7996ff5d17802bab2f44fb298d585b405d62aebfa23bbfe0976f9765fcc2"
+    },
+    {
+      "path": "deploy/ambient/backend.Dockerfile",
+      "sha256": "a344b4b0fe7682d1b37c95a117f5e6fc256cd44b056da9d4a1690687b870c448"
+    },
+    {
+      "path": "deploy/ambient/frontend.Dockerfile",
+      "sha256": "5f72dd990a8582501b9c075e80b9586ddd61b5ba6eb8ea55dc0b6902807c489c"
+    },
+    {
+      "path": "docs/ambient-workflows.md",
+      "sha256": "a7ebf922cfc7ebf3964b46a3b36905ff4e3eebafc044c7ab3248791f57745b83"
     },
     {
       "path": "docs/claim-correction-case-study.md",
@@ -474,6 +498,54 @@
     {
       "path": "example_recognition_evidence.json",
       "sha256": "07046a9b93315c7a8f56171e6c68293ce2cabb96a9810ab8528a8c87613caf1b"
+    },
+    {
+      "path": "frontend/app/api/runtime/[...path]/route.ts",
+      "sha256": "8e5a5c9f5ae1f58fa2aed7b9e755a01bd6881804ef8bc98f8ff270ba38002d08"
+    },
+    {
+      "path": "frontend/app/api/session/route.ts",
+      "sha256": "7dcc257f4c29397de2988bd21bbd01511036ab69e6c2891bce8571e9f71e1bab"
+    },
+    {
+      "path": "frontend/app/layout.tsx",
+      "sha256": "2607bd5e2a199e54311938019b201cc49dd670b3c5b087a4b8aee0841a6936db"
+    },
+    {
+      "path": "frontend/app/page.tsx",
+      "sha256": "d6ceea7ff35f6fdab151b8b123e6aaf6fcec3c594ce17ac778b0c3ec83980001"
+    },
+    {
+      "path": "frontend/app/style.css",
+      "sha256": "e8fddbc6855eb0bca443f7e645894c989935676ff21898c9fbd479fae86b7628"
+    },
+    {
+      "path": "frontend/lib/auth.ts",
+      "sha256": "f75459659853f422b7f9e43284274d4506b7bac3a8692f6a094b898e13da8e82"
+    },
+    {
+      "path": "frontend/next-env.d.ts",
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
+    },
+    {
+      "path": "frontend/next.config.ts",
+      "sha256": "b9453d600e475c03c7823a42ac12ff9df7b1f4aa66d107f80144317ff7672ae0"
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "sha256": "07e89d362f8e442c1fcc43a594167c7550e13a1dd282a6699b47300c8a4f9b1f"
+    },
+    {
+      "path": "frontend/package.json",
+      "sha256": "3c27ffee719869fbfc0f714b234a10de5ec43eea13788f1c33f6549346700fa9"
+    },
+    {
+      "path": "frontend/tests/auth.test.ts",
+      "sha256": "bad3da7c330cd0cf2fff24c58dcf3624507c7ae90148bd1b97bb97ffb5fd7925"
+    },
+    {
+      "path": "frontend/tsconfig.json",
+      "sha256": "8c54aeec8e1f38081bfb1e04d1dbbc842917b1ab4e9749a4798e339d542ecc12"
     },
     {
       "path": "install_vesselframework_v3_8.py",
@@ -657,7 +729,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "8b031ec2871b174eda84b174cb3ff338e567f531375d47b097f60e64d88f2ad9"
+      "sha256": "a3f8e1108afd4bad369bfd61bad038da2d349c218da85cd2c7761221731a5453"
     },
     {
       "path": "requirements/agent.txt",
@@ -810,6 +882,10 @@
     {
       "path": "tests/test_agentic_soc_adapter.py",
       "sha256": "4fd5cc5a589a087fbfa643f712af36ce26fc7c260b830eb68229204ffaf5bcce"
+    },
+    {
+      "path": "tests/test_ambient.py",
+      "sha256": "3e60db4073aa147ceaeab2a5bca5cacaccf106a30fe09ef7d5fb81bae4745203"
     },
     {
       "path": "tests/test_case_study.py",
@@ -994,6 +1070,26 @@
     {
       "path": "vessell/agentic_soc_adapter.py",
       "sha256": "94ad0499649cd8e6d7d5e43f23713c9ded0d18e864b03d7b2d8f313acdba2b28"
+    },
+    {
+      "path": "vessell/ambient/__init__.py",
+      "sha256": "e54985737ede2a92986ea756de6acdda450f02cd77757f430db38724cc2dca47"
+    },
+    {
+      "path": "vessell/ambient/api.py",
+      "sha256": "0b6ede1670503aa6e29f1eb2e963e60c9b51d6c601cdf0d6ddcce59eb96b68b0"
+    },
+    {
+      "path": "vessell/ambient/cli.py",
+      "sha256": "9fdf61ebbd7025cb640f81ef2a51b2a9268f3cb05d3c8065fd1eeb80781d1b56"
+    },
+    {
+      "path": "vessell/ambient/models.py",
+      "sha256": "e5da3d1a521227dcd7743c0820626c6d18de39a2e93434333cf6aa0b0d0f6bec"
+    },
+    {
+      "path": "vessell/ambient/store.py",
+      "sha256": "d966df426cc73e4848af6cd9b171f16c3fdbc8600684e9494b4322a6c9ed5ea9"
     },
     {
       "path": "vessell/app/__init__.py",

@@ -7,3 +7,10 @@ include docs/paper-source-reconciliation.md
 include docs/paper-source-reconciliation.json
 include GAME_DEVELOPMENT_SKILL.md
 include docs/game-component-map.json
+include docs/ambient-workflows.md
+include compose.ambient.yml
+recursive-include deploy/ambient *.Dockerfile
+include .dockerignore
+recursive-include frontend *.json *.ts *.tsx *.css
+prune frontend/node_modules
+prune frontend/.next

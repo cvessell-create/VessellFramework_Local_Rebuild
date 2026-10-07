@@ -9,8 +9,26 @@ see [GAME_DEVELOPMENT_SKILL.md](GAME_DEVELOPMENT_SKILL.md). The new
 [bounded analyst workflow](vessell/workflow.py) reuses the existing gates,
 pipeline and correction machinery; game development itself remains paused.
 
-Package version: v3.9.1 with verified game-pattern workflow adaptations.
+Package version: v3.10.0 with durable ambient event review and game-pattern workflow adaptations.
 The separate game feature build remains paused and is not a completed release.
+
+## Ambient event review: full-stack local deployment
+
+The [ambient stack](docs/ambient-workflows.md) adds a Next.js review dashboard,
+authenticated FastAPI GitHub/GitLab and provider-neutral ingress, durable
+SQLite analysis/approval state, verified history, restart recovery and SSE.
+It releases **local analysis only**: no arbitrary execution, repository
+changes or paid model calls. History is preserved by default.
+
+After exporting distinct private admin/ingest tokens as documented:
+
+```sh
+docker compose -f compose.ambient.yml up --build
+```
+
+Open http://localhost:3000. See the [deployment and evidence boundaries](docs/ambient-workflows.md)
+before enabling webhook routes or pruning data. Local adapter support does
+not automatically configure live GitHub/GitLab webhook delivery.
 Executable
 workflows, source contracts, persistent study receipts and regression checks
 are available; independent field efficacy is not claimed.

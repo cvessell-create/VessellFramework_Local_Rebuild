@@ -6,6 +6,13 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 *.egg-info/
+frontend/node_modules/
+frontend/.next/
+frontend/*.tsbuildinfo
+.env.*
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
 *.zip
 .vesselframework_target_root.txt
 *.vesselframework_backup_*

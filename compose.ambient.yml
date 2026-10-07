@@ -1,0 +1,46 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: deploy/ambient/backend.Dockerfile
+    environment:
+      VESSELL_AMBIENT_DB: /data/ambient.sqlite
+      VESSELL_AMBIENT_ADMIN_TOKEN: ${VESSELL_AMBIENT_ADMIN_TOKEN:?Set a private admin token}
+      VESSELL_AMBIENT_INGEST_TOKEN: ${VESSELL_AMBIENT_INGEST_TOKEN:?Set a distinct private ingest token}
+      VESSELL_GITHUB_WEBHOOK_SECRET: ${VESSELL_GITHUB_WEBHOOK_SECRET:-}
+      VESSELL_GITLAB_WEBHOOK_SECRET: ${VESSELL_GITLAB_WEBHOOK_SECRET:-}
+      VESSELL_AMBIENT_REVIEWER: ${VESSELL_AMBIENT_REVIEWER:-local-reviewer}
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ambient_data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+  frontend:
+    build:
+      context: .
+      dockerfile: deploy/ambient/frontend.Dockerfile
+    environment:
+      VESSELL_AMBIENT_API_URL: http://backend:8000
+      VESSELL_AMBIENT_ADMIN_TOKEN: ${VESSELL_AMBIENT_ADMIN_TOKEN:?Set a private admin token}
+      VESSELL_DASHBOARD_ORIGIN: http://localhost:3000
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+volumes:
+  ambient_data:

@@ -1,0 +1,10 @@
+.git
+.venv
+.env
+.env.*
+build
+outputs
+**/__pycache__
+frontend/node_modules
+frontend/.next
+frontend/*.tsbuildinfo

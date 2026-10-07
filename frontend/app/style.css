@@ -1,0 +1,19 @@
+:root { color-scheme: light; font-family: system-ui, sans-serif; color: #172635; background: #f3f6fa; }
+body { margin: 0; }
+main { max-width: 1080px; margin: auto; padding: 2rem; }
+h1 { margin-bottom: .5rem; }
+form, section { background: white; padding: 1.5rem; margin: 1.5rem 0; border-radius: .5rem; }
+label, input, textarea { display: block; }
+input, textarea { box-sizing: border-box; width: 100%; max-width: 600px; padding: .75rem; margin: .5rem 0; font: inherit; }
+button { padding: .6rem 1rem; margin: .5rem .5rem .5rem 0; cursor: pointer; border: 1px solid #315e9a; border-radius: .3rem; background: #fff; color: #153963; }
+button:disabled { opacity: .6; cursor: not-allowed; }
+button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid #bf8100; }
+nav { margin: 1rem 0; }
+nav span { margin-right: 1rem; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: .8rem; text-align: left; border-bottom: 1px solid #d5deea; }
+small { display: block; font-size: .75rem; overflow-wrap: anywhere; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f3f6fa; padding: 1rem; max-height: 30rem; overflow-y: auto; }
+.scroll { overflow-x: auto; }
+.error { color: #8b1616; background: #ffe4e4; padding: 1rem; }
+footer { margin: 2rem 0; font-size: .9rem; }

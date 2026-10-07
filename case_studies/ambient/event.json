@@ -1,0 +1,13 @@
+{
+  "event_id": "example-push-2026-10-07",
+  "source": "fictional/example",
+  "event_type": "vcs.push",
+  "timestamp": "2026-10-07T12:00:00Z",
+  "data": {
+    "domain": "vcs",
+    "repository": "fictional/example",
+    "branch": "refs/heads/main",
+    "commit_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "author": "Synthetic fixture author"
+  }
+}
