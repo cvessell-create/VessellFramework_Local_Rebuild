@@ -6,11 +6,13 @@ from __future__ import annotations
 
 import argparse
 import json
+from dataclasses import asdict
 from pathlib import Path
 from types import ModuleType
 from typing import Any
 
 from vessell import provenance_firewall
+from vessell.harm_gate import evaluate_harm_gate as assess_harm_gate
 
 SOURCE_STATUSES = {
     "SOURCE-ESTABLISHED",
@@ -104,51 +106,7 @@ def build_evidence_set(reference: Any, registry: Any, evidence_items: list[dict[
 
 
 def evaluate_harm_gate(harm_gate: Any) -> dict[str, Any]:
-    if not isinstance(harm_gate, dict):
-        harm_gate = {}
-
-    risk_names = [
-        "accuracy_risk",
-        "academic_risk",
-        "professional_risk",
-        "legal_risk",
-        "financial_security_risk",
-    ]
-    risk_count = sum(optional_bool(harm_gate, name, False) for name in risk_names)
-    hard_to_reverse = optional_bool(harm_gate, "hard_to_reverse", False)
-    benefit_proportionate = optional_bool(harm_gate, "benefit_proportionate", True)
-
-    if hard_to_reverse and risk_count >= 2:
-        exposure = "SEVERE / IRREVERSIBLE"
-    elif hard_to_reverse or risk_count >= 3:
-        exposure = "HIGH"
-    elif risk_count >= 1:
-        exposure = "MODERATE"
-    else:
-        exposure = "LOW"
-
-    safeguards = {
-        "LOW": ["Ordinary evidence threshold and normal review."],
-        "MODERATE": ["Document the Harm Gate and at least one mitigation or alternative."],
-        "HIGH": [
-            "Strengthen provenance and alternatives testing.",
-            "Calibrate claims to the evidence.",
-            "Perform pre-action verification.",
-        ],
-        "SEVERE / IRREVERSIBLE": [
-            "Obtain independent human review where feasible.",
-            "Record what would have to be wrong for the action to fail.",
-            "Prepare an explicit fallback or undo plan.",
-        ],
-    }[exposure]
-
-    return {
-        "exposure": exposure,
-        "risk_count": risk_count,
-        "benefit_proportionate": benefit_proportionate,
-        "cleared": benefit_proportionate,
-        "safeguards": safeguards,
-    }
+    return asdict(assess_harm_gate(harm_gate))
 
 
 def evaluate_forward_posture(harm_gate: Any) -> dict[str, Any]:

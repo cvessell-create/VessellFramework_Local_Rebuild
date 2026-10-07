@@ -11,7 +11,7 @@
 
 ## Operational version statement
 
-This package is submitted as a v3.8.1 rough working candidate for graduate review.
+This package is submitted as a v3.9.1 rough working candidate for graduate review.
 
 ## Non-canonical / maintenance or compatibility artifacts
 

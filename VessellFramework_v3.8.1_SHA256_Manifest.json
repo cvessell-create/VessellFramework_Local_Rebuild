@@ -1,5 +1,5 @@
 {
-  "package_version": "3.8.1",
+  "package_version": "3.9.1",
   "generated_utc": "2026-09-30T16:48:55Z",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "files": [
@@ -25,15 +25,15 @@
     },
     {
       "path": "VesselFramework_v3.8.1_Stale_State_Correction.md",
-      "sha256": "036c600324318e7fc141e8002e8883054b374ad74074d63fab74a6f534eedcd1"
+      "sha256": "7844a42d8dc4cedc9ce3ecbb51fe643219f4f4547800fe59f9328339da709e6d"
     },
     {
       "path": "VesselFramework_v3.8_Installation_Manifest.md",
-      "sha256": "4f3e2aaee6be3f8554571ba46b2b87fa4369cdba53f291e39d441de200c421e3"
+      "sha256": "425cf29e214b787e6333381d35fc4e13c0ad663b9b321f0f9c406d384b26a895"
     },
     {
       "path": "install_vesselframework_v3_8.py",
-      "sha256": "2d1277ee2097e6677de5efdd4227aaa0f3663424249ff071d15868414cd1a07d"
+      "sha256": "f9a0b6578ec0bd692b986cbf2cec61098faa2ad5a3d15dbc96478134ad59d702"
     },
     {
       "path": "verify_manifest.py",
@@ -41,7 +41,7 @@
     },
     {
       "path": "vesselframework_case_runner.py",
-      "sha256": "4cd2b68aad617aca9851e2324681a90e1ad2c0c8cf61b2bbf6595b87a297a86c"
+      "sha256": "c3171d30fe682df7d7c806ff8b0d0fd87bd19b7af47627958cd232a83bf10165"
     },
     {
       "path": "example_case.json",
@@ -57,7 +57,7 @@
     },
     {
       "path": "run_framework.bat",
-      "sha256": "a02446f20043c6f57a4d17198526e2c0fc46d0891f59a5d8cf63162f3431ae22"
+      "sha256": "9ef43ceb22046c7ba0e475c4802dbea0bbe6e76cc73985ccd33ba3feaff4b16a"
     },
     {
       "path": "memory_payloads/areas__bottleneck-thesis.md.managed.md",
@@ -130,6 +130,26 @@
     {
       "path": "tests/test_causal_paths.py",
       "sha256": "007fb68a2e42d14eaef4849ecddd4a6f9eda600b7e4e7b6e34f4b1924075f9c2"
+    },
+    {
+      "path": "vessell/harm_gate.py",
+      "sha256": "4e95c2e7952b32a8fbc6643a1484529e9e240538c2c7081dda8cf92b052fd3af"
+    },
+    {
+      "path": "tests/test_harm_gate.py",
+      "sha256": "ed910f743eac78d1ca445258e2a8259da14a631335410721816c3dd4e08aa7ee"
+    },
+    {
+      "path": "tests/test_path_sync.py",
+      "sha256": "83d7e0b684939891084db5957aedb742732632891a638786a4844ea21ae8d2d1"
+    },
+    {
+      "path": "tests/test_distribution_manifest.py",
+      "sha256": "c6487399641934684c025d7c868dfaa5f148bc7385b693654fc9d76d03c46a1d"
+    },
+    {
+      "path": "tests/test_runner_safety.py",
+      "sha256": "a64981fd70bb3c6dfcb585b41f4facfd39d4cf064ce0dbb0b735cc7555e02850"
     }
   ]
 }
