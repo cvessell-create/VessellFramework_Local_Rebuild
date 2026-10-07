@@ -117,3 +117,14 @@ memories, provide a database explicitly through a trusted workflow or import
 reviewed repository facts; do not place personal or sensitive memories in
 source control or configure shared caches/secrets as an unreviewed memory
 channel.
+
+## Continuous repository checks
+
+The regular GitHub Actions workflow runs on every push and pull request. Its
+`memory-store-r` job installs R 4.3.3 and runs the R memory-store and converter
+regression suite, while the Python matrix tests the Python implementation. The
+Copilot instructions also attempt a relevant repository-scoped lookup for each
+repository coding/documentation task when the application database is present.
+“Always on” here means per-session lookup and continuous change validation;
+GitHub Actions does not run a permanent daemon, and no memory database is
+implicitly shared or kept alive between ephemeral Copilot sessions.

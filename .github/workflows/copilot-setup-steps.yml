@@ -5,12 +5,22 @@ on:
   push:
     paths:
       - .github/workflows/copilot-setup-steps.yml
+      - .github/copilot-instructions.md
+      - .github/workflows/ci.yml
+      - docs/memory-store.md
       - pyproject.toml
+      - vessell/memory_store.py
+      - tests/test_memory_store.py
       - r/**
   pull_request:
     paths:
       - .github/workflows/copilot-setup-steps.yml
+      - .github/copilot-instructions.md
+      - .github/workflows/ci.yml
+      - docs/memory-store.md
       - pyproject.toml
+      - vessell/memory_store.py
+      - tests/test_memory_store.py
       - r/**
 
 jobs:
