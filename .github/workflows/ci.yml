@@ -15,6 +15,7 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e ".[dev,core,orchestrator,evaluation]"
       - run: python -m pytest -q
+      - run: node --test dashboard/tests/*.test.js
       - run: python verify_manifest.py
       - run: python -m vessell.case_study --spec case_studies/claim_correction/spec.json --output-dir /tmp/vessell-case-study
       - run: python -m pip wheel . --no-deps --wheel-dir /tmp/vessell-wheel

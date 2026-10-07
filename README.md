@@ -314,6 +314,15 @@ For offline use, pass play-by-play JSON files or directories instead of
 `--cache-dir`. Formats: HTML, terminal text, CSV and JSON. Tests use synthetic
 game data only; no fabricated real-game data is included.
 
+## Public Display Mode and supplemental research tools
+
+The separate [phone-friendly Display Mode](dashboard/README.md) is a read-only
+GitHub status page, not the authenticated local ambient review console.
+The inherited [memory store](docs/memory-store.md) and
+[research charter](docs/organizational-psychology-research-charter.md) are
+supplemental capabilities; they do not retire this project's executable
+framework or replace the author's canonical claim-correction paper.
+
 ## License
 
 Apache License 2.0 — see [LICENSE](LICENSE). Copyright 2026 Christopher R. Vessell.

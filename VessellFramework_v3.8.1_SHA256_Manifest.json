@@ -1,6 +1,6 @@
 {
   "package_version": "3.8.1",
-  "generated_utc": "2026-10-07T14:59:19.994423+00:00",
+  "generated_utc": "2026-10-07T15:00:39.216917+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "files": [
     {
@@ -21,7 +21,15 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "e634d659d9bf3dd968a7abee0976684b7094b062c63b5e7ee5298178df60ef34"
+      "sha256": "16648776cb93685bcb5f9c77385930c704082a88d90e274c843514d8d3cb593d"
+    },
+    {
+      "path": ".github/workflows/copilot-setup-steps.yml",
+      "sha256": "7964ac3dfd903fbe4d4982c4c0d9e4b9874238a839764697465f8dbdad72337d"
+    },
+    {
+      "path": ".github/workflows/dashboard-pages.yml",
+      "sha256": "376766f2f6f354a14e81649242897adb2c6ea4abc5617568695fe7af7669f999"
     },
     {
       "path": ".gitignore",
@@ -69,7 +77,7 @@
     },
     {
       "path": "MANIFEST.in",
-      "sha256": "3b37408995ea9f367e209572810658b819baf336e4cce9255f3fae47173884cf"
+      "sha256": "aae719ef25eea422a8d47b6ee5d7269cf66f2de6784dd5df90889f695b31f455"
     },
     {
       "path": "META_REVIEW_AND_ROADMAP.md",
@@ -85,7 +93,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "5920215cfcc5785fed78a5bf5f92cac46900fec5e72c6215275f9693f28c855b"
+      "sha256": "a47a30123c0fa793609b8c87f54e214da00b55329a7768b5e680e62766bdc42c"
     },
     {
       "path": "SKILL.md",
@@ -216,6 +224,30 @@
       "sha256": "aa3c7996ff5d17802bab2f44fb298d585b405d62aebfa23bbfe0976f9765fcc2"
     },
     {
+      "path": "dashboard/README.md",
+      "sha256": "b9148082a7532aecf6d13cd4192d4aa468207d3781e33aaf788a6e0ea01a1d6d"
+    },
+    {
+      "path": "dashboard/app.js",
+      "sha256": "4ca6504fcdbf7d6e3605c8c3fd4715f9debb671cfd11b9258e9782834f9726a9"
+    },
+    {
+      "path": "dashboard/index.html",
+      "sha256": "0da24a4685b93220db8db120ee091baef66a47c6b7a36354e5c7fe64c30facd7"
+    },
+    {
+      "path": "dashboard/logic.js",
+      "sha256": "8a664408987373afb0b3790e9b7ccae460050c9758fab96b3ff137a880a7513d"
+    },
+    {
+      "path": "dashboard/style.css",
+      "sha256": "bd797d0d55cc85bf454ee905c209c323f6a4737adea93a89cef55f8ef0cb7e19"
+    },
+    {
+      "path": "dashboard/tests/logic.test.js",
+      "sha256": "a1da47d2a0c761accaf2ce39a0c5ff8c573f822779ce403d9397891c63a71556"
+    },
+    {
       "path": "deploy/ambient/backend.Dockerfile",
       "sha256": "a344b4b0fe7682d1b37c95a117f5e6fc256cd44b056da9d4a1690687b870c448"
     },
@@ -256,8 +288,16 @@
       "sha256": "34d16c5b29acda1784732e2c1f4fd4256dba68f407ef3c1a4dc12b28b9bf5c2a"
     },
     {
+      "path": "docs/memory-store.md",
+      "sha256": "7c50cfbdb8af8fa34d26e65f98e37b12f0401f82c5da04da8e319129b9e5c0ec"
+    },
+    {
       "path": "docs/operational-case-studies.md",
       "sha256": "167c366df9d35cf5570c4d45b22e35f44e4bb1910b791080184c4e2f345445bc"
+    },
+    {
+      "path": "docs/organizational-psychology-research-charter.md",
+      "sha256": "542ed85a0fecebcc276ca02530bea02e49e437bd22a34f5888c5ba9808962425"
     },
     {
       "path": "docs/os-sandbox.md",
@@ -314,6 +354,10 @@
     {
       "path": "example_recognition_evidence.json",
       "sha256": "07046a9b93315c7a8f56171e6c68293ce2cabb96a9810ab8528a8c87613caf1b"
+    },
+    {
+      "path": "examples/organizational_psychology_evidence_catalog.json",
+      "sha256": "e408d4be59866cc1f57a0d26f5531c43f66e96fc6ec16ef1f82d8229c586056b"
     },
     {
       "path": "frontend/app/api/runtime/[...path]/route.ts",
@@ -389,7 +433,27 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "672043ffe91977741adf0cf71878b1da4315b509b468ea8724b286fb6d20feb8"
+      "sha256": "1548523966a5e06ead521a2b81d325959ba6d0d5f324b90d3921f38576e38214"
+    },
+    {
+      "path": "r/convert_python_memory_db.R",
+      "sha256": "52527411f004e9300909cbc622d215c3fa66d73474e751809280abb9f7e33af0"
+    },
+    {
+      "path": "r/example_memory.json",
+      "sha256": "67b7be59879dfbbb3d76742ed60fc744f49d466dc50b6158b4ba8c275acc3caf"
+    },
+    {
+      "path": "r/memory_store.R",
+      "sha256": "55253eff5153ba9d5d41c5b1282b55e2c8a72657cfc9e910b0276e035951889d"
+    },
+    {
+      "path": "r/setup.R",
+      "sha256": "14bc65fea724287624e69766065ad06e9218ccf2225a05d5ffb976fa45c11f6f"
+    },
+    {
+      "path": "r/test_memory_store.R",
+      "sha256": "268e60978ec3ef1180e7cd9b523b3f6bbb66b61198e49af97f1acce03d69e581"
     },
     {
       "path": "requirements/agent.txt",
@@ -490,6 +554,10 @@
     {
       "path": "schemas/forecast.schema.json",
       "sha256": "db9c0d6ad951a9ce3b5eacbac48bc5899e2b436a9498ce7b8222fbd45cd7aab3"
+    },
+    {
+      "path": "schemas/research-evidence-catalog.schema.json",
+      "sha256": "c52c25089859a51f60ea6598af4a6d6a2181e2cdee652750c9b6d34e6240d08c"
     },
     {
       "path": "schemas/search.path.schema.json",
@@ -660,6 +728,10 @@
       "sha256": "ad736be7ec48026a4c38d98860a0939ceb0408835fd69a04b3aa4299099183ce"
     },
     {
+      "path": "tests/test_memory_store.py",
+      "sha256": "c1f6c44839b9f16213864413b675d6b3d1ccaac7bd62874207688be2a588ae8c"
+    },
+    {
       "path": "tests/test_microsoft_intune.py",
       "sha256": "7866cb8aa1ae337693bb57f6cbd289a6121f644ce402efa517b1d0e6c2ea0302"
     },
@@ -706,6 +778,10 @@
     {
       "path": "tests/test_replay_lab.py",
       "sha256": "91044d4f158ec28cdfb8a789be2caa3037e390b55e370c9b181bb4ddc7bed687"
+    },
+    {
+      "path": "tests/test_research_catalog.py",
+      "sha256": "e4aa1703c20270864058d81e96408d13106ca8954fd712d6a9439ff5305c2444"
     },
     {
       "path": "tests/test_root_script_validation.py",
@@ -916,6 +992,10 @@
       "sha256": "ee6df76c101d6cd0ace359452919047aad087c4f6d9a425cb7e0ce8c821abb43"
     },
     {
+      "path": "vessell/memory_store.py",
+      "sha256": "4e673f74c9bdafd3fbe62e57d245db7c1f2ae2e2c93f7d358f17462339f59ac5"
+    },
+    {
       "path": "vessell/posture_agent.py",
       "sha256": "91ad1084d7b0d1890b3096c35ee02efb1407948c8960ba982f8effe0d45b081a"
     },
@@ -942,6 +1022,10 @@
     {
       "path": "vessell/report.py",
       "sha256": "1f38498827d49d6532d8612e34279d5bdc33039eae443dabb6c5f800797c384c"
+    },
+    {
+      "path": "vessell/research_catalog.py",
+      "sha256": "13f8d25a58a1590056a48c4da28dd34bfb73e1d44c2b6e91bb580906aa7be0d9"
     },
     {
       "path": "vessell/scan_reporting.py",

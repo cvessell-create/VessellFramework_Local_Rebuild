@@ -41,6 +41,8 @@ vf-hockey-heatmap = "vessell.hockey_heatmap:main"
 vessell-hockey-heatmap = "vessell.hockey_heatmap:main"
 vf-posture-agent = "vessell.posture_agent:main"
 vf-search-gate = "vessell.search_gate:main"
+vessell-memory = "vessell.memory_store:main"
+vessell-research-catalog = "vessell.research_catalog:main"
 
 [tool.setuptools.packages.find]
 include = ["vessell*", "vessel*"]

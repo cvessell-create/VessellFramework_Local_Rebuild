@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://api.github.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Read-only phone dashboard for Copilot agent pull requests, checks and Actions runs.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Display Mode">
+  <title>Display Mode · Copilot agent dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="topbar-row">
+      <h1>Display Mode</h1>
+      <button id="refresh" class="btn btn-primary" type="button" aria-describedby="last-updated">Refresh</button>
+    </div>
+    <p id="last-updated" class="muted" aria-live="polite">Loading…</p>
+    <p id="pull-hint" class="pull-hint" aria-hidden="true">Release to refresh</p>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div id="banner" class="banner" role="status" aria-live="polite" hidden></div>
+
+    <nav class="steer" aria-label="Agent shortcuts">
+      <a class="btn btn-wide" href="https://github.com/copilot/agents" target="_blank" rel="noopener noreferrer">Open agent tasks on GitHub</a>
+      <p class="note">This page is read-only and stores no token. Merging, approving and marking pull requests ready happen in GitHub: use the GitHub Mobile app or the browser via the buttons below.</p>
+    </nav>
+
+    <div id="content">
+      <noscript><p class="note">This dashboard needs JavaScript to load data from the GitHub API.</p></noscript>
+    </div>
+  </main>
+
+  <footer class="footer muted">
+    <p>Data: public GitHub REST API, unauthenticated (60 requests/hour per network). Auto-refresh every 2 minutes while this page is visible.</p>
+  </footer>
+
+  <script src="logic.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

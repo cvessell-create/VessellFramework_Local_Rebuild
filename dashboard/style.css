@@ -1,0 +1,240 @@
+/* Copyright 2026 Christopher R. Vessell. Licensed under the Apache License, Version 2.0. See LICENSE. */
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-2: #21262d;
+  --border: #3d444d;
+  --text: #f0f6fc;
+  --muted: #b1bac4;
+  --link: #79c0ff;
+  --pass: #3fb950;
+  --fail: #ff7b72;
+  --pending: #e3b341;
+  --accent: #2f81f7;
+  --radius: 14px;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 18px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+a { color: var(--link); }
+a:focus-visible, button:focus-visible, main:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 12px;
+  top: calc(12px + env(safe-area-inset-top));
+  z-index: 10;
+  background: var(--surface);
+  padding: 12px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(13, 17, 23, 0.96);
+  border-bottom: 1px solid var(--border);
+  padding: calc(10px + env(safe-area-inset-top)) 16px 8px;
+}
+.topbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+h1 { font-size: 1.5rem; margin: 0; }
+h2 { font-size: 1.3rem; margin: 0; }
+h3 { font-size: 1.1rem; margin: 6px 0; overflow-wrap: anywhere; }
+.muted { color: var(--muted); }
+#last-updated { margin: 4px 0 0; font-size: 0.95rem; }
+
+.pull-hint {
+  display: none;
+  margin: 6px 0 0;
+  text-align: center;
+  color: var(--pending);
+}
+body.pulling .pull-hint { display: block; }
+
+main { padding: 12px 16px 24px; max-width: 760px; margin: 0 auto; }
+.footer { padding: 0 16px 24px; font-size: 0.9rem; max-width: 760px; margin: 0 auto; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  min-width: 48px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.btn:active { transform: scale(0.98); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn-primary[disabled] { opacity: 0.7; cursor: progress; }
+.btn-wide { width: 100%; }
+
+.steer { margin-bottom: 16px; }
+.note {
+  font-size: 0.95rem;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  margin: 10px 0 0;
+}
+
+.banner {
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  font-weight: 600;
+  border: 2px solid var(--pending);
+  background: #2b2111;
+}
+.banner.exhausted, .banner.error { border-color: var(--fail); background: #2d1214; }
+
+section.block {
+  margin: 0 0 22px;
+}
+.block-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 12px;
+  margin-bottom: 10px;
+}
+.repo {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+.repo h2 a { color: var(--text); overflow-wrap: anywhere; }
+.subhead { font-size: 1.05rem; margin: 16px 0 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+.card.waiting { border-color: var(--pending); }
+.card-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.num { font-weight: 700; color: var(--muted); }
+.meta { margin: 4px 0; font-size: 0.95rem; color: var(--muted); overflow-wrap: anywhere; }
+.reason { margin: 4px 0; font-weight: 600; color: var(--pending); }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--surface-2);
+  border-radius: 6px;
+  padding: 1px 6px;
+}
+
+.badge {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.badge-draft { color: var(--muted); }
+.badge-ready { color: var(--pass); border-color: var(--pass); }
+.badge-wip { color: var(--pending); border-color: var(--pending); }
+.badge-pass { color: var(--pass); border-color: var(--pass); }
+.badge-fail { color: var(--fail); border-color: var(--fail); }
+.badge-pending { color: var(--pending); border-color: var(--pending); }
+.badge-none, .badge-unknown { color: var(--muted); }
+.badge-order { color: #d2a8ff; border-color: #d2a8ff; }
+.badge-copilot { color: #d2a8ff; border-color: #d2a8ff; }
+.badge-stale { color: #1b1f24; background: var(--pending); border-color: var(--pending); }
+.badge-merged { color: #d2a8ff; border-color: #d2a8ff; }
+.badge-closed { color: var(--fail); border-color: var(--fail); }
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.list a {
+  display: block;
+  min-height: 48px;
+  padding: 10px 12px;
+  color: var(--text);
+  text-decoration: none;
+}
+.list .line1 { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.list .line2 { font-size: 0.9rem; color: var(--muted); overflow-wrap: anywhere; }
+.empty { color: var(--muted); margin: 4px 0 10px; }
+
+@media (min-width: 600px) {
+  .actions { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:active { transform: none; }
+}
