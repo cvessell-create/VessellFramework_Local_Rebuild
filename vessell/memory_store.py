@@ -9,21 +9,24 @@ import re
 import sqlite3
 import sys
 import uuid
-from collections.abc import Sequence
+from collections.abc import Iterator, Sequence
+from contextlib import contextmanager
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 SCOPES = ("user", "repository")
 STATUSES = ("pending", "approved", "corrected", "rejected")
-DEFAULT_DATABASE = Path(".vessell/memories.sqlite3")
+DEFAULT_DATABASE = Path.home() / ".vessell" / "memories.sqlite3"
 
 
 def _timestamp(value: str | None) -> str | None:
     if value is None:
         return None
+    if not isinstance(value, str):
+        raise TypeError("valid_until must be an ISO-8601 timestamp with a timezone.")
     try:
-        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        parsed = datetime.fromisoformat(value)
     except ValueError as error:
         raise ValueError("valid_until must be an ISO-8601 timestamp with a timezone.") from error
     if parsed.tzinfo is None:
@@ -72,6 +75,16 @@ def _connect(database: Path) -> sqlite3.Connection:
     return connection
 
 
+@contextmanager
+def _database(database: Path) -> Iterator[sqlite3.Connection]:
+    connection = _connect(database)
+    try:
+        with connection:
+            yield connection
+    finally:
+        connection.close()
+
+
 def _now() -> str:
     return datetime.now(UTC).isoformat()
 
@@ -89,16 +102,30 @@ def _row_to_dict(row: sqlite3.Row) -> dict[str, Any]:
     }
 
 
+def _with_review_history(
+    connection: sqlite3.Connection, row: sqlite3.Row
+) -> dict[str, Any]:
+    memory = _row_to_dict(row)
+    reviews = connection.execute(
+        """SELECT decision, reviewer, note, occurred_at FROM memory_reviews
+           WHERE memory_id = ? ORDER BY occurred_at, id""",
+        (memory["id"],),
+    ).fetchall()
+    memory["review_history"] = [dict(review) for review in reviews]
+    return memory
+
+
 def add_memory(database: Path, memory: dict[str, Any]) -> str:
     """Add a pending memory, preserving its supplied citations and optional expiry."""
     statement = memory.get("statement")
     scope = memory.get("scope")
     citations = memory.get("citations")
     _validate_memory(statement, scope, citations)
+    statement = cast(str, statement)
     valid_until = _timestamp(memory.get("valid_until"))
     identifier = str(uuid.uuid4())
     now = _now()
-    with _connect(database) as connection:
+    with _database(database) as connection:
         connection.execute(
             """INSERT INTO memories
                (id, statement, scope, citations_json, status, created_at, valid_until)
@@ -122,7 +149,7 @@ def review_memory(
     note: str = "",
     replacement: dict[str, Any] | None = None,
 ) -> str | None:
-    """Review a pending memory; correction creates a new pending version."""
+    """Review a pending memory or correct/reject an approved memory."""
     if decision not in ("approve", "reject", "correct"):
         raise ValueError("decision must be approve, reject, or correct.")
     if not reviewer.strip():
@@ -141,7 +168,7 @@ def review_memory(
     else:
         replacement_expiry = None
 
-    with _connect(database) as connection:
+    with _database(database) as connection:
         connection.execute("BEGIN IMMEDIATE")
         row = connection.execute("SELECT * FROM memories WHERE id = ?", (identifier,)).fetchone()
         if row is None:
@@ -157,10 +184,11 @@ def review_memory(
         connection.execute(
             """INSERT INTO memory_reviews (memory_id, decision, reviewer, note, occurred_at)
                VALUES (?, ?, ?, ?, ?)""",
-            (identifier, decision, reviewer, note, now),
+            (identifier, status, reviewer, note, now),
         )
         if decision != "correct":
             return None
+        assert replacement is not None
         replacement_id = str(uuid.uuid4())
         connection.execute(
             """INSERT INTO memories
@@ -185,7 +213,7 @@ def review_memory(
 
 
 def _existing_scope(database: Path, identifier: str) -> str:
-    with _connect(database) as connection:
+    with _database(database) as connection:
         row = connection.execute("SELECT scope FROM memories WHERE id = ?", (identifier,)).fetchone()
     if row is None:
         raise ValueError(f"Memory not found: {identifier}")
@@ -202,8 +230,11 @@ def list_memories(database: Path, status: str | None = None) -> list[dict[str, A
         query += " WHERE status = ?"
         parameters = (status,)
     query += " ORDER BY created_at, id"
-    with _connect(database) as connection:
-        return [_row_to_dict(row) for row in connection.execute(query, parameters)]
+    with _database(database) as connection:
+        return [
+            _with_review_history(connection, row)
+            for row in connection.execute(query, parameters)
+        ]
 
 
 def retrieve_memories(
@@ -226,9 +257,9 @@ def retrieve_memories(
                ORDER BY created_at DESC, id""",
             (scope, now),
         ).fetchall()
+        memories = [_with_review_history(connection, row) for row in rows]
     ranked: list[tuple[int, dict[str, Any]]] = []
-    for row in rows:
-        memory = _row_to_dict(row)
+    for memory in memories:
         matched = terms.intersection(re.findall(r"[\w-]+", memory["statement"].casefold()))
         if matched:
             memory["relevance"] = len(matched) / len(terms)
@@ -241,7 +272,7 @@ def _read_json(path: Path) -> dict[str, Any]:
     with path.open(encoding="utf-8") as file:
         data = json.load(file)
     if not isinstance(data, dict):
-        raise ValueError("JSON input must be an object.")
+        raise TypeError("JSON input must be an object.")
     return data
 
 
@@ -302,7 +333,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                     retrieve_memories(args.database, args.query, args.scope, args.limit), indent=2
                 )
             )
-    except (OSError, ValueError, sqlite3.Error, json.JSONDecodeError) as error:
+    except (OSError, TypeError, ValueError, sqlite3.Error, json.JSONDecodeError) as error:
         print(f"MEMORY STORE FAILED: {error}", file=sys.stderr)
         return 1
     return 0

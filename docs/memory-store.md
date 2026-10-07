@@ -3,7 +3,7 @@
 `vessell-memory` is an application-owned, local SQLite store for concise
 user-authored facts. It is not connected to GitHub Copilot memory and cannot
 read or vote on Copilot's saved memories. The default database is
-`.vessell/memories.sqlite3`; use `--database` to choose another location.
+`~/.vessell/memories.sqlite3`; use `--database` to choose another location.
 
 ## Add and review
 

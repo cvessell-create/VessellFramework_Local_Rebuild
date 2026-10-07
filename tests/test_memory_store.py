@@ -30,6 +30,7 @@ def test_memories_are_pending_until_approved_and_retrieval_is_scoped(tmp_path) -
     assert found[0]["citations"] == MEMORY["citations"]
     assert found[0]["scope"] == "repository"
     assert found[0]["status"] == "approved"
+    assert found[0]["review_history"][-1]["reviewer"] == "reviewer-1"
     assert retrieve_memories(database, "Python compatibility", "user") == []
 
 
@@ -41,6 +42,7 @@ def test_correction_versions_original_and_requires_new_approval(tmp_path) -> Non
         "statement": "Use Python 3.12+; CI also tests Python 3.13.",
         "citations": [".github/workflows/ci.yml:12-17"],
     }
+    review_memory(database, identifier, "approve")
 
     replacement_id = review_memory(
         database, identifier, "correct", replacement=replacement, reviewer="reviewer-2"
@@ -74,12 +76,13 @@ def test_reject_and_expired_memories_are_not_retrieved(tmp_path) -> None:
         {**MEMORY, "statement": ""},
         {**MEMORY, "scope": "global"},
         {**MEMORY, "citations": []},
+        {**MEMORY, "valid_until": 123},
         {**MEMORY, "valid_until": "tomorrow"},
         {**MEMORY, "valid_until": "2030-01-01T00:00:00"},
     ],
 )
 def test_invalid_memory_fields_are_rejected(tmp_path, memory: dict) -> None:
-    with pytest.raises(ValueError):
+    with pytest.raises((TypeError, ValueError)):
         add_memory(tmp_path / "memories.sqlite3", memory)
 
 
