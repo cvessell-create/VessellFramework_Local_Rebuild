@@ -1,0 +1,79 @@
+{
+  "$id": "https://vessellframework.local/schemas/verification.record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VerificationRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "record_type": {"enum": ["verification", "planted-news", "ghost-job"]},
+    "verification": {"$ref": "#/$defs/VerificationResult"},
+    "planted-news": {"$ref": "#/$defs/PlantedNewsReport"},
+    "ghost-job": {"$ref": "#/$defs/GhostJobReport"}
+  },
+  "oneOf": [
+    {"required": ["record_type", "verification"],
+     "properties": {"record_type": {"const": "verification"}},
+     "not": {"anyOf": [{"required": ["planted-news"]}, {"required": ["ghost-job"]}]}},
+    {"required": ["record_type", "planted-news"],
+     "properties": {"record_type": {"const": "planted-news"}},
+     "not": {"anyOf": [{"required": ["verification"]}, {"required": ["ghost-job"]}]}},
+    {"required": ["record_type", "ghost-job"],
+     "properties": {"record_type": {"const": "ghost-job"}},
+     "not": {"anyOf": [{"required": ["verification"]}, {"required": ["planted-news"]}]}}
+  ],
+  "$defs": {
+    "VerificationResult": {
+      "type": "object", "additionalProperties": false,
+      "required": ["claim", "verdict", "corroboration_score", "independent_roots",
+                   "official_record", "rationale", "signals"],
+      "properties": {
+        "claim": {"type": "string"},
+        "claim_id": {"type": "string"},
+        "verdict": {"enum": ["VERIFIED", "CORROBORATED", "SINGLE_SOURCE",
+                            "UNCORROBORATED", "CONTRADICTED"]},
+        "corroboration_score": {"type": "number", "minimum": 0, "maximum": 1},
+        "independent_roots": {"type": "integer", "minimum": 0},
+        "official_record": {"type": "boolean"},
+        "rationale": {"type": "string"},
+        "signals": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "PlantedNewsReport": {
+      "type": "object", "additionalProperties": false,
+      "required": ["claim", "verdict", "rationale", "indicators", "signals",
+                   "burst_detected", "orphaned", "single_origin", "clone_army_size", "corroboration"],
+      "properties": {
+        "claim": {"type": "string"},
+        "claim_id": {"type": "string"},
+        "verdict": {"enum": ["AUTHENTIC", "LIKELY_PLANTED", "SUSPECT", "UNVERIFIABLE"]},
+        "rationale": {"type": "string"},
+        "indicators": {"type": "array", "items": {"type": "string"}},
+        "signals": {"type": "array", "items": {"type": "string"}},
+        "burst_detected": {"type": "boolean"},
+        "orphaned": {"type": "boolean"},
+        "single_origin": {"type": "boolean"},
+        "clone_army_size": {"type": "integer", "minimum": 0},
+        "corroboration": {"$ref": "#/$defs/VerificationResult"}
+      }
+    },
+    "GhostJobReport": {
+      "type": "object", "additionalProperties": false,
+      "required": ["title", "employer", "location", "verdict", "rationale", "signals",
+                   "text_groups", "largest_group_size", "distinct_sources", "distinct_listing_ids"],
+      "properties": {
+        "claim_id": {"type": "string"},
+        "title": {"type": "string"}, "employer": {"type": "string"},
+        "location": {"type": "string"},
+        "verdict": {"enum": ["LIKELY_GHOST", "SUSPECT", "NO_SIGNAL"]},
+        "rationale": {"type": "string"},
+        "signals": {"type": "array", "items": {"type": "string"}},
+        "text_groups": {"type": "integer", "minimum": 0},
+        "largest_group_size": {"type": "integer", "minimum": 0},
+        "distinct_sources": {"type": "integer", "minimum": 0},
+        "distinct_listing_ids": {"type": "integer", "minimum": 0},
+        "freshness_gap_days": {"type": ["integer", "null"]},
+        "circulation_days": {"type": ["integer", "null"]}
+      }
+    }
+  }
+}

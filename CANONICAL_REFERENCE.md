@@ -7,11 +7,11 @@
 - `VesselFramework_Forecasting_SKILL_v1.0.md`
 - `vesselframework_reference_v1.1_provenance_firewall.py`
 - `vesselframework_case_runner.py`
-- `schemas/` and `tests/`
+- `vessell/schemas/` and `tests/`
 
 ## Operational version statement
 
-This package is submitted as a v3.8.1 rough working candidate for graduate review.
+This package is submitted as a v3.9.1 rough working candidate for graduate review.
 
 ## Non-canonical / maintenance or compatibility artifacts
 

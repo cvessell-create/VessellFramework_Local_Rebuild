@@ -16,3 +16,8 @@ frontend/*.tsbuildinfo
 *.zip
 .vesselframework_target_root.txt
 *.vesselframework_backup_*
+*_extracted/
+/outputs/
+/areas/
+/topics/
+/mnt/

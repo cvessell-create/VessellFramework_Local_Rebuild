@@ -33,9 +33,19 @@ vessell-remediator = "vessell.app.remediation_orchestrator:main"
 vf = "vessell.cli:main"
 vf-program = "vessell.app.main:main"
 vf-remediator = "vessell.app.remediation_orchestrator:main"
+vf-heatmap = "vessell.heatmap:main"
+vessell-heatmap = "vessell.heatmap:main"
+vf-attack-surface = "vessell.attack_surface:main"
+vessell-attack-surface = "vessell.attack_surface:main"
+vf-hockey-heatmap = "vessell.hockey_heatmap:main"
+vessell-hockey-heatmap = "vessell.hockey_heatmap:main"
 
 [tool.setuptools.packages.find]
 include = ["vessell*", "vessel*"]
+
+[tool.setuptools.package-data]
+vessell = ["schemas/*.json", "py.typed"]
+"vessell.app" = ["*.html"]
 
 [tool.ruff]
 line-length = 100
