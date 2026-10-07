@@ -689,7 +689,7 @@
     },
     {
       "path": "r/memory_store.R",
-      "sha256": "2106706f80081fc54effe1fe4bf916e5e7837914fc502a093ee0012b03b5cc1f"
+      "sha256": "55253eff5153ba9d5d41c5b1282b55e2c8a72657cfc9e910b0276e035951889d"
     },
     {
       "path": "r/setup.R",
@@ -697,7 +697,7 @@
     },
     {
       "path": "r/test_memory_store.R",
-      "sha256": "98d7ca331a9cdcd722ba8984c8385df2e5f227fa5f3867f1bce966b08b1826d4"
+      "sha256": "268e60978ec3ef1180e7cd9b523b3f6bbb66b61198e49af97f1acce03d69e581"
     },
     {
       "path": "requirements/agent.txt",

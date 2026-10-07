@@ -29,7 +29,7 @@ stopifnot(length(memory_retrieve(database, "Python", "user")) == 0L)
 replacement <- list(
   statement = "Python 3.12 is supported and Python 3.13 is tested.",
   scope = "repository",
-  citations = ".github/workflows/ci.yml:12-17"
+  citations = list(".github/workflows/ci.yml:12-17")
 )
 replacement_id <- memory_review(
   database, identifier, "correct", replacement = replacement, reviewer = "test reviewer"
@@ -38,7 +38,9 @@ stopifnot(memory_list(database, "corrected")[[1L]]$id == identifier)
 stopifnot(length(memory_retrieve(database, "Python", "repository")) == 0L)
 stopifnot(memory_list(database, "pending")[[1L]]$id == replacement_id)
 invisible(memory_review(database, replacement_id, "approve"))
-stopifnot(memory_retrieve(database, "Python 3.13", "repository")[[1L]]$id == replacement_id)
+corrected <- memory_retrieve(database, "Python 3.13", "repository")[[1L]]
+stopifnot(corrected$id == replacement_id)
+stopifnot(identical(unlist(corrected$citations), ".github/workflows/ci.yml:12-17"))
 
 rejected_id <- memory_add(database, list(
   statement = "A rejected memory is not retrievable.",
@@ -110,6 +112,10 @@ stopifnot(converter_status == 0L)
 converted <- memory_retrieve(r_database, "Python schema", "repository")
 stopifnot(length(converted) == 1L)
 stopifnot(converted[[1L]]$id == "python-record-1")
+stopifnot(identical(
+  unlist(converted[[1L]]$citations),
+  c("README.md:1", "r/README.md:1")
+))
 stopifnot(converted[[1L]]$review_history[[1L]]$reviewer == "migration-test")
 existing_destination_output <- suppressWarnings(system2(
   "Rscript",

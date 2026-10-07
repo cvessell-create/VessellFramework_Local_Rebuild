@@ -62,7 +62,7 @@ memory_validate <- function(memory) {
       !memory$scope %in% memory_scopes) {
     stop("scope must be one of: user, repository.")
   }
-  citations <- unlist(memory$citations, use.names = FALSE)
+  citations <- memory_citations(memory$citations)
   if (!is.character(citations) ||
       length(citations) < 1L ||
       any(!nzchar(trimws(citations)))) {
@@ -81,12 +81,18 @@ memory_validate <- function(memory) {
   invisible(TRUE)
 }
 
+memory_citations <- function(citations) {
+  unname(as.character(unlist(citations, use.names = FALSE)))
+}
+
 memory_decode_row <- function(connection, row) {
   record <- list(
     id = row$id,
     statement = row$statement,
     scope = row$scope,
-    citations = as.list(jsonlite::fromJSON(row$citations_json, simplifyVector = TRUE)),
+    citations = as.list(memory_citations(
+      jsonlite::fromJSON(row$citations_json, simplifyVector = FALSE)
+    )),
     status = row$status,
     created_at = row$created_at,
     valid_until = row$valid_until,
@@ -122,7 +128,7 @@ memory_add <- function(database, memory) {
       ),
       params = list(
         identifier, trimws(memory$statement), memory$scope,
-        jsonlite::toJSON(as.list(memory$citations), auto_unbox = FALSE), now,
+        jsonlite::toJSON(memory_citations(memory$citations), auto_unbox = FALSE), now,
         memory$valid_until %||% NA_character_
       )
     )
@@ -200,7 +206,9 @@ memory_review <- function(database, identifier, decision, reviewer = "local-user
         ),
         params = list(
           replacement_id, trimws(replacement$statement), replacement$scope,
-          jsonlite::toJSON(as.list(replacement$citations), auto_unbox = FALSE), now,
+          jsonlite::toJSON(
+            memory_citations(replacement$citations), auto_unbox = FALSE
+          ), now,
           replacement$valid_until %||% NA_character_, identifier
         )
       )
