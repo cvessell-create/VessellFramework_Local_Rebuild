@@ -1,6 +1,6 @@
 {
   "package_version": "3.8.1",
-  "generated_utc": "2026-10-07T14:57:48.675882+00:00",
+  "generated_utc": "2026-10-07T14:59:19.994423+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "files": [
     {
@@ -85,7 +85,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "9c10eed52f813a735b6b494198db9215829fb7969ef33ac6cd99a621ee3a47b5"
+      "sha256": "5920215cfcc5785fed78a5bf5f92cac46900fec5e72c6215275f9693f28c855b"
     },
     {
       "path": "SKILL.md",
@@ -649,7 +649,7 @@
     },
     {
       "path": "tests/test_hockey_heatmap.py",
-      "sha256": "7a58a46c97a7faa8e27c420fb11d1135961acffe902f5a36f55bbeb237017c6c"
+      "sha256": "9739b69a387f0b1227adc8a8dd06da73de5aa30b8f417047ddaed9afa290b4fd"
     },
     {
       "path": "tests/test_live_event_verification.py",

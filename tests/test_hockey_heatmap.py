@@ -252,7 +252,7 @@ def test_fetch_uses_nhl_api_and_caches(tmp_path: Path, monkeypatch: pytest.Monke
         calls.append(url)
         return _Resp(json.dumps(pbp if "gamecenter" in url else schedule).encode())
 
-    monkeypatch.setattr(hh.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr("vessell.hockey_heatmap.urllib.request.urlopen", fake_urlopen)
     assert hh.recent_game_ids("STL", "2026-10-03", 5) == [2025020001]
     path = hh.fetch_play_by_play(2025020001, tmp_path)
     hh.fetch_play_by_play(2025020001, tmp_path)  # cached
