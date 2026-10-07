@@ -91,7 +91,7 @@ After the demos, write `SHOWCASE.md` (do not commit it unless asked):
 - Bullet list: the five demos and what each proved, with pass/fail.
 - "Engineering signals" section: typed Python, mypy + ruff gates, JSON
   schemas for machine-readable contracts, SHA-256 integrity manifest,
-  CI on Python 3.13.
+  CI on Python 3.12 and 3.13.
 - "Analytic signals" section: provenance firewall, deception checks, harm
   gate, calibrated weighting, explicit do-not-invent boundary.
 
