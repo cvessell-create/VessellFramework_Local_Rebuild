@@ -13,7 +13,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "6484f39445a929932cc76eb19d86a1c4acae9826cde7f74a8378e5ac4427e2cb"
+      "sha256": "ec61cc9193767c89978d41a0130f6d2305c587c6f7f82f5e4a022ab5a23d6bc7"
     },
     {
       "path": ".gitignore",
@@ -49,7 +49,7 @@
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "d5ac0139c2d12cad6be8d2e5bc9a23f9152f6060561e7d5895a9544d8dd6cf51"
+      "sha256": "a0252c37cc23fa4910b812eb52a3702bd87a1020c32bb1d7c8ec2e030c65dcb4"
     },
     {
       "path": "GAME_DEVELOPMENT_SKILL.md",
@@ -349,11 +349,11 @@
     },
     {
       "path": "VessellFramework_Community_SKILL_v1.0.md",
-      "sha256": "7af007112a09626eebf1e8de1d68e009cb3cdce3407389bf8b876a732657f84a"
+      "sha256": "d28ea6233456707cd1f36f60f5f80d7b899ee6eb5c10abcf5c736a6db3658921"
     },
     {
       "path": "VessellFramework_Portfolio_Showcase_SKILL_v1.0.md",
-      "sha256": "9c0ffb1e4d314fb9f81e40e6337a829102295544ef3d7c3ca7ba6e96a7033ca0"
+      "sha256": "701f57fde9390fe4593277536a78a8ed5f9328fc1e5e5ef4322a16e8ccee2f9f"
     },
     {
       "path": "XP_Cyber_Range_Challenge_Analyst_SKILL_v0.1.md",
@@ -445,7 +445,7 @@
     },
     {
       "path": "docs/replay-lab.md",
-      "sha256": "a349796d7bd5a5b87c78cbb8a7967590f9e7c466c01d5b86b0565ea45b68aa65"
+      "sha256": "d8390b59e120a051cec1cf6ea55bd081f28495b81e26c5c8007883bb4daeda1a"
     },
     {
       "path": "docs/tool-integrations.md",
@@ -501,7 +501,7 @@
     },
     {
       "path": "mnt/skills/user/vessel-framework-analyst/SKILL.md",
-      "sha256": "084ab91c3f942b62d183de964e7f554a789490f8f30efbee255a2d25b189b69e"
+      "sha256": "861d79dd3281be51e07206b7f77677fcd3b517a9ff62bf011a0a8646c435defa"
     },
     {
       "path": "outputs/case_runs/20260923T010108Z_illustrative-provenance-and-posture-review.json",
@@ -661,7 +661,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "3a8fdc1341b7a4943057d2f5e6672ccb260a93c6d27ceffb12d599c6799a975e"
+      "sha256": "5cb9ff2d3219a8601f0c7288f66517004b077e91a71641e8ff666b0e603cc91c"
     },
     {
       "path": "requirements/agent.txt",
