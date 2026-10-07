@@ -17,7 +17,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "e79147cd6a5fce392ada8e7640ba027a2378af7b32e98178ac211545dbc6d51d"
+      "sha256": "41bdeb53a9e7bf242b3323c7ea132c114a3c1f184f3e2beea6fd9bbf88006436"
     },
     {
       "path": ".github/workflows/copilot-setup-steps.yml",
