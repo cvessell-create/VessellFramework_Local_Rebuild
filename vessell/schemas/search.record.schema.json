@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vessellframework.local/schemas/search.record.schema.json",
+  "title": "SearchRecord",
+  "description": "Operator-supplied search evidence for one claim; not independent source authentication.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "query": {"type": "string", "pattern": "\\S"},
+    "tool": {"type": "string", "pattern": "\\S"},
+    "scope": {"type": "string", "pattern": "\\S"},
+    "result_count": {"type": "integer", "minimum": 0},
+    "limit_hit": {"type": "boolean"},
+    "primary_source_opened": {"type": "boolean"},
+    "status": {"type": "string", "enum": ["WORKING HYPOTHESIS", "SOURCE-ESTABLISHED", "UNVERIFIED"]},
+    "what_was_not_checked": {"type": "string"},
+    "primary_source": {"type": "string", "default": ""},
+    "corrected_name": {"type": "string", "default": ""}
+  },
+  "required": [
+    "query", "tool", "scope", "result_count", "limit_hit",
+    "primary_source_opened", "status", "what_was_not_checked"
+  ]
+}

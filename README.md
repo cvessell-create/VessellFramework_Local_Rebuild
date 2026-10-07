@@ -98,6 +98,34 @@ paper's narrative from measured software outcomes and later extensions.
 
 Step-by-step traceability lives in [docs/traceability/doctrine_code_matrix.md](docs/traceability/doctrine_code_matrix.md).
 
+## Search Gate
+
+[Search Gate doctrine](VesselFramework_Search_Gate_SKILL_v0.1.md) is NEW /
+PROSPECTIVE / NOT VALIDATED and subordinate to Evidence Assurance and the Harm
+Gate. It requires scoped search and opened primary confirmation before claims;
+summaries remain hypotheses, inaccessible content stays unverified, and unknown
+or incompatible licences block imports. Agents follow
+[`.github/copilot-instructions.md`](.github/copilot-instructions.md).
+
+The deterministic offline checker evaluates supplied records, not source truth:
+
+```sh
+vf-search-gate check-license CC-BY-4.0 --json
+vf-search-gate check-import code GPL-2.0+ Apache-2.0 --json
+vf-search-gate evaluate code/safety-check /tmp/search-records.json --json
+```
+
+`evaluate` accepts a JSON array for one exact claim, following
+`vessell/schemas/search.record.schema.json`. Each record requires `query`, `tool`,
+`scope`, `result_count`, `limit_hit`, `primary_source_opened`, `status` and
+`what_was_not_checked`; add `primary_source` for clearance and `corrected_name`
+when needed. Evidence statuses are `WORKING HYPOTHESIS`, `SOURCE-ESTABLISHED` and
+`UNVERIFIED`. Exit codes: 0 cleared, 1 not cleared, 2 invalid input.
+Licence classification alone does not authorize an import: first open the
+applicable primary licence, check compatibility, preserve attribution and record
+any owner-approved relicensing decision. Include SEARCH RECORDs for external
+facts/imports in PR descriptions. No third-party material is imported by this gate.
+
 ## Foundations — works this builds on
 
 The author's paper draws on provenance, automation misuse, data cascades,

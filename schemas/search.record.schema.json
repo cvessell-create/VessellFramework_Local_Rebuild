@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SearchRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["query", "tool", "scope", "result_count", "limit_hit", "primary_source_opened", "status", "what_was_not_checked"],
+  "properties": {
+    "query": {"type": "string", "pattern": "\\S"},
+    "tool": {"type": "string", "pattern": "\\S"},
+    "scope": {"type": "string", "pattern": "\\S"},
+    "result_count": {"type": "integer", "minimum": 0},
+    "limit_hit": {"type": "boolean"},
+    "primary_source_opened": {"type": "boolean"},
+    "status": {"enum": ["WORKING HYPOTHESIS", "SOURCE-ESTABLISHED", "UNVERIFIED"]},
+    "what_was_not_checked": {"type": "string"},
+    "primary_source": {"type": "string"},
+    "corrected_name": {"type": "string"}
+  }
+}

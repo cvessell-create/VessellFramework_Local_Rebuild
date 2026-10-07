@@ -1,6 +1,6 @@
 {
   "package_version": "3.8.1",
-  "generated_utc": "2026-10-07T14:56:45.338033+00:00",
+  "generated_utc": "2026-10-07T14:57:48.675882+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "files": [
     {
@@ -14,6 +14,10 @@
     {
       "path": ".github/FUNDING.yml",
       "sha256": "17e534c09856804c892b1a95089fe9806a494cf74591a5178dfb85bf20389d43"
+    },
+    {
+      "path": ".github/copilot-instructions.md",
+      "sha256": "fd68ae00affabbc316709b11e288396bc7306e2dbc3c7b7b72e309600693ee59"
     },
     {
       "path": ".github/workflows/ci.yml",
@@ -38,6 +42,10 @@
     {
       "path": ".vscode/tasks.json",
       "sha256": "4297fc989fb1c6a0cf067a1096dc9b4389312d24375a6874e598f0730ee17a93"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "b7d2bb33fe44250702a4aed3418f0a5abb80157babec7e040a0e63ba29e34ec4"
     },
     {
       "path": "CANONICAL_REFERENCE.md",
@@ -77,11 +85,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "7d885f7b674f84cbbcbeb01a5e2e76caceb253579b5e52881e0dd3b36c076fa6"
+      "sha256": "9c10eed52f813a735b6b494198db9215829fb7969ef33ac6cd99a621ee3a47b5"
     },
     {
       "path": "SKILL.md",
-      "sha256": "817d0585f0d43e41b1a59f709d9585ca85f70665445d0539fe2f4eb4580bc043"
+      "sha256": "085a2580af9003950ff444fdc4ac928863fcaf1c6b4e2f7a319e63ff165c1552"
     },
     {
       "path": "Security_Control_Selection_Placement_Analyst_SKILL_v0.1.md",
@@ -101,7 +109,7 @@
     },
     {
       "path": "VesselFramework_Forecasting_SKILL_v1.0.md",
-      "sha256": "f27946e8a5ff135fd13d4b1b168a885a94431d8b4e975ffe95186b56170f9885"
+      "sha256": "8ec483818701c87c40a7a4eaea6ed78261e25f6a4078d06cfa061c00c1a46a82"
     },
     {
       "path": "VesselFramework_Ghost_Job_Filter_SKILL_v0.1.md",
@@ -136,6 +144,10 @@
       "sha256": "be220166908ea0123153d5b5b63244217e35119e55fb6c0601f09956508f09c5"
     },
     {
+      "path": "VesselFramework_Search_Gate_SKILL_v0.1.md",
+      "sha256": "a6ecbec09ebbea4d31318a2b28e854ef05a29eb9d3130d4faf0eb34116f0847e"
+    },
+    {
       "path": "VesselFramework_SingleFile_EvilTwin_v0.2.py",
       "sha256": "656d512d3eb85b6be20e95affb06df9da21dbc34f30ebacef43b5cb6c52f7341"
     },
@@ -145,7 +157,7 @@
     },
     {
       "path": "VesselFramework_Startle_Gate_Defence.md",
-      "sha256": "0d2c3bb4ab9b3b034e5df3bf05dd6e99ce0f4e6505f0003c4ef190a99eaf8e47"
+      "sha256": "6217164d9425f96e3938e7f9e00b69d9f864dfd8f9339c654b932f60e88fca91"
     },
     {
       "path": "VesselFramework_v3.8.1_Stale_State_Correction.md",
@@ -373,11 +385,11 @@
     },
     {
       "path": "mnt/skills/user/vessel-framework-analyst/SKILL.md",
-      "sha256": "817d0585f0d43e41b1a59f709d9585ca85f70665445d0539fe2f4eb4580bc043"
+      "sha256": "085a2580af9003950ff444fdc4ac928863fcaf1c6b4e2f7a319e63ff165c1552"
     },
     {
       "path": "pyproject.toml",
-      "sha256": "dd0e99aa553a94bf727fcdd52d28764c79335949e9534cdf6d315a2f3a1f2211"
+      "sha256": "672043ffe91977741adf0cf71878b1da4315b509b468ea8724b286fb6d20feb8"
     },
     {
       "path": "requirements/agent.txt",
@@ -482,6 +494,10 @@
     {
       "path": "schemas/search.path.schema.json",
       "sha256": "d932b5ac3b9e2fcb3d583f46ac72e95085176e736a8f6d6e0aa0f70764518725"
+    },
+    {
+      "path": "schemas/search.record.schema.json",
+      "sha256": "3714f08e0fda36ef365277688983988c41fe9574c1bd6e6db00fca5816cda31c"
     },
     {
       "path": "schemas/skill_record.schema.json",
@@ -710,6 +726,10 @@
     {
       "path": "tests/test_schema_contracts.py",
       "sha256": "d65a62afcaa4f9ea571635e1be24db20ae9bc25c54262471bfaa96a75b138dfd"
+    },
+    {
+      "path": "tests/test_search_gate.py",
+      "sha256": "2dd7d302e42a985f27c29e1d05faf4aa9bc8b8cba2be038996cb3a473e2a3eda"
     },
     {
       "path": "tests/test_single_file_evil_twin.py",
@@ -956,6 +976,10 @@
       "sha256": "d932b5ac3b9e2fcb3d583f46ac72e95085176e736a8f6d6e0aa0f70764518725"
     },
     {
+      "path": "vessell/schemas/search.record.schema.json",
+      "sha256": "bdc3e1a12ef40a88639be3251eb6d082ddcefed1670c71fd4daf45e570168088"
+    },
+    {
       "path": "vessell/schemas/skill_record.schema.json",
       "sha256": "e09e6f99e040ba504e048173fa95d6c768ed5c6a3216f9cd70276d7ecd584aba"
     },
@@ -970,6 +994,10 @@
     {
       "path": "vessell/schemas/workflow.schema.json",
       "sha256": "60ae73bbd7450eddccbf8211c19e39493c4a709215e6606bf0b0105d9671538f"
+    },
+    {
+      "path": "vessell/search_gate.py",
+      "sha256": "f50f90d2edda8c538c03bc4b41ab91315d39207814f673d36d4ed593bb0862af"
     },
     {
       "path": "vessell/source_readers.py",

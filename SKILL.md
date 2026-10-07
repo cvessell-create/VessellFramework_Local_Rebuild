@@ -326,6 +326,7 @@ remove a miss.
 
 # 13B. Cross-Skill Integration
 
+- The Search Gate (`VesselFramework_Search_Gate_SKILL_v0.1.md`) supplies scoped search records and primary confirmation; unverified external claims return `FRAMEWORK STATE: DEGRADED — UNVERIFIED EXTERNAL CLAIM`.
 - The Theater/General Intelligence Briefer supplies timelines, actors, collection gaps, and candidate indicators.
 - Applied Analytics supplies baselines, uncertainty, measurement design, and scoring support.
 - Professional Marketing/Positioning translates approved findings without deleting probability or uncertainty limits.
@@ -336,6 +337,8 @@ remove a miss.
 ---
 
 # 14. Runtime Integrity Check
+
+Unverified external claims return `FRAMEWORK STATE: DEGRADED — UNVERIFIED EXTERNAL CLAIM`; apply the Search Gate before relying on them.
 
 Before relying on the skill in a consequential task, verify:
 
@@ -351,6 +354,22 @@ If any of these fail, return:
 
 and state what is missing.
 
+
+---
+
+# Search Gate
+
+Use `VesselFramework_Search_Gate_SKILL_v0.1.md` before identity, licence/IP,
+current-fact, code-existence, memory/account, version/dependency or
+people/organisation claims. Search and open primary sources; summaries remain
+WORKING HYPOTHESIS. Cite code files, correct repository names before writes,
+verify import licences against primary files and record attribution and any
+approved relicensing decision. Never import blocked material or invent
+inaccessible content. “Not found” means NOT FOUND IN SCOPE, not nonexistence.
+Report search caps and unchecked scope; derivative copies are not independent.
+Evidence Assurance and the Harm Gate remain authoritative.
+
+`SEARCH RECORD: query / tool / scope / result count / limit hit / primary source opened (y/n) / status / what was NOT checked`
 
 ---
 
