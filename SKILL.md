@@ -12,6 +12,21 @@ The candidate question and unresolved design decisions are in
 The repository currently has no organizational-psychology study data, chosen
 measures, analysis implementation, or empirical results.
 
+## Literature review support
+
+Use the offline catalog to keep reviewer-entered source and study-context
+notes structured before synthesis:
+
+```sh
+vessell-research-catalog examples/organizational_psychology_evidence_catalog.json \
+  --output /tmp/organizational-psychology-literature-catalog.md
+```
+
+The command validates metadata and formats a record inventory. It does not
+verify the cited source or notes, judge study quality, synthesize results, or
+accept participant data. Do not place identifiable or sensitive information in
+catalog notes.
+
 ## Research workflow
 
 Use:

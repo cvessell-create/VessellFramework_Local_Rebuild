@@ -103,3 +103,13 @@ def test_cli_writes_report_only_after_validating_input(tmp_path) -> None:
     catalog_path.write_text('{"catalog_version": 0}', encoding="utf-8")
     assert main([str(catalog_path), "--output", str(output_path)]) == 1
     assert "No sources are cataloged yet." in output_path.read_text(encoding="utf-8")
+
+
+def test_cli_refuses_to_overwrite_catalog_with_report(tmp_path) -> None:
+    catalog_path = tmp_path / "catalog.json"
+    original = json.dumps(
+        {"catalog_version": 1, "research_question": QUESTION, "records": []}
+    )
+    catalog_path.write_text(original, encoding="utf-8")
+    assert main([str(catalog_path), "--output", str(catalog_path)]) == 1
+    assert catalog_path.read_text(encoding="utf-8") == original

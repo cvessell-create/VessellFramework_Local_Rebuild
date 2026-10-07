@@ -8,6 +8,8 @@ documented in
 [docs/organizational-psychology-research-charter.md](docs/organizational-psychology-research-charter.md).
 No organizational-psychology study protocol, dataset, analysis runtime, or
 empirical finding is canonical because none has been approved or implemented.
+The literature catalog is canonical as a software aid, not as a research
+methodology or evidence synthesis.
 
 ## Current research-facing documents
 
@@ -22,6 +24,9 @@ empirical finding is canonical because none has been approved or implemented.
 - `SKILL.md` — proposed research workflow and inference guardrails.
 - `docs/traceability/doctrine_code_matrix.md` — status of research requirements
   versus existing implementation.
+- `vessell/research_catalog.py`, its schema and blank starter example — the
+  first implemented research-support feature; validates and renders reviewer-
+  entered literature records only.
 
 ## Legacy software and materials
 

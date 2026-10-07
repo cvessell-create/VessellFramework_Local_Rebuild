@@ -41,7 +41,7 @@
     },
     {
       "path": "CANONICAL_REFERENCE.md",
-      "sha256": "4c0de9d90a210f573f5a27dc72095369e47301da947d811ccb12d07b7ce7a452"
+      "sha256": "e6cbbc414b61fb4b18224b26d819dafff0e084a9f7dc7f5768322883001ab1a1"
     },
     {
       "path": "CITATION.cff",
@@ -61,7 +61,7 @@
     },
     {
       "path": "MANIFEST.in",
-      "sha256": "1edd99429c257a07ce8f09472a8e1540f3c7443c95a509ba5971a3fc4d175fd4"
+      "sha256": "a5a52af52d9891e0a33831f1ee57caa8f50fb921b4cca76fb41a576952d96732"
     },
     {
       "path": "META_REVIEW_AND_ROADMAP.md",
@@ -261,11 +261,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "44377da065bc3df940f752fe04b904e90e47c59f2fd88a8e7d5ab3d10b462c83"
+      "sha256": "c3b11836dca805e5648bcfa662d5c6390160e097570f34f531c00e1fa960496d"
     },
     {
       "path": "SKILL.md",
-      "sha256": "861d79dd3281be51e07206b7f77677fcd3b517a9ff62bf011a0a8646c435defa"
+      "sha256": "357fe7244a6caf2c911dfe6deeed8ac6609736ceff890baa15e48239f724f4e5"
     },
     {
       "path": "Security_Control_Selection_Placement_Analyst_SKILL_v0.1.md",
@@ -273,7 +273,7 @@
     },
     {
       "path": "VesselFramework_Agent.md",
-      "sha256": "0a589ea999d98d86997313972a150448f5775a67214ad3e4c760e368b6b078e9"
+      "sha256": "ee8c1bf2ab28480232097ef65b1d1b62ecc5e9a1092ba87222a0ac4759e7a5f8"
     },
     {
       "path": "VesselFramework_Agentic_SOC_Analyst_SKILL_v0.1.md",
@@ -401,7 +401,7 @@
     },
     {
       "path": "docs/evaluation-methods.md",
-      "sha256": "81a47d94545dcc39b9f34f1138bc04f63fa08f1ffd4b62eb873a10adf9e6cbc4"
+      "sha256": "34628d302c676725d70cf02214abc9eaf7611659d8e66021ebf4b886ae752959"
     },
     {
       "path": "docs/free-method-courses.md",
@@ -425,7 +425,7 @@
     },
     {
       "path": "docs/organizational-psychology-research-charter.md",
-      "sha256": "8aa3d24b782ac3cf10ebff8f12259bfeea9f0a09205ff9c4179c3db23085ebcc"
+      "sha256": "542ed85a0fecebcc276ca02530bea02e49e437bd22a34f5888c5ba9808962425"
     },
     {
       "path": "docs/os-sandbox.md",
@@ -453,7 +453,7 @@
     },
     {
       "path": "docs/traceability/doctrine_code_matrix.md",
-      "sha256": "385cb5ac3c4214c73190f529eeb3a26f7d343fac5b8ff0b7d2b2bfc385e4a473"
+      "sha256": "5ec439ead4a32f75c7531eddf56b30b1dd832fd7d6f427864ec6a2c84d890a56"
     },
     {
       "path": "docs/trade-secrets-notice.md",
@@ -480,6 +480,10 @@
       "sha256": "07046a9b93315c7a8f56171e6c68293ce2cabb96a9810ab8528a8c87613caf1b"
     },
     {
+      "path": "examples/organizational_psychology_evidence_catalog.json",
+      "sha256": "e408d4be59866cc1f57a0d26f5531c43f66e96fc6ec16ef1f82d8229c586056b"
+    },
+    {
       "path": "install_vesselframework_v3_8.py",
       "sha256": "b4537519cc46d5ce722d016be53079464e8320e463a2131d4b88cf083c24435e"
     },
@@ -501,7 +505,7 @@
     },
     {
       "path": "mnt/skills/user/vessel-framework-analyst/SKILL.md",
-      "sha256": "861d79dd3281be51e07206b7f77677fcd3b517a9ff62bf011a0a8646c435defa"
+      "sha256": "357fe7244a6caf2c911dfe6deeed8ac6609736ceff890baa15e48239f724f4e5"
     },
     {
       "path": "outputs/case_runs/20260923T010108Z_illustrative-provenance-and-posture-review.json",
@@ -661,7 +665,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "5cb9ff2d3219a8601f0c7288f66517004b077e91a71641e8ff666b0e603cc91c"
+      "sha256": "4fd6b9f5addefece71a7eb9c94b2b1eb18690eb34414ff35cc2d211cb0b7ebb8"
     },
     {
       "path": "requirements/agent.txt",
@@ -762,6 +766,10 @@
     {
       "path": "schemas/forecast.schema.json",
       "sha256": "db9c0d6ad951a9ce3b5eacbac48bc5899e2b436a9498ce7b8222fbd45cd7aab3"
+    },
+    {
+      "path": "schemas/research-evidence-catalog.schema.json",
+      "sha256": "c52c25089859a51f60ea6598af4a6d6a2181e2cdee652750c9b6d34e6240d08c"
     },
     {
       "path": "schemas/search.path.schema.json",
@@ -918,6 +926,10 @@
     {
       "path": "tests/test_replay_lab.py",
       "sha256": "91044d4f158ec28cdfb8a789be2caa3037e390b55e370c9b181bb4ddc7bed687"
+    },
+    {
+      "path": "tests/test_research_catalog.py",
+      "sha256": "e4aa1703c20270864058d81e96408d13106ca8954fd712d6a9439ff5305c2444"
     },
     {
       "path": "tests/test_scan_reporting.py",
@@ -1094,6 +1106,10 @@
     {
       "path": "vessell/reference_data.py",
       "sha256": "aa989945ed97991d6fad93d95a054c96701d862b31c1be8454beb8c9b1f7e7ef"
+    },
+    {
+      "path": "vessell/research_catalog.py",
+      "sha256": "13f8d25a58a1590056a48c4da28dd34bfb73e1d44c2b6e91bb580906aa7be0d9"
     },
     {
       "path": "vessell/replay_lab.py",
