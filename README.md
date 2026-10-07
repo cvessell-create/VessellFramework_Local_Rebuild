@@ -241,6 +241,27 @@ The path synchronizer verifies the post-write hash against expected content,
 not merely that a hash can be read. Tests cover corrupted writes and byte-level
 agreement of the packaged skill copy; this does not attest to other machines
 or a private runtime that was not inspected.
+## Posture Agent
+
+The [VesselFramework Posture Agent skill](VesselFramework_Posture_Agent_SKILL_v0.1.md)
+checks positioning claims for AI, SI, and human audiences. The Closer deliberately
+overclaims (always labelled **do not ship**); the Advocate makes the defensible
+pitch, and the Posture Corrector issues the verdict. These are theatrical
+personas, not the operator's voice.
+
+```powershell
+vf-posture-agent --claim "VesselFramework predicts threats" --audience AI
+vf-posture-agent --claim "VesselFramework predicts threats" --audience SI --format json
+```
+
+The offline, deterministic keyword policy returns `OVERCLAIM`, `CALIBRATED`,
+`UNDERSOLD`, or `UNSUPPORTED` with an evidence status, ship line, and upgrade path.
+Mixed claims use the least-established matching area; AI and SI share verdict
+rules. It is NEW / PROSPECTIVE / NOT VALIDATED: it creates no evidence, does not
+verify arbitrary natural-language claims, and grants no action clearance.
+Check board freshness against the repository before relying on a pitch; stale
+evidence requires `FRAMEWORK STATE: DEGRADED — VERSION / RUNTIME DRIFT`.
+The Harm Gate and Forward-Posture remain authoritative.
 
 ## License
 

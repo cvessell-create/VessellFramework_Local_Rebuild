@@ -1,6 +1,6 @@
 {
   "package_version": "3.8.1",
-  "generated_utc": "2026-10-07T14:56:13.364105+00:00",
+  "generated_utc": "2026-10-07T14:56:45.338033+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "files": [
     {
@@ -77,11 +77,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "cae47df34338467fc4314a713bb6ae31b20ce669ca4d9071568247845b9afa58"
+      "sha256": "7d885f7b674f84cbbcbeb01a5e2e76caceb253579b5e52881e0dd3b36c076fa6"
     },
     {
       "path": "SKILL.md",
-      "sha256": "927fbfb558317dafda4977b6be52d25d2892a2c3c8943f496835b1abfc532222"
+      "sha256": "817d0585f0d43e41b1a59f709d9585ca85f70665445d0539fe2f4eb4580bc043"
     },
     {
       "path": "Security_Control_Selection_Placement_Analyst_SKILL_v0.1.md",
@@ -130,6 +130,10 @@
     {
       "path": "VesselFramework_Planted_News_Intel_SKILL_v0.1.md",
       "sha256": "5cbf322855a462c36aedba689661f9e2c27807a4522143e5fd62433a2bd5d265"
+    },
+    {
+      "path": "VesselFramework_Posture_Agent_SKILL_v0.1.md",
+      "sha256": "be220166908ea0123153d5b5b63244217e35119e55fb6c0601f09956508f09c5"
     },
     {
       "path": "VesselFramework_SingleFile_EvilTwin_v0.2.py",
@@ -369,11 +373,11 @@
     },
     {
       "path": "mnt/skills/user/vessel-framework-analyst/SKILL.md",
-      "sha256": "927fbfb558317dafda4977b6be52d25d2892a2c3c8943f496835b1abfc532222"
+      "sha256": "817d0585f0d43e41b1a59f709d9585ca85f70665445d0539fe2f4eb4580bc043"
     },
     {
       "path": "pyproject.toml",
-      "sha256": "a836c57d7c6fb2667276d560337e34288adfe222d15d6e342bafbb1448f7a179"
+      "sha256": "dd0e99aa553a94bf727fcdd52d28764c79335949e9534cdf6d315a2f3a1f2211"
     },
     {
       "path": "requirements/agent.txt",
@@ -656,6 +660,10 @@
       "sha256": "07c8e536b79aec0eec75b1b587198dc6cecea5b7cb497c845604b66907b6ae60"
     },
     {
+      "path": "tests/test_posture_agent.py",
+      "sha256": "4a2b13c4da58cb078c94f49aad3b13afc3ea26242a08a4b0bf267fc68020b98e"
+    },
+    {
       "path": "tests/test_preflight.py",
       "sha256": "0673d8cdaaf7b6b54847c60aaff2ee1d6d86992f690c5fd33216c1ea3e995621"
     },
@@ -886,6 +894,10 @@
     {
       "path": "vessell/malware_triage.py",
       "sha256": "ee6df76c101d6cd0ace359452919047aad087c4f6d9a425cb7e0ce8c821abb43"
+    },
+    {
+      "path": "vessell/posture_agent.py",
+      "sha256": "91ad1084d7b0d1890b3096c35ee02efb1407948c8960ba982f8effe0d45b081a"
     },
     {
       "path": "vessell/provenance.py",
