@@ -12,8 +12,16 @@
       "sha256": "17e534c09856804c892b1a95089fe9806a494cf74591a5178dfb85bf20389d43"
     },
     {
+      "path": ".github/copilot-instructions.md",
+      "sha256": "799926667204667738de88b4df14ecaab515ca1f4d4d62c43745f9cca7c65796"
+    },
+    {
       "path": ".github/workflows/ci.yml",
       "sha256": "ec61cc9193767c89978d41a0130f6d2305c587c6f7f82f5e4a022ab5a23d6bc7"
+    },
+    {
+      "path": ".github/workflows/copilot-setup-steps.yml",
+      "sha256": "f1826a130cf0e30e76397a4be09c64aa46df76a94501f88b683a9d8d85fb5ccb"
     },
     {
       "path": ".gitignore",
@@ -417,7 +425,7 @@
     },
     {
       "path": "docs/memory-store.md",
-      "sha256": "d550d24eccc3e48919c46fba07ad8b9cd6385d711a0def6519401e4e707f561a"
+      "sha256": "d8eabdfb42feb1c632981fa0cf80edc3c39baa1c2886d55ebb7c31ae88627f5f"
     },
     {
       "path": "docs/grad-school-prospectus.md",

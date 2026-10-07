@@ -96,3 +96,24 @@ Run the R regression checks from the repository root using
 `Rscript r/test_memory_store.R`. The R implementation and converter do not
 connect to Copilot or runtime memory services; they only operate on the
 application's local SQLite store.
+
+## Copilot cloud-agent environment
+
+`.github/workflows/copilot-setup-steps.yml` provisions Python 3.12 and R 4.3.3
+with this repository's Python development extras and R memory-store packages
+before a Copilot cloud-agent session. It runs both memory-store test suites and
+the repository integrity-manifest check. After this workflow is merged to the
+repository's default branch, Copilot cloud-agent sessions can run the
+`vessell-memory` Python command or `Rscript r/memory_store.R`. The repository's
+`.github/copilot-instructions.md` asks Copilot to retrieve only relevant
+repository-scoped notes when the application database is already present, and
+to verify all cited details against current files.
+
+This setup does **not** connect to, import, modify, or vote on Copilot's own
+private memory system; that system does not expose a repository-callable API.
+The agent environment is ephemeral, and the default user database under its
+home directory is not a durable cross-session store. To work with application
+memories, provide a database explicitly through a trusted workflow or import
+reviewed repository facts; do not place personal or sensitive memories in
+source control or configure shared caches/secrets as an unreviewed memory
+channel.
