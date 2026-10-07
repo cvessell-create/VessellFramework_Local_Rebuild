@@ -10,6 +10,8 @@ description: >
 # VesselFramework News-Edition Report Skill
 ## Version 0.1 — Report-Building Doctrine
 
+> **Legacy domain skill:** This news and job-listing workflow is retained for the former project scope. It is not organizational-psychology research guidance or evidence about employee outcomes.
+
 ## 1. Purpose
 
 A daily news edition is an intelligence product: researched, verified,

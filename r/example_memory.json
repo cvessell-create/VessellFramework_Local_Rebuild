@@ -1,0 +1,8 @@
+{
+  "statement": "The R memory CLI and Python memory CLI use the same reviewed-memory SQLite tables.",
+  "scope": "repository",
+  "citations": [
+    "r/memory_store.R:18-49",
+    "vessell/memory_store.py:53-75"
+  ]
+}

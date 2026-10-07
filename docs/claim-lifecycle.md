@@ -1,5 +1,7 @@
 # Claim provenance and correction lifecycle
 
+> **Legacy software documentation:** This lifecycle describes the former claim-correction framework. It is retained for technical history and is not a research protocol, evidence-quality standard, or organizational-psychology capability.
+
 VessellFramework treats claims as records with provenance, uncertainty, and
 an explicit lifecycle. The supported API is in `vessell.provenance` and is
 re-exported from both `vessell` and the compatibility namespace `vessel`.

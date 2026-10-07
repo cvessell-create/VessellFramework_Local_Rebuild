@@ -11,6 +11,8 @@ description: >
 # VesselFramework Planted-News Intel Skill
 ## Version 0.1 — Hostile-Spread Doctrine
 
+> **Legacy domain skill:** This information-verification guidance is retained for the former project scope. It is not organizational-psychology research guidance or evidence about employee outcomes.
+
 ## 1. Purpose
 
 A planted story and a real story look identical in a single screenshot.

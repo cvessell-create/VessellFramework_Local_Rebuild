@@ -1,6 +1,6 @@
 {
-  "package_version": "3.8.1",
-  "generated_utc": "2026-10-04T18:10:39.904575+00:00",
+  "package_version": "3.9.1",
+  "generated_utc": "2026-10-07T01:53:00+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "files": [
     {
@@ -12,8 +12,16 @@
       "sha256": "17e534c09856804c892b1a95089fe9806a494cf74591a5178dfb85bf20389d43"
     },
     {
+      "path": ".github/copilot-instructions.md",
+      "sha256": "c8130234deb0e7f4c476ee3c6b6cf861a3b4b2ce5983ff03a7b67198ae2e581b"
+    },
+    {
       "path": ".github/workflows/ci.yml",
-      "sha256": "6484f39445a929932cc76eb19d86a1c4acae9826cde7f74a8378e5ac4427e2cb"
+      "sha256": "41bdeb53a9e7bf242b3323c7ea132c114a3c1f184f3e2beea6fd9bbf88006436"
+    },
+    {
+      "path": ".github/workflows/copilot-setup-steps.yml",
+      "sha256": "7964ac3dfd903fbe4d4982c4c0d9e4b9874238a839764697465f8dbdad72337d"
     },
     {
       "path": ".gitignore",
@@ -41,19 +49,19 @@
     },
     {
       "path": "CANONICAL_REFERENCE.md",
-      "sha256": "52755f4df7358379cab160de1f969082c8d1274e14722d870015d1ca56e9abc8"
+      "sha256": "e6cbbc414b61fb4b18224b26d819dafff0e084a9f7dc7f5768322883001ab1a1"
     },
     {
       "path": "CITATION.cff",
-      "sha256": "9e0a6fbbe3b2d956871bce38c58335defdb77137e5c4b91761a1afdd754f8a79"
+      "sha256": "3ca3be4b3217c635d083fd5da20022e442caaf83e54ef0c0e41fcb888d3c27db"
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "d5ac0139c2d12cad6be8d2e5bc9a23f9152f6060561e7d5895a9544d8dd6cf51"
+      "sha256": "a0252c37cc23fa4910b812eb52a3702bd87a1020c32bb1d7c8ec2e030c65dcb4"
     },
     {
       "path": "GAME_DEVELOPMENT_SKILL.md",
-      "sha256": "c05df042ed3fe41bbe2c05390c6274f5608e81fd4c004a6cc7afac1cd5a1e182"
+      "sha256": "e9d4c4356dced3b5726bfc7dbbb6591c551326273f2dcd074734606f49ec19d3"
     },
     {
       "path": "LICENSE",
@@ -61,19 +69,19 @@
     },
     {
       "path": "MANIFEST.in",
-      "sha256": "1edd99429c257a07ce8f09472a8e1540f3c7443c95a509ba5971a3fc4d175fd4"
+      "sha256": "a5a52af52d9891e0a33831f1ee57caa8f50fb921b4cca76fb41a576952d96732"
     },
     {
       "path": "META_REVIEW_AND_ROADMAP.md",
-      "sha256": "b0fad4362cfbdc075a6a0d286b89bf22e34153a5e6087964b647b223f64995f8"
+      "sha256": "2154f426deb0be591c43c82e56d27b6b6d15802acb973e19d0bb2def229bf430"
     },
     {
       "path": "PROFESSOR_PACKET_MANIFEST.md",
-      "sha256": "4efd9760a7b2e3f0819975559fee87cb69d7973e318c33973b823c5ef35d323c"
+      "sha256": "454e46e42480a2bc793af7cf34b7239fc9949732c087d195fe86e50eacf932d1"
     },
     {
       "path": "PROFESSOR_README.md",
-      "sha256": "1c8bf18d651d3867af1ba3f154f9fd20c721cc8eb694dff41fad1b4e08f29bc5"
+      "sha256": "439c9fda11c9b91326e2550e25ec038ecc26dcc79789251f872424fb3d424f4a"
     },
     {
       "path": "Player's Quick Start Guide.docx",
@@ -261,19 +269,19 @@
     },
     {
       "path": "README.md",
-      "sha256": "12bcb30f3d58887f8e2e38297c6aa862c1259d3f9608ac6c0ed3b70b7d9b586f"
+      "sha256": "669386a6588a206f92c032e7ed6bca14c1fe24685eb09a2fe1b54ba0d5749417"
     },
     {
       "path": "SKILL.md",
-      "sha256": "084ab91c3f942b62d183de964e7f554a789490f8f30efbee255a2d25b189b69e"
+      "sha256": "357fe7244a6caf2c911dfe6deeed8ac6609736ceff890baa15e48239f724f4e5"
     },
     {
       "path": "Security_Control_Selection_Placement_Analyst_SKILL_v0.1.md",
-      "sha256": "97d540b0447290704cea2c7cd65613447c361e6da23fa47cf7425633ce1f7b82"
+      "sha256": "3534b06e72b2a77c648f43d05f23ec091d098b19fc45ecb5f0c85faf102811eb"
     },
     {
       "path": "VesselFramework_Agent.md",
-      "sha256": "96ae11d0b90b3234af1b76d1d1e8f08b9c541bedd07b31e8b458b17d4a36f1a5"
+      "sha256": "ee8c1bf2ab28480232097ef65b1d1b62ecc5e9a1092ba87222a0ac4759e7a5f8"
     },
     {
       "path": "VesselFramework_Agentic_SOC_Analyst_SKILL_v0.1.md",
@@ -285,11 +293,11 @@
     },
     {
       "path": "VesselFramework_Forecasting_SKILL_v1.0.md",
-      "sha256": "f27946e8a5ff135fd13d4b1b168a885a94431d8b4e975ffe95186b56170f9885"
+      "sha256": "4fc136eec703c1bcab18158d7d1db9e50488ad9a755f91547ad0e29d4bae483a"
     },
     {
       "path": "VesselFramework_Ghost_Job_Filter_SKILL_v0.1.md",
-      "sha256": "7f046807d813349c6993d750d16edeaf0e9559c2dc88647c20356aad9a54acbb"
+      "sha256": "8e371f8681292a52e91c4a6efc1c7c9b9df51eda6012ac8d18d2035d3d6a61a0"
     },
     {
       "path": "VesselFramework_Hardening_Patch_Registry_v3.8.md",
@@ -297,11 +305,11 @@
     },
     {
       "path": "VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md",
-      "sha256": "0862f490715551b1dda95241069a3f9260ff76480fde76e34010dc431b10ff41"
+      "sha256": "aa3ac06b286712eb0205698ffb48402187a13cdb801ddfc69734416e3ae2f2dd"
     },
     {
       "path": "VesselFramework_News_Edition_Report_SKILL_v0.1.md",
-      "sha256": "461c997091797e8662abf31f2d55b1e721505f989cd2968cd16f5f227215f5be"
+      "sha256": "dcf1317465119148e399b5af4377152af72bab3f9bc65d07f19380c46f626831"
     },
     {
       "path": "VesselFramework_Path_Sync_Log.jsonl",
@@ -313,7 +321,7 @@
     },
     {
       "path": "VesselFramework_Planted_News_Intel_SKILL_v0.1.md",
-      "sha256": "5cbf322855a462c36aedba689661f9e2c27807a4522143e5fd62433a2bd5d265"
+      "sha256": "a4b7355b83d95c23a36f0ffe94489d9cf9e7380bf5086dac65b1859efd9af0c3"
     },
     {
       "path": "VesselFramework_SingleFile_EvilTwin_v0.2.py",
@@ -337,7 +345,7 @@
     },
     {
       "path": "Vessel_Evidence_Assurance_Validation_Orchestrator_SKILL_v0.1.md",
-      "sha256": "861a6a74284d7bd530a507191374916d6f159ee6ff29d7389cd077e1ebd7f28e"
+      "sha256": "7fa65d8d9b9b7daf14723cc1e84c0df4a53bebf81000aeb873e43569526f1442"
     },
     {
       "path": "Vessel_Evidence_Product_Record_Template_v0.1.md",
@@ -345,15 +353,15 @@
     },
     {
       "path": "Vessel_Intelligence_Briefing_Policy_SKILL_v0.1.md",
-      "sha256": "20f36444ba307ab6b04044320983c7088f3ff55706255bdce317c896414fb0bc"
+      "sha256": "de88a2653861f02611361c0ea9bf73287ea25e0f9817745c88c53807ed80a631"
     },
     {
       "path": "VessellFramework_Community_SKILL_v1.0.md",
-      "sha256": "e7cea6e25d692431105c08418cf7b4d56e8ccbb0cf86f862e6c14773ae35302b"
+      "sha256": "d28ea6233456707cd1f36f60f5f80d7b899ee6eb5c10abcf5c736a6db3658921"
     },
     {
       "path": "VessellFramework_Portfolio_Showcase_SKILL_v1.0.md",
-      "sha256": "5703a9161e4e2c7acea1564eb5fd039824da24530d3007064740951940b3f7bd"
+      "sha256": "701f57fde9390fe4593277536a78a8ed5f9328fc1e5e5ef4322a16e8ccee2f9f"
     },
     {
       "path": "XP_Cyber_Range_Challenge_Analyst_SKILL_v0.1.md",
@@ -393,15 +401,15 @@
     },
     {
       "path": "docs/claim-lifecycle.md",
-      "sha256": "44e04d3c2e01623ba16d6d061c286576a3bc5ef20dda3eb843ac16fde772fc83"
+      "sha256": "6e5e676c0a9de6950264ff9c9335e6f93926bb0ecd9aae3dda0674d75ea250e8"
     },
     {
       "path": "docs/commercialization-strategy.md",
-      "sha256": "093cd1bc25527616085d09614fa6a2e89034f785161140b436940a9a8b945fe9"
+      "sha256": "6f069dd78a688773d2964a2965b0301f544259b06df31e2dc8ea0b281caeebc2"
     },
     {
       "path": "docs/evaluation-methods.md",
-      "sha256": "f2ec3e4773b5826c7b4af4151cfae958a5bd3ae08ffbbb8307d072ee8f57c375"
+      "sha256": "34628d302c676725d70cf02214abc9eaf7611659d8e66021ebf4b886ae752959"
     },
     {
       "path": "docs/free-method-courses.md",
@@ -413,15 +421,23 @@
     },
     {
       "path": "docs/game-integration.md",
-      "sha256": "05795da37c9909c87d229b64f618e73d6762643952d9dd7f214f928dc40552d7"
+      "sha256": "c8223acb135888c28fe32b7fac2cef6df610555fa5de1248ac2479a0c3452d58"
+    },
+    {
+      "path": "docs/memory-store.md",
+      "sha256": "7c50cfbdb8af8fa34d26e65f98e37b12f0401f82c5da04da8e319129b9e5c0ec"
     },
     {
       "path": "docs/grad-school-prospectus.md",
-      "sha256": "34d16c5b29acda1784732e2c1f4fd4256dba68f407ef3c1a4dc12b28b9bf5c2a"
+      "sha256": "61871da0d2b0c505f3e700e94a20e2e663bfb6137918a486f79ec145de57bfa2"
     },
     {
       "path": "docs/operational-case-studies.md",
-      "sha256": "167c366df9d35cf5570c4d45b22e35f44e4bb1910b791080184c4e2f345445bc"
+      "sha256": "d47f7da50df3697d82598e3a74d1116fc458d01270abd92a752185039b41792e"
+    },
+    {
+      "path": "docs/organizational-psychology-research-charter.md",
+      "sha256": "542ed85a0fecebcc276ca02530bea02e49e437bd22a34f5888c5ba9808962425"
     },
     {
       "path": "docs/os-sandbox.md",
@@ -437,11 +453,11 @@
     },
     {
       "path": "docs/references.md",
-      "sha256": "436818ff9069a5e53a0e2e3a1781885877fa62d6e76ddef25f37161430a0451b"
+      "sha256": "a31c2f73901eb42ee643f41d389c986077aaf83aefdc97c43aa3e69e021b76dd"
     },
     {
       "path": "docs/replay-lab.md",
-      "sha256": "a349796d7bd5a5b87c78cbb8a7967590f9e7c466c01d5b86b0565ea45b68aa65"
+      "sha256": "d8390b59e120a051cec1cf6ea55bd081f28495b81e26c5c8007883bb4daeda1a"
     },
     {
       "path": "docs/tool-integrations.md",
@@ -449,7 +465,7 @@
     },
     {
       "path": "docs/traceability/doctrine_code_matrix.md",
-      "sha256": "fd2993972bc8f0d538defa354e8f762c4d56c3544d7f305157da577b96c6f715"
+      "sha256": "5ec439ead4a32f75c7531eddf56b30b1dd832fd7d6f427864ec6a2c84d890a56"
     },
     {
       "path": "docs/trade-secrets-notice.md",
@@ -476,6 +492,10 @@
       "sha256": "07046a9b93315c7a8f56171e6c68293ce2cabb96a9810ab8528a8c87613caf1b"
     },
     {
+      "path": "examples/organizational_psychology_evidence_catalog.json",
+      "sha256": "e408d4be59866cc1f57a0d26f5531c43f66e96fc6ec16ef1f82d8229c586056b"
+    },
+    {
       "path": "install_vesselframework_v3_8.py",
       "sha256": "b4537519cc46d5ce722d016be53079464e8320e463a2131d4b88cf083c24435e"
     },
@@ -497,7 +517,7 @@
     },
     {
       "path": "mnt/skills/user/vessel-framework-analyst/SKILL.md",
-      "sha256": "084ab91c3f942b62d183de964e7f554a789490f8f30efbee255a2d25b189b69e"
+      "sha256": "357fe7244a6caf2c911dfe6deeed8ac6609736ceff890baa15e48239f724f4e5"
     },
     {
       "path": "outputs/case_runs/20260923T010108Z_illustrative-provenance-and-posture-review.json",
@@ -657,7 +677,27 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "8b031ec2871b174eda84b174cb3ff338e567f531375d47b097f60e64d88f2ad9"
+      "sha256": "02d77a15fc7658801a9de6c472f78bb1982ac5ee4b84ad87c0323c2fbdb72ba5"
+    },
+    {
+      "path": "r/convert_python_memory_db.R",
+      "sha256": "52527411f004e9300909cbc622d215c3fa66d73474e751809280abb9f7e33af0"
+    },
+    {
+      "path": "r/example_memory.json",
+      "sha256": "67b7be59879dfbbb3d76742ed60fc744f49d466dc50b6158b4ba8c275acc3caf"
+    },
+    {
+      "path": "r/memory_store.R",
+      "sha256": "55253eff5153ba9d5d41c5b1282b55e2c8a72657cfc9e910b0276e035951889d"
+    },
+    {
+      "path": "r/setup.R",
+      "sha256": "14bc65fea724287624e69766065ad06e9218ccf2225a05d5ffb976fa45c11f6f"
+    },
+    {
+      "path": "r/test_memory_store.R",
+      "sha256": "268e60978ec3ef1180e7cd9b523b3f6bbb66b61198e49af97f1acce03d69e581"
     },
     {
       "path": "requirements/agent.txt",
@@ -758,6 +798,10 @@
     {
       "path": "schemas/forecast.schema.json",
       "sha256": "db9c0d6ad951a9ce3b5eacbac48bc5899e2b436a9498ce7b8222fbd45cd7aab3"
+    },
+    {
+      "path": "schemas/research-evidence-catalog.schema.json",
+      "sha256": "c52c25089859a51f60ea6598af4a6d6a2181e2cdee652750c9b6d34e6240d08c"
     },
     {
       "path": "schemas/search.path.schema.json",
@@ -872,6 +916,10 @@
       "sha256": "ad736be7ec48026a4c38d98860a0939ceb0408835fd69a04b3aa4299099183ce"
     },
     {
+      "path": "tests/test_memory_store.py",
+      "sha256": "c1f6c44839b9f16213864413b675d6b3d1ccaac7bd62874207688be2a588ae8c"
+    },
+    {
       "path": "tests/test_microsoft_intune.py",
       "sha256": "7866cb8aa1ae337693bb57f6cbd289a6121f644ce402efa517b1d0e6c2ea0302"
     },
@@ -914,6 +962,10 @@
     {
       "path": "tests/test_replay_lab.py",
       "sha256": "91044d4f158ec28cdfb8a789be2caa3037e390b55e370c9b181bb4ddc7bed687"
+    },
+    {
+      "path": "tests/test_research_catalog.py",
+      "sha256": "e4aa1703c20270864058d81e96408d13106ca8954fd712d6a9439ff5305c2444"
     },
     {
       "path": "tests/test_scan_reporting.py",
@@ -1084,12 +1136,20 @@
       "sha256": "ee6df76c101d6cd0ace359452919047aad087c4f6d9a425cb7e0ce8c821abb43"
     },
     {
+      "path": "vessell/memory_store.py",
+      "sha256": "4e673f74c9bdafd3fbe62e57d245db7c1f2ae2e2c93f7d358f17462339f59ac5"
+    },
+    {
       "path": "vessell/provenance.py",
       "sha256": "5d03f2f9ecf64aa5a9bd49a27cc9fe6303d5ea1755fb73462685780efc0bd6df"
     },
     {
       "path": "vessell/reference_data.py",
       "sha256": "aa989945ed97991d6fad93d95a054c96701d862b31c1be8454beb8c9b1f7e7ef"
+    },
+    {
+      "path": "vessell/research_catalog.py",
+      "sha256": "13f8d25a58a1590056a48c4da28dd34bfb73e1d44c2b6e91bb580906aa7be0d9"
     },
     {
       "path": "vessell/replay_lab.py",
