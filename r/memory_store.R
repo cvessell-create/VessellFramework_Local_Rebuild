@@ -62,17 +62,20 @@ memory_validate <- function(memory) {
       !memory$scope %in% memory_scopes) {
     stop("scope must be one of: user, repository.")
   }
-  if (!is.character(memory$citations) ||
-      length(memory$citations) < 1L ||
-      any(!nzchar(trimws(memory$citations)))) {
+  citations <- unlist(memory$citations, use.names = FALSE)
+  if (!is.character(citations) ||
+      length(citations) < 1L ||
+      any(!nzchar(trimws(citations)))) {
     stop("citations must be a non-empty array of non-empty source references.")
   }
   if (!is.null(memory$valid_until)) {
+    has_timezone <- grepl("(Z|[+-][0-9]{2}:[0-9]{2})$", memory$valid_until)
+    parsed_time <- suppressWarnings(as.POSIXct(memory$valid_until, tz = "UTC"))
     if (!is.character(memory$valid_until) ||
         length(memory$valid_until) != 1L ||
-        is.na(as.POSIXct(memory$valid_until, format = "%Y-%m-%dT%H:%M:%OSZ",
-                        tz = "UTC"))) {
-      stop("valid_until must be an ISO-8601 UTC timestamp ending in Z.")
+        !has_timezone ||
+        is.na(parsed_time)) {
+      stop("valid_until must be an ISO-8601 timestamp with a timezone.")
     }
   }
   invisible(TRUE)
@@ -83,7 +86,7 @@ memory_decode_row <- function(connection, row) {
     id = row$id,
     statement = row$statement,
     scope = row$scope,
-    citations = jsonlite::fromJSON(row$citations_json, simplifyVector = TRUE),
+    citations = as.list(jsonlite::fromJSON(row$citations_json, simplifyVector = TRUE)),
     status = row$status,
     created_at = row$created_at,
     valid_until = row$valid_until,
@@ -119,7 +122,7 @@ memory_add <- function(database, memory) {
       ),
       params = list(
         identifier, trimws(memory$statement), memory$scope,
-        jsonlite::toJSON(memory$citations, auto_unbox = FALSE), now,
+        jsonlite::toJSON(as.list(memory$citations), auto_unbox = FALSE), now,
         memory$valid_until %||% NA_character_
       )
     )
@@ -197,7 +200,7 @@ memory_review <- function(database, identifier, decision, reviewer = "local-user
         ),
         params = list(
           replacement_id, trimws(replacement$statement), replacement$scope,
-          jsonlite::toJSON(replacement$citations, auto_unbox = FALSE), now,
+          jsonlite::toJSON(as.list(replacement$citations), auto_unbox = FALSE), now,
           replacement$valid_until %||% NA_character_, identifier
         )
       )
@@ -249,13 +252,18 @@ memory_retrieve <- function(database, query, scope, limit = 10L) {
     connection,
     paste(
       "SELECT * FROM memories WHERE status = 'approved' AND scope = ?",
-      "AND (valid_until IS NULL OR valid_until > ?)",
       "ORDER BY created_at DESC, id"
     ),
-    params = list(scope, memory_now())
+    params = list(scope)
   )
   results <- list()
+  current_time <- Sys.time()
   for (index in seq_len(nrow(rows))) {
+    expiry <- rows$valid_until[[index]]
+    if (!is.na(expiry)) {
+      parsed_expiry <- as.POSIXct(expiry, tz = "UTC")
+      if (!is.na(parsed_expiry) && parsed_expiry <= current_time) next
+    }
     statement_terms <- unique(tolower(unlist(strsplit(
       rows$statement[[index]], "[^[:alnum:]_-]+"
     ))))
@@ -282,6 +290,15 @@ memory_cli <- function(arguments = commandArgs(trailingOnly = TRUE)) {
     stop("Install R dependencies: install.packages(c('DBI', 'RSQLite', 'jsonlite', 'uuid'))")
   }
   default_database <- file.path(path.expand("~"), ".vessell", "memories.sqlite3")
+  if (length(arguments) == 1L && arguments[[1L]] %in% c("-h", "--help")) {
+    cat(
+      "Usage: Rscript r/memory_store.R [--database PATH] COMMAND\n",
+      "Commands: add JSON, review ID approve|reject|correct, list [--status STATUS],\n",
+      "          retrieve QUERY --scope user|repository [--limit N]\n",
+      sep = ""
+    )
+    return(invisible(0L))
+  }
   if (length(arguments) && identical(arguments[[1L]], "--database")) {
     if (length(arguments) < 3L) stop("--database requires a path before the command.")
     database <- arguments[[2L]]
@@ -329,12 +346,12 @@ memory_cli <- function(arguments = commandArgs(trailingOnly = TRUE)) {
                   identical(arguments[[1L]], "--status")) arguments[[2L]] else NULL
     cat(jsonlite::toJSON(memory_list(database, status), auto_unbox = TRUE, pretty = TRUE), "\n")
   } else if (identical(command, "retrieve")) {
-    if (length(arguments) < 4L || !identical(arguments[[2L]], "--scope")) {
+    if (length(arguments) < 3L || !identical(arguments[[2L]], "--scope")) {
       stop('Usage: retrieve "query" --scope user|repository [--limit N]')
     }
     limit <- 10L
-    if (length(arguments) >= 6L && identical(arguments[[5L]], "--limit")) {
-      limit <- as.integer(arguments[[6L]])
+    if (length(arguments) >= 5L && identical(arguments[[4L]], "--limit")) {
+      limit <- as.integer(arguments[[5L]])
     }
     cat(jsonlite::toJSON(
       memory_retrieve(database, arguments[[1L]], arguments[[3L]], limit),

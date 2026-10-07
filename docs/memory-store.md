@@ -61,3 +61,38 @@ vessell-memory retrieve "Python compatibility" --scope repository --limit 5
 
 The database is local application data, not a shared service. Back it up and
 restrict filesystem access according to the sensitivity of approved content.
+
+## R environment and Python database conversion
+
+An equivalent standalone R CLI and SQLite store is provided in `r/`. Install R
+and the required packages once:
+
+```r
+source("r/setup.R")
+```
+
+Run it directly with `Rscript`; its default database is shared with the Python
+CLI at `~/.vessell/memories.sqlite3` because both use the same SQLite schema:
+
+```sh
+Rscript r/memory_store.R add memory.json
+Rscript r/memory_store.R review MEMORY_ID approve
+Rscript r/memory_store.R retrieve "Python compatibility" --scope repository
+```
+
+To convert rather than share an existing Python database, use the converter
+with a **new** destination path. It copies memory IDs, scopes, status, citations,
+timestamps, correction links, and review events; it leaves the source untouched
+and refuses to overwrite an existing destination:
+
+```sh
+Rscript r/convert_python_memory_db.R \
+  ~/.vessell/memories.sqlite3 \
+  ~/.vessell/memories-r.sqlite3
+Rscript r/memory_store.R --database ~/.vessell/memories-r.sqlite3 list
+```
+
+Run the R regression checks from the repository root using
+`Rscript r/test_memory_store.R`. The R implementation and converter do not
+connect to Copilot or runtime memory services; they only operate on the
+application's local SQLite store.

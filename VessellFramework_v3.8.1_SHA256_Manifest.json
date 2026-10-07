@@ -261,7 +261,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "bc42eee8ddd6452295868d39bc0936213bc776c87bc8b168aea09743651bc6e9"
+      "sha256": "669386a6588a206f92c032e7ed6bca14c1fe24685eb09a2fe1b54ba0d5749417"
     },
     {
       "path": "SKILL.md",
@@ -417,7 +417,7 @@
     },
     {
       "path": "docs/memory-store.md",
-      "sha256": "1f5e9e76188d1d12db9393006ffd9cd1ca00822abba588266c2655c9475d5e6a"
+      "sha256": "d550d24eccc3e48919c46fba07ad8b9cd6385d711a0def6519401e4e707f561a"
     },
     {
       "path": "docs/grad-school-prospectus.md",
@@ -670,6 +670,26 @@
     {
       "path": "pyproject.toml",
       "sha256": "02d77a15fc7658801a9de6c472f78bb1982ac5ee4b84ad87c0323c2fbdb72ba5"
+    },
+    {
+      "path": "r/convert_python_memory_db.R",
+      "sha256": "52527411f004e9300909cbc622d215c3fa66d73474e751809280abb9f7e33af0"
+    },
+    {
+      "path": "r/example_memory.json",
+      "sha256": "67b7be59879dfbbb3d76742ed60fc744f49d466dc50b6158b4ba8c275acc3caf"
+    },
+    {
+      "path": "r/memory_store.R",
+      "sha256": "2106706f80081fc54effe1fe4bf916e5e7837914fc502a093ee0012b03b5cc1f"
+    },
+    {
+      "path": "r/setup.R",
+      "sha256": "14bc65fea724287624e69766065ad06e9218ccf2225a05d5ffb976fa45c11f6f"
+    },
+    {
+      "path": "r/test_memory_store.R",
+      "sha256": "98d7ca331a9cdcd722ba8984c8385df2e5f227fa5f3867f1bce966b08b1826d4"
     },
     {
       "path": "requirements/agent.txt",

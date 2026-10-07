@@ -63,6 +63,9 @@ vessell-memory retrieve "Python compatibility" --scope repository
 This is not connected to Copilot memory and does not verify cited sources or
 establish that stored statements are true. See the
 [memory-store guide](docs/memory-store.md) for review and correction behavior.
+An equivalent standalone R CLI and Python-database converter are available
+under [`r/`](r/); install R packages and run `Rscript r/test_memory_store.R` for
+its smoke/regression checks.
 
 ## Repository status and legacy software
 
