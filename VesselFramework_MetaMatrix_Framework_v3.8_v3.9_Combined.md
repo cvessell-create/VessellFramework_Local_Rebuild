@@ -1,3 +1,14 @@
+# LEGACY HISTORICAL FRAMEWORK — NOT GOVERNING THE RESEARCH PIVOT
+
+This combined document records the former intelligence-analysis and
+cybersecurity-oriented VesselFramework. Its doctrine, terminology, claims, and
+version statements do not define the current organizational-psychology research
+direction. The legacy software remains in the repository pending a separate
+retain/archive/replace decision. Use `SKILL.md` and
+`docs/organizational-psychology-research-charter.md` for the proposed research
+scope. Nothing in this historical document is evidence of employee outcomes or
+workplace effectiveness.
+
 # VesselFramework — Complete Meta Matrix Framework
 ## Version 3.8.1 (Rough Working Candidate for Graduate Review) | NIST SP 800-50 Rev. 1 Integrated
 

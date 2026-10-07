@@ -1,5 +1,7 @@
 # Game Development and Analyst Workflow Reconstruction Skill
 
+> **Legacy scope:** This guide documents the separate game integration and former framework architecture. It is not part of the proposed organizational-psychology study.
+
 ## Purpose and authority
 
 Use this skill to explain how **Hail to the Analyst** works, retain every

@@ -1,5 +1,7 @@
 # VessellFramework — Commercialization Strategy
 
+> **Legacy strategy:** This document describes commercialization assumptions for the former intelligence/cybersecurity verification product, not a plan for the proposed organizational-psychology research project.
+
 **Prepared:** September 30, 2026
 **Status:** Private working document. No traction, no revenue, no users — everything below is a plan, not a claim.
 

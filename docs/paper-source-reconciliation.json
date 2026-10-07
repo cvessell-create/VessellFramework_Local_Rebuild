@@ -1,0 +1,19 @@
+{
+  "reconciled_on": "2026-10-04",
+  "authority": "User-designated author source; not independent verification of historical events",
+  "source_title": "How an Unverified Sentence Became System Behavior — and How to Stop It",
+  "canonical_path": "docs/claim-correction-case-study.md",
+  "source_document_sha256": "42b20766faa8192fb720f938980dc824b84f138ec34c60965d2aef3792305b75",
+  "source_preservation": "BYTE_IDENTICAL",
+  "superseded_repository_document": {
+    "path": "docs/claim-correction-case-study.md",
+    "commit": "b4b6b022ae0c191ac333d4e423d67fed64bd7af2",
+    "sha256": "cf08d66d0e7259bd0d5456f5a27f960195b2292e645779c6a524b475543db0ce",
+    "standing": "Superseded LLM-expanded narrative; not the governing author source"
+  },
+  "previous_evaluation_source_document_sha256": "edbfb32d793a313b1a5dc6451221c0798bd17164822ec7dc9bb80e2ac945c475",
+  "previous_evaluation_spec_sha256": "c4c274bf47fbc54ba088037ba29ccea30e440487c6eb34b5ee654a0335d2903e",
+  "corrected_evaluation_spec_sha256": "ebd9f4c7736eaa6d1bcc2653b078cfcc86ee3289764876e7c2d43dd4284b13dc",
+  "historical_external_records_verified": false,
+  "runtime_policy_changed": false
+}

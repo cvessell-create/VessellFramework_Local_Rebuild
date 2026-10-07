@@ -1,60 +1,59 @@
-# VesselFramework Graduate Review Packet (Rough Working Version)
+# Organizational Psychology Research Direction — Faculty Review
 
-Author: Christopher R. Vessell  
-Program context: M.S. Strategic Intelligence (graduate project candidate)
+**Status:** Preliminary scoping material; not an approved proposal, protocol,
+or completed study.
 
-## 1) What this project has become
+## Proposed direction
 
-VesselFramework has become a cross-domain analytical framework with three integrated layers:
+The repository is being re-scoped toward organizational psychology and
+psychologically healthy workplaces. A candidate question asks how perceived
+supervisor support for work-life needs and employee involvement are associated
+with perceived stress and work–nonwork interference among employees in one
+defined setting.
 
-1. Doctrine layer: four analytical pillars (PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR), Decision Provenance Chain, Harm Gate, and Maskirovka check architecture.
-2. Operational skill layer: analyst and forecasting execution guides that enforce evidence-status discipline, provenance checks, alternatives testing, and calibrated posture language.
-3. Executable reference layer: provenance/firewall logic and deterministic case intake tooling that operationalize selected controls for repeatability and regression testing.
+The population, measures, sample, and design remain open. A cross-sectional
+survey, if selected, would support estimates of association only—not causal
+claims. A literature review without participant recruitment remains a possible
+alternative. No employee recruitment, intervention, or employee-data
+collection is authorized by the current materials.
 
-This package is submitted as a rough working candidate for critique, not as a finished production platform.
+## What exists and what does not
 
-## 2) What this project can become
+The repository contains a preliminary [research charter](docs/organizational-psychology-research-charter.md),
+[prospectus](docs/grad-school-prospectus.md), and starting
+[bibliography](docs/references.md#organizational-psychology-research-direction).
+It does **not** yet contain an approved protocol, selected validated measures,
+organizational-psychology dataset, analysis implementation, or results.
 
-Near-term (course and committee relevance):
-- A defensible graduate capstone framework for evidence-to-decision analysis under uncertainty.
-- A structured method for distinguishing source-established facts from synthesis and hypotheses.
-- A testable doctrine/code alignment case study for intelligence-method rigor.
+The existing software was developed for evidence/provenance workflows,
+cybersecurity, intelligence analysis, verification, remediation, and game
+experiments. It has not been converted into organizational-psychology research
+software. Software tests and old outputs are not evidence of employee outcomes
+or workplace intervention effectiveness.
 
-Medium-term (research and applied value):
-- A validated comparative framework for cross-domain analytical failures (governance, authority, efficacy, and operator-risk errors).
-- A reproducible teaching artifact for analytic tradecraft and calibration discipline.
-- A candidate publication pipeline once empirical validation and external review milestones are completed.
+## Questions for review
 
-## 3) How to describe it (short form)
+1. Is this question a suitable fit for organizational psychology and the
+   intended academic context?
+2. Which population and one primary predictor/outcome pair are feasible and
+   meaningful?
+3. Which constructs and established measures are appropriate for that
+   population?
+4. Is an evidence review preferable to participant research at this stage?
+5. What design, analysis, sample-size rationale, organizational permissions,
+   and institutional ethics determinations would be required?
+6. Which legacy software capabilities, if any, should be retained as generic
+   reproducibility infrastructure?
 
-VesselFramework is a structured analytical method that combines evidence assurance, decision-provenance tracing, bottleneck diagnostics, and operator-risk controls to support more defensible high-consequence assessments across intelligence, cybersecurity, and organizational domains.
+## Review order
 
-## 4) How to describe it (long form)
+1. `docs/organizational-psychology-research-charter.md`
+2. `docs/grad-school-prospectus.md`
+3. `docs/references.md` — organizational-psychology section
+4. `docs/evaluation-methods.md` — proposed evaluation safeguards
+5. `CANONICAL_REFERENCE.md` — project and legacy boundaries
 
-VesselFramework is an authorial synthesis that translates qualitative and mixed-source evidence into auditable analytical posture decisions. It enforces source-status tagging, provenance independence checks, alternatives testing, and harm-aware decision controls before consequential recommendations. It is not a prediction oracle; it is a disciplined reasoning architecture with explicit confidence and exposure boundaries.
-
-## 5) Current limits (important for academic review)
-
-- Some historical artifacts cited by legacy sections are intentionally not bundled in this submission package.
-- Not all framework claims are empirically validated; parts remain synthesis requiring prospective calibration.
-- The executable layer is partial by design and should be evaluated as implementation evidence, not constitutional doctrine.
-
-## 6) Requested feedback from professor/reviewer
-
-1. Conceptual coherence: Is the doctrine internally consistent and teachable?
-2. Methodological rigor: Are the evidence/provenance gates defensible for graduate-level work?
-3. Novelty boundaries: Which elements appear genuinely original vs derivative synthesis?
-4. Validation design: What empirical design would best test utility and failure modes?
-5. Publication pathway: What should be refined first for scholarship competitiveness?
-
-## 7) Suggested reading order
-
-1. `CANONICAL_REFERENCE.md`
-2. `VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md`
-3. `SKILL.md`
-4. `VesselFramework_Forecasting_SKILL_v1.0.md`
-5. `META_REVIEW_AND_ROADMAP.md`
-
-## 8) Package intent
-
-This is a rough working version prepared for critical feedback, method refinement, and supervised maturation into a graduate-quality research artifact.
+The source list is an initial bibliography, not a systematic review. Claims
+about Dr. Matthew J. Grawitch’s individual positions or preferences should be
+grounded in sources he authored or official faculty materials, not inferred
+from the repository's proposed topic.

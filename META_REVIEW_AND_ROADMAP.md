@@ -1,58 +1,75 @@
-# Meta-Level Review and Forward Roadmap
+# Research Pivot Review and Roadmap
 
-## Current identity of the project
+## Current identity
 
-VesselFramework is currently best understood as:
+The proposed project direction is an organizational-psychology research
+artifact focused on psychologically healthy workplaces, work-life support,
+leadership, and employee stress. The candidate question is associational and
+provisional. The repository does not yet contain an approved study or
+organizational-psychology runtime.
 
-- A methodological framework for disciplined evidence-to-decision analysis.
-- A doctrine-plus-runtime experiment in translating qualitative tradecraft into auditable controls.
-- A graduate-level synthesis artifact that is partially executable and partially doctrinal.
+The prior product was a broad evidence/provenance and operational software
+framework covering intelligence analysis, cybersecurity, verification,
+remediation, and experimental game integration. That code and its outputs
+remain legacy material; passing tests establish software behavior against
+legacy requirements, not evidence of workplace effects.
 
-## Strengths
+## Strengths to preserve carefully
 
-1. Strong evidence-status taxonomy (source-established vs synthesis vs hypothesis vs illustrative).
-2. Explicit provenance firewall and independence logic.
-3. Useful separation of assessment confidence from action posture.
-4. Operator exposure and harm controls improve real-world defensibility.
-5. Cross-domain portability is architecturally explicit.
+- Research question and inference limits are stated explicitly.
+- The initial bibliography includes peer-reviewed work and authoritative
+  organizational guidance, with the scope of each source identified.
+- Existing engineering strengths—traceability, reproducible processing,
+  explicit unknowns, and clear test boundaries—may be useful if redesigned for
+  the chosen research question.
+- The plan does not assume that a correlational survey, workplace policy, or
+  code feature establishes causality or effectiveness.
 
-## Weaknesses and risks
+## Risks and unresolved design choices
 
-1. Version identity can be confusing without reviewer orientation.
-2. Historical references in long-form doctrine can look over-extended for a rough submission.
-3. Some claims remain synthesis and require clearer empirical validation boundaries.
-4. Package still contains operational scaffolding that can distract from scholarly core if unframed.
+1. The proposed population, setting, measures, and study type remain open.
+2. “Work-life balance,” “stress,” and “supportive leadership” need specific,
+   defensible operational definitions.
+3. Participant research may introduce confidentiality, power-differential,
+   consent, and institutional review obligations.
+4. A broad healthy-workplace scope could exceed feasible sample sizes and
+   dilute the central question.
+5. Legacy cybersecurity and game materials can confuse faculty and readers
+   unless clearly separated or archived.
+6. Generic provenance tools can be mistaken for evidence quality; they do not
+   establish reliability, construct validity, replication, or causal effect.
 
-## What to move forward with now
+## Recommended sequence
 
-1. Keep and defend:
-- Evidence Assurance model
-- Decision Provenance Chain
-- Harm Gate and Forward Posture controls
-- Primary/Reference Maskirovka check architecture
+1. Obtain advisor input on fit, scope, and whether an evidence review or
+   participant study is appropriate.
+2. Select one target population, primary predictor, primary outcome, and
+   design; develop a literature review and measure-selection rationale.
+3. Consult the institution's ethics office and relevant organizational
+   stakeholders before recruitment or employee-data access.
+4. Freeze the research protocol and analysis plan before implementing any
+   domain-specific software. Do not add new dependencies or ingest real
+   employee data until approved.
+5. Audit the current package and decide which modules are generic,
+   retainable infrastructure versus legacy domain functionality to archive or
+   replace.
+6. Define research-specific records, privacy controls, and tests only after
+   study requirements are settled.
+7. Evaluate software conformance separately from measurement properties,
+   external replication, and workplace outcomes.
 
-2. Tighten next:
-- Formal validation plan with explicit hypotheses, metrics, and failure criteria
-- Version governance and release labeling
-- Reviewer-facing concise statement of novelty and scope limits
+## Review prompts
 
-3. Defer until after advisor feedback:
-- Broader automation claims
-- Production-canonical build assertions
-- Expansion to additional domain packs without validation baselines
+- What population and organizational decision make the strongest feasible
+  research contribution?
+- Which construct should be primary, and which validated measure is suitable
+  for that population?
+- What design can support the intended interpretation?
+- What privacy risks could arise if a supervisor learned an individual
+  employee's response?
+- Which results would falsify or materially qualify the expected account?
+- Which parts of the previous software have genuine utility for this study,
+  rather than merely sharing words such as “evidence” or “risk”?
 
-## Suggested advisor feedback prompts
-
-- Which framework elements are strongest candidates for thesis central argument?
-- Which claims require citation hardening or narrower wording?
-- What validation design would be publishable at graduate level?
-- How should novelty be framed to avoid overclaim while preserving contribution?
-
-## Scholarship positioning (practical)
-
-Most competitive framing is likely:
-- methodological innovation + traceable risk controls + validation roadmap,
-not
-- finished product/platform claim.
-
-Prioritize clarity of research question, measurable validation path, and demonstrated intellectual discipline over feature breadth.
+This roadmap is a scoping aid, not an approved protocol or a claim that
+Dr. Matthew J. Grawitch endorses this project.

@@ -9,6 +9,8 @@ description: >
 # VessellFramework Community Skill
 ## Version 1.0
 
+> **Legacy repository guidance:** Contribution examples below describe the former software scope. They do not define research ethics, participant recruitment, or organizational-psychology evidence standards; use the current charter for research changes.
+
 ## 1. Purpose
 
 Make it easy for others to contribute well. This skill is the executable
@@ -58,7 +60,7 @@ Every PR must satisfy all of these:
 - Changes that weaken the provenance firewall, harm gate, or the
   do-not-invent boundary.
 - New network integrations without an offline fixture and test.
-- Breaking the `vessell` package's Python >= 3.13 floor without
+- Breaking the `vessell` package's Python >= 3.12 floor without
   discussion in the issue first.
 
 ## 6. Filing Issues

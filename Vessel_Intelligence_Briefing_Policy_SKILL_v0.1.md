@@ -14,6 +14,8 @@ description: >
 # Vessel Intelligence, Briefing & Policy Skill
 ## Version 0.1 — Research Candidate
 
+> **Legacy domain skill:** This intelligence and policy guidance is retained for the former project scope. It is not organizational-psychology research guidance or evidence about employee outcomes.
+
 ## Status
 
 **Skill status:** RESEARCH CANDIDATE / PILOT REQUIRED  

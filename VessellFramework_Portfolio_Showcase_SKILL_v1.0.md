@@ -11,6 +11,8 @@ description: >
 # VessellFramework Portfolio Showcase Skill
 ## Version 1.0
 
+> **Legacy portfolio guide:** This demo sequence showcases former intelligence/cybersecurity software. It is not a demonstration or validation of organizational-psychology research capabilities.
+
 ## 1. Purpose
 
 Turn this repository into a five-minute portfolio demonstration. The skill
@@ -89,7 +91,7 @@ After the demos, write `SHOWCASE.md` (do not commit it unless asked):
 - Bullet list: the five demos and what each proved, with pass/fail.
 - "Engineering signals" section: typed Python, mypy + ruff gates, JSON
   schemas for machine-readable contracts, SHA-256 integrity manifest,
-  CI on Python 3.13.
+  CI on Python 3.12 and 3.13.
 - "Analytic signals" section: provenance firewall, deception checks, harm
   gate, calibrated weighting, explicit do-not-invent boundary.
 

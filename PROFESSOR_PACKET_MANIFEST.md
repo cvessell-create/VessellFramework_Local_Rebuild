@@ -1,30 +1,26 @@
-# Professor Packet Manifest (Rough Working Version)
+# Faculty Review Packet — Preliminary Organizational Psychology Scope
 
 ## Send these files first
 
 1. `PROFESSOR_README.md`
-2. `CANONICAL_REFERENCE.md`
-3. `META_REVIEW_AND_ROADMAP.md`
-4. `VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md`
-5. `SKILL.md`
-6. `VesselFramework_Forecasting_SKILL_v1.0.md`
-7. `README.md`
+2. `docs/organizational-psychology-research-charter.md`
+3. `docs/grad-school-prospectus.md`
+4. `docs/references.md` (organizational-psychology research direction section)
+5. `docs/evaluation-methods.md`
+6. `CANONICAL_REFERENCE.md`
 
-## Optional supporting files
+## Optional technical context
 
-- `vesselframework_reference_v1.1_provenance_firewall.py`
-- `vesselframework_case_runner.py`
-- `schemas/case.schema.json`
-- `tests/test_provenance.py`
-- `tests/test_validation.py`
+- `README.md`
+- `docs/traceability/doctrine_code_matrix.md`
+- `vessell/` and `tests/` only if reviewers need to inspect the legacy software
 
-## Not required for first-pass faculty review
+## Not evidence for the proposed study
 
-- Installer and path-sync artifacts
-- Compatibility/launcher scripts
-- Cached/generated runtime artifacts
-- Historical superseded references not bundled in this package
+Existing cybersecurity, intelligence-analysis, news-verification, job-listing,
+forecasting, game, and generated-output artifacts are retained legacy materials.
+They are not employee data, study results, validated workplace measures, or
+evidence of workplace effectiveness.
 
-## Submission note
-
-This packet is a rough working version intended for critique, advising, and scholarship-path feedback.
+This packet is for research-scope critique. It is not an approved protocol,
+human-subjects determination, or solicitation to recruit participants.

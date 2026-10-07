@@ -12,7 +12,7 @@ python -m venv .venv
 python -m pytest tests/ -q
 ```
 
-Python 3.13+ is required.
+Python 3.12 or newer is required.
 
 ## What merge-ready looks like
 

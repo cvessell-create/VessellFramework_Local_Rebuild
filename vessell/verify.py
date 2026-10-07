@@ -41,18 +41,15 @@ the calling pipeline) decides.
    at least two independent successful search paths corroborate the absence.
    Each attempt records an explicit outcome and dataset root, so blocked or
    errored searches do not count and aliases over the same index are not
-   mistaken for independent evidence. The analyst's own search history is
-   the witnessed path (Section 4 rule 5: causal
-   relationships are witnessed by the paths information follows; a
-   one-path absence claim is an unwitnessed edge).
+   mistaken for independent evidence. Search history supplies the recorded
+   paths for this later implementation extension; it is not an incident
+   reported in the author's supplied paper.
 
-   Worked example (Section 1 of the case study): on 2026-09-30 the analyst
-   searched arXiv for the literal string "Jonathan Castillo", found
-   nothing, and reported no such author — operationalizing a negative
-   finding off a single unwitnessed path. The paper was there all along:
+   Synthetic worked example: a literal search for "Jonathan Castillo"
+   misses a paper by Jonathan Castello. The fixture uses:
    "Inductive Diagrams for Causal Reasoning" by Jonathan **Castello**,
-   Patrick Redmond, and Lindsey **Kuper** (arXiv:2307.10484) — one letter
-   off on both names. The paths never walked: spelling variants,
+   Patrick Redmond, and Lindsey **Kuper** (arXiv:2307.10484).
+   Alternative lookup strategies include spelling variants,
    co-author cross-check ("Redmond" + "Kuper"), title-keyword search.
    Under this gate the absence stays UNVERIFIED and unreportable until a
    second independent path corroborates it; a path that finds the target
@@ -960,7 +957,7 @@ def filter_ghost_jobs(
 
 
 # ---------------------------------------------------------------------------
-# Search-path provenance for negative findings (Section 1: the analyst's miss)
+# Search-path provenance for negative findings (later implementation extension)
 # ---------------------------------------------------------------------------
 
 MIN_ABSENCE_PATHS = 2  # independent search paths that must corroborate an absence
@@ -980,15 +977,9 @@ class SearchPath:
     """One attempted search path logged against a claim — the witnessed path
     of a negative finding.
 
-    Worked example (case study Section 1): on 2026-09-30 the analyst searched arXiv
-    for the literal string "Jonathan Castillo", found nothing, and reported
-    no such author — operationalizing a negative finding off a single
-    unwitnessed path. The paper was there all along: "Inductive Diagrams for
-    Causal Reasoning" by Jonathan Castello, Patrick Redmond, and Lindsey
-    Kuper (arXiv:2307.10484), one letter off on both names. The paths never
-    walked: spelling variants, co-author cross-check, title-keyword search.
-    Every path attempted — hits and misses — is recorded here, because the
-    analyst's search history is the witnessed path an absence claim stands on.
+    The synthetic Castello fixture tests a misspelled author lookup followed
+    by alternative searches. It is not a historical incident established by
+    the author's supplied paper. Hits and misses alike are recorded.
     """
 
     query: str  # what was searched for, e.g. "Jonathan Castillo"
@@ -1099,7 +1090,7 @@ def _independent_absence_paths(paths: list[SearchPath]) -> set[str]:
 
 
 def gate_negative_finding(claim_id: str) -> tuple[bool, str]:
-    """The Section 1 gate: may this negative existential be reported as a finding?
+    """May this negative existential be reported as a finding?
 
     A "no X exists" claim enters UNVERIFIED like any other claim and stays
     gated until at least ``MIN_ABSENCE_PATHS`` independent search paths
@@ -1158,7 +1149,7 @@ def gate_negative_finding(claim_id: str) -> tuple[bool, str]:
 
 
 def require_negative_finding(claim_id: str) -> tuple[bool, str]:
-    """Enforce the Section 1 negative-finding gate, raising instead of returning False.
+    """Enforce the negative-finding gate, raising instead of returning False.
 
     Returns (True, reason) when the absence is cleared to report. Raises
     :class:`~vessell.provenance.ClaimGateBlocked` when

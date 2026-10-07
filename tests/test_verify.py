@@ -425,7 +425,7 @@ def test_planted_report_to_dict_is_auditable() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Search-path provenance for negative findings (Section 1: the analyst's miss)
+# Search-path provenance for negative findings (synthetic extension fixtures)
 # ---------------------------------------------------------------------------
 
 from vessell.provenance import (
@@ -501,7 +501,7 @@ def test_zero_paths_stays_gated(_clean_search_paths: None) -> None:
 
 
 def test_single_search_path_stays_gated(_clean_search_paths: None) -> None:
-    """The Section 1 failure mode, exactly: one literal search, reported as a finding."""
+    """A synthetic single-path miss cannot establish an absence."""
     claim_id = _absence_claim()
     record_search_path(
         claim_id,
@@ -597,7 +597,7 @@ def test_different_strategies_over_same_dataset_root_count_once(
 
 
 def test_found_path_contradicts_the_absence(_clean_search_paths: None) -> None:
-    """The Castello correction: a co-author cross-check finds the paper."""
+    """A synthetic co-author cross-check contradicts the absence."""
     claim_id = _absence_claim()
     record_search_path(
         claim_id, query="Jonathan Castillo", strategy="literal-author-name",
@@ -617,9 +617,8 @@ def test_found_path_contradicts_the_absence(_clean_search_paths: None) -> None:
 
 
 def test_castello_worked_example_end_to_end(_clean_search_paths: None) -> None:
-    """Section 1 as the machine would have run it: the single-path miss stays gated."""
+    """The synthetic miss stays gated and a later match refutes it."""
     claim_id = _absence_claim()
-    # The analyst's actual (deficient) search history.
     record_search_path(
         claim_id, query="Jonathan Castillo", strategy="literal-author-name",
         source="arxiv.org", result_summary="zero hits", date="2026-09-30",

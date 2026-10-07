@@ -11,12 +11,12 @@ this replay suite.
 
 ## Setup and run
 
-Use Python 3.13 or newer and keep the environment/output outside source data.
+Use Python 3.12 or newer and keep the environment/output outside source data.
 Replace the example absolute paths with the actual source checkout and saved
 23-source audit catalog. The data remain external to GitHub.
 
 ```sh
-python3.13 -m venv /absolute/path/to/replay-lab/venv
+python3.12 -m venv /absolute/path/to/replay-lab/venv
 /absolute/path/to/replay-lab/venv/bin/python -m pip install -e \
   '/absolute/path/to/rebuild[evaluation,dev,core,orchestrator]'
 /absolute/path/to/replay-lab/venv/bin/python -m vessell.replay_lab \
