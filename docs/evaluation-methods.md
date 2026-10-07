@@ -1,5 +1,41 @@
 # Evidence and evaluation methods
 
+> **Scope transition:** The existing methods and datasets below were developed
+> for legacy cybersecurity, forecasting, verification, and software functions.
+> They do not evaluate employee stress, work-life balance, leadership, or
+> psychologically healthy workplaces. See the
+> [organizational-psychology research charter](organizational-psychology-research-charter.md)
+> for the proposed direction and its unresolved protocol decisions.
+
+## Organizational-psychology evaluation requirements (proposed)
+
+No organizational-psychology study or outcome analysis is implemented in this
+repository. Before evaluating workplace outcomes, select the population,
+constructs, measures, sampling frame, design, and analysis with appropriate
+academic and ethics review. Software tests may verify record validation,
+calculations, reproducibility, and privacy-related processing behavior; they
+cannot establish measurement validity, sample representativeness, causal
+effects, or organizational effectiveness.
+
+If a participant study is approved, its evaluation plan should at minimum:
+
+- document construct definitions and measurement evidence for the target
+  population, including reliability and relevant validity evidence;
+- justify sample size and model complexity before examining outcomes;
+- account for clustering, nonresponse, missingness, confounding, and selection
+  appropriate to the design;
+- keep exploratory analyses distinct from prespecified analyses and report
+  uncertainty, null results, adverse findings, and limitations;
+- avoid causal language unless the design and identification assumptions
+  support it;
+- report confidentiality safeguards and suppress or aggregate outputs that
+  could identify individuals in small work groups; and
+- evaluate intervention implementation and employee outcomes separately if an
+  intervention is later proposed.
+
+These are design requirements to develop with qualified reviewers, not a
+complete protocol, scale recommendation, or substitute for ethics review.
+
 ## Scope and standing
 
 This map connects the local rebuild's assessed gaps to executable checks,

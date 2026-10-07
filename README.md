@@ -1,228 +1,59 @@
-# VessellFramework
+# VessellFramework — Organizational Psychology Research Direction
 
-VessellFramework is an auditable Python runtime and a set of doctrine and skill artifacts for evidence, provenance, case analysis, forecasting, and approved remediation control.
+This repository is being re-scoped toward organizational psychology, with a
+provisional focus on psychologically healthy workplaces, workplace stress,
+work-life balance, leadership, and evidence-based organizational decisions.
+This is a research direction, not a claim that the current software measures
+employee well-being or that any workplace intervention is effective.
 
-Author: Christopher R. Vessell
+## Proposed research question
 
-For the code-by-code game breakdown and framework architecture adaptation,
-see [GAME_DEVELOPMENT_SKILL.md](GAME_DEVELOPMENT_SKILL.md). The new
-[bounded analyst workflow](vessell/workflow.py) reuses the existing gates,
-pipeline and correction machinery; game development itself remains paused.
+In a clearly defined employee population, how are perceived supervisor support
+for work-life needs and employee involvement associated with perceived stress
+and work–nonwork interference?
 
-Package version: v3.9.1 with verified game-pattern workflow adaptations.
-The separate game feature build remains paused and is not a completed release.
-Executable
-workflows, source contracts, persistent study receipts and regression checks
-are available; independent field efficacy is not claimed.
+This is a candidate correlational question, not a finalized protocol. The
+population, constructs, measures, sampling plan, and analysis require advisor
+review. Cross-sectional associations must not be described as causal effects.
+No participant recruitment, employee-data collection, or intervention is
+authorized by this repository. Obtain institutional human-subjects/ethics
+guidance before any such activity.
 
-The [game integration](docs/game-integration.md) connects the rebuild to
-[Hail to the Analyst](https://github.com/cvessell-create/hail-to-the-analyst):
-autonomous FPS playback, a real Python provenance coach and the experimental
-*Signal Recall* sequel. No external accounts or real-world action systems are connected.
+## Start here
 
-Start with [operational case studies](docs/operational-case-studies.md):
+1. [Research charter](docs/organizational-psychology-research-charter.md):
+   boundaries, proposed constructs, status, and decisions still open.
+2. [Prospectus](docs/grad-school-prospectus.md): preliminary question and
+   research design considerations.
+3. [Research references](docs/references.md#organizational-psychology-research-direction):
+   initial sources and their intended use.
+4. [Evaluation methods](docs/evaluation-methods.md): separates software
+   checks from evidence about workplace outcomes.
 
-```sh
-python -m pip install .
-vessell-study --spec case_studies/claim_correction/spec.json --output-dir outputs/study-001
-vessell-study --verify-only --output-dir outputs/study-001/framework
-```
+## Repository status and legacy software
 
-This writes actual managed local consumer files and compares their correction
-outcomes against an explicit snapshot-only baseline. Authorization, fail-closed
-gates and provenance controls remain enforced. External systems are not modified.
+The existing Python package, schemas, fixtures, tests, cybersecurity workflows,
+intelligence-analysis skills, and game integration have **not** been converted
+into organizational-psychology research software. They remain legacy technical
+artifacts until each is deliberately retained, archived, or replaced. Their
+presence and passing tests do not establish psychological construct validity,
+research ethics, or workplace effectiveness. See the
+[scope map](VesselFramework_Agent.md) and
+[canonical reference](CANONICAL_REFERENCE.md).
 
-For the complete skill, agent, executable-code, scanner, and authorized remediation map, start with [VesselFramework_Agent.md](VesselFramework_Agent.md). Historical artifacts retain their original `VesselFramework` names; the active Python namespace is `vessell`.
+General software practices worth carrying forward include reproducible
+processing, explicit missing-data states, source traceability, and separation
+of implementation checks from empirical validation. Provenance records do not
+substitute for reliable measurement, valid constructs, representative sampling,
+or replication.
 
-## Reviewer quick orientation
+## Development status
 
-If you are reviewing this as an academic rough-working submission, read in this order:
-
-1. `PROFESSOR_README.md` (purpose, contribution, current limits, and requested feedback)
-2. `VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md` (integrated doctrine and methods)
-3. `SKILL.md` (operational analyst execution layer)
-4. `VesselFramework_Forecasting_SKILL_v1.0.md` (forecasting controls and calibration form)
-5. `vesselframework_reference_v1.1_provenance_firewall.py` + `tests/` (executable reference and regression checks)
-
-For package boundaries and canonical scope, see `CANONICAL_REFERENCE.md`.
-The claim lifecycle API and its limits are documented in
-[docs/claim-lifecycle.md](docs/claim-lifecycle.md).
-Optional decoding, cryptography, file-inspection, and OSINT integrations are
-cataloged in [docs/tool-integrations.md](docs/tool-integrations.md).
-
-## Governing doctrine
-
-The claim-correction case study ([docs/claim-correction-case-study.md](docs/claim-correction-case-study.md))
-is a governing requirement source. Its six-step playbook has executable local
-mechanisms; external integration and field validation remain separate work:
-
-The canonical paper preserves the author's supplied text. The
-[source reconciliation](docs/paper-source-reconciliation.md) explains why the
-LLM-expanded version was superseded, records source hashes, and separates the
-paper's narrative from measured software outcomes and later extensions.
-
-1. **Tag at intake** — every claim enters with source, tier, kind (ICD 203 report/assumption/judgment),
-   uncertainty, and observation date (`vessell.provenance.intake_claim`; `vessell.validation.require_provenance_fields`).
-2. **Corroborate before operationalizing** — consequential use passes through `gate_for_use` /
-   `require_gate`; verification outcomes are intaked with their sightings as corroborations
-   (`vessell.verify.verify_and_record`, `analyze_planted_news_and_record`, `detect_ghost_job_and_record`).
-3. **Explicit waivers** — `record_waiver` (named, dated, reasoned); the remediation orchestrator's
-   named approval + change ticket is the operational equivalent.
-4. **Disavow by supersession, never erasure** — `disavow` keeps the original record and links the
-   correction; corrections inherit kind, uncertainty, and revalidation schedule.
-5. **Propagate, then verify the update landed** — supported operational-use adapters call `register_dependent`;
-   the managed case-study adapter writes and reads back JSON consumers before
-   calling `confirm_dependent_update`. Registry acknowledgment alone does not
-   verify arbitrary external systems.
-   Unregistered consumers are not automatically discovered or corrected.
-6. **Re-validate on schedule** — `valid_until` + `is_stale` + `revalidate_claim`; stale corroborated
-   claims fail closed for consequential use.
-
-Step-by-step traceability lives in [docs/traceability/doctrine_code_matrix.md](docs/traceability/doctrine_code_matrix.md).
-
-## Foundations — works this builds on
-
-The author's paper draws on provenance, automation misuse, data cascades,
-truth maintenance and ICD 203. Its references and the separately identified
-later implementation literature are in [docs/references.md](docs/references.md).
-The following causal-order works inform implementation extensions; they are
-not citations or historical incidents in the author's supplied paper:
-
-- **Lamport (1978)** — the happens-before relation (*a → b*): every rule of
-  the playbook is a rule about causal paths — which events may follow which,
-  and what must travel the path between them.
-- **Castello, Redmond & Kuper (2024)** — *Inductive diagrams for causal
-  reasoning* (arXiv:2307.10484): causal relationships are *witnessed by the
-  paths information follows* — happens-before as paths, mechanized in Agda.
-  A later implementation analogy, not the paper's Section 4; correction records carry
-  `causal_path`, dependents register *how* a claim reached them, and a
-  negative finding's search history is its witnessed path.
-- **Redmond, Shen, Vazou & Kuper (2022)** — *Verified causal broadcast with
-  Liquid Haskell* (arXiv:2206.14767): the machine-checked guarantee that no
-  message is delivered in an order violating causality. The dependents
-  registry checks analogous local ordering using `CausalOrderingError`; these
-  Python checks are not that paper's machine-checked guarantee.
-
-## Quick start
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip setuptools wheel
-python -m pip install -r requirements\dev.txt -r requirements\core.txt
-```
-
-Run the assurance gate:
-
-```powershell
-ruff check vessell tests
-mypy vessell
-pytest
-```
-
-Validate a case record:
-
-```powershell
-python -m vessell.cli example_case.json --schema case.schema.json
-```
-
-Run the Identity & Recognition Provenance Gate:
-
-```powershell
-python VesselFramework_SingleFile_EvilTwin_v0.2.py selftest
-python VesselFramework_SingleFile_EvilTwin_v0.2.py recognition --subject "Alex Cvessell" --evidence example_recognition_evidence.json
-```
-
-Discover optional local analysis tools:
-
-```sh
-vessell-tools list
-vessell-tools doctor
-vessell-tools inspect exiftool ./artifact.bin
-```
-
-The recognition gate quarantines name-only matches, classifies recognition
-stages, and counts independent provenance roots rather than search-result
-quantity.
-
-Use it as a library:
-
-```python
-from vessell import (
-    EvidenceItem,
-    EvidenceSet,
-    ProvenanceRegistry,
-    SourceStatus,
-    WeightingEngine,
-)
-
-items = [
-    EvidenceItem(source_id="cisa-kev", description="CISA KEV entry",
-                 status=SourceStatus.SOURCE_ESTABLISHED),
-    EvidenceItem(source_id="vendor-blog", description="Vendor write-up",
-                 status=SourceStatus.WORKING_HYPOTHESIS),
-]
-registry = ProvenanceRegistry()
-registry.register_many(items)
-
-engine = WeightingEngine(registry)  # add CalibratedLlamaWeighter for live LLM scoring
-weighted = engine.weight_set(EvidenceSet(registry, items))
-for record in weighted.records:
-    print(record.source_id, round(record.normalized_weight, 3))
-```
-
-The original flat launchers and doctrine files remain the compatibility layer for version 3.8.1. New executable functionality belongs in `vessell/`, machine-readable contracts belong in `schemas/`, and regression tests belong in `tests/`. Optional integrations are separated into `requirements/agent.txt`, `documents.txt`, and `research.txt`.
-
-## Executable workflows and regression coverage
-
-Five-minute tour (see `VessellFramework_Portfolio_Showcase_SKILL_v1.0.md` for the guided version):
-
-1. `python -m pytest tests/ -q` — regression suite: provenance, validation, scanner adapters, malware triage, defense planning, remediation orchestration, agentic SOC, EvilTwin gate, Llama evidence weighting, planted-news verification, hostile-spread intel, ghost-job filtering, and the claim-correction doctrine reconciliation (`tests/test_doctrine_reconciliation.py`).
-2. `python vesselframework_case_runner.py example_case.json` — structured case intake: provenance firewall, deception (maskirovka) checks, harm gate, analyst-ready report.
-3. `python run_live_kev_case.py` — live CISA Known Exploited Vulnerabilities intake through the same pipeline.
-4. `python VesselFramework_SingleFile_EvilTwin_v0.2.py selftest` — identity/recognition provenance gate.
-5. `python -m pytest tests/test_weights.py tests/test_weighter.py -q` — Llama-calibrated evidence weighting with per-weight provenance.
-6. `python -m pytest tests/test_verify.py -q` — planted-news corroboration checks, hostile-spread intel (burst/clone-army/laundering detection), and ghost-job filtering, each verdict shipping its audit record.
-
-Engineering signals: typed Python, mypy + ruff gates, JSON schemas for machine-readable contracts, SHA-256 integrity manifest (`python verify_manifest.py`), CI on Python 3.13, Apache-2.0 licensed.
-
-### Measured evaluation and remaining limits
-
-Both case runners now share the Harm Gate assessment in `vessell/harm_gate.py`.
-All seven risk/reversibility/proportionality fields must be explicit booleans
-before clearance. Missing fields produce UNKNOWN exposure and review required;
-invalid types fail validation. Existing partial cases intentionally require
-review instead of treating omitted answers as no risk. Clearance is an intake
-result, not permission to act or proof of control efficacy.
-
-Run the reproducible external-data evaluator with an attributed CDC download
-directory containing the source files and `download_manifest.json`:
-
-```bash
-python -m vessell.evaluation --data-dir /path/to/public_evaluation_data --output-dir outputs/evaluation
-```
-
-It verifies source SHA-256 values, rejects conflicting duplicate keys and malformed numeric
-values, joins state ensemble incident-death forecasts to observations, and
-reports exact duplicate exclusions, MAE, a prior-observation persistence comparison, 95% interval scores,
-coverage, per-horizon results, and explicit exclusion counts. Paired JSON and
-Markdown reports are read back and checked for exact synchronization. These
-are exploratory scores of **CDC forecasts**, not proof that VessellFramework
-improves forecasting. Revised archive observations do not establish the data
-available at issue time. No independent external framework validation or
-controlled control-efficacy study is claimed.
-
-See [evaluation methods by framework aspect](docs/evaluation-methods.md) and
-[free university/Khan Academy/YouTube method courses](docs/free-method-courses.md).
-
-Use the [isolated replay lab](docs/replay-lab.md) to test public-data handling,
-missing-intake safeguards, corrupted-source rejection and parallel consistency
-without contacting real targets.
-
-The path synchronizer verifies the post-write hash against expected content,
-not merely that a hash can be read. Tests cover corrupted writes and byte-level
-agreement of the packaged skill copy; this does not attest to other machines
-or a private runtime that was not inspected.
+There is not yet an approved research protocol, organizational-psychology
+dataset, validated measure selection, analysis implementation, or evidence
+product schema. The existing package commands and dependencies continue to
+serve the legacy implementation, not the proposed study. Do not interpret
+existing examples or generated outputs as organizational-psychology findings.
 
 ## License
 

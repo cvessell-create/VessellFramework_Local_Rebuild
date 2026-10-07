@@ -98,3 +98,47 @@ spec for this codebase: [docs/claim-correction-case-study.md](claim-correction-c
 and six mechanisms in Section 3. The supplied paper has five numbered
 sections and references. It contains no Section 6, citation-verification
 incident, AI-to-SI framing, or causal-order literature rewrite.
+
+## Organizational psychology research direction
+
+This initial bibliography supports the proposed research direction described in
+the [research charter](organizational-psychology-research-charter.md). It is
+not a systematic review, and inclusion does not mean the source supports a
+causal claim about the proposed population.
+
+- Grawitch, M. J., Gottschalk, M., & Munz, D. C. (2006). The path to a healthy
+  workplace: A critical review linking healthy workplace practices, employee
+  well-being, and organizational improvements. *Consulting Psychology Journal:
+  Practice and Research, 58*(3), 129–147.
+  https://doi.org/10.1037/1065-9293.58.3.129
+  Organizes five practice areas that can guide literature review; it is not a
+  validated causal model for every organization.
+- Grawitch, M. J., Barber, L. K., Leiter, M. P., & Mazzola, J. J. (2022).
+  Editorial: Stress and stress management—pushing back against existing
+  paradigms. *Frontiers in Psychology, 13*, 859660.
+  https://doi.org/10.3389/fpsyg.2022.859660
+  Context for critically examining assumptions in work-stress research.
+- World Health Organization. (2022). *WHO guidelines on mental health at work*.
+  https://www.who.int/publications/i/item/9789240053052
+  Guidance for workplace mental-health promotion, prevention, and support; not
+  a substitute for local evidence or institutional ethics review.
+- World Health Organization & International Labour Organization. (2022).
+  *Mental health at work: Policy brief*.
+  https://www.who.int/publications/i/item/9789240057944
+  Policy context for organizational approaches and psychosocial risks.
+- Allen, T. D., Herst, D. E. L., Bruck, C. S., & Sutton, M. (2000).
+  Consequences associated with work-to-family conflict: A review and agenda
+  for future research. *Journal of Occupational Health Psychology, 5*(2),
+  278–308. https://doi.org/10.1037/1076-8998.5.2.278
+  Foundational review of work-to-family conflict outcomes; distinguish the
+  construct and historical literature from contemporary measures and settings.
+- Rousseau, D. M. (2006). Is there such a thing as “evidence-based management”?
+  *Academy of Management Review, 31*(2), 256–269.
+  https://doi.org/10.5465/amr.2006.20208679
+  Conceptual basis for evidence-informed management; it does not imply that
+  research evidence alone determines a decision.
+
+The proposed study must add construct-specific measurement validation,
+population-appropriate studies, and current systematic reviews after the
+workforce and design are selected. Do not select scales solely because they
+are easy to find or already represented in this repository.
