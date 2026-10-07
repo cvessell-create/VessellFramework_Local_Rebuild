@@ -13,7 +13,7 @@ organizational-psychology validity or workplace outcomes.
 | Specify sampling, sample-size rationale, confounders, missing-data handling, and analysis | Prospectus, “Proposed design and limits” | None | Unresolved |
 | Establish privacy, consent, institutional review, access, retention, and reporting safeguards before participant work | Charter, “Human-participant and data boundary” | No participant-data handling code | Required before data collection |
 | Distinguish implementation tests from construct validity and workplace effectiveness | `docs/evaluation-methods.md`; `SKILL.md` | Existing tests cover legacy software only | Documented; no organizational-psychology validation |
-| Preserve source, design, population, measure, limitations, and applicability in any future evidence catalog | `docs/references.md`; charter | No research evidence schema | Proposed; requirements need review |
+| Preserve source, design, population, measures, outcomes, limitations, and applicability in a human-entered literature catalog | `docs/references.md`; charter | `schemas/research-evidence-catalog.schema.json`; `vessell/research_catalog.py`; blank starter JSON; `tests/test_research_catalog.py` | Implemented as structural validation and deterministic rendering only; source claims are not verified or synthesized |
 | Report uncertainty, null/mixed/adverse results, and limits on causal inference | Prospectus; `docs/evaluation-methods.md`; `SKILL.md` | No study analysis or reporting implementation | Documented only |
 | Decide whether former cyber, intelligence, verification, and game modules are retained, archived, or replaced | `VesselFramework_Agent.md`; `CANONICAL_REFERENCE.md` | Existing modules remain unchanged | Open repository governance decision |
 

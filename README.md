@@ -30,6 +30,23 @@ guidance before any such activity.
 4. [Evaluation methods](docs/evaluation-methods.md): separates software
    checks from evidence about workplace outcomes.
 
+## Literature catalog slice
+
+The first research-aligned executable feature is an offline catalog for
+human-entered literature-review notes. It validates the record contract and
+renders a deterministic Markdown inventory:
+
+```sh
+vessell-research-catalog examples/organizational_psychology_evidence_catalog.json
+```
+
+The schema captures citation locator, source type/check status, extraction
+basis, population and setting, design, constructs, measures, outcomes,
+limitations, applicability, and optional reviewer-described appraisal method.
+It does not authenticate citations, rate study quality, synthesize findings,
+make policy recommendations, or ingest employee/participant data. The blank
+starter file is not evidence for the research question.
+
 ## Repository status and legacy software
 
 The existing Python package, schemas, fixtures, tests, cybersecurity workflows,
@@ -50,9 +67,10 @@ or replication.
 ## Development status
 
 There is not yet an approved research protocol, organizational-psychology
-dataset, validated measure selection, analysis implementation, or evidence
-product schema. The existing package commands and dependencies continue to
-serve the legacy implementation, not the proposed study. Do not interpret
+dataset, validated measure selection, participant-data handling, or outcome
+analysis. The literature catalog is a documentation/review aid, not an
+evidence synthesis or study runtime. Other existing package commands and
+dependencies continue to serve the legacy implementation. Do not interpret
 existing examples or generated outputs as organizational-psychology findings.
 
 ## License

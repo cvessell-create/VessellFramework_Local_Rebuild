@@ -12,8 +12,10 @@ organizational decisions. Start with:
 - [Evaluation-method proposal and limits](docs/evaluation-methods.md)
 - [Research-to-implementation traceability](docs/traceability/doctrine_code_matrix.md)
 
-This is a research direction only. The repository has no approved protocol,
-participant data, organizational-psychology analysis code, or results.
+This is a research direction with one narrow executable support feature: an
+offline human-authored literature catalog. The repository has no approved
+protocol, participant data, organizational-psychology outcome analysis code,
+or results.
 
 ## Existing software: legacy areas, not converted
 
@@ -24,6 +26,16 @@ participant data, organizational-psychology analysis code, or results.
 | Intelligence, forecasting, and verification skills | Root `VesselFramework_*SKILL*.md`, `Security_Control_Selection_Placement_Analyst_SKILL_v0.1.md`, `XP_Cyber_Range_*` | Historical/domain-specific skills; not active research guidance |
 | Schemas, tests, fixtures, generated reports | `schemas/`, `tests/`, `outputs/`, `example_case.json` | Validate or demonstrate legacy contracts only |
 | Game adaptation | `GAME_DEVELOPMENT_SKILL.md`, `docs/game-integration.md`, `vessell/game_*.py` | Separate legacy/experimental integration; not part of the proposed study |
+
+## Research-aligned support already built
+
+`vessell-research-catalog` uses the existing JSON Schema validation pattern to
+check human-entered source records and render a deterministic review inventory.
+Its schema records source type/check state, extraction basis, study context,
+constructs, measures, outcomes, limitations, and applicability. It has no
+quality score, automated synthesis, external-source verification, or
+participant-data processing. See the
+[catalog starter](examples/organizational_psychology_evidence_catalog.json).
 
 These areas have not yet been deleted, moved, renamed, or recertified. They
 remain to preserve compatibility and repository history while a deliberate

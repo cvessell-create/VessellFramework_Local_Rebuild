@@ -61,6 +61,14 @@ generic mechanism requires a new requirements trace, construct-appropriate
 data contract, tests, and domain review. Do not silently relabel existing
 security outputs, datasets, or fixtures as employee research.
 
+The first research-aligned executable slice is an offline literature catalog:
+`vessell.research_catalog`, `schemas/research-evidence-catalog.schema.json`,
+and `examples/organizational_psychology_evidence_catalog.json`. It reuses the
+legacy schema-validation mechanism while storing human-entered source and
+appraisal notes. The tool does not verify sources, score study quality,
+synthesize effects, or process participant data. Its output is software
+formatting evidence only.
+
 ## Open design decisions
 
 - Select the population, organization type, and unit of analysis.

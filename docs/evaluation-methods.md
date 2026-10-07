@@ -10,7 +10,9 @@
 ## Organizational-psychology evaluation requirements (proposed)
 
 No organizational-psychology study or outcome analysis is implemented in this
-repository. Before evaluating workplace outcomes, select the population,
+repository. The offline `vessell-research-catalog` command validates and renders
+only human-entered literature notes; it does not authenticate sources or
+synthesize evidence. Before evaluating workplace outcomes, select the population,
 constructs, measures, sampling frame, design, and analysis with appropriate
 academic and ethics review. Software tests may verify record validation,
 calculations, reproducibility, and privacy-related processing behavior; they
