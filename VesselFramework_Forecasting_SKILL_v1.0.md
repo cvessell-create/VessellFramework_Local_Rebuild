@@ -12,6 +12,8 @@ description: >
 
 # VesselFramework Forecaster — Prospective Forecasting Skill v1.1
 
+> **Legacy scope:** This forecasting skill remains tied to the former VesselFramework doctrine. It is not a workplace-stress measure, organizational-psychology protocol, or validation of workplace outcomes.
+
 ## Status
 
 **Skill status:** NEW / PROSPECTIVE / NOT YET EMPIRICALLY VALIDATED  

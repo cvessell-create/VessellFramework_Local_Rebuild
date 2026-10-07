@@ -9,6 +9,8 @@ description: >
 # VessellFramework Community Skill
 ## Version 1.0
 
+> **Legacy repository guidance:** Contribution examples below describe the former software scope. They do not define research ethics, participant recruitment, or organizational-psychology evidence standards; use the current charter for research changes.
+
 ## 1. Purpose
 
 Make it easy for others to contribute well. This skill is the executable

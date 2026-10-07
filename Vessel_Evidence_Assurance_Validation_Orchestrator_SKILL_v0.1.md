@@ -13,6 +13,8 @@ description: >
 # VesselFramework Evidence Assurance & Validation Orchestrator
 ## Version 0.1 — Research Candidate
 
+> **Legacy meta-skill:** This document governs the former VesselFramework domain. It is not an approved research protocol, ethics determination, or organizational-psychology validation standard.
+
 ## Status
 
 **Skill status:** RESEARCH CANDIDATE / META-ASSURANCE LAYER / PILOT REQUIRED  

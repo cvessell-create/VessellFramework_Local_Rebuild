@@ -11,6 +11,8 @@ description: >
 # VessellFramework Portfolio Showcase Skill
 ## Version 1.0
 
+> **Legacy portfolio guide:** This demo sequence showcases former intelligence/cybersecurity software. It is not a demonstration or validation of organizational-psychology research capabilities.
+
 ## 1. Purpose
 
 Turn this repository into a five-minute portfolio demonstration. The skill

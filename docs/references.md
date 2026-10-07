@@ -1,9 +1,14 @@
-# References — works VessellFramework builds on
+# References — legacy software and organizational psychology research
 
-The [author's supplied paper](claim-correction-case-study.md) is the governing
-source for its six-step correction playbook. The
-[source reconciliation](paper-source-reconciliation.md) distinguishes that
-paper from an LLM-expanded version and later implementation literature.
+The original bibliography below documents the former VessellFramework
+intelligence-analysis and software scope. It is retained for historical
+traceability and is not the theoretical foundation for the research pivot.
+See the separate [organizational-psychology research direction](#organizational-psychology-research-direction).
+
+The [author's supplied paper](claim-correction-case-study.md) remains the
+historical source for the former claim-correction playbook. The
+[source reconciliation](paper-source-reconciliation.md) documents that legacy
+software history; neither artifact governs the new research scope.
 
 ## Works cited in the author's supplied paper
 

@@ -1,5 +1,7 @@
 # Hail to the Analyst integration (3.9.1)
 
+> **Legacy / separate project:** This is a game integration, not part of the proposed organizational-psychology research direction.
+
 Framework-side integration, not a completed game release. The game
 feature build and server are paused at the operator's request. Components are
 reused by the [architecture adaptation skill](../GAME_DEVELOPMENT_SKILL.md)

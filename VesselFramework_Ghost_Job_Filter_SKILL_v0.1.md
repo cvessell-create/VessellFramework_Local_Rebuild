@@ -10,6 +10,8 @@ description: >
 # VesselFramework Ghost-Job Filter Skill
 ## Version 0.1 — Detection and Filtering Doctrine
 
+> **Legacy domain skill:** This job-listing detection guidance is retained for the former project scope. It is not organizational-psychology research guidance or evidence about employee outcomes.
+
 ## 1. Purpose
 
 Job boards are polluted with listings that circulate without hiring intent:

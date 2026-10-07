@@ -1,5 +1,7 @@
 # Operational case-study release (3.9.0)
 
+> **Legacy case studies:** The workflows and examples below concern the former claim-correction software scope. They are not organizational-psychology studies or evidence about employee outcomes.
+
 This is executable local software, not a demo-only distribution. Existing
 validator, pipeline, tool and authorization interfaces remain available.
 Examples remain examples. Removing the project-wide demo framing does not
