@@ -45,6 +45,25 @@ Mandatory human completion before new report release is an owner-authorized
 policy, not empirical skill promotion. Do not relabel a generated skill or
 complete schema as validated fourth-person experience.
 
+## Scientific grounding and evidence promotion
+
+Use [Scientific Evidence](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
+and the [source/model/test crosswalk](docs/pillar-scientific-foundations.md)
+for all five pillars. Reuse this shared method rather than duplicating it.
+For any proposed scientific extension, record primary-source access level,
+original scope, variables/units, assumptions, identifiability, alternatives,
+disconfirmers and a prospective baseline/held-out evaluation.
+Metadata-only sources remain bibliographic candidates.
+
+Promotion must separate byte integrity, prior-existence anchoring, key
+authorization, reproducibility, conditional mathematical proof and empirical
+effects. Neither a digest, token reward, software test nor a complete human
+inquiry supplies missing causal evidence or validates the whole theory.
+Publish null/adverse findings and uncertainty; preserve historical sources.
+New payment/receipt skills must also preserve human release, privacy and
+explicit financial/execution decisions under the
+[prospective roadmap](docs/blockchain-agent-economy-roadmap.md).
+
 ## Intelligence-Process Spine
 
 ### 1. Planning and Direction

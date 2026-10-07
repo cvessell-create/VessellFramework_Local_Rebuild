@@ -113,6 +113,9 @@ distinct from completed tasks.
 
 ## Explicitly out of scope
 
+This list describes the current release, not permission to deploy prospective
+capabilities without their acceptance gates.
+
 - Arbitrary agent-issued shell commands, webhook cloning/building, paid model
   calls, autonomous code changes or automatic approvals.
 - GitLab OAuth, local password accounts, email-based identity merging,
@@ -126,6 +129,43 @@ distinct from completed tasks.
 - Resuming the paused separate game build.
 - Outlook/mailbox integration, real email delivery, copied private mailbox
   contents and automatically treating folder/category membership as evidence.
+
+## Next stage: scientific dossiers and paid-agent evidence
+
+Use the [Scientific Evidence skill](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
+and [five-pillar scientific foundations](docs/pillar-scientific-foundations.md)
+to expand every pillar with source access records, explicit mathematical
+assumptions, disconfirmers and prospective comparative/operational evaluation.
+Conditional models, byte digests and implementation tests do not prove the
+whole framework or validate human presencing. Preserve the original paper.
+
+The [blockchain agent-economy roadmap](docs/blockchain-agent-economy-roadmap.md)
+sets the proposed sequence:
+
+1. Versioned, deterministic, signed per-invocation evidence receipts and an
+   offline verifier, preserving existing historical digest contracts.
+2. Privacy-reviewed independent existence anchoring through OpenTimestamps;
+   optional schema-bound EAS assertions, with explicit verification status.
+3. x402/Base Sepolia test-asset experiment for an asynchronous paid job contract,
+   retaining mandatory human inquiry and separate approval before report release.
+4. Conditional Olas/Virtuals distribution adapter or actual Bittensor subnet
+   feasibility study, not arbitrary hash mining.
+5. Owner-approved, hardened and budget-bounded production pilot, followed by
+   measured demand, net costs and preregistered scientific outcome evaluation.
+
+These are **not implemented current-release capabilities**. The current local
+hash chains are unsigned and do not cover all library/CLI/sub-agent uses.
+There is no wallet, automatic hash-to-credit conversion, chain anchor, payment
+adapter, miner, multiuser isolation or verified economic return.
+Local usage credits, buyer settlement, protocol rewards and evidence receipts
+are separate concepts. Only accepted paid/eligible work can create a financial
+entitlement under its actual contract; a digest alone cannot.
+
+Before economic/network execution, the owner must select privacy exposure,
+network/assets, receiving destination, custody, maximum fees/loss, refund/SLA
+terms and scope. Public operation also needs identity/tenant isolation, abuse
+controls, payment replay/recovery, key management and independent hardening
+review. No payment or attestation confers analytical truth or execution authority.
 
 ## Instructions for repository agents
 

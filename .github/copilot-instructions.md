@@ -7,6 +7,14 @@ source and preview is mandatory before new report release, including pending
 legacy workflows. Do not simulate presencing, fabricate participant accounts,
 raise confidence from cohesion or retroactively rewrite released history.
 
+Apply `VesselFramework_Scientific_Evidence_SKILL_v0.1.md` and its
+`docs/pillar-scientific-foundations.md` crosswalk for scientific/model claims.
+State source access, assumptions, units, identifiability, alternatives and
+disconfirmers. Keep integrity, existence, identity, reproducibility, empirical
+effects and conditional proofs distinct. `docs/blockchain-agent-economy-roadmap.md`
+is prospective; do not claim hashes earn money or that payments/anchors/miners
+exist, and do not execute financial/network onboarding without owner decisions.
+
 Consult `VISION_AND_SCOPE.md` before architectural changes. Develop the product
 as a full-stack SI sub-agent whose implemented core provides bounded,
 provenance-aware evidence analysis through a callable agent contract. The

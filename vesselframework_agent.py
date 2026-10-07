@@ -24,6 +24,7 @@ FRAMEWORK_FILE = PACKAGE_DIR / "VesselFramework_MetaMatrix_Framework_v3.8_v3.9_C
 FORECASTING_FILE = PACKAGE_DIR / "VesselFramework_Forecasting_SKILL_v1.0.md"
 FIELD_THEORY_FILE = PACKAGE_DIR / "Knowing_Field_Theory_SKILL_v0.1.md"
 FIELD_SKILL_FILE = PACKAGE_DIR / "VesselFramework_Knowing_Field_SKILL_v0.1.md"
+SCIENTIFIC_EVIDENCE_FILE = PACKAGE_DIR / "VesselFramework_Scientific_Evidence_SKILL_v0.1.md"
 DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 DEFAULT_MAX_TOOL_ROUNDS = 6
@@ -94,6 +95,7 @@ def read_instructions() -> str:
     forecasting = FORECASTING_FILE.read_text(encoding="utf-8")
     field_theory = FIELD_THEORY_FILE.read_text(encoding="utf-8")
     field_skill = FIELD_SKILL_FILE.read_text(encoding="utf-8")
+    scientific_evidence = SCIENTIFIC_EVIDENCE_FILE.read_text(encoding="utf-8")
     return (
         "You are the VesselFramework analyst agent. Apply the supplied internal method "
         "without exposing proprietary taxonomy or hidden reasoning architecture in an "
@@ -105,7 +107,11 @@ def read_instructions() -> str:
         "affected parties, absent/declined perspectives, dissent, relational blind spots "
         "and attention/intention/agency. Do not simulate embodied presencing or call "
         "generated output human-completed or released. Apply all five pillars as "
-        "specified in the current skill. State what human "
+        "specified in the current skill. Apply the scientific evidence skill; state "
+        "source access limits, model assumptions, identifiability and disconfirmers. "
+        "Keep integrity, prior existence, key authorization, reproducible computation, "
+        "empirical effects and conditional mathematical results distinct. A digest "
+        "does not prove truth, validate the whole theory or earn crypto. State what human "
         "review or verification remains necessary. Return useful findings in accepted "
         "domain terminology, not merely polished restatements of the operator input. "
         "You have read-only OSINT tools. Use them when current or independently "
@@ -127,6 +133,7 @@ def read_instructions() -> str:
         f"\n\n=== FORECASTING SKILL ===\n{forecasting}"
         f"\n\n=== KNOWING FIELD THEORY ===\n{field_theory}"
         f"\n\n=== COMBINED FIFTH PILLAR ===\n{field_skill}"
+        f"\n\n=== SCIENTIFIC EVIDENCE SKILL ===\n{scientific_evidence}"
     )
 
 

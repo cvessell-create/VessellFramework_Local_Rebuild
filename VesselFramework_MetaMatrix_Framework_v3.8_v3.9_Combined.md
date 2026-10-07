@@ -28,6 +28,16 @@ generative AI's limitation. The software implementation supports inquiry
 without claiming that it performs that knowing. Framework adaptation is
 owner-authorized / calibration pending.
 
+Current scientific application also follows
+[Scientific Evidence](VesselFramework_Scientific_Evidence_SKILL_v0.1.md) and
+[five-pillar foundations](docs/pillar-scientific-foundations.md).
+Models need declared assumptions and testable claims; source access levels,
+causal restraint and empirical/calibration limits remain explicit.
+Integrity/existence/identity/reproducibility evidence is not proof of the whole
+framework. The [blockchain agent-economy roadmap](docs/blockchain-agent-economy-roadmap.md)
+describes future paid services and independent receipt anchoring, not current
+mining, automatic hash credits or implemented chain integration.
+
 **Historical boundary:** The consolidated v3.8/v3.9 material below, including
 embedded four-pillar code/examples and version claims, remains historical
 reference. Where it conflicts with current five-pillar application, use the

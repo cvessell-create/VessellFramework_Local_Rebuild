@@ -17,6 +17,18 @@ after applying the [theory skill](Knowing_Field_Theory_SKILL_v0.1.md) in the
 [framework audit](docs/knowing-field-framework-audit.md).
 Runtime implementation validates records and authority, not presencing.
 
+## Scientific and digital-evidence handoff
+
+Apply [Scientific Evidence](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
+and its [five-pillar model/test crosswalk](docs/pillar-scientific-foundations.md).
+Keep mathematical assumptions, observed associations, causal identification,
+human accounts and empirical outcomes distinct. Use the dossier template
+without claiming a new runtime schema or validated theory.
+Human inquiry/release hashes bind documentary records; they do not certify
+experience. The [payment/anchoring roadmap](docs/blockchain-agent-economy-roadmap.md)
+is prospective and cannot convert a receipt, payment or consensus into human
+completion, release approval or execution authority.
+
 ## Purpose and authority
 
 KNOWING FIELD asks: **How do the observer, affected participants, relationships,

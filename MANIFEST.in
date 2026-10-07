@@ -15,6 +15,9 @@ include VISION_AND_SCOPE.md
 include Knowing_Field_Theory_SKILL_v0.1.md
 include VesselFramework_Knowing_Field_SKILL_v0.1.md
 include VesselFramework_Skill_Creator_SKILL_v0.1.md
+include VesselFramework_Scientific_Evidence_SKILL_v0.1.md
+include docs/pillar-scientific-foundations.md
+include docs/blockchain-agent-economy-roadmap.md
 include docs/knowing-field-framework-audit.md
 include docs/specialist-agent.md
 include docs/owner-fourth-person-perspective.md

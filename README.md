@@ -57,6 +57,22 @@ pipeline and correction machinery; game development itself remains paused.
 Package version: v3.12.0 with five-pillar inquiry, durable ambient review, approved static artifact capture and game-pattern workflow adaptations.
 The separate game feature build remains paused and is not a completed release.
 
+## Scientific foundations and next-stage agent economy
+
+The [five-pillar scientific crosswalk](docs/pillar-scientific-foundations.md)
+maps reviewed sources to models, assumptions, limits and falsifiable tests.
+The [Scientific Evidence skill](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
+expands the analyst, Knowing Field, forecasting and Skill Creator methods.
+Digital records support specific integrity/existence claims; they do not prove
+the whole theory. Comparative human-outcome studies remain prospective.
+
+The [blockchain roadmap](docs/blockchain-agent-economy-roadmap.md) compares
+paid-agent APIs/marketplaces, scored AI work, hardware/storage mining and
+existence services. Recommended sequence: useful x402-paid asynchronous jobs,
+separate OpenTimestamps receipts, then conditional Olas/Virtuals adapters.
+**Hashing alone earns no crypto.** Wallets, payments, universal signed receipts,
+anchors and miners are not implemented or started by this research update.
+
 ## Pull it into another agent
 
 Install this repository with the `ambient` extra and use the

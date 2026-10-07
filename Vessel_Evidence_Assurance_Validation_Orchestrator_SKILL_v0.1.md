@@ -21,6 +21,14 @@ VesselFramework doctrine; superior to domain-skill claims when evidence assuranc
 is weaker than the domain skill's conclusion.  
 **Runtime state:** File creation is not installation or synchronization.
 
+Apply the shared
+[Scientific Evidence skill](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
+and [five-pillar foundations](docs/pillar-scientific-foundations.md).
+Explicitly distinguish integrity, existence, signature/identity, reproducibility,
+empirical effect and conditional theorem claims. Cryptographic assurance
+cannot replace scientific evidence, and metadata-only literature cannot
+support substantive findings. Keep the dossier's absent tests/anchors explicit.
+
 # 1. Why This Exists
 
 A plausible analysis is not an evidence-based product.

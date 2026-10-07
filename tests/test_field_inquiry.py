@@ -309,6 +309,24 @@ def test_model_instructions_include_new_skills_and_unreleased_boundary():
     assert "Do not simulate embodied presencing" in instructions
 
 
+def test_model_instructions_include_exact_scientific_skill_and_evidence_limits():
+    import vesselframework_agent as agent
+
+    instructions = agent.read_instructions()
+    assert "=== SCIENTIFIC EVIDENCE SKILL ===" in instructions
+    assert (ROOT / "VesselFramework_Scientific_Evidence_SKILL_v0.1.md").read_text() in instructions
+    assert "A digest does not prove truth, validate the whole theory or earn crypto." in instructions
+    assert "prospective comparative evidence rather than software pass counts alone" in instructions
+
+
+def test_model_instructions_fail_explicitly_if_scientific_skill_is_missing(tmp_path, monkeypatch):
+    import vesselframework_agent as agent
+
+    monkeypatch.setattr(agent, "SCIENTIFIC_EVIDENCE_FILE", tmp_path / "missing.md")
+    with pytest.raises(FileNotFoundError):
+        agent.read_instructions()
+
+
 def test_compatibility_runner_uses_shared_inquiry_contract(field_assessment):
     import vesselframework_case_runner as runner
 

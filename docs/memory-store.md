@@ -11,7 +11,7 @@ Create a JSON file with an assertion, explicit scope, and source references:
 
 ```json
 {
-  "statement": "This project supports Python 3.12 and newer.",
+  "statement": "This project requires Python 3.13 or newer.",
   "scope": "repository",
   "citations": ["pyproject.toml:10", "CONTRIBUTING.md:15"]
 }
@@ -99,7 +99,7 @@ application's local SQLite store.
 
 ## Copilot cloud-agent environment
 
-`.github/workflows/copilot-setup-steps.yml` provisions Python 3.12 and R 4.3.3
+`.github/workflows/copilot-setup-steps.yml` provisions Python 3.13 and R 4.3.3
 with this repository's Python development extras and R memory-store packages
 before a Copilot cloud-agent session. It runs both memory-store test suites and
 the repository integrity-manifest check. After this workflow is merged to the

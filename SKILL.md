@@ -8,6 +8,22 @@ The current five-pillar application is defined by
 It is owner-authorized policy and a research adaptation, not empirically
 validated fourth-person knowing. Historical versions remain source history.
 
+## Scientific grounding and digital evidence
+
+Apply [Scientific Evidence](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
+across all five pillars; use its
+[source/model/test crosswalk](docs/pillar-scientific-foundations.md).
+Declare model assumptions, units, identifiability, source access limits,
+alternatives and disconfirmers. Preserve distinct evidence for byte integrity,
+prior existence, key authorization, reproducible computation, empirical effects
+and conditional mathematical results. None proves the complete framework.
+Human inquiry completion and software pass counts do not establish efficacy.
+
+The [agent-economy roadmap](docs/blockchain-agent-economy-roadmap.md) is prospective.
+A use hash is not mining work, money or proof of truth. No new receipt/payment
+adapter, wallet or chain action is implemented by these research documents.
+Paid jobs retain human release policy and separate execution authority.
+
 ## Current product direction
 
 From the repository root, consult `VISION_AND_SCOPE.md` and

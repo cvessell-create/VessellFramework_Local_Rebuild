@@ -22,6 +22,15 @@ report release, but never raises forecast probability, validates prediction,
 substitutes for a frozen calibration record or grants execution authority.
 Historical references to four pillars below are superseded for current use.
 
+Apply [Scientific Evidence](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
+for source access, assumptions and evidence scope. The
+[scientific crosswalk](docs/pillar-scientific-foundations.md) supplies checked
+proper-scoring support and a conditional binary squared-loss derivation.
+Declare score convention, resolution rule and missing-outcome treatment before
+evaluation; preserve frozen forecasts, null/adverse results and uncertainty.
+Timestamping a forecast can support prior existence, not prediction validity;
+payment, a hash or an unresolved outcome cannot count as a correct forecast.
+
 **Skill status:** NEW / PROSPECTIVE / NOT YET EMPIRICALLY VALIDATED  
 **Authority:** Operational skill; subordinate to canonical VesselFramework doctrine.
 

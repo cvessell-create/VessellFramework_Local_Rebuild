@@ -16,6 +16,14 @@ The owner authorized development, not empirical validation.
 Subordinate to the Harm Gate, Evidence Assurance, Provenance Firewall and
 author-source preservation. This skill cannot grant execution authority.
 
+Use [Scientific Evidence](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
+when extending the theory into models or digital dossiers. Its
+[source register](docs/pillar-scientific-foundations.md) distinguishes reviewed
+theory, abstract-only support and unreviewed bibliographic candidates.
+Distributed cognition is a compatible inquiry lens, not validation of
+presencing; entropy is not a consciousness metric. Timestamped records can
+support prior existence, not the truth of a reported experience or efficacy.
+
 ## Purpose and recurring need
 
 Examine what a predominantly outside-observer analysis omits: the observer's
