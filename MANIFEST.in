@@ -9,8 +9,20 @@ include docs/paper-source-reconciliation.json
 include GAME_DEVELOPMENT_SKILL.md
 include docs/game-component-map.json
 include docs/ambient-workflows.md
+include docs/static-artifact-capture.md
+include docs/local-vision-weight-candidates.md
+include VISION_AND_SCOPE.md
+include Knowing_Field_Theory_SKILL_v0.1.md
+include VesselFramework_Knowing_Field_SKILL_v0.1.md
+include VesselFramework_Skill_Creator_SKILL_v0.1.md
+include docs/knowing-field-framework-audit.md
+include docs/specialist-agent.md
+include docs/owner-fourth-person-perspective.md
+include docs/github-control-panel.md
 include compose.ambient.yml
 recursive-include deploy/ambient *.Dockerfile
+recursive-include deploy/capture Dockerfile *.txt *.py
+recursive-include case_studies/ambient/static *.html
 include .dockerignore
 recursive-include frontend *.json *.ts *.tsx *.css
 prune frontend/node_modules

@@ -1,10 +1,14 @@
-# Ambient event review stack (3.10.0)
+# Ambient event review stack (3.12.0)
 
 This is an executable **analysis-only** stack: Next.js reviewer dashboard,
 same-origin server-side API proxy, authenticated FastAPI ingress, SQLite
 workflow/history storage, and a bounded Python analysis worker. It reuses the
 existing evidence pipeline and Harm Gate. It is not a superintelligence claim,
 LLM planner, autonomous remediation service or production certification.
+
+The product direction is a full-stack SI sub-agent. The email-inspired
+workspace is its human control plane, not a substitute for the
+[callable agent contract](specialist-agent.md), and not an Outlook/mail service.
 
 ## One-command deployment
 
@@ -59,6 +63,8 @@ curl --fail-with-body http://127.0.0.1:8000/api/v1/events \
 ```
 
 Supported domains are `vcs` (`vcs.push`) and `monitoring` (`alert.triggered`).
+Operator-approved `static.snapshot` jobs enter only through the
+[offline capture CLI](static-artifact-capture.md), not webhook or event ingress.
 Schemas, required fields and limits are documented by `/openapi.json`.
 Unknown fields, domain/type mismatches, naive timestamps, malformed data and
 bodies over 64 KiB fail explicitly. The worker creates a preview and waits
@@ -66,6 +72,46 @@ for review. Inspect the original input, analysis and history before approving.
 Approval persists the already-reviewed report; it never executes provider
 payloads, follows repository URLs, calls models, runs commands or changes files
 outside the private database. Rejection remains `REJECTED`, not success.
+
+### Mandatory Knowing Field completion
+
+Apply [the fifth-pillar skill](../VesselFramework_Knowing_Field_SKILL_v0.1.md).
+Before approval, the configured human reviewer inspects the original input
+and exact preview, fills the structured inquiry editor, confirms that review
+and records completion. This is an inquiry record, not simulated presencing
+or a certificate that participant accounts are true.
+
+Admin-only `POST /api/v1/jobs/{job_id}/field-inquiry` accepts lifecycle
+`expected_version`, independent `expected_field_version` (0 initially) and
+`assessment`. Fetch the job's blank `field_review.template` and fill every
+required property according to the [shared schema](../schemas/field-inquiry.schema.json).
+Document missing/declined voices rather than fabricate them. Evidence IDs must
+refer to the job's sources; non-specialist events use `external-event`.
+Each text is bounded to 2,000 characters, the canonical assessment to 32 KiB,
+and the whole HTTP request to 64 KiB. Invalid input is 422, stale versions or
+non-review states are 409. The endpoint requires the admin credential;
+caller/ingest credentials cannot complete inquiry.
+Live updates never silently rebase an open inquiry draft onto a newer server
+revision. A stale draft is retained and cannot be submitted or approved until the reviewer
+explicitly reloads and reviews the current inquiry; reloading replaces the draft.
+
+Completion revisions are independent of filing and lifecycle revisions.
+Source/preview digests, actor, timestamp and hash-linked completion history are
+verified on read. Approval commits to the selected completion hash; worker
+release preserves that binding. Human completion may be revised only while
+AWAITING_APPROVAL, not after approval. Approval additionally requires the exact
+`expected_field_version` (starting at 1), current lifecycle `expected_version`,
+Harm Gate clearance and a separate nonblank decision reason. Rejecting does
+not require completion. Caller inquiry context remains DOCUMENTED_UNREVIEWED.
+Confidence and independent source roots never increase from completion.
+
+On upgrade, pending and awaiting-review jobs require the new gate. A legacy
+APPROVED job lacking completion returns explicitly to AWAITING_APPROVAL; it
+does not auto-release. Historical COMPLETED records remain unchanged and are
+labeled LEGACY_UNASSESSED where appropriate. The pipeline inside an immutable
+preview/result records original caller inquiry status; authoritative human
+completion lives in the separate `field_review` ledger and release state.
+Historical CLI/case reports are previews, not exemptions to human release.
 
 All workflow reads, decisions and event streaming require the admin token.
 The dashboard exchanges that token for an eight-hour HttpOnly, SameSite=Strict
@@ -80,6 +126,56 @@ not a multiuser identity provider, per-role authorization, password recovery
 or rate-limited public login. A public deployment needs TLS, identity/RBAC,
 rate limiting, ingress governance and operational review; do not simply bind
 this local application publicly.
+
+## Human intelligence filing
+
+Every legacy and newly submitted job starts in **Inbox**, unread, unflagged,
+without a category color. The migration adds metadata and history without
+rewriting source inputs, lifecycle history, previews or released reports.
+The workspace provides this fixed, user-supplied hierarchy:
+
+```text
+Inbox
+01 - ACTION REQUIRED
+02 - STRATEGIC INTELLIGENCE
+  02A - Market Intelligence
+  02B - Policy Intelligence
+  02C - Industry Intelligence
+03 - PROFESSIONAL NETWORK INTELLIGENCE
+04 - EDUCATION & CREDENTIALS
+  Courses
+  Certifications
+05 - INDICATOR WATCHLIST
+06 - ADMINISTRATIVE
+07 - ARCHIVE
+```
+
+Parents and children are separate filing destinations. Selecting a parent
+shows items filed directly there, not a hidden aggregate of its children.
+Analysis-state views remain separate and span all folders. Folder counts
+and search refer only to loaded jobs; load more to examine older items.
+Opening an item marks it read. Manual unread, flags, folder moves and six
+category colors persist across refresh/restart. These are human organization,
+not corroboration, confidence upgrades or execution grants. Archive is
+preservation, not deletion or report completion; explicit retention/pruning
+policy still applies.
+
+Admin-only `POST /api/v1/jobs/{job_id}/filing` accepts `expected_version`
+(the **filing** revision) and one or more of `folder`, `is_read`, `flagged`,
+`category_color`. Allowed IDs/colors and strict types appear in OpenAPI.
+`category_color: null` clears a category. Unspecified fields stay unchanged.
+A stale revision returns 409; invalid/empty patches return 422. An identical
+patch at the current revision returns the unchanged snapshot without another
+audit record. Actor identity comes from server configuration. Ingest/agent
+credentials cannot mutate filing or approve reports.
+
+Filing revisions and hash-linked history are independent of analysis
+versions/digests. Reads verify both histories. Durable SSE notifications
+cover lifecycle, filing and inquiry changes using one monotonic cursor; schema migration
+preserves existing lifecycle cursor values. This detects stored drift, not
+an attacker replacing all records and hashes. Calling agents can read filing
+context with their task results under the existing shared-credential model;
+there is no new per-caller or multitenant isolation.
 
 ## GitHub and GitLab adapters
 
@@ -111,6 +207,7 @@ State graph:
 PENDING -> RUNNING -> AWAITING_APPROVAL -> APPROVED -> RUNNING -> COMPLETED
                             \-> REJECTED
 PENDING / RUNNING / APPROVED -> FAILED (where applicable)
+APPROVED -> AWAITING_APPROVAL (legacy/policy recheck failure, no release)
 ```
 
 Bounded worker steps run inside `BEGIN IMMEDIATE` transactions. The analysis is

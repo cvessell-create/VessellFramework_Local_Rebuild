@@ -1,4 +1,23 @@
-# Optional local analysis integrations
+# Full-stack SI sub-agent and integration architecture
+
+Consult [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) and the
+[specialist contract](docs/specialist-agent.md). The product vision is a
+full-stack SI sub-agent whose implemented core provides callable,
+provenance-aware evidence analysis to coordinating agents. The email-inspired
+workspace is its human-facing control plane, not the primary product.
+
+Agent task intake, bounded analysis, durable evidence and provenance history,
+human review and report release, and explicitly authorized execution retain
+distinct functional and authorization boundaries. Persistent filing supports
+human organization without changing evidentiary status or review authority.
+The [GitHub control panel](docs/github-control-panel.md) provides a separate
+owner-authorized interface for named execution tasks.
+
+Apply [KNOWING FIELD](VesselFramework_Knowing_Field_SKILL_v0.1.md), the fifth
+pillar, across these analytical methods. Case/agent outputs carry inquiry
+status; human report release requires a source-bound completion record and
+separate approval. Domain tools, workflow receipts and historical examples
+do not automatically establish completed inquiry or field efficacy.
 
 The [game architecture skill](GAME_DEVELOPMENT_SKILL.md) covers original and
 paused game components. `python -m vessell.workflow` runs the adapted bounded
@@ -25,6 +44,10 @@ lawful purpose and explicit scope. See [docs/tool-integrations.md](docs/tool-int
 This is the package-level map for VessellFramework skills, agents, executable code, and the authorized defensive workflow. Historical artifacts retain their original `VesselFramework` names for provenance; active code uses the `vessell` namespace.
 
 ## Operating Model
+
+The following diagram describes the authorized defensive integration, not
+the complete sub-agent architecture. The general service architecture and
+its review and execution boundaries are defined in the product vision.
 
 ```mermaid
 flowchart LR

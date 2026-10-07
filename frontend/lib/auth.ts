@@ -35,8 +35,10 @@ export function sameOrigin(request: Request): boolean {
 export function permittedPath(path: string[], method: string): boolean {
   if (method === "GET") {
     return (path.length === 1 && ["jobs", "stream"].includes(path[0]))
-      || (path.length === 2 && path[0] === "jobs" && /^[a-f0-9]{32}$/.test(path[1]));
+      || (path.length === 2 && path[0] === "jobs" && /^[a-f0-9]{32}$/.test(path[1]))
+      || (path.length === 4 && path[0] === "jobs" && /^[a-f0-9]{32}$/.test(path[1])
+        && path[2] === "artifacts" && ["screenshot.png", "checks.json", "capture.log"].includes(path[3]));
   }
   return method === "POST" && path.length === 3 && path[0] === "jobs"
-    && /^[a-f0-9]{32}$/.test(path[1]) && path[2] === "action";
+    && /^[a-f0-9]{32}$/.test(path[1]) && ["action", "filing", "field-inquiry"].includes(path[2]);
 }

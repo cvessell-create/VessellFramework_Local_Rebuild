@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 title: VessellFramework
-version: 3.9.1
+version: 3.12.0
 authors:
   - family-names: Vessell
     given-names: Christopher R.
-repository-code: https://github.com/cvessell-create/VessellFramework
+repository-code: https://github.com/cvessell-create/VessellFramework_Local_Rebuild
 license: Apache-2.0
 message: >-
-  If you use VessellFramework, please cite it as below. The framework
-  operationalizes Lamport (1978) happens-before, Castello/Redmond/Kuper
-  (2024) causal separation diagrams, and Redmond et al. (2022) verified
-  causal broadcast; see docs/references.md.
+  If you use this callable evidence specialist, please cite this software.
+  VISION_AND_SCOPE.md describes its current product boundaries. The author's
+  claim-correction paper and later implementation literature are distinguished
+  in docs/references.md; software tests are not proof of external claim truth.

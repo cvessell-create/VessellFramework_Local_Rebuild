@@ -14,6 +14,14 @@ description: >
 
 ## Status
 
+Current application also follows
+[KNOWING FIELD](VesselFramework_Knowing_Field_SKILL_v0.1.md), the fifth pillar.
+Include observer position, absent/declined perspectives, dissent and proposed
+source conditions in framing. Human inquiry completion is required before
+report release, but never raises forecast probability, validates prediction,
+substitutes for a frozen calibration record or grants execution authority.
+Historical references to four pillars below are superseded for current use.
+
 **Skill status:** NEW / PROSPECTIVE / NOT YET EMPIRICALLY VALIDATED  
 **Authority:** Operational skill; subordinate to canonical VesselFramework doctrine.
 

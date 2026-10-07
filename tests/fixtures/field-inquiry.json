@@ -1,0 +1,21 @@
+{
+  "boundary": "Synthetic local software test; no external participants or outcome claims.",
+  "observer_position": "Synthetic reviewer examines the exact input and preview without changing either.",
+  "affected_parties": [
+    {"id": "synthetic-reviewer", "role": "Test-only reviewing role", "participation": "not_applicable"},
+    {"id": "absent-participant", "role": "Excluded voice deliberately recorded in the fixture", "participation": "declined"}
+  ],
+  "first_person": "No human first-person testimony was collected in this synthetic test.",
+  "second_person": "No dialogue was conducted; declined participation is preserved rather than simulated.",
+  "third_person": "Only the supplied event and local software records are available.",
+  "fourth_person": "Interpretive inquiry into missing relationships, not an experience of presencing.",
+  "evidence_ids": ["external-event"],
+  "dissent": "Absence of a collected dissent report does not establish agreement.",
+  "blind_spots": ["External source truth and participant experience are not established."],
+  "attention": "Inspect source, preview, scope and missing voices.",
+  "intention": "Test release-policy mechanics without overstating the source claims.",
+  "agency": "Release a bounded report only under human review; no external execution is granted.",
+  "alternatives": ["The reported event may be incomplete, misleading or unrelated to the intended explanation."],
+  "test_plan": "Compare original input and preview before and after reviewer completion and restart.",
+  "limitations": ["Fixture completeness tests records, not lived knowing or empirical efficacy."]
+}

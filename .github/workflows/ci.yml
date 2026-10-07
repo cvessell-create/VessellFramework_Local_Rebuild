@@ -41,3 +41,15 @@ jobs:
         working-directory: frontend
         env:
           NEXT_TELEMETRY_DISABLED: "1"
+  static-capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install -e ".[dev,core,ambient]"
+      - run: docker build -t vessell-static-capture:local deploy/capture
+      - run: python -m pytest -q tests/test_static_capture_container.py
+        env:
+          VESSELL_CAPTURE_CONTAINER_TEST: "1"

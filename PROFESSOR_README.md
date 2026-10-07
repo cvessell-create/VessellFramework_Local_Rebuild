@@ -7,11 +7,19 @@ Program context: M.S. Strategic Intelligence (graduate project candidate)
 
 VesselFramework has become a cross-domain analytical framework with three integrated layers:
 
-1. Doctrine layer: four analytical pillars (PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR), Decision Provenance Chain, Harm Gate, and Maskirovka check architecture.
+1. Doctrine layer: five analytical pillars (PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR, KNOWING FIELD), Decision Provenance Chain, Harm Gate, and Maskirovka check architecture.
 2. Operational skill layer: analyst and forecasting execution guides that enforce evidence-status discipline, provenance checks, alternatives testing, and calibrated posture language.
 3. Executable reference layer: provenance/firewall logic and deterministic case intake tooling that operationalize selected controls for repeatability and regression testing.
 
 This package is submitted as a rough working candidate for critique, not as a finished production platform.
+
+The fifth pillar adapts Scharmer and Pomeroy's (2024) fourth-person knowing
+theory through human-led inquiry and a mandatory pre-release completion record.
+The [source skill](Knowing_Field_Theory_SKILL_v0.1.md),
+[audit](docs/knowing-field-framework-audit.md) and
+[combined skill](VesselFramework_Knowing_Field_SKILL_v0.1.md) distinguish the
+external theory, framework synthesis and owner-selected release policy.
+It is not empirically validated and does not assert AI presencing.
 
 ## 2) What this project can become
 

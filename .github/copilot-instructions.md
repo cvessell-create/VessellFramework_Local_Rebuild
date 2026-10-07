@@ -1,3 +1,32 @@
+# Product direction
+
+Apply `VesselFramework_Knowing_Field_SKILL_v0.1.md` and its source/audit records.
+The current analytical architecture has five pillars; KNOWING FIELD complements
+PARADOX, BOTTLENECK, DUAL LAYER and XFACTOR. Human completion against the exact
+source and preview is mandatory before new report release, including pending
+legacy workflows. Do not simulate presencing, fabricate participant accounts,
+raise confidence from cohesion or retroactively rewrite released history.
+
+Consult `VISION_AND_SCOPE.md` before architectural changes. Develop the product
+as a full-stack SI sub-agent whose implemented core provides bounded,
+provenance-aware evidence analysis through a callable agent contract. The
+email-inspired HTML workspace is its human-facing control plane, not the
+primary product or a replacement for the specialist's supporting services.
+
+Maintain distinct boundaries among authenticated task intake, bounded analysis,
+durable evidence and provenance history, human review and report release,
+and explicitly authorized execution. Caller requests cannot confer
+corroboration, approval or execution authority. Owner-authorized GitHub Actions
+tasks and operator-approved offline captures remain separate from the pure
+analysis worker.
+
+Persistent filing metadata requires independent revisions and audit history.
+Folders, read/unread markers, flags and category colors organize information;
+they must not mutate evidence, analysis digests, lifecycle versions, confidence
+or authorization. Preserve the author-source paper and validated methods.
+Describe SI as product direction, not as an established superintelligence
+capability or a substitute for empirical validation.
+
 # Search Gate for coding agents
 
 Follow `VesselFramework_Search_Gate_SKILL_v0.1.md` before repository/identity,

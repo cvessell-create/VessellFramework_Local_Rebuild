@@ -11,7 +11,7 @@ from pydantic import ValidationError
 
 from vessell.ambient.api import Settings, create_app, normalize
 from vessell.ambient.cli import main
-from vessell.ambient.models import AmbientEvent
+from vessell.ambient.models import AmbientEvent, FieldInquiryAction
 from vessell.ambient.store import Conflict, Store
 
 ADMIN = "admin-test-secret-" * 3
@@ -40,7 +40,7 @@ def ready(store):
     return store.get(job["id"])
 
 
-def test_restart_review_release_and_integrity(tmp_path):
+def test_restart_review_release_and_integrity(tmp_path, field_assessment):
     path = tmp_path / "ambient.sqlite"
     store = Store(path)
     job = ready(store)
@@ -48,7 +48,10 @@ def test_restart_review_release_and_integrity(tmp_path):
     assert job["preview"]["pipeline"]["confidence_ceiling"] == "VERY LOW"
     assert job["preview"]["pipeline"]["harm_gate"]["cleared"]
     store = Store(path)
-    job = store.action(job["id"], "approve", "reviewer", "Release local report only", job["version"])
+    store.complete_field_inquiry(job["id"], FieldInquiryAction(
+        expected_version=job["version"], expected_field_version=0, assessment=field_assessment,
+    ), "reviewer")
+    job = store.action(job["id"], "approve", "reviewer", "Release local report only", job["version"], 1)
     assert job["state"] == "APPROVED"
     assert Store(path).work_once()
     result = Store(path).get(job["id"])
@@ -90,13 +93,16 @@ def test_namespace_and_changed_duplicate(tmp_path):
     assert created
 
 
-def test_competing_review_actions_only_one_wins(tmp_path):
+def test_competing_review_actions_only_one_wins(tmp_path, field_assessment):
     store = Store(tmp_path / "a.sqlite")
     job = ready(store)
+    store.complete_field_inquiry(job["id"], FieldInquiryAction(
+        expected_version=job["version"], expected_field_version=0, assessment=field_assessment,
+    ), "reviewer")
 
     def review(action):
         try:
-            return store.action(job["id"], action, "reviewer", "Explicit reason", job["version"])["state"]
+            return store.action(job["id"], action, "reviewer", "Explicit reason", job["version"], 1)["state"]
         except Conflict:
             return "CONFLICT"
 
@@ -267,7 +273,7 @@ def wait_state(client, job_id, state):
     pytest.fail(f"Job did not reach {state}")
 
 
-def test_authenticated_api_and_worker_resume(api):
+def test_authenticated_api_and_worker_resume(api, field_assessment):
     assert api.get("/health").status_code == 200
     assert api.get("/api/v1/jobs").status_code == 401
     assert api.post("/api/v1/events", json=event_dict()).status_code == 401
@@ -275,7 +281,10 @@ def test_authenticated_api_and_worker_resume(api):
     assert response.status_code == 202
     job = wait_state(api, response.json()["id"], "AWAITING_APPROVAL")
     path = f"/api/v1/jobs/{job['id']}/action"
-    action = {"action": "approve", "reason": "Reviewed local analysis", "expected_version": job["version"]}
+    action = {"action": "approve", "reason": "Reviewed local analysis", "expected_version": job["version"], "expected_field_version": 1}
+    assert api.post(f"/api/v1/jobs/{job['id']}/field-inquiry", json={
+        "expected_version": job["version"], "expected_field_version": 0, "assessment": field_assessment,
+    }, headers={"Authorization": f"Bearer {ADMIN}"}).status_code == 200
     assert api.post(path, json=action, headers={"Authorization": f"Bearer {INGEST}"}).status_code == 401
     assert api.post(path, json={**action, "reason": "  "}, headers={"Authorization": f"Bearer {ADMIN}"}).status_code == 422
     assert api.post(path, json=action, headers={"Authorization": f"Bearer {ADMIN}"}).status_code == 200

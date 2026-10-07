@@ -8,6 +8,7 @@
     "decision_question": {"type": "string", "minLength": 1},
     "domain": {"type": "string", "minLength": 1},
     "subject": {"type": "string", "minLength": 1},
+    "field_inquiry": {"$ref": "field-inquiry.schema.json"},
     "harm_gate": {
       "type": "object",
       "properties": {

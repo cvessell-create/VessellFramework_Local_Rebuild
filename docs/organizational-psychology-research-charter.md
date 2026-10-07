@@ -2,7 +2,9 @@
 
 ## Direction and status
 
-The repository's proposed direction is organizational psychology, focused on
+This is a supplemental research direction, not a replacement for the
+repository's [callable-specialist product vision](../VISION_AND_SCOPE.md).
+It focuses on organizational psychology and
 psychologically healthy workplaces, workplace stress, work-life balance,
 leadership, and evidence-based organizational decision making. The preliminary
 research question is:
@@ -54,10 +56,10 @@ the applicable review requirements.
 
 ## Repository migration boundary
 
-The pre-existing Python modules, schemas, tests, security and intelligence
-workflows, and game integration remain legacy artifacts until audited
-individually. They must not be advertised as organizational-psychology
-capabilities. Reuse of a generic mechanism requires a new requirements trace,
+The existing Python modules, schemas, tests, security and intelligence
+workflows, and game integration remain framework software, not validated
+organizational-psychology capabilities. Reuse in this supplemental research
+track requires a new requirements trace,
 construct-appropriate data contract, tests, and domain review. Do not silently
 relabel existing security outputs, datasets, or fixtures as employee research.
 

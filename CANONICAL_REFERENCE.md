@@ -1,5 +1,22 @@
 # Canonical Reference Scope (Submission Package)
 
+Current five-pillar application is governed by
+[KNOWING FIELD](VesselFramework_Knowing_Field_SKILL_v0.1.md), the
+[theory skill](Knowing_Field_Theory_SKILL_v0.1.md) and its
+[audit record](docs/knowing-field-framework-audit.md), together with existing
+assurance and Harm Gate doctrine. Historical four-pillar descriptions remain
+source history, not current release-policy exceptions.
+
+The current product direction is [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md):
+a full-stack SI sub-agent whose implemented core provides callable,
+provenance-aware evidence analysis. The email-inspired workspace is its
+human-facing control plane, not the primary product. Agent intake, analysis,
+durable evidence history, human review and report release, and execution
+authority retain distinct boundaries; organizational metadata does not
+establish evidentiary truth or confer authorization.
+The older academic submission/version scope below is historical, not the
+current executable package version or a reason to treat it as demo-only.
+
 ## Canonical artifacts in this package
 
 - `VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md`

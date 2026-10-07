@@ -5,6 +5,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from vessell.field_inquiry import PILLARS, FieldInquiryResult
 from vessell.harm_gate import HarmGateResult
 
 
@@ -35,3 +36,6 @@ class PipelineResult:
     convergence_note: str
     claim_ids: tuple[str, ...] = ()  # provenance claims this result was derived from
     harm_gate: HarmGateResult | None = None
+    field_inquiry: FieldInquiryResult | None = None
+    release_status: str = "PREVIEW_REQUIRES_HUMAN_FIELD_COMPLETION"
+    pillars: tuple[str, ...] = PILLARS

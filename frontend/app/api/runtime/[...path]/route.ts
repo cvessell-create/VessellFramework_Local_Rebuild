@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { COOKIE, permittedPath, sameOrigin, secret, validSession } from "../../../../lib/auth";
+import { BodyError, boundedText } from "../../../../lib/request";
 
 export const dynamic = "force-dynamic";
 type Context = { params: Promise<{ path: string[] }> };
@@ -24,8 +25,13 @@ async function proxy(request: Request, context: Context) {
   if (last) headers["Last-Event-ID"] = last;
   let body: string | undefined;
   if (request.method === "POST") {
-    body = await request.text();
-    if (body.length > 4096) return Response.json({ detail: "Review body too large" }, { status: 413 });
+    const maximum = path[2] === "field-inquiry" ? 65536 : 16384;
+    try { body = await boundedText(request, maximum); }
+    catch (error) {
+      if (error instanceof BodyError) return Response.json({ detail: error.message }, { status: error.status });
+      throw error;
+    }
+    if (path[2] !== "field-inquiry" && body.length > 4096) return Response.json({ detail: "Review body too large" }, { status: 413 });
     headers["Content-Type"] = "application/json";
   }
   const expires = Number(session!.split(".")[0]);
@@ -36,7 +42,8 @@ async function proxy(request: Request, context: Context) {
       status: upstream.status,
       headers: {
         "Content-Type": upstream.headers.get("content-type") ?? "application/json",
-        "Cache-Control": "no-store", "X-Accel-Buffering": "no"
+        "Cache-Control": "no-store", "X-Accel-Buffering": "no",
+        "X-Content-Type-Options": "nosniff"
       }
     });
   } catch {

@@ -1,5 +1,31 @@
 # VesselFramework Analyst — Complete Meta Skill
-## Version 3.8.1
+## Version 3.12.0 — Five-Pillar Knowing Field Adaptation
+
+The current five-pillar application is defined by
+[Knowing Field](VesselFramework_Knowing_Field_SKILL_v0.1.md), grounded in the
+[theory skill](Knowing_Field_Theory_SKILL_v0.1.md) and
+[framework audit](docs/knowing-field-framework-audit.md).
+It is owner-authorized policy and a research adaptation, not empirically
+validated fourth-person knowing. Historical versions remain source history.
+
+## Current product direction
+
+From the repository root, consult `VISION_AND_SCOPE.md` and
+`docs/specialist-agent.md`. This doctrine governs the callable evidence-analysis
+core of a full-stack SI sub-agent. The email-inspired workspace is the
+human-facing control plane, not the primary product.
+
+Maintain distinct boundaries among agent task intake, bounded analysis,
+durable evidence and provenance history, human review and report release,
+and explicitly authorized execution. Caller-supplied claims do not establish
+corroboration or confer approval or execution authority. Preserve the separate
+owner-authenticated workflow and operator-approved capture boundaries.
+
+Persistent filing, read/unread markers, flags and category colors support
+information organization and triage through independent revisions and audit
+history. They do not alter evidence, analytical confidence or authorization.
+The SI designation identifies the product vision rather than a demonstrated
+superintelligence capability.
 
 ## Game architecture adaptation
 
@@ -41,7 +67,7 @@ The executable implementation is a testable reference layer, not constitutional 
 
 Use:
 
-`SIGNAL → PROVENANCE → TRANSFORMATION → CONTEXT → CONTRADICTION → ALTERNATIVES → BOTTLENECK → AUTHORITY → CONSEQUENCE → CONFIDENCE → HARM GATE → DECISION`
+`QUESTION / FIELD BOUNDARY / OBSERVER → SIGNAL → PROVENANCE → PERSPECTIVES → TRANSFORMATION → CONTEXT → CONTRADICTION → ALTERNATIVES → BOTTLENECK → KNOWING FIELD → AUTHORITY → CONSEQUENCE → CONFIDENCE → HARM GATE → HUMAN FIELD COMPLETION → RELEASE DECISION`
 
 Every substantive analysis should distinguish:
 
@@ -64,10 +90,11 @@ VesselFramework is published openly (Apache-2.0) with attribution to Christopher
 - Maskirovka and other framework findings are analytic hypotheses, not attributions or accusations.
 - Academic-integrity, citation, source-disclosure, and generative-AI disclosure requirements always apply.
 
-# 3. Four Pillars
+# 3. Five Pillars
 
 ## PARADOX
 Compare stated narrative with observable evidence.
+Distinguish contradiction from different perspectives and collection positions.
 
 ## BOTTLENECK
 Find the binding constraint and distinguish:
@@ -76,12 +103,29 @@ Find the binding constraint and distinguish:
 - coordination;
 - constitutive vs instrumental;
 - CANNOT vs WILL NOT.
+Examine excluded voices, power and relational conditions before attributing will.
 
 ## DUAL LAYER
 Separate public/surface signaling from operational reality.
+Record observer participation; proposed source conditions remain interpretations.
 
 ## XFACTOR
 Identify low-probability/high-consequence variables excluded by the current frame.
+Keep emerging possibilities distinct from calibrated forecasts and authority.
+
+## KNOWING FIELD
+
+Include the observer, affected participants, relational source conditions,
+absent perspectives, dissent and attention/intention/agency in the inquiry.
+Preserve first-person accounts, second-person dialogue, third-person observations
+and fourth-person interpretations without collapsing their evidentiary standing.
+Software records and validates inquiry; it cannot perform embodied presencing.
+Every new human report release requires a completed source/preview-bound
+human assessment plus a separate release decision. Missing or declined
+perspectives must be documented, never invented.
+Completion neither raises confidence nor grants execution authority.
+Historical completed reports remain historical; pending legacy jobs meet
+the current gate. See the combined Knowing Field skill for the shared contract.
 
 ---
 
@@ -258,6 +302,7 @@ Before consequential use, assess:
 - accuracy;
 - academic;
 - professional/reputational;
+- participation, coercion, privacy and consequences for other affected parties;
 - legal/ethical;
 - financial/security;
 - reversibility;
@@ -306,7 +351,8 @@ The Analyst skill hands the Forecaster:
 
 - current-state claims with source status;
 - provenance and independence assessment;
-- relevant PARADOX, BOTTLENECK, DUAL LAYER, and XFACTOR findings;
+- relevant PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR and KNOWING FIELD findings;
+- observer position, declined/absent perspectives, dissent and inquiry limitations;
 - alternatives, assumptions, and confidence basis;
 - Harm Gate and Forward-Posture state.
 
@@ -327,6 +373,7 @@ remove a miss.
 # 13B. Cross-Skill Integration
 
 - The Search Gate (`VesselFramework_Search_Gate_SKILL_v0.1.md`) supplies scoped search records and primary confirmation; unverified external claims return `FRAMEWORK STATE: DEGRADED — UNVERIFIED EXTERNAL CLAIM`.
+- Knowing Field (`VesselFramework_Knowing_Field_SKILL_v0.1.md`) supplies human-led perspective inquiry and mandatory pre-release completion, without changing provenance or forecasting ceilings.
 - The Theater/General Intelligence Briefer supplies timelines, actors, collection gaps, and candidate indicators.
 - Applied Analytics supplies baselines, uncertainty, measurement design, and scoring support.
 - Professional Marketing/Positioning translates approved findings without deleting probability or uncertainty limits.

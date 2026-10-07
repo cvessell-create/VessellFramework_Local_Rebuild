@@ -12,6 +12,7 @@ from types import ModuleType
 from typing import Any
 
 from vessell import provenance_firewall
+from vessell.field_inquiry import PILLARS, assess_field_inquiry
 from vessell.harm_gate import evaluate_harm_gate as assess_harm_gate
 
 SOURCE_STATUSES = {
@@ -226,6 +227,7 @@ def markdown_report(case: dict[str, Any], reference: Any) -> tuple[str, bool]:
     convergence = reference.assess_maskirovka_convergence(assessments) if assessments else "No Maskirovka assessment supplied."
     harm = evaluate_harm_gate(case.get("harm_gate"))
     forward = evaluate_forward_posture(case.get("harm_gate"))
+    field = assess_field_inquiry(case.get("field_inquiry"), set(source_ids))
     analysis = case.get("analysis", {})
     if not isinstance(analysis, dict):
         raise TypeError("The optional analysis field must be an object.")
@@ -234,6 +236,7 @@ def markdown_report(case: dict[str, Any], reference: Any) -> tuple[str, bool]:
         f"# VesselFramework Case Report: {case['title']}",
         "",
         "**Runner status:** STRUCTURED INTAKE COMPLETE",
+        f"**Analytical pillars:** {', '.join(PILLARS)}",
         "**Important boundary:** This report structures supplied evidence; it does not generate or independently verify analytical conclusions.",
         "",
         "## Case Intake",
@@ -291,6 +294,15 @@ def markdown_report(case: dict[str, Any], reference: Any) -> tuple[str, bool]:
         ])
         lines.extend(f"  - {reason}" for reason in forward["reasons"])
 
+    lines.extend([
+        "", "## Knowing Field: Fifth Pillar",
+        f"- Inquiry status: {field.status}",
+        "- Report status: PREVIEW_REQUIRES_HUMAN_FIELD_COMPLETION",
+        "- Human completion is separate from release and cannot grant execution authority.",
+    ])
+    lines.extend(f"- Limitation: {item}" for item in field.limitations)
+    if field.assessment:
+        lines.extend(["```json", json.dumps(field.assessment, indent=2), "```"])
     lines.extend(["", "## Analyst-Supplied Findings"])
     for field_name in ("paradox", "bottleneck", "dual_layer", "xfactor", "alternatives", "confidence", "posture"):
         if field_name in analysis:

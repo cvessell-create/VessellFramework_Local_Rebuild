@@ -1,0 +1,83 @@
+name: Run VessellFramework
+run-name: "VF ${{ inputs.operation }} | ${{ inputs.request_id }}"
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: Allowlisted framework task
+        required: true
+        type: choice
+        options:
+          - validate-framework
+          - claim-correction-study
+          - static-capture-study
+      request_id:
+        description: Control-panel request correlation ID
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate requested operation
+        env:
+          OPERATION: ${{ inputs.operation }}
+          REQUEST_ID: ${{ inputs.request_id }}
+        run: |
+          python3 - <<'PY'
+          import os, uuid
+          if os.environ["GITHUB_REF"] != "refs/heads/master":
+              raise ValueError("The runner accepts master only")
+          if os.environ["OPERATION"] not in {"validate-framework", "claim-correction-study", "static-capture-study"}:
+              raise ValueError("Unsupported operation")
+          uuid.UUID(os.environ["REQUEST_ID"])
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install -e ".[dev,core,ambient,evaluation]"
+      - name: Validate framework
+        if: inputs.operation == 'validate-framework'
+        run: |
+          mkdir -p results
+          python -m pytest -q --junitxml=results/tests.xml
+          python verify_manifest.py
+      - name: Run claim-correction study
+        if: inputs.operation == 'claim-correction-study'
+        run: python -m vessell.case_study --spec case_studies/claim_correction/spec.json --output-dir results/claim-correction
+      - name: Build offline static renderer
+        if: inputs.operation == 'static-capture-study'
+        run: docker build -t vessell-static-capture:local deploy/capture
+      - name: Run static-capture study
+        if: inputs.operation == 'static-capture-study'
+        run: |
+          mkdir -p results
+          VESSELL_CAPTURE_CONTAINER_TEST=1 python -m pytest -q tests/test_static_capture_container.py --junitxml=results/static-capture.xml --basetemp=results/capture-evidence
+      - name: Record execution identity
+        if: always()
+        env:
+          OPERATION: ${{ inputs.operation }}
+          REQUEST_ID: ${{ inputs.request_id }}
+        run: |
+          mkdir -p results
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path("results/execution.json").write_text(json.dumps({
+              "operation": os.environ["OPERATION"],
+              "request_id": os.environ["REQUEST_ID"],
+              "commit": os.environ["GITHUB_SHA"],
+              "actor": os.environ["GITHUB_ACTOR"],
+              "run_id": os.environ["GITHUB_RUN_ID"]
+          }, indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: framework-results
+          path: results
+          if-no-files-found: error

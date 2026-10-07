@@ -17,9 +17,17 @@ test("sessions expire and reject tampering", () => {
 test("proxy permits only review paths and same-origin mutations", () => {
   const id = "a".repeat(32);
   assert.equal(permittedPath(["jobs", id, "action"], "POST"), true);
+  assert.equal(permittedPath(["jobs", id, "filing"], "POST"), true);
+  assert.equal(permittedPath(["jobs", id, "field-inquiry"], "POST"), true);
+  assert.equal(permittedPath(["jobs", id, "field-inquiry"], "GET"), false);
+  assert.equal(permittedPath(["jobs", id, "filing"], "DELETE"), false);
+  assert.equal(permittedPath(["jobs", id, "metadata"], "POST"), false);
   assert.equal(permittedPath(["ingress", "github"], "POST"), false);
   assert.equal(permittedPath(["jobs", "..", "action"], "POST"), false);
   assert.equal(permittedPath(["stream"], "GET"), true);
+  assert.equal(permittedPath(["jobs", id, "artifacts", "screenshot.png"], "GET"), true);
+  assert.equal(permittedPath(["jobs", id, "artifacts", "source.html"], "GET"), false);
+  assert.equal(permittedPath(["jobs", id, "artifacts", "checks.json"], "POST"), false);
   assert.equal(sameOrigin(new Request("http://localhost:3000/api/session", {
     headers: { origin: "https://evil.example" }
   })), false);

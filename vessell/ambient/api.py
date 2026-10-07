@@ -15,10 +15,20 @@ from pathlib import Path
 from typing import Annotated, Any
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import JSONResponse, Response, StreamingResponse
 from pydantic import ValidationError
 
-from .models import AmbientEvent, ReviewAction
+from vessell.field_inquiry import InvalidFieldInquiry
+
+from .models import (
+    AmbientEvent,
+    FieldInquiryAction,
+    FilingAction,
+    ReviewAction,
+    SnapshotData,
+    SpecialistData,
+)
+from .specialist import SpecialistTask
 from .store import Conflict, MissingJob, Store
 
 LOG = logging.getLogger(__name__)
@@ -61,7 +71,7 @@ async def body(request: Request) -> bytes:
     chunks = bytearray()
     async for chunk in request.stream():
         if len(chunks) + len(chunk) > MAX_BODY:
-            raise HTTPException(413, "Event body exceeds 64 KiB")
+            raise HTTPException(413, "Request body exceeds 64 KiB")
         chunks.extend(chunk)
     return bytes(chunks)
 
@@ -108,7 +118,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         while not stop.is_set():
             try:
                 worked = store.work_once()
-            except (ValueError, KeyError, OSError, sqlite3.Error) as error:
+            except (ValueError, TypeError, KeyError, OSError, sqlite3.Error) as error:
                 LOG.exception("Ambient worker stopped; persisted jobs retained for diagnosis")
                 worker_errors.append(type(error).__name__)
                 return
@@ -130,7 +140,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             if thread.is_alive():
                 raise RuntimeError("Ambient worker did not shut down within 15 seconds")
 
-    app = FastAPI(title="Vessell ambient analysis review", lifespan=lifespan)
+    app = FastAPI(title="Vessell callable evidence specialist and review", lifespan=lifespan)
     app.state.store = store
 
     def token(expected: str, authorization: str | None) -> None:
@@ -163,8 +173,44 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     @app.post("/api/v1/events", dependencies=[Depends(ingest_auth)])
     async def ingest(request: Request) -> JSONResponse:
         event = parse(await body(request))
+        if isinstance(event.data, (SnapshotData, SpecialistData)):
+            raise HTTPException(422, "Use the dedicated specialist API or approved offline capture CLI")
         job, created = await asyncio.to_thread(store.ingest, "manual", event)
         return JSONResponse(job, status_code=202 if created else 200)
+
+    @app.post("/api/v1/agent/tasks", dependencies=[Depends(ingest_auth)], openapi_extra={
+        "requestBody": {"required": True, "content": {"application/json": {
+            "schema": {"$ref": "#/components/schemas/SpecialistTask"},
+        }}},
+    })
+    async def submit_specialist(request: Request) -> JSONResponse:
+        try:
+            task = SpecialistTask.model_validate_json(await body(request))
+            event = task.event()
+        except ValidationError as error:
+            raise HTTPException(422, "Invalid specialist task; see /openapi.json and the specialist contract") from error
+        job, created = await asyncio.to_thread(store.ingest, "agent", event)
+        return JSONResponse(job, status_code=202 if created else 200)
+
+    @app.get("/api/v1/agent/tasks/{job_id}", dependencies=[Depends(ingest_auth)])
+    def read_specialist(job_id: str) -> dict[str, Any]:
+        job = store.get(job_id)
+        if job["provider"] != "agent" or job["event"]["event_type"] != "agent.analysis.requested":
+            raise HTTPException(404, "Specialist task not found")
+        return job
+
+    @app.get("/api/v1/jobs/{job_id}/artifacts/{name}", dependencies=[Depends(admin)])
+    def artifact(job_id: str, name: str) -> Response:
+        media = {
+            "screenshot.png": "image/png", "checks.json": "application/json",
+            "capture.log": "text/plain",
+        }
+        if name not in media:
+            raise HTTPException(404, "Artifact not found")
+        return Response(store.artifact(job_id, name), media_type=media[name], headers={
+            "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff",
+            "Content-Security-Policy": "default-src 'none'",
+        })
 
     @app.post("/api/v1/ingress/{provider}")
     async def webhook(provider: str, request: Request) -> JSONResponse:
@@ -211,7 +257,31 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.post("/api/v1/jobs/{job_id}/action")
     def action(job_id: str, review: ReviewAction, actor: str = Depends(admin)) -> dict[str, Any]:
-        return store.action(job_id, review.action, actor, review.reason, review.expected_version)
+        return store.action(
+            job_id, review.action, actor, review.reason, review.expected_version,
+            review.expected_field_version,
+        )
+
+    @app.post("/api/v1/jobs/{job_id}/field-inquiry", openapi_extra={
+        "requestBody": {"required": True, "content": {"application/json": {
+            "schema": {"$ref": "#/components/schemas/FieldInquiryAction"},
+        }}},
+    })
+    async def field_inquiry(
+        job_id: str, request: Request, actor: str = Depends(admin),
+    ) -> dict[str, Any]:
+        try:
+            update = FieldInquiryAction.model_validate_json(await body(request))
+        except ValidationError as error:
+            raise HTTPException(422, "Invalid field inquiry action; see /openapi.json") from error
+        try:
+            return await asyncio.to_thread(store.complete_field_inquiry, job_id, update, actor)
+        except InvalidFieldInquiry as error:
+            raise HTTPException(422, str(error)) from error
+
+    @app.post("/api/v1/jobs/{job_id}/filing")
+    def filing(job_id: str, update: FilingAction, actor: str = Depends(admin)) -> dict[str, Any]:
+        return store.file(job_id, update, actor)
 
     @app.get("/api/v1/stream", dependencies=[Depends(admin)])
     async def stream(
@@ -244,4 +314,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
         )
 
+    components = app.openapi().setdefault("components", {}).setdefault("schemas", {})
+    for model in (SpecialistTask, FieldInquiryAction):
+        schema = model.model_json_schema(ref_template="#/components/schemas/{model}")
+        components.update(schema.pop("$defs", {}))
+        components[model.__name__] = schema
     return app

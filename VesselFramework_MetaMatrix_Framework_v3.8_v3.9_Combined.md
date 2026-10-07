@@ -1,5 +1,40 @@
 # VesselFramework — Complete Meta Matrix Framework
-## Version 3.8.1 (Rough Working Candidate for Graduate Review) | NIST SP 800-50 Rev. 1 Integrated
+## Current application: 3.12.0 — Five-Pillar Knowing Field Adaptation
+
+The active analytical architecture comprises **PARADOX, BOTTLENECK, DUAL LAYER,
+XFACTOR and KNOWING FIELD**. Apply the
+[combined fifth-pillar skill](VesselFramework_Knowing_Field_SKILL_v0.1.md)
+and [current analyst skill](SKILL.md). The
+[source-grounded theory skill](Knowing_Field_Theory_SKILL_v0.1.md) and
+[framework audit](docs/knowing-field-framework-audit.md) document the adaptation.
+
+KNOWING FIELD introduces human-led inquiry into observer participation,
+affected parties, absent or declined perspectives, dissent, relational source
+conditions and attention/intention/agency. The four earlier pillars retain
+their diagnostic contributions, but their conclusions must account for these
+conditions before a human report-release decision.
+
+Every new report release requires a human-completed inquiry bound to the
+actual source and preview, independently of Harm Gate and review authority.
+Caller context, metadata filing, generated text or collective agreement cannot
+complete that gate. Missing perspectives must be recorded, not fabricated.
+The gate enforces documentary/authorization policy; it does not certify
+presencing, raise confidence, validate efficacy or grant external execution.
+
+External basis: Scharmer and Pomeroy (2024),
+https://doi.org/10.47061/jasc.v4i1.7909, entire article pp. 19-48.
+The authors' theory addresses embodied human knowing and explicitly identifies
+generative AI's limitation. The software implementation supports inquiry
+without claiming that it performs that knowing. Framework adaptation is
+owner-authorized / calibration pending.
+
+**Historical boundary:** The consolidated v3.8/v3.9 material below, including
+embedded four-pillar code/examples and version claims, remains historical
+reference. Where it conflicts with current five-pillar application, use the
+current skill and product vision. Do not rewrite the author's original paper,
+historical results or private-runtime installation record.
+
+## Historical Version 3.8.1 (Graduate Review Candidate) | NIST SP 800-50 Rev. 1
 
 This file supersedes the contaminated v3.6 bundle as the clean integrated candidate.
 
@@ -120,13 +155,13 @@ If the output merely mirrors or polishes the input, rerun the reasoning layer.
 
 ## 0. What VesselFramework Is
 
-VesselFramework is a four-pillar structured analytical method intended for cross-domain use — political, intelligence, organizational, cybersecurity, and statistical/measurement problems. It is presented as an **authorial synthesis** of several established traditions: Structured Analytic Techniques and hypothesis testing in intelligence analysis; the opportunity–willingness framework in international relations; Theory of Constraints and organizational/bureaucratic analysis; open-source collection and verification practice; and strategic foresight/net assessment.
+VesselFramework's current application is a five-pillar structured analytical method intended for cross-domain use — political, intelligence, organizational, cybersecurity, and statistical/measurement problems. It extends the historical four-pillar **authorial synthesis** of Structured Analytic Techniques and hypothesis testing, opportunity–willingness, Theory of Constraints, organizational analysis, collection/verification and foresight with the source-attributed KNOWING FIELD adaptation described above.
 
 The framework's integration, terminology, Maskirovka extensions, and Decision Provenance Chain are **VesselFramework constructions unless a source is explicitly named**. The framework must not claim that no prior literature has ever combined similar traditions unless that novelty claim is supported by a documented systematic literature review. The defensible claim is narrower: *VesselFramework combines these traditions in this specific named architecture and applies them through a common evidence-to-decision pipeline.*
 
 **Active domains:** Geopolitical / Military · Organizational / Bureaucratic · AI / Technology · Cybersecurity / Nation-State Threats · Supply Chain / Operations · Policy / Compliance · Platform/Digital Forensics · Statistical Measurement
 
-**Core diagnostic question that runs underneath all four pillars (thesis formalization):** Is observed inaction or dysfunction **structural (CANNOT — a genuine incapacity)** or **volitional (WILL NOT — a political or strategic choice)**? This determination drives every downstream conclusion about intent, resource allocation, and strategic trajectory.
+**Core diagnostic handoff (current adaptation):** The original four diagnostics ask whether observed inaction or dysfunction is **structural (CANNOT)** or **volitional (WILL NOT)**. Treat this as a constrained explanatory question, not an automatic determination of intent. KNOWING FIELD adds: who participates in and observes this field, which perspectives are missing or declined, how do relations and source conditions shape the interpretation, and who may legitimately act? Preserve alternatives and dissent before consequential conclusions.
 
 ---
 
@@ -315,7 +350,16 @@ registers conflict, use the more restrictive posture until the conflict is
 resolved or an authorized reviewer accepts the residual exposure.
 
 
-## 1. The Four Analytical Pillars
+## 1. The Analytical Pillars
+
+The four historical diagnostic definitions below are now complemented by
+KNOWING FIELD. Before interpreting their findings, establish the field boundary,
+observer participation, perspective gaps, dissent and consequences.
+PARADOX distinguishes disagreement from contradiction; BOTTLENECK considers
+exclusion and coordination before volition; DUAL LAYER preserves the distinction
+between manifest behavior and proposed source conditions; XFACTOR separates
+possibility from prediction. KNOWING FIELD integrates these handoffs through
+the combined skill and a mandatory human completion gate before release.
 
 ### PARADOX
 **Grounding:** Structured Analytic Techniques, especially hypothesis comparison, diagnostic evidence, and challenge analysis (Heuer, 1999; Heuer & Pherson, 2014). **PARADOX is a VesselFramework synthesis inspired by these practices; it is not identical to ACH.**
@@ -1372,7 +1416,7 @@ This skill is an execution layer, not a second copy of the Master. Its job is to
 1. State the subject and decision question.
 2. Tag important inputs as SOURCE-ESTABLISHED / FRAMEWORK SYNTHESIS / WORKING HYPOTHESIS / ILLUSTRATIVE.
 3. Trace Decision Provenance when evidence is being converted into authority or action.
-4. Run only the pillars that materially discriminate the problem; a full four-pillar pass is not mandatory when a pillar adds no information.
+4. Run the original diagnostic pillars where they materially discriminate the problem; do not force empty diagnoses. Include Knowing Field framing and the required human assessment before any new report release.
 5. Test at least one alternative explanation.
 6. Identify the binding bottleneck and whether the evidence actually supports constitutive vs instrumental failure.
 7. Run the Primary Brute-Force Stealth Maskirovka check first, then apply reference variants only when their trigger conditions are independently evidenced.

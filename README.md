@@ -1,16 +1,78 @@
 # VessellFramework
 
-VessellFramework is an auditable Python runtime and a set of doctrine and skill artifacts for evidence, provenance, case analysis, forecasting, and approved remediation control.
+VessellFramework is being developed as a **full-stack SI sub-agent**: a reusable,
+provenance-aware analytical service that coordinating agents can invoke through
+defined interfaces. Its implemented core is a **callable evidence specialist**
+supported by a Python analysis runtime, authenticated task APIs, durable
+evidence and review records, and bounded, explicitly authorized execution paths.
+The framework's doctrine and skill artifacts govern evidence assessment, case
+analysis, forecasting methods and approved-remediation workflows.
+
+The **email-inspired intelligence workspace is the human-facing control plane,
+not the primary product**. It supports inspection, information triage, persistent
+filing and review without replacing the underlying sub-agent architecture.
+That architecture maintains distinct boundaries among agent task intake,
+bounded analysis, evidence and provenance history, human review and report
+release, and execution authority. Folder membership, read/unread markers, flags
+and category colors organize attention; they do not establish source truth,
+increase confidence or authorize report release or external action.
+
+[VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) defines the architectural direction,
+implementation scope and acceptance criteria. The SI designation expresses
+the product vision; it is not a claim of demonstrated superintelligence,
+independent field efficacy or production certification. The workspace does
+not implement Outlook integration or email delivery.
 
 Author: Christopher R. Vessell
+
+## Five-pillar Knowing Field architecture
+
+The framework now combines **PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR and
+KNOWING FIELD**. Follow the
+[source-grounded theory skill](Knowing_Field_Theory_SKILL_v0.1.md),
+[framework blind-spot audit](docs/knowing-field-framework-audit.md) and
+[combined fifth-pillar skill](VesselFramework_Knowing_Field_SKILL_v0.1.md).
+The full Scharmer and Pomeroy (2024) article informs the adaptation; the
+mandatory gate is an owner-selected framework policy, not a claim from the paper.
+
+The fifth pillar records observer participation, affected parties,
+four perspective accounts/gaps, dissent, blind spots and
+attention/intention/agency. **Every new report release requires human inquiry
+completion**, including pending legacy jobs, followed by a separate release
+decision. CLI analyses remain previews. Historical releases are retained
+without retroactive certification. Software verifies records and permissions,
+not embodied presencing, collective consciousness or improved field efficacy.
+
+For a source-bounded overview of the owner's documented role and a
+theory-informed sub-agent interpretation, see
+[The owner within the human-agent field](docs/owner-fourth-person-perspective.md).
+This interpretive document does not supersede the product vision or establish
+facts about the owner's private experience.
 
 For the code-by-code game breakdown and framework architecture adaptation,
 see [GAME_DEVELOPMENT_SKILL.md](GAME_DEVELOPMENT_SKILL.md). The new
 [bounded analyst workflow](vessell/workflow.py) reuses the existing gates,
 pipeline and correction machinery; game development itself remains paused.
 
-Package version: v3.10.0 with durable ambient event review and game-pattern workflow adaptations.
+Package version: v3.12.0 with five-pillar inquiry, durable ambient review, approved static artifact capture and game-pattern workflow adaptations.
 The separate game feature build remains paused and is not a completed release.
+
+## Pull it into another agent
+
+Install this repository with the `ambient` extra and use the
+[specialist client and task contract](docs/specialist-agent.md).
+The task API accepts bounded evidence, deduplicates a caller's replay and returns
+a structured preview. A separate human reviewer releases the durable result.
+Calling agents receive submission/read credentials, never reviewer authority.
+
+## Sign in from HTML and run the repository
+
+The [GitHub control panel](docs/github-control-panel.md) at
+http://localhost:3000/github uses a GitHub App installed only on this repository.
+It starts selected tasks on GitHub Actions and links to their logs/artifacts.
+App credentials and installation are required; no shared master passwords or
+browser-stored GitHub tokens are used. GitHub Pages remains the public read-only
+entry point and links to the server-backed control panel.
 
 ## Ambient event review: full-stack local deployment
 
@@ -29,6 +91,9 @@ docker compose -f compose.ambient.yml up --build
 Open http://localhost:3000. See the [deployment and evidence boundaries](docs/ambient-workflows.md)
 before enabling webhook routes or pruning data. Local adapter support does
 not automatically configure live GitHub/GitLab webhook delivery.
+The workspace supports numbered intelligence folders, automatic read-on-open,
+manual read/unread, flags and category colors. Filing has its own optimistic
+revision and audit trail; it never changes the evidence or releases a report.
 Executable
 workflows, source contracts, persistent study receipts and regression checks
 are available; independent field efficacy is not claimed.
@@ -36,7 +101,8 @@ are available; independent field efficacy is not claimed.
 The [game integration](docs/game-integration.md) connects the rebuild to
 [Hail to the Analyst](https://github.com/cvessell-create/hail-to-the-analyst):
 autonomous FPS playback, a real Python provenance coach and the experimental
-*Signal Recall* sequel. No external accounts or real-world action systems are connected.
+*Signal Recall* sequel. This separate paused game integration does not control
+external accounts or real-world action systems.
 
 Start with [operational case studies](docs/operational-case-studies.md):
 
@@ -315,6 +381,11 @@ For offline use, pass play-by-play JSON files or directories instead of
 game data only; no fabricated real-game data is included.
 
 ## Public Display Mode and supplemental research tools
+
+The [approved static artifact capture](docs/static-artifact-capture.md) records
+offline screenshots, deterministic checks and logs beside source in the
+ambient review workflow. Captures and report releases require separate human
+decisions; no model verdict or automatic execution endpoint is installed.
 
 The separate [phone-friendly Display Mode](dashboard/README.md) is a read-only
 GitHub status page, not the authenticated local ambient review console.

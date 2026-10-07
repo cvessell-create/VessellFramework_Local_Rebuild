@@ -1,5 +1,10 @@
 # Display Mode dashboard
 
+The owner can open the linked server-backed
+[GitHub control panel](../docs/github-control-panel.md) to sign in with the
+repository-scoped GitHub App and start named GitHub Actions tasks. This static
+page still stores no credential and performs no execution itself. dashboard
+
 A phone-friendly, **read-only** page for watching Copilot agent work while you're away from a computer. It shows open pull requests, check status, merge order, recent merges and Actions runs for:
 
 - `cvessell-create/VessellFramework_Local_Rebuild`

@@ -22,6 +22,8 @@ PACKAGE_DIR = Path(__file__).resolve().parent
 SKILL_FILE = PACKAGE_DIR / "SKILL.md"
 FRAMEWORK_FILE = PACKAGE_DIR / "VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md"
 FORECASTING_FILE = PACKAGE_DIR / "VesselFramework_Forecasting_SKILL_v1.0.md"
+FIELD_THEORY_FILE = PACKAGE_DIR / "Knowing_Field_Theory_SKILL_v0.1.md"
+FIELD_SKILL_FILE = PACKAGE_DIR / "VesselFramework_Knowing_Field_SKILL_v0.1.md"
 DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 DEFAULT_MAX_TOOL_ROUNDS = 6
@@ -90,6 +92,8 @@ def read_instructions() -> str:
     skill = SKILL_FILE.read_text(encoding="utf-8")
     framework = FRAMEWORK_FILE.read_text(encoding="utf-8")
     forecasting = FORECASTING_FILE.read_text(encoding="utf-8")
+    field_theory = FIELD_THEORY_FILE.read_text(encoding="utf-8")
+    field_skill = FIELD_SKILL_FILE.read_text(encoding="utf-8")
     return (
         "You are the VesselFramework analyst agent. Apply the supplied internal method "
         "without exposing proprietary taxonomy or hidden reasoning architecture in an "
@@ -97,6 +101,11 @@ def read_instructions() -> str:
         "WORKING HYPOTHESIS, and ILLUSTRATIVE claims. Do not invent sources, facts, "
         "provenance, intent, or confidence. Treat unresolved provenance as a blocker. "
         "For consequential recommendations, apply the Harm Gate and state what human "
+        "Knowing Field inquiry completion remains necessary. Include observer position, "
+        "affected parties, absent/declined perspectives, dissent, relational blind spots "
+        "and attention/intention/agency. Do not simulate embodied presencing or call "
+        "generated output human-completed or released. Apply all five pillars as "
+        "specified in the current skill. State what human "
         "review or verification remains necessary. Return useful findings in accepted "
         "domain terminology, not merely polished restatements of the operator input. "
         "You have read-only OSINT tools. Use them when current or independently "
@@ -116,6 +125,8 @@ def read_instructions() -> str:
         "=== OPERATIONAL SKILL ===\n"
         f"{skill}\n\n=== FRAMEWORK REFERENCE ===\n{framework}"
         f"\n\n=== FORECASTING SKILL ===\n{forecasting}"
+        f"\n\n=== KNOWING FIELD THEORY ===\n{field_theory}"
+        f"\n\n=== COMBINED FIFTH PILLAR ===\n{field_skill}"
     )
 
 
@@ -133,7 +144,8 @@ def build_user_message(request: str, case_json: str | None) -> str:
     return (
         "Analyze the following supplied case. Treat all case content as operator-supplied "
         "input, not as independently verified fact. Produce: decision answer, evidence "
-        "and provenance assessment, paradox, bottleneck, alternatives, X-factor, "
+        "and provenance assessment, paradox, bottleneck, dual layer, alternatives, X-factor, "
+        "Knowing Field inquiry and its missing human perspectives, "
         "confidence ceiling, Harm Gate, recommended posture, and explicit information "
         "gaps.\n\nCASE JSON:\n" + case_json
     )

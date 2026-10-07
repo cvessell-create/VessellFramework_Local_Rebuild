@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Knowing Field inquiry record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "boundary", "observer_position", "affected_parties",
+    "first_person", "second_person", "third_person", "fourth_person",
+    "evidence_ids", "dissent", "blind_spots", "attention", "intention",
+    "agency", "alternatives", "test_plan", "limitations"
+  ],
+  "properties": {
+    "boundary": {"$ref": "#/$defs/text"},
+    "observer_position": {"$ref": "#/$defs/text"},
+    "affected_parties": {
+      "type": "array", "minItems": 1, "maxItems": 24,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "role", "participation"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1, "maxLength": 200, "pattern": "\\S"},
+          "role": {"$ref": "#/$defs/text"},
+          "participation": {"enum": ["voluntary", "declined", "not_contacted", "not_applicable"]}
+        }
+      }
+    },
+    "first_person": {"$ref": "#/$defs/text"},
+    "second_person": {"$ref": "#/$defs/text"},
+    "third_person": {"$ref": "#/$defs/text"},
+    "fourth_person": {"$ref": "#/$defs/text"},
+    "evidence_ids": {
+      "type": "array", "minItems": 1, "maxItems": 24, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1, "maxLength": 200, "pattern": "\\S"}
+    },
+    "dissent": {"$ref": "#/$defs/text"},
+    "blind_spots": {"$ref": "#/$defs/texts"},
+    "attention": {"$ref": "#/$defs/text"},
+    "intention": {"$ref": "#/$defs/text"},
+    "agency": {"$ref": "#/$defs/text"},
+    "alternatives": {"$ref": "#/$defs/texts"},
+    "test_plan": {"$ref": "#/$defs/text"},
+    "limitations": {"$ref": "#/$defs/texts"}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1, "maxLength": 2000, "pattern": "\\S"},
+    "texts": {
+      "type": "array", "minItems": 1, "maxItems": 12,
+      "items": {"$ref": "#/$defs/text"}
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "snapshots": {
+    "example": {
+      "source": "example.html",
+      "source_sha256": "89e276118b09b74c75435a39226d470e9c301333f44be265ad7c364dac8072b9",
+      "declared_intent": "Show one evidence heading and one review button without horizontal overflow.",
+      "viewport": {"width": 800, "height": 600},
+      "checks": [
+        {"selector": "h1", "count": 1, "text": "Evidence before approval"},
+        {"selector": "button", "count": 1, "text": "Review evidence"}
+      ]
+    }
+  }
+}

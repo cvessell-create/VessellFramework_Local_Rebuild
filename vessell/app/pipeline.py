@@ -5,6 +5,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from vessell.field_inquiry import assess_field_inquiry
 from vessell.harm_gate import evaluate_harm_gate
 from vessell.provenance import (
     ClaimKind,
@@ -164,10 +165,15 @@ def run_case_pipeline(case: dict[str, Any], *, track_provenance: bool = True) ->
     )
 
     evidence_map = _map_by_source_id(evidence_set)
+    field_inquiry = assess_field_inquiry(case.get("field_inquiry"), set(evidence_map))
     assessments = _build_maskirovka_assessments(case, registry, evidence_map)
     convergence_note = assess_maskirovka_convergence(assessments)
 
     notes: list[str] = []
+    notes.append(
+        "Knowing Field: human-led inquiry completion is mandatory before report release; "
+        "this analysis is a preview and cannot certify fourth-person experience.",
+    )
     if not harm_gate.cleared:
         notes.append("Harm Gate requires review; this intake does not authorize action.")
     if counts.unresolved_lineage > 0:
@@ -203,4 +209,5 @@ def run_case_pipeline(case: dict[str, Any], *, track_provenance: bool = True) ->
         convergence_note=convergence_note,
         claim_ids=claim_ids,
         harm_gate=harm_gate,
+        field_inquiry=field_inquiry,
     )

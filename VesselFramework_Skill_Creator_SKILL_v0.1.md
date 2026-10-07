@@ -34,6 +34,17 @@ A generated skill is not doctrine merely because it exists.
 7. Executable implementation
 8. Calibration / patch records
 
+## Knowing Field integration requirement
+
+Use [the fifth-pillar skill](VesselFramework_Knowing_Field_SKILL_v0.1.md)
+when revising framework methods. Describe the observer's participation,
+affected parties, missing/declined perspectives, dissent, attention, intention,
+agency, alternatives and evaluation plan. Preserve embodied human knowing
+as distinct from software record validation.
+Mandatory human completion before new report release is an owner-authorized
+policy, not empirical skill promotion. Do not relabel a generated skill or
+complete schema as validated fourth-person experience.
+
 ## Intelligence-Process Spine
 
 ### 1. Planning and Direction

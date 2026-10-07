@@ -22,6 +22,7 @@ def render_markdown_report(result: PipelineResult) -> str:
         "",
         "## Doctrine-to-Code Result",
         "",
+        f"Analytical pillars: {', '.join(result.pillars)}",
         f"Confidence ceiling: {result.confidence_ceiling}",
         f"Maskirovka convergence note: {result.convergence_note}",
         "",
@@ -57,6 +58,17 @@ def render_markdown_report(result: PipelineResult) -> str:
             f"- Missing fields: {', '.join(result.harm_gate.missing_fields) or 'None'}",
         ])
         lines.extend(f"- {item}" for item in result.harm_gate.safeguards)
+    lines.extend([
+        "", "## Knowing Field: Fifth Pillar", "",
+        f"- Report status: {result.release_status}",
+        f"- Inquiry status: {result.field_inquiry.status if result.field_inquiry else 'MISSING'}",
+        "- Human completion and a separate release decision are required.",
+        "- Record completeness does not validate presencing, corroborate claims or grant execution.",
+    ])
+    if result.field_inquiry:
+        lines.extend(f"- Limitation: {item}" for item in result.field_inquiry.limitations)
+        if result.field_inquiry.assessment is not None:
+            lines.extend(["", "```json", json.dumps(result.field_inquiry.assessment, indent=2), "```"])
     lines.extend([
         "",
         ("This report structures supplied evidence; it does not independently verify "
