@@ -47,6 +47,23 @@ It does not authenticate citations, rate study quality, synthesize findings,
 make policy recommendations, or ingest employee/participant data. The blank
 starter file is not evidence for the research question.
 
+## Local reviewed-memory store
+
+The `vessell-memory` command is an application-owned SQLite feature for storing
+short facts with explicit scope and citations. Records start pending; users can
+approve, reject, or correct them. Retrieval is scoped and includes only approved,
+unexpired records with citation provenance:
+
+```sh
+vessell-memory add memory.json
+vessell-memory review MEMORY_ID approve
+vessell-memory retrieve "Python compatibility" --scope repository
+```
+
+This is not connected to Copilot memory and does not verify cited sources or
+establish that stored statements are true. See the
+[memory-store guide](docs/memory-store.md) for review and correction behavior.
+
 ## Repository status and legacy software
 
 The existing Python package, schemas, fixtures, tests, cybersecurity workflows,
