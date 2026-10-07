@@ -7,7 +7,7 @@ name = "vessell-framework"
 version = "3.9.1"
 description = "Legacy VessellFramework evidence and cybersecurity tooling; repository also includes a proposed organizational-psychology research scope, not a study runtime."
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = ["jsonschema>=4.23"]
 
 [project.optional-dependencies]
@@ -37,10 +37,10 @@ include = ["vessell*", "vessel*"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py313"
+target-version = "py312"
 
 [tool.mypy]
-python_version = "3.13"
+python_version = "3.12"
 strict = true
 packages = ["vessell", "vessel"]
 

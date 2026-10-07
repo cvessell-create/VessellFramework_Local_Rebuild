@@ -60,7 +60,7 @@ Every PR must satisfy all of these:
 - Changes that weaken the provenance firewall, harm gate, or the
   do-not-invent boundary.
 - New network integrations without an offline fixture and test.
-- Breaking the `vessell` package's Python >= 3.13 floor without
+- Breaking the `vessell` package's Python >= 3.12 floor without
   discussion in the issue first.
 
 ## 6. Filing Issues
