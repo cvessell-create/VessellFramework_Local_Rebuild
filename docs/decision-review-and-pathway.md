@@ -37,18 +37,21 @@ accounts and hidden reasoning NOT checked.
 **SEARCH RECORD 3:** query
 `t.user_message ILIKE '%decision graph%' OR t.user_message ILIKE '%game theory%' OR t.user_message ILIKE '%chain of thought%'`
 / `session_store_sql` / accessible session history, last 30 days, maximum 20 rows
-/ 0 rows / no / no / NOT FOUND IN SCOPE / other time periods, hyphenated
-variants, private accounts and hidden reasoning NOT checked.
+/ result_count: 0 / limit_hit: no / primary_source_opened: no / status: NOT FOUND
+IN SCOPE / what was NOT checked: other time periods, hyphenated variants,
+private accounts and hidden reasoning.
 
 ## Conclusions
 
 1. **The recorded architectural direction is coherent.** The current vision
-   treats VessellFramework as a callable, provenance-aware evidence specialist,
-   with the HTML workspace as its human control plane. It distinguishes task
-   intake, bounded analysis, durable evidence, human release, and authorized
-   execution. The six-pillar architecture places GAME THEORY alongside the
+   treats **VessellFramework** as a callable, provenance-aware evidence
+   specialist, with the HTML workspace as its human control plane. Some retained
+   skill filenames use the historical `VesselFramework` spelling. The current
+   architecture distinguishes task intake, bounded analysis, durable evidence,
+   human release, and authorized execution. It places GAME THEORY alongside the
    existing pillars; KNOWING FIELD completion remains a human release
-   prerequisite. See [`VISION_AND_SCOPE.md`](../VISION_AND_SCOPE.md).
+   prerequisite. See [`VISION_AND_SCOPE.md`](../VISION_AND_SCOPE.md) and
+   [`README.md`](../README.md).
 2. **The decision-graph work is bounded, not an authority engine.** The
    Game Theory audit identifies motive attribution, information structure,
    model inputs, and oversight as design risks. Its response is source-linked
