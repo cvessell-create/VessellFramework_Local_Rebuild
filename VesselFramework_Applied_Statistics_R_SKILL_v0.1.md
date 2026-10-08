@@ -115,16 +115,21 @@ points for either analysis.
 ### R workflow
 
 Replace the dataset and column names with the actual names. Check missingness
-and pair alignment before computing statistics.
+and pair alignment before computing statistics. The paired complete-case data
+below ensures both variables refer to the same observations.
 
 ```r
 library(readxl)
 library(ggpubr)
 
 DatasetName <- read_excel("path/to/data.xlsx")
+correlation_data <- DatasetName[
+  complete.cases(DatasetName[c("Variable1", "Variable2")]),
+  c("Variable1", "Variable2")
+]
 
 ggscatter(
-  DatasetName,
+  correlation_data,
   x = "Variable1",
   y = "Variable2",
   add = "reg.line",
@@ -132,20 +137,20 @@ ggscatter(
   ylab = "Variable 2"
 )
 
-summary(DatasetName$Variable1)
-sd(DatasetName$Variable1, na.rm = TRUE)
-summary(DatasetName$Variable2)
-sd(DatasetName$Variable2, na.rm = TRUE)
+summary(correlation_data$Variable1)
+sd(correlation_data$Variable1)
+summary(correlation_data$Variable2)
+sd(correlation_data$Variable2)
 
-hist(DatasetName$Variable1)
-hist(DatasetName$Variable2)
-shapiro.test(DatasetName$Variable1[!is.na(DatasetName$Variable1)])
-shapiro.test(DatasetName$Variable2[!is.na(DatasetName$Variable2)])
+hist(correlation_data$Variable1)
+hist(correlation_data$Variable2)
+shapiro.test(correlation_data$Variable1)
+shapiro.test(correlation_data$Variable2)
 
 # Select one method based on the research question, plot, assumptions, and course rule.
 cor.test(
-  DatasetName$Variable1,
-  DatasetName$Variable2,
+  correlation_data$Variable1,
+  correlation_data$Variable2,
   method = "pearson"
 )
 # Or use method = "spearman".
@@ -288,8 +293,17 @@ library(effectsize)
 library(effsize)
 
 DatasetName <- read_excel("path/to/data.xlsx")
+independent <- DatasetName[
+  complete.cases(DatasetName[c("GroupVariable", "OutcomeVariable")]),
+  c("GroupVariable", "OutcomeVariable")
+]
+independent$GroupVariable <- factor(
+  independent$GroupVariable,
+  levels = c("Group1", "Group2")
+)
+stopifnot(!anyNA(independent$GroupVariable))
 
-DatasetName %>%
+independent %>%
   group_by(GroupVariable) %>%
   summarise(
     Mean = mean(OutcomeVariable, na.rm = TRUE),
@@ -300,15 +314,15 @@ DatasetName %>%
   )
 
 hist(
-  DatasetName$OutcomeVariable[DatasetName$GroupVariable == "Group1"],
+  independent$OutcomeVariable[independent$GroupVariable == "Group1"],
   breaks = 15, col = "skyblue", border = "white"
 )
 hist(
-  DatasetName$OutcomeVariable[DatasetName$GroupVariable == "Group2"],
+  independent$OutcomeVariable[independent$GroupVariable == "Group2"],
   breaks = 15, col = "firebrick", border = "white"
 )
 ggboxplot(
-  DatasetName,
+  independent,
   x = "GroupVariable",
   y = "OutcomeVariable",
   color = "GroupVariable",
@@ -317,32 +331,30 @@ ggboxplot(
 )
 
 shapiro.test(
-  DatasetName$OutcomeVariable[
-    DatasetName$GroupVariable == "Group1" &
-      !is.na(DatasetName$OutcomeVariable)
+  independent$OutcomeVariable[
+    independent$GroupVariable == "Group1"
   ]
 )
 shapiro.test(
-  DatasetName$OutcomeVariable[
-    DatasetName$GroupVariable == "Group2" &
-      !is.na(DatasetName$OutcomeVariable)
+  independent$OutcomeVariable[
+    independent$GroupVariable == "Group2"
   ]
 )
 
 # Select one procedure using the design, diagnostics, and course rule.
 t.test(
   OutcomeVariable ~ GroupVariable,
-  data = DatasetName,
+  data = independent,
   var.equal = TRUE
 )
 cohens_d(
   OutcomeVariable ~ GroupVariable,
-  data = DatasetName,
+  data = independent,
   pooled_sd = TRUE
 )
 
-wilcox.test(OutcomeVariable ~ GroupVariable, data = DatasetName)
-cliff.delta(OutcomeVariable ~ GroupVariable, data = DatasetName)
+wilcox.test(OutcomeVariable ~ GroupVariable, data = independent)
+cliff.delta(OutcomeVariable ~ GroupVariable, data = independent)
 ```
 
 Use only the selected inferential test and its matching effect size in the final
