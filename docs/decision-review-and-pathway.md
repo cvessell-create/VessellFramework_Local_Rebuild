@@ -7,27 +7,34 @@ transcript.
 ## Scope and limits
 
 The review covers the local repository checkout, the user's supplied workflow
-status excerpt, and the files cited below. A recent session-history query for
-decision-graph/game-theory discussion returned no rows. GitHub job logs, PR
-review comments, other accounts/branches, and private chain-of-thought were not
-available or reviewed. The supplied status excerpt reports successful CI and
-CodeQL runs and a merge of PR #11; those statuses were not independently
-confirmed from run logs here.
+status excerpt, and the files cited below. A session-history query limited to
+the prior 30 days and matching user messages about decision graphs, game theory,
+or chain-of-thought returned no rows. GitHub job logs, PR review comments, other
+accounts/branches, and private chain-of-thought were not available or reviewed.
+The supplied status excerpt reports successful CI and CodeQL runs and a merge of
+PR #11; those statuses were not independently confirmed from run logs here.
 
-Repository search used `rg` over Markdown, Python, schemas, and tests for
-decision/rationale/alternatives/chain-of-thought terms. It returned 253 matches
-across 49 Markdown files and 157 across 34 source/schema/test files; displayed
-matches were capped. Targeted primary files were opened, but this is not a
-line-by-line audit of every match or every branch. Search revision:
-`6304f576ac1364715c02d56e1cfeaf0f5840eb43`.
+Repository searches used `rg` on checkout revision
+`6304f576ac1364715c02d56e1cfeaf0f5840eb43`. Targeted primary files were opened,
+but capped search output means this is not a line-by-line audit of every match
+or every branch.
 
-**SEARCH RECORD:** decision/rationale/alternatives/chain-of-thought terms /
-repository `rg` / checkout revision
-`6304f576ac1364715c02d56e1cfeaf0f5840eb43`, Markdown plus Python, schemas and
-tests / 253 Markdown matches in 49 files and 157 source/schema/test matches in
-34 files / yes, displayed output capped / primary repository sources opened: yes
-/ source-bounded findings / GitHub job logs, PR comments, other branches,
-private accounts and hidden reasoning NOT checked.
+**SEARCH RECORD 1:** query regex
+`decision|rationale|alternatives|open questions|chain.of.thought|reasoning trace`
+/ repository `rg` / Markdown files at checkout revision
+`6304f576ac1364715c02d56e1cfeaf0f5840eb43` / 253 matches in 49 files / yes,
+display capped at 140 results / primary sources opened: yes / source-bounded
+findings / files on other branches, external accounts and hidden reasoning NOT
+checked.
+
+**SEARCH RECORD 2:** query regex `decision|rationale|chain.of.thought|reasoning trace`
+/ repository `rg` / Python, schemas and tests at checkout revision
+`6304f576ac1364715c02d56e1cfeaf0f5840eb43` / 157 matches in 34 files / yes,
+display capped at 100 results / primary sources opened: yes / source-bounded
+findings / GitHub job logs, PR comments, files on other branches, external
+accounts and hidden reasoning NOT checked.
+
+**SEARCH RECORD 3:** query `user_message ILIKE '%decision graph%' OR '%game theory%' OR '%chain of thought%'` / `session_store_sql` / accessible session history, last 30 days, maximum 20 rows / 0 rows / no / no matching primary message opened / no matching message found in this scope / other time periods, private accounts and hidden reasoning NOT checked.
 
 ## Conclusions
 
