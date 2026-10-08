@@ -34,7 +34,11 @@ display capped at 100 results / primary sources opened: yes / source-bounded
 findings / GitHub job logs, PR comments, files on other branches, external
 accounts and hidden reasoning NOT checked.
 
-**SEARCH RECORD 3:** query `t.user_message ILIKE '%decision graph%' OR t.user_message ILIKE '%game theory%' OR t.user_message ILIKE '%chain of thought%'` / `session_store_sql` / accessible session history, last 30 days, maximum 20 rows / 0 rows / no / no matching primary message opened / no matching message found in this scope / other time periods, hyphenated variants, private accounts and hidden reasoning NOT checked.
+**SEARCH RECORD 3:** query
+`t.user_message ILIKE '%decision graph%' OR t.user_message ILIKE '%game theory%' OR t.user_message ILIKE '%chain of thought%'`
+/ `session_store_sql` / accessible session history, last 30 days, maximum 20 rows
+/ 0 rows / no / no / NOT FOUND IN SCOPE / other time periods, hyphenated
+variants, private accounts and hidden reasoning NOT checked.
 
 ## Conclusions
 
