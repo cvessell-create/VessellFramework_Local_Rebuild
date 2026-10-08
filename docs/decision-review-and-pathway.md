@@ -8,9 +8,9 @@ transcript.
 
 The review covers the local repository checkout, the user's supplied workflow
 status excerpt, and the files cited below. A session-history query limited to
-the prior 30 days and matching user messages about decision graphs, game theory,
-or chain-of-thought returned no rows. GitHub job logs, PR review comments, other
-accounts/branches, and private chain-of-thought were not available or reviewed.
+the prior 30 days and matching the exact phrases “decision graph,” “game theory,”
+or “chain of thought” returned no rows. GitHub job logs, PR review comments,
+other accounts/branches, and private chain-of-thought were not available or reviewed.
 The supplied status excerpt reports successful CI and CodeQL runs and a merge of
 PR #11; those statuses were not independently confirmed from run logs here.
 
@@ -34,7 +34,7 @@ display capped at 100 results / primary sources opened: yes / source-bounded
 findings / GitHub job logs, PR comments, files on other branches, external
 accounts and hidden reasoning NOT checked.
 
-**SEARCH RECORD 3:** query `t.user_message ILIKE '%decision graph%' OR t.user_message ILIKE '%game theory%' OR t.user_message ILIKE '%chain of thought%'` / `session_store_sql` / accessible session history, last 30 days, maximum 20 rows / 0 rows / no / no matching primary message opened / no matching message found in this scope / other time periods, private accounts and hidden reasoning NOT checked.
+**SEARCH RECORD 3:** query `t.user_message ILIKE '%decision graph%' OR t.user_message ILIKE '%game theory%' OR t.user_message ILIKE '%chain of thought%'` / `session_store_sql` / accessible session history, last 30 days, maximum 20 rows / 0 rows / no / no matching primary message opened / no matching message found in this scope / other time periods, hyphenated variants, private accounts and hidden reasoning NOT checked.
 
 ## Conclusions
 
