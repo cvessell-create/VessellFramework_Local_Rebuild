@@ -25,6 +25,17 @@ this does not silently install a native VS Code/MCP agent or grant host tools.
 
 ## Task contract and Python client
 
+Optional `game_theory` accepts the
+[sixth-pillar contract](../schemas/game-theory.schema.json). Its `evidence_ids`
+must refer to the task's evidence. Matrices, bounded deterministic decision
+trees, weighted coalitions and conserved savings transitions return exact
+conditional calculations under `preview.pipeline.game_theory`.
+See the [example](../examples/game-theory-case.json) and
+[application skill](../VesselFramework_Game_Theory_SKILL_v0.1.md).
+Submitting a strategic model never raises the VERY LOW caller-evidence ceiling
+or completes human inquiry. Changing it changes replay identity and preview
+binding. Omission preserves legacy request identities.
+
 ```python
 import os
 from datetime import UTC, datetime

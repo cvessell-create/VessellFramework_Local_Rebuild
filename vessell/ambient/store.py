@@ -81,6 +81,8 @@ def analyze(event: dict[str, Any]) -> dict[str, Any]:
     }
     if specialist and event["data"].get("field_inquiry") is not None:
         case["field_inquiry"] = event["data"]["field_inquiry"]
+    if specialist and event["data"].get("game_theory") is not None:
+        case["game_theory"] = event["data"]["game_theory"]
     result = asdict(run_case_pipeline(case, track_provenance=False))
     if specialist:
         result["confidence_ceiling"] = "VERY LOW"
@@ -379,6 +381,8 @@ class Store:
         envelope = event.model_dump(mode="json")
         if envelope["event_type"] == "agent.analysis.requested" and envelope["data"].get("field_inquiry") is None:
             envelope["data"].pop("field_inquiry", None)
+        if envelope["event_type"] == "agent.analysis.requested" and envelope["data"].get("game_theory") is None:
+            envelope["data"].pop("game_theory", None)
         text = canonical(envelope)
         job_id = uuid.uuid4().hex
         with self.connection() as db:

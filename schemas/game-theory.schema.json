@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bounded source-linked Game Theory model",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "boundary", "players", "evidence_ids", "assumptions", "limitations", "utility_units", "model"],
+  "properties": {
+    "kind": {"enum": ["matrix", "tree", "coalition", "savings"]},
+    "boundary": {"type": "string", "minLength": 1, "maxLength": 2000},
+    "players": {"type": "array", "minItems": 1, "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 100}},
+    "evidence_ids": {"type": "array", "minItems": 1, "maxItems": 24, "uniqueItems": true, "items": {"type": "string", "minLength": 1, "maxLength": 200}},
+    "assumptions": {"$ref": "#/$defs/texts"},
+    "limitations": {"$ref": "#/$defs/texts"},
+    "utility_units": {"type": "string", "minLength": 1, "maxLength": 200},
+    "model": {"type": "object"}
+  },
+  "$defs": {
+    "texts": {"type": "array", "minItems": 1, "maxItems": 24, "items": {"type": "string", "minLength": 1, "maxLength": 2000}}
+  }
+}

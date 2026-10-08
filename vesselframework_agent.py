@@ -25,6 +25,9 @@ FORECASTING_FILE = PACKAGE_DIR / "VesselFramework_Forecasting_SKILL_v1.0.md"
 FIELD_THEORY_FILE = PACKAGE_DIR / "Knowing_Field_Theory_SKILL_v0.1.md"
 FIELD_SKILL_FILE = PACKAGE_DIR / "VesselFramework_Knowing_Field_SKILL_v0.1.md"
 SCIENTIFIC_EVIDENCE_FILE = PACKAGE_DIR / "VesselFramework_Scientific_Evidence_SKILL_v0.1.md"
+GAME_THEORY_FILE = PACKAGE_DIR / "Game_Theory_Theory_SKILL_v0.1.md"
+GAME_SKILL_FILE = PACKAGE_DIR / "VesselFramework_Game_Theory_SKILL_v0.1.md"
+CIVILIAN_AUTHORITY_FILE = PACKAGE_DIR / "docs/civilian-authorship-and-model-interference.md"
 DEFAULT_MODEL = "gpt-4o-mini"
 DEFAULT_BASE_URL = "https://api.openai.com/v1"
 DEFAULT_MAX_TOOL_ROUNDS = 6
@@ -96,6 +99,9 @@ def read_instructions() -> str:
     field_theory = FIELD_THEORY_FILE.read_text(encoding="utf-8")
     field_skill = FIELD_SKILL_FILE.read_text(encoding="utf-8")
     scientific_evidence = SCIENTIFIC_EVIDENCE_FILE.read_text(encoding="utf-8")
+    game_theory = GAME_THEORY_FILE.read_text(encoding="utf-8")
+    game_skill = GAME_SKILL_FILE.read_text(encoding="utf-8")
+    civilian_authority = CIVILIAN_AUTHORITY_FILE.read_text(encoding="utf-8")
     return (
         "You are the VesselFramework analyst agent. Apply the supplied internal method "
         "without exposing proprietary taxonomy or hidden reasoning architecture in an "
@@ -106,7 +112,7 @@ def read_instructions() -> str:
         "Knowing Field inquiry completion remains necessary. Include observer position, "
         "affected parties, absent/declined perspectives, dissent, relational blind spots "
         "and attention/intention/agency. Do not simulate embodied presencing or call "
-        "generated output human-completed or released. Apply all five pillars as "
+        "generated output human-completed or released. Apply all six pillars as "
         "specified in the current skill. Apply the scientific evidence skill; state "
         "source access limits, model assumptions, identifiability and disconfirmers. "
         "Keep integrity, prior existence, key authorization, reproducible computation, "
@@ -134,6 +140,9 @@ def read_instructions() -> str:
         f"\n\n=== KNOWING FIELD THEORY ===\n{field_theory}"
         f"\n\n=== COMBINED FIFTH PILLAR ===\n{field_skill}"
         f"\n\n=== SCIENTIFIC EVIDENCE SKILL ===\n{scientific_evidence}"
+        f"\n\n=== GAME THEORY THEORY ===\n{game_theory}"
+        f"\n\n=== COMBINED SIXTH PILLAR ===\n{game_skill}"
+        f"\n\n=== CIVILIAN AUTHORSHIP AND SOURCE PRESERVATION ===\n{civilian_authority}"
     )
 
 

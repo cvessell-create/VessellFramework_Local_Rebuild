@@ -1,0 +1,877 @@
+[
+  {
+    "path": ".github/workflows/engine.yml",
+    "sha256": "4c9d3f13f6b80f5dd274bf0309f9f6149e830ef995647f19d8702fb5cfb79209",
+    "bytes": 460,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "ATTRIBUTION.md",
+    "sha256": "46558f7ee37d7a0a49b85e3f2efcb7573806094c7093be1a228bc6ceb1e9756f",
+    "bytes": 11001,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "README.md",
+    "sha256": "99b6a633ff663c3a2bf2ccf089e489e5d762f615b176592540fe2deed3e9463e",
+    "bytes": 7355,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "css/tactics.css",
+    "sha256": "6d6f6496af130b6379c42af7727f569f39733f878e962fe7c18508a747f9110d",
+    "bytes": 1465,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "engine/README.md",
+    "sha256": "380c2483b3768108eefd76e13da87716bec66f779da46d80cf9c3df61736945a",
+    "bytes": 11072,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "engine/boss.js",
+    "sha256": "ddc8f28f6ffd8ecb3a4e4084c48cccefc60e0057ceb8345b70cf71609d4b62f5",
+    "bytes": 6575,
+    "functions": [
+      "create",
+      "snapshot",
+      "restore"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/controls.js",
+    "sha256": "17945424d3d2eb8aa57dea999e1a0d6df3a07a8033bc93f00e3d38e020e036cd",
+    "bytes": 2593,
+    "functions": [
+      "bind",
+      "listen",
+      "clear"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/core.js",
+    "sha256": "bd608901042617f08632de0173385573dfc639272e100e85ae9fd32b976404be",
+    "bytes": 9765,
+    "functions": [
+      "finite",
+      "validateGrid",
+      "solid",
+      "blocked",
+      "move",
+      "castRay",
+      "hit",
+      "lineOfSight",
+      "createWorld",
+      "render",
+      "clock",
+      "bindInput",
+      "tone"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/demo.html",
+    "sha256": "1a6a4984a33f9cad17112acb882ac85a197ecad159f246125f869ef53b04bb05",
+    "bytes": 1920,
+    "functions": [
+      "frame",
+      "status"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/fair-division.js",
+    "sha256": "8d3f7850da966029c68e9b1995608f873c2f1bd640e7b30dffed1e204cbff2fa",
+    "bytes": 6007,
+    "functions": [
+      "gcd",
+      "fraction",
+      "add",
+      "compare",
+      "validate",
+      "adjustedWinner",
+      "knaster",
+      "vickrey"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/game-theory.js",
+    "sha256": "41747b0fed73975b478578f793e5b57bbc4ad0d20efec55291caa82b37257a61",
+    "bytes": 7341,
+    "functions": [
+      "validate",
+      "distribution",
+      "expected",
+      "analyze",
+      "solveTree",
+      "visit",
+      "matrixTree",
+      "examples"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/harvest-policy.js",
+    "sha256": "70cb9f77fd52589f624089e48f163e091425632cdee5ce1b7980e8271116bf41",
+    "bytes": 1355,
+    "functions": [
+      "empty",
+      "step"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/math.js",
+    "sha256": "ab50286d55082a5504e2c176c48e61f05a9cc57976092a5f2b2cb079c971ac70",
+    "bytes": 6635,
+    "functions": [
+      "round",
+      "apportion",
+      "priority",
+      "npcLevels",
+      "skillCheck",
+      "environment",
+      "backwardInduction",
+      "visit"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/seeded-rng.js",
+    "sha256": "647c3ac014b6f6b5832ae834cd7f8a639c7a4574da7798f48bb42157d355e6b3",
+    "bytes": 640,
+    "functions": [
+      "create"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/state-model.js",
+    "sha256": "a3c714728eb4749c18b7359c7d2c7b635e4fa0b2c1a6f56ab1113ed3ccd165c4",
+    "bytes": 2727,
+    "functions": [
+      "motion",
+      "project",
+      "difference"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/static-reserve.js",
+    "sha256": "daaaf14d199402928dbba4a9f44dd70a26db3d0946f694ca227aa01506d38e89",
+    "bytes": 1131,
+    "functions": [
+      "fromModel"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/systems.js",
+    "sha256": "d8213f2c11d803c9cb8e286764db14a741e3d7e78079161cb95e36509cc95154",
+    "bytes": 11513,
+    "functions": [
+      "record",
+      "keys",
+      "id",
+      "label",
+      "validateAsset",
+      "validateObject",
+      "validateScene",
+      "migrateScene",
+      "encodeSave",
+      "validatePlayer",
+      "parseJSON",
+      "decodeSave",
+      "defaultScene",
+      "renderSprites",
+      "profiler"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/weight-trace.js",
+    "sha256": "52c084649c62b5bc424e89926c2420fcdaf3c5032f8a605971a860686e4ff411",
+    "bytes": 2103,
+    "functions": [
+      "trace",
+      "apportionTrace"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "engine/workbench.css",
+    "sha256": "b35ff7591980c460f2c960d3cc2c82e3edcfc70248948cc24f02113438736df7",
+    "bytes": 1472,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "engine/workbench.html",
+    "sha256": "6c42f74c4ea3327a64b76b2f030fd63400c045fdf22a896d7521d41f0bd1ab9c",
+    "bytes": 7029,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "engine/workbench.js",
+    "sha256": "bed6f6c33042b4ac6985731540ace48ab12dbc8300d78c4d13cf00be61a58326",
+    "bytes": 12761,
+    "functions": [
+      "error",
+      "action",
+      "createWorld",
+      "editMap",
+      "offlineOnly",
+      "download",
+      "frame",
+      "showBoss",
+      "gameValues",
+      "api"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "index.html",
+    "sha256": "1dbc817bfe34ef42e56c87d5efa251f4bcfede5c13f2ddece447ff9940c1ee1f",
+    "bytes": 40159,
+    "functions": [
+      "gameRandom",
+      "wholeState",
+      "setMessage",
+      "tone",
+      "title",
+      "briefing",
+      "startTactics",
+      "parseMap",
+      "loadLevel",
+      "spawnEnemy",
+      "solid",
+      "moveEntity",
+      "hasLOS",
+      "use",
+      "finishLevel",
+      "victory",
+      "die",
+      "fire",
+      "killEnemy",
+      "damage",
+      "cycleWeapon",
+      "update",
+      "enemyShoot",
+      "wallColor",
+      "render",
+      "spriteScreen",
+      "renderSprites",
+      "drawEnemy",
+      "drawPickup",
+      "drawWeapon",
+      "drawHUD",
+      "drawMap",
+      "loop",
+      "initAudio",
+      "pause",
+      "joyMove",
+      "joyEnd",
+      "bindHold"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "js/emulation-engine.js",
+    "sha256": "3187383d1f96e8a4431d644beed8dff86cb0ed8d6c72b37dd7715db8c2fb908c",
+    "bytes": 3779,
+    "functions": [
+      "program",
+      "label",
+      "emit",
+      "branch",
+      "jump",
+      "rom",
+      "create",
+      "command"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "js/power-index.js",
+    "sha256": "10d591c9a31ef1f81fde2e968d071eaff5f8a042838b1ccfbf490baf99a879dc",
+    "bytes": 7313,
+    "functions": [
+      "analyze",
+      "critical",
+      "minimalWinning",
+      "bottomUp",
+      "encounter",
+      "reward"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "js/tactical-ui.js",
+    "sha256": "e03870f69f2c7fce52c86d88d9d09c19e5fd4a1241f45c4f54a271b34496e5f6",
+    "bytes": 8844,
+    "functions": [
+      "element",
+      "button",
+      "render"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "js/tactics.js",
+    "sha256": "909699c63717601140aae2a8f85fc721a56609d1c330f1a33af15e570de38dd9",
+    "bytes": 27182,
+    "functions": [
+      "neighbors",
+      "hexDistance",
+      "hitChance",
+      "modifier",
+      "has",
+      "alive",
+      "roll",
+      "applyCondition",
+      "removeCondition",
+      "tickConditions",
+      "terrainAt",
+      "sourceOf",
+      "fearActive",
+      "d20Attack",
+      "makeUnit",
+      "jackLevel",
+      "createBattle",
+      "member",
+      "canAct",
+      "enemyZoc",
+      "routes",
+      "reachable",
+      "outcome",
+      "move",
+      "stand",
+      "grantXp",
+      "awardInfluence",
+      "weaponFor",
+      "strike",
+      "attack",
+      "refresh",
+      "endTurn",
+      "handoff"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "package-manifest.json",
+    "sha256": "379845df5f215e18ba6449b914a62a562852a763a44cbcc977d8cd899d84c9fd",
+    "bytes": 14656,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "package.json",
+    "sha256": "6c19721ee79c52cd859d4d95744ebfc0e90366e19abcc378457d447902be3bd3",
+    "bytes": 382,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "scripts/audit-math.js",
+    "sha256": "2d44ed4e8b1a867a1fa94c902a813bd9d8a7382db53c7e97c4cc7ba87374170f",
+    "bytes": 2339,
+    "functions": [
+      "walk"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "scripts/log-harvest-policy.js",
+    "sha256": "a8f077e65119ca7204942760bd3c94ccf3630e56f6dfbb2c67be03f182a908c9",
+    "bytes": 474,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "scripts/log-state-model.js",
+    "sha256": "cfbd0caffee0e78eb0675dfe3b66689dab59e26be6832b4a61a7d1c4f8ea5ebd",
+    "bytes": 1318,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "scripts/package-source.js",
+    "sha256": "19cb4eacd91a00182c309dca4689aa6ada76c38685531a5a29ca79525eb40414",
+    "bytes": 2418,
+    "functions": [
+      "emptyDirectories"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "scripts/prove-static-reserve.js",
+    "sha256": "8d5d13fc42b4eb5ab7c3de3651382f2e058c253de63ca864538101da70cc957e",
+    "bytes": 1394,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "server/arena.js",
+    "sha256": "b2ba6aafc08b89bb539e540e6cd81fa6ab466cbcd9b3cf11c7d8fecc0258c09b",
+    "bytes": 16916,
+    "functions": [
+      "createArena",
+      "event",
+      "allies",
+      "damage",
+      "settleCombat",
+      "session",
+      "snapshot"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "server/index.js",
+    "sha256": "e8e1fe43ca15c7c444f4c71e8cd34ab8e5370337530a083667a30f6a745e6b39",
+    "bytes": 5335,
+    "functions": [
+      "createServer"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "tests/arena-persistence.test.js",
+    "sha256": "d1aedb2155d7aaf322166e2edc4ae8dcbf19e01cea1bc1cbba2ec02644dfc7e1",
+    "bytes": 1546,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "tests/arena.test.js",
+    "sha256": "0563d8d7ee230b27e6478e6d0d06678885c7380ad9b22cf3e8aecf81f9f9d536",
+    "bytes": 6492,
+    "functions": [
+      "fixture",
+      "win"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "tests/emulation-engine.test.js",
+    "sha256": "21f962ee5a3106bd8dafd32c5f2eddebae7e76dad15528634db9988c96524d72",
+    "bytes": 1039,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "tests/engine-core.test.js",
+    "sha256": "cf5cd4431e9819c9b999b85cb474f63234ce066724842b64424c910e895d2205",
+    "bytes": 1009,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "tests/engine-math.test.js",
+    "sha256": "98ab96d891756747848e892fa329b6d1006208d455777b704d648fab442da681",
+    "bytes": 7942,
+    "functions": [
+      "permute"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "tests/engine-systems.test.js",
+    "sha256": "4ec7edd7471c19b51bcff91ecdc851b4afd0cca1c7d8fb731ea26c3f76c12939",
+    "bytes": 5990,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "tests/fps-integration.test.js",
+    "sha256": "36cb10853c6a942c6bc221336d20f3a0a8bc95af1b1a27d739f27d8c4895f742",
+    "bytes": 6076,
+    "functions": [
+      "game",
+      "node"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "tests/harvest-policy.test.js",
+    "sha256": "ff9c348e8ed7cb681027b1833c447b0aed6363eb25ffa3264688728c9dfe0b70",
+    "bytes": 2035,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "tests/state-model.test.js",
+    "sha256": "0f6890d747e7705d3a3a24ad837d97d2257e6e155c7c2a811eb2b461dbd84123",
+    "bytes": 1403,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "tests/static-reserve.test.js",
+    "sha256": "357955a5f55ba74213f23a32ba79f57714193cb70f0b7dc8b09bc8a6367121c6",
+    "bytes": 1546,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "tests/tactics.test.js",
+    "sha256": "f82511fddcdf5674c58f0edc46232da9cf09c714f43ac7b172bbdb4322f730ae",
+    "bytes": 17821,
+    "functions": [
+      "rng",
+      "duel"
+    ],
+    "vendor": false
+  },
+  {
+    "path": "tests/weight-trace.test.js",
+    "sha256": "21e2e55425247aa7147951f09e960a5b6626cde989958bf14a4da061c581b3b1",
+    "bytes": 683,
+    "functions": [],
+    "vendor": false
+  },
+  {
+    "path": "vendor/jsnes/UPSTREAM-README.md",
+    "sha256": "a691a94b47f531185dc65e6386ae0f6bc13bb8f4816acf01ccb426d96eb7c880",
+    "bytes": 8017,
+    "functions": [
+      "Emulator"
+    ],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/browser/frame-timer.js",
+    "sha256": "13a317466620676319cb3b13404bef1d0afd82aecb640a23ee5c111f7dfca522",
+    "bytes": 2213,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/browser/gamepad.js",
+    "sha256": "7393cb6852e130df59a4306b620e7b03c3e57af3256fdfe5cdc3eb3190975e23",
+    "bytes": 5856,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/browser/index.js",
+    "sha256": "8b73d239c03182a62b46bc08c73d39a639d4aedab30369af4e30299eb2291358",
+    "bytes": 5315,
+    "functions": [
+      "debug"
+    ],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/browser/keyboard.js",
+    "sha256": "01509494241616947444e6b9bc9952a182a1942212f5cbe42b1b5fa8f1e51ece",
+    "bytes": 2165,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/browser/screen.js",
+    "sha256": "98c9ec59977bc257abfde3db94851a92be6a5b448367a71eff5273b47abecca5",
+    "bytes": 3184,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/browser/speakers.js",
+    "sha256": "6f4ef14f0aaa1c59e204355765fa948f6b91540018f19c13427cf834966e4866",
+    "bytes": 5976,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/controller.js",
+    "sha256": "195631f7e73678d94a55fda2bf04af64ce773bcaa96575dcb692219ddf13f46f",
+    "bytes": 2384,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/cpu.js",
+    "sha256": "efbc3071930c51e2c941f26303aee8d4807733709009d605089b71b380c4211f",
+    "bytes": 101946,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/gamegenie.js",
+    "sha256": "b8ca28be7c4953b32f0540b9020ccec90492854d39212095f885c1ca412b4a63",
+    "bytes": 3888,
+    "functions": [
+      "toDigit",
+      "toLetter",
+      "toHex"
+    ],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/index.js",
+    "sha256": "0531f69c4e9e2973bdcdc89bf3ad6e6dfa3257572f8e7eccd405fa158cc3a1a7",
+    "bytes": 201,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/index.js",
+    "sha256": "603625a0402eec5a4d649b9bce36638d261893d724b5904f9fd8927df786d389",
+    "bytes": 1147,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper0.js",
+    "sha256": "16cc0ce0a9db679d91756476c9b922ce1472f4a835907b5a36423ba1934a76a7",
+    "bytes": 19154,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper1.js",
+    "sha256": "4a9bf2fe36ceb428468ffbb805f12b1285d48d2fe1d5baac432a4f21b1bac9a3",
+    "bytes": 7596,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper11.js",
+    "sha256": "55e9dac59c012f8760a9b2406d2939b45df8e8f2a1fa9d0b12264677a6239f37",
+    "bytes": 1089,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper118.js",
+    "sha256": "2dc43359822d4d9d5cbd0d2fe77470e128d49572ae3783571d754cdf12487c36",
+    "bytes": 3432,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper119.js",
+    "sha256": "c6630461de528d7c9bc2cfccb7d5376538958ebf5c5785f3d3e507330d8394a4",
+    "bytes": 7557,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper140.js",
+    "sha256": "58dc11fe83607d5326b6ddf9e8a7ba097daa57ddc58e559a328c632081f6ed5b",
+    "bytes": 859,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper180.js",
+    "sha256": "84130258171496e1eef9bcfd81133abd10243b61ecff8a6f45b412b28cbe608b",
+    "bytes": 1215,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper2.js",
+    "sha256": "7043eb84393af01962ec16ebf0c7bd2ef2e427c38e0ffeecea77ea6b5644206a",
+    "bytes": 1129,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper240.js",
+    "sha256": "459d3f6348800997b2d47c71c4469ae0f0671b69a1cd7b407a588bd8e4d0c81c",
+    "bytes": 799,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper241.js",
+    "sha256": "313ab7503bc802fc6a8fd646e57f0d169586f5271e73f6161d75d6d468105fe5",
+    "bytes": 634,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper3.js",
+    "sha256": "2db7add36ec5db614895fbf2282e7a8c3828644977feea5a28743f8ff142343a",
+    "bytes": 809,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper34.js",
+    "sha256": "07268a4115ec372a706dff4ae59c853d30df3cb9fe3e5bb9c5ac4bea70548c58",
+    "bytes": 678,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper38.js",
+    "sha256": "d4f5629e43d79a5788f83930a1f9f3ff31614f00d8b490e53d17d973bb22b459",
+    "bytes": 778,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper4.js",
+    "sha256": "ad3a6f506d300808bb7f2cffe6b7bcdab9193aaf07bead1643d17e11f66aadab",
+    "bytes": 7329,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper5.js",
+    "sha256": "6ac5f47d9313726de16d7f9fee3919ba028e0498edf14d90beae348a4cb7ad4f",
+    "bytes": 42111,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper66.js",
+    "sha256": "e057ee195f834cea4ba2c2c66506436b500ff384d65c43fb333ce49a0178cf73",
+    "bytes": 817,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper7.js",
+    "sha256": "6e9aa39d260a3483b8b157ca0e13c1000fcccf6683e422418f50bc82942ae84f",
+    "bytes": 1184,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper71.js",
+    "sha256": "52ccba23f5090bd6473b186c1b3a8dfad7bf8e241e3a06be1961dd3068c50173",
+    "bytes": 1500,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper79.js",
+    "sha256": "80a0a77730ee0d83d4a635fab11a02c0db55923f7db6cc31ccdf1ea576659e9a",
+    "bytes": 1087,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper9.js",
+    "sha256": "eebba4b5ac0eab3dff4fc141439efa8b5a7f9b43c36ba67f3829eab9e4c97cfb",
+    "bytes": 5537,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/mappers/mapper94.js",
+    "sha256": "d99e43da3e1ee7e147446ba63a944e23ac3adae73e857188fafc942b9c03a345",
+    "bytes": 1127,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/nes.js",
+    "sha256": "08119b28aa390992806a88cb4dc5aa467e6d39fdd3cc2cb11fdb22a5d4f5dc7b",
+    "bytes": 5325,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/papu/channel-dm.js",
+    "sha256": "6558a04121700ac048d41ce67b475067bde610743480d560b2c8625ad6a2e526",
+    "bytes": 6755,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/papu/channel-noise.js",
+    "sha256": "738c93f713c6f109adecba1b1eb8f71c1520c389a9b65ad954646aaf55ad48f2",
+    "bytes": 3457,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/papu/channel-square.js",
+    "sha256": "6898c7a422ee4f7eddc3f220d340967b9d62915962ffabfc629860909b18205e",
+    "bytes": 5593,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/papu/channel-triangle.js",
+    "sha256": "c5a820f87e5966c9c1b7499ff27c521e577493d5b2976086b8aedfea2eec7566",
+    "bytes": 3480,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/papu/index.js",
+    "sha256": "cee32db923400c429d8a662594b5bae1e50ef971841ab8875b31c89ebe616ebd",
+    "bytes": 30300,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/ppu/index.js",
+    "sha256": "b08bdebac1992572fc005d565af31bf907c14f8f8d66381ab1e3e6536cc12920",
+    "bytes": 80892,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/ppu/nametable.js",
+    "sha256": "c1e74842d1eb1c5a0627af773b250ac19ed39ad6acd1400e14ee4d32d1f3ce30",
+    "bytes": 1170,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/ppu/palette-table.js",
+    "sha256": "bc1ec96b6bc451f3b2290d0d9f1226a1a7ee2fc3b6c9c704ebe2287ac4ad048f",
+    "bytes": 6658,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/rom.js",
+    "sha256": "b37ac6a53b1152fef9ca82b2e3ea57a165664697d1babb3a14214dc964834866",
+    "bytes": 8112,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/tile.js",
+    "sha256": "a44c370cfde874e0abb944fe4a43972458286b95c9f9286b9686c207a95fa5ac",
+    "bytes": 4017,
+    "functions": [],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/src/utils.js",
+    "sha256": "3e97884bae801319ac802378ace60591f489dec533aec2e26663685ab08f378c",
+    "bytes": 1154,
+    "functions": [
+      "copyArrayElements",
+      "copyArray",
+      "fromJSON",
+      "toJSON"
+    ],
+    "vendor": true
+  },
+  {
+    "path": "vendor/jsnes/upstream-package.json",
+    "sha256": "84884fb82a3e50290d69aab75184a26412a546c72b1db5b2500733685821aea6",
+    "bytes": 1337,
+    "functions": [],
+    "vendor": true
+  }
+]

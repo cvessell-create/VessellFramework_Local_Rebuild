@@ -1,0 +1,85 @@
+{
+  "title": "The Hybrid State Transition System: Discrete Event in Continuous Motion",
+  "policyVersion": 1,
+  "reserve": 150,
+  "records": [
+    {
+      "previous": {
+        "bank": 0,
+        "available": 0,
+        "earned": 0,
+        "yieldRemaining": 0
+      },
+      "next": {
+        "bank": 43,
+        "available": 132,
+        "earned": 175,
+        "yieldRemaining": 43
+      },
+      "award": 175,
+      "deposit": 43,
+      "floor": 75,
+      "requested": 100,
+      "harvested": 0,
+      "reserve": 150,
+      "formula": "deposit=floor(award/4); floor=floor(reserve/2); harvest=min(request,yieldRemaining+deposit,max(0,bank+deposit-floor))",
+      "reverse": {
+        "award": 175,
+        "harvested": 0,
+        "conserved": true
+      }
+    },
+    {
+      "previous": {
+        "bank": 43,
+        "available": 132,
+        "earned": 175,
+        "yieldRemaining": 43
+      },
+      "next": {
+        "bank": 75,
+        "available": 275,
+        "earned": 350,
+        "yieldRemaining": 75
+      },
+      "award": 175,
+      "deposit": 43,
+      "floor": 75,
+      "requested": 100,
+      "harvested": 11,
+      "reserve": 150,
+      "formula": "deposit=floor(award/4); floor=floor(reserve/2); harvest=min(request,yieldRemaining+deposit,max(0,bank+deposit-floor))",
+      "reverse": {
+        "award": 175,
+        "harvested": 11,
+        "conserved": true
+      }
+    },
+    {
+      "previous": {
+        "bank": 75,
+        "available": 275,
+        "earned": 350,
+        "yieldRemaining": 75
+      },
+      "next": {
+        "bank": 75,
+        "available": 275,
+        "earned": 350,
+        "yieldRemaining": 75
+      },
+      "award": 0,
+      "deposit": 0,
+      "floor": 75,
+      "requested": 100,
+      "harvested": 0,
+      "reserve": 150,
+      "formula": "deposit=floor(award/4); floor=floor(reserve/2); harvest=min(request,yieldRemaining+deposit,max(0,bank+deposit-floor))",
+      "reverse": {
+        "award": 0,
+        "harvested": 0,
+        "conserved": true
+      }
+    }
+  ]
+}

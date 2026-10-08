@@ -1,0 +1,41 @@
+{
+  "schema": "hail-static-reserve-proof/v1",
+  "interpretation": "Designer-defined stored potential influence, not conserved realized reward or empirical performance",
+  "inputs": {
+    "weights": [
+      27,
+      27
+    ],
+    "quota": 31,
+    "cap": 300
+  },
+  "reserve": [
+    {
+      "player": 0,
+      "banzhafNormalized": 0.5,
+      "shapleyShubik": 0.5,
+      "reserve": 150
+    },
+    {
+      "player": 1,
+      "banzhafNormalized": 0.5,
+      "shapleyShubik": 0.5,
+      "reserve": 150
+    }
+  ],
+  "healthBefore": [
+    100,
+    100
+  ],
+  "healthAfter": [
+    94,
+    93
+  ],
+  "invariant": true,
+  "changedHealth": true,
+  "assumptions": [
+    "Combat roster and encounter model freeze at first shot",
+    "Stored server state is not externally mutated",
+    "Reserve means cap times mean normalized power; realized XP adds eligibility, rounding and bonus"
+  ]
+}

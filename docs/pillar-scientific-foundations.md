@@ -1,5 +1,18 @@
 # Five-pillar scientific foundations and digital evidence dossier
 
+## Current sixth-pillar extension
+
+The original five-pillar dossier below remains source history. The current
+architecture adds GAME THEORY; use the
+[theory skill](../Game_Theory_Theory_SKILL_v0.1.md),
+[framework audit](game-theory-framework-audit.md) and
+[combined sixth-pillar skill](../VesselFramework_Game_Theory_SKILL_v0.1.md).
+Its kernels compute declared matrices, deterministic trees, weighted
+coalitions and conserved savings receipts. Conditional proofs and tests do
+not establish real-world motives, utility calibration or framework efficacy.
+The [civilian authorship caveat](civilian-authorship-and-model-interference.md)
+preserves the owner account without asserting unverified external intervention.
+
 Research date: October 7, 2026. Status: source-bounded research synthesis and
 prospective validation plan, not proof of the whole framework.
 Author framework: Christopher R. Vessell; research synthesis prepared with

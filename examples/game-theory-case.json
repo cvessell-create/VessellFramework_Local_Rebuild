@@ -1,0 +1,20 @@
+{
+  "title": "Chicken under simultaneous choice",
+  "subject": "Declared two-player game, not a real person",
+  "decision_question": "What changes when both players choose without observing the other?",
+  "domain": "Game Theory",
+  "evidence": [{"source_id": "hail-log", "description": "Owner game fixture declares Yield/Charge payoffs.", "status": "ILLUSTRATIVE"}],
+  "game_theory": {
+    "kind": "matrix",
+    "boundary": "One simultaneous round",
+    "players": ["A", "B"],
+    "evidence_ids": ["hail-log"],
+    "assumptions": ["Integer cardinal utility; simultaneous independent choice; both know this matrix"],
+    "limitations": ["Payoffs are designed, not empirical preferences; no real-world motive inferred"],
+    "utility_units": "game payoff",
+    "model": {
+      "actions": [["Yield", "Charge"], ["Yield", "Charge"]],
+      "payoffs": [[[0, 0], [-1, 1]], [[1, -1], [-10, -10]]]
+    }
+  }
+}

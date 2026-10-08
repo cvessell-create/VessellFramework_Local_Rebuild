@@ -1,0 +1,186 @@
+{
+  "fixture": true,
+  "source": "existing 0.2.0 formulas",
+  "trace": {
+    "schema": "hail-weight-trace/v1",
+    "model": {
+      "schema": "hail-influence/v1",
+      "ids": [
+        "A",
+        "B"
+      ],
+      "boss": false,
+      "cap": 300,
+      "threatHp": 100,
+      "weights": [
+        27,
+        27
+      ],
+      "quota": 30,
+      "veto": [],
+      "permutationCount": "2",
+      "totalSwings": 2,
+      "players": [
+        {
+          "weight": 27,
+          "swingCount": 1,
+          "pivotalPermutations": "1",
+          "shapleyShubik": 0.5,
+          "banzhafAbsolute": 0.5,
+          "banzhafNormalized": 0.5
+        },
+        {
+          "weight": 27,
+          "swingCount": 1,
+          "pivotalPermutations": "1",
+          "shapleyShubik": 0.5,
+          "banzhafAbsolute": 0.5,
+          "banzhafNormalized": 0.5
+        }
+      ]
+    },
+    "steps": [
+      {
+        "id": "A",
+        "input": {
+          "maxHp": 100,
+          "level": 1,
+          "hp": 100
+        },
+        "forward": {
+          "weightFormula": "ceil(maxHp/4)+2*level",
+          "weight": 27,
+          "quota": 30,
+          "quotaFormula": "ceil(sum(weights)*(0.5+min(0.4,sum(enemyMaxHp)/2000)))",
+          "shapleyShubik": 0.5,
+          "banzhafNormalized": 0.5,
+          "meanPower": 0.5,
+          "xpFormula": "alive ? min(cap,floor(cap*meanPower)+(critical?25:0)) : 0",
+          "xp": 175
+        },
+        "reverse": {
+          "output": "xp",
+          "dependsOn": [
+            "survival",
+            "criticality",
+            "cap",
+            "Shapley-Shubik",
+            "normalized Banzhaf",
+            "coalition quota",
+            "maxHp",
+            "level"
+          ],
+          "nextRoundEffect": "arena level=max(previousLevel,min(5,1+floor(cumulativeXP/300))); later encounter weight uses that level",
+          "automaticLearningUpdate": false
+        },
+        "status": "EXISTING_GAME_RULE_REPRODUCED_FOR_AUDIT"
+      },
+      {
+        "id": "B",
+        "input": {
+          "maxHp": 100,
+          "level": 1,
+          "hp": 100
+        },
+        "forward": {
+          "weightFormula": "ceil(maxHp/4)+2*level",
+          "weight": 27,
+          "quota": 30,
+          "quotaFormula": "ceil(sum(weights)*(0.5+min(0.4,sum(enemyMaxHp)/2000)))",
+          "shapleyShubik": 0.5,
+          "banzhafNormalized": 0.5,
+          "meanPower": 0.5,
+          "xpFormula": "alive ? min(cap,floor(cap*meanPower)+(critical?25:0)) : 0",
+          "xp": 175
+        },
+        "reverse": {
+          "output": "xp",
+          "dependsOn": [
+            "survival",
+            "criticality",
+            "cap",
+            "Shapley-Shubik",
+            "normalized Banzhaf",
+            "coalition quota",
+            "maxHp",
+            "level"
+          ],
+          "nextRoundEffect": "arena level=max(previousLevel,min(5,1+floor(cumulativeXP/300))); later encounter weight uses that level",
+          "automaticLearningUpdate": false
+        },
+        "status": "EXISTING_GAME_RULE_REPRODUCED_FOR_AUDIT"
+      }
+    ],
+    "utilityCalibration": null,
+    "warning": "The normalized power share is an output, not an input vote weight. Forward computation has a dependency trace, not a unique mathematical inverse."
+  },
+  "npc": {
+    "schema": "hail-allocation-trace/v1",
+    "inputs": {
+      "weights": [
+        40,
+        40,
+        40
+      ],
+      "total": 5,
+      "method": "hill"
+    },
+    "output": {
+      "method": "hill",
+      "total": 5,
+      "weights": [
+        40,
+        40,
+        40
+      ],
+      "allocations": [
+        2,
+        2,
+        1
+      ],
+      "tieBreak": "lower index",
+      "minimum": "one unit per positive participant; zero weights excluded"
+    },
+    "reverse": {
+      "allocationToOriginalWeights": "nonunique; many weight vectors give the same allocation",
+      "automaticFeedback": false
+    },
+    "origin": "supplied designer weights; algorithm does not infer them"
+  },
+  "sectors": {
+    "schema": "hail-allocation-trace/v1",
+    "inputs": {
+      "weights": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "total": 12,
+      "method": "dean"
+    },
+    "output": {
+      "method": "dean",
+      "total": 12,
+      "weights": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "allocations": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "tieBreak": "lower index",
+      "minimum": "one unit per positive participant; zero weights excluded"
+    },
+    "reverse": {
+      "allocationToOriginalWeights": "nonunique; many weight vectors give the same allocation",
+      "automaticFeedback": false
+    },
+    "origin": "supplied designer weights; algorithm does not infer them"
+  }
+}

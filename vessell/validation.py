@@ -28,6 +28,8 @@ def load_schema(name: str) -> dict[str, Any]:
 def validate_record(record: Any, schema_name: str) -> None:
     registry = Registry().with_resource(
         "field-inquiry.schema.json", Resource.from_contents(load_schema("field-inquiry.schema.json")),
+    ).with_resource(
+        "game-theory.schema.json", Resource.from_contents(load_schema("game-theory.schema.json")),
     )
     validator = Draft202012Validator(load_schema(schema_name), registry=registry)
     errors = sorted(validator.iter_errors(record), key=lambda error: list(error.path))

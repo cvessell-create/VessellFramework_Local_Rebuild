@@ -1,0 +1,998 @@
+{
+  "schema": "hail-algorithm-catalog/v1",
+  "status": "OWNER_EDITABLE_DESIGN_DATA",
+  "originalWorkAttribution": "Christopher R. Vessell; assistant-assisted original implementations; upstream rights separate",
+  "conversionPrinciple": "Algorithms provide mechanics, constraints and information. A strategic game model also specifies actors, strategies, information and utility/payoff assumptions. Blank utility values are intentional.",
+  "algorithms": [
+    {
+      "id": "euler-circuit",
+      "name": "Eulerian edge coverage / Hierholzer",
+      "status": "ACTIVE_NPC_PATROL",
+      "definition": "Connected even-degree undirected graph; traverse every selected edge once and return.",
+      "implementation": "engine/graph-tactics.js",
+      "implementationSha256": "b1be1b47ed92cd1d91a7470e79c82789d1e9ddbd7e28a9e146bf78a37b6babb4",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: wait, cross, aim, attack",
+          "NPC: patrol, acquire target, engage"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Predict a patrol phase and choose when to cross or engage. Combat interruption means live movement can deviate from the closed walk.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "graphs, sorted incident edges",
+      "outputs": "closed walk and edge IDs",
+      "primarySource": "https://reference.wolfram.com/language/ref/EulerianGraphQ.html",
+      "sourceAccess": "OPENED",
+      "tests": [
+        "tests/graph-tactics.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(V + E log E + sum(degree(v)^2)); O(V + E log E + E^2) conservative bound",
+        "memory": "O(V + E)",
+        "reasoning": "Sorted adjacency uses repeated find/used scans. Standard cursor-based Hierholzer can be O(V+E); this implementation is not that optimized variant.",
+        "currentLimits": "Four local patrol vertices and four selected edges; do not apply directly to unbounded graphs.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "sorted-edge-cycle",
+      "name": "Cheapest-link / sorted edges heuristic",
+      "status": "ACTIVE_NPC_ROUTE_SELECTION",
+      "definition": "Sort links by cost; keep vertex degree at most two and prevent premature subtours. Hamiltonian heuristic; no optimality guarantee.",
+      "implementation": "engine/graph-tactics.js",
+      "implementationSha256": "b1be1b47ed92cd1d91a7470e79c82789d1e9ddbd7e28a9e146bf78a37b6babb4",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: infer route or use assistance",
+          "NPC: follow chosen ring"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Shapes a predictable but cost-guided patrol; potential player power-up can reveal a route. Current route exists; a separate route-reveal item is not implemented.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "complete local four-waypoint graph; Euclidean grid lengths",
+      "outputs": "selected Hamiltonian ring",
+      "primarySource": "https://math.libretexts.org/Bookshelves/Applied_Mathematics/Math_in_Society_(Lippman)/06:_Graph_Theory/6.06:_Hamiltonian_Circuits_and_the_Traveling_Salesman_Problem",
+      "sourceAccess": "OPENED",
+      "tests": [
+        "tests/graph-tactics.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(E log E + E V)",
+        "memory": "O(V + E)",
+        "reasoning": "Root lookup has no balancing/path compression; in worst case parent chains have length V. Full graph sorting precedes selection.",
+        "currentLimits": "Four-waypoint complete graph has six candidate edges. Heuristic may fail on sparse graphs; does not prove global optimality.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "mst",
+      "name": "Minimum spanning tree / Kruskal with union-find",
+      "status": "ACTIVE_ROOM_PLANNING_EXERCISE",
+      "definition": "Sort edges and join distinct components until a minimum connected acyclic backbone is obtained. Exact for unconstrained weighted undirected graphs.",
+      "implementation": "engine/graph-tactics.js",
+      "implementationSha256": "b1be1b47ed92cd1d91a7470e79c82789d1e9ddbd7e28a9e146bf78a37b6babb4",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: select connections",
+          "future designer: trade construction cost for redundancy"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Player selects a core-room tree; compare cost to baseline. Extra escape corridor remains live. Initial equal edge costs test connectivity, not unequal-cost optimization.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "five unlocked core rooms and authored corridor lengths",
+      "outputs": "four links; total construction cost",
+      "primarySource": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2012/bb54568c86c60d86b25e9c1111470384_MIT6_046JS12_lec04.pdf",
+      "sourceAccess": "OPENED",
+      "tests": [
+        "tests/graph-tactics.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(E log E + E V) conservative implementation bound",
+        "memory": "O(V + E)",
+        "reasoning": "Uses path compression without union by rank; do not claim the usual combined alpha(V) bound. Edge sorting dominates many small cases, not all worst cases.",
+        "currentLimits": "Current core room graph V=5, E=5; disconnected graph rejects.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "sat-verifier",
+      "name": "Boolean CNF assignment verifier / Cook-inspired shield",
+      "status": "ACTIVE_PLANT_BOSS_GATE",
+      "definition": "Check that every clause has a true literal. General SAT is NP-complete; verification of a supplied assignment is polynomial. This fixed small tutorial is easy.",
+      "implementation": "engine/boss-constraints.js",
+      "implementationSha256": "4e708bc9db76731e0b2bc3e34b8363beb77940e6c6e677fc54c6f790feedab64",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: choose switches, submit, attack, retreat",
+          "boss: shield closed or temporary opening"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Choose Boolean control states to open the boss damage window. Correctness permits damage but does not replace aiming or survival.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "authored three-variable CNF and Boolean assignment",
+      "outputs": "accepted/rejected; eight-second simulation window",
+      "primarySource": "https://www.cs.cmu.edu/~15455/resources/Cook1971-complx-thm-proof.pdf",
+      "sourceAccess": "OPENED",
+      "tests": [
+        "tests/boss-constraints.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(L), where L is the total number of literal occurrences",
+        "memory": "O(1) extra excluding inputs and event copies",
+        "reasoning": "Validation scans the formula before the Boolean check. Verification is not the exponentially large assignment search.",
+        "currentLimits": "At most 128 clauses and 12 variable IDs in API; current authored tutorial V=3. No general solver.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "unit-propagation",
+      "name": "Unit clause propagation",
+      "status": "ACTIVE_POWERUP_AFTER_SUBBOSS",
+      "definition": "Repeatedly assign the only remaining literal in an unsatisfied unit clause; detect empty-clause conflict. Incomplete general solver; no branching implemented.",
+      "implementation": "engine/boss-constraints.js",
+      "implementationSha256": "4e708bc9db76731e0b2bc3e34b8363beb77940e6c6e677fc54c6f790feedab64",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: fight sub-boss, request hint, solve unaided"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Defeat the vault sub-boss to unlock assistance. Preserve whether later success was assisted. The tutorial is fully solved by this power-up.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "CNF and optional partial assignment",
+      "outputs": "forced values; inference steps; conflicts",
+      "primarySource": "https://www.cs.cmu.edu/~15414/f18/2018/lectures/13-dpll.pdf",
+      "sourceAccess": "OPENED",
+      "tests": [
+        "tests/boss-constraints.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(V L) with at most V rounds of new forced assignments",
+        "memory": "O(V + L) temporary/inference storage",
+        "reasoning": "Each repeated pass scans clauses/literals; no watched literals or branching. Unit propagation is incomplete for general SAT.",
+        "currentLimits": "Current tutorial derives three values. General exhaustive search would require up to 2^V assignments, but is not implemented.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "critical-path",
+      "name": "Timing DAG longest path / forward pass",
+      "status": "ACTIVE_SHOT_COOLDOWN_LOG",
+      "definition": "Earliest finish equals duration plus greatest predecessor finish; reject missing dependencies and cycles. Current implementation does not calculate backward-pass slack.",
+      "implementation": "engine/shot-analysis.js",
+      "implementationSha256": "151d34a85dce6d05c40cf3fb77671c06be830a2fc51c93a688d57d3038560c7f",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: fire now, wait for cooldown, arm window"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Compare attack opportunities with cooldown and shield-window timing; current player weapons are instantaneous hitscan. Player reaction and network latency remain unset.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "task dependencies and durations in simulation seconds",
+      "outputs": "earliest start/finish; one longest path",
+      "primarySource": "https://www.pmi.org/learning/library/2019/04/07/15/39/critical-path-method-calculations-scheduling-8040",
+      "sourceAccess": "OPENED",
+      "tests": [
+        "tests/shot-analysis.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(V + A + V^2) for dependency traversal plus copied path arrays",
+        "memory": "O(V^2 + A)",
+        "reasoning": "Each DAG node/arc is visited once, but concat copies predecessor paths; long chains produce quadratic copying. Recursion depth can reach V.",
+        "currentLimits": "Live shot schedule has two nodes; no unbounded imported DAG or measured network latency.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "swept-hit-test",
+      "name": "Segment-circle quadratic intersection and wall ordering",
+      "status": "ACTIVE_COMBAT_GEOMETRY",
+      "definition": "Solve intersection roots within a movement segment; earliest target hit must precede the wall. Enemy missiles are point traces and targets are stationary within each step.",
+      "implementation": "engine/shot-analysis.js",
+      "implementationSha256": "151d34a85dce6d05c40cf3fb77671c06be830a2fc51c93a688d57d3038560c7f",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: aim, move, cover",
+          "NPC: fire at current position"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Player aiming and cover choices affect spatial hit/miss. Geometry itself is not a strategic payoff model.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "segment endpoints, target centers/radii, world grid",
+      "outputs": "hit target/distance or wall/no-target miss",
+      "primarySource": "https://pbr-book.org/4ed/Shapes/Spheres",
+      "sourceAccess": "OPENED",
+      "tests": [
+        "tests/shot-analysis.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(D + T) per trace; Hail hitscan presently O(P N D) conservative for P pellets and N NPCs",
+        "memory": "O(1) extra per trace excluding log events",
+        "reasoning": "Wall DDA precedes T constant-time circle tests. Hail invokes trace per enemy candidate, so repeated world traversal can be optimized.",
+        "currentLimits": "D <= 256 grid crossings; trace length <=256; target approximation is stationary per step. Log memory grows with shots.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "dda-rays",
+      "name": "Digital differential grid ray traversal",
+      "status": "ACTIVE_HAIL_RENDERING_AND_WALL_TEST",
+      "definition": "Step through successive grid boundaries to locate the first blocking cell.",
+      "implementation": "engine/core.js",
+      "implementationSha256": "e3f0825097a8323b8a4c7e98a2bad91268ec7b5021c48eea41938c49cbd3be6a",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: choose view angle and cover"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Defines visibility and cover information available to combat decisions. No proof that a tile approximation is realistic ballistics.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "grid, origin, ray angle",
+      "outputs": "wall distance, side, texture coordinate",
+      "primarySource": null,
+      "sourceAccess": "ORIGINAL_IMPLEMENTATION_AND_REPO_SOURCE_INSPECTED",
+      "tests": [
+        "tests/room-engine.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(min(D,256)) per castGrid; renderer O(C min(D,256))",
+        "memory": "O(1) ray state; O(C) depth buffer",
+        "reasoning": "C is ray columns and D crossed grid cells. Fixed limits bound a call, not all scene rendering or sprite work.",
+        "currentLimits": "Hail renders C=480 columns; standalone renderer accepts at most4096. Long ray cap can stop before a distant obstacle.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "mission-cpu",
+      "name": "Original homebrew instruction-executed mission checks",
+      "status": "ACTIVE_JSNES_PLUS_OFFLINE_TINYEMU_CHECK",
+      "definition": "Run original 6502 readiness-mask guest; selected TinyEMU native RV32 comparator cross-checks complete/incomplete masks. v86 runs an original x86 reset self-check.",
+      "implementation": "js/emulation-engine.js",
+      "implementationSha256": "55ce5b866db9f3177fd79b97aee4ff05d41b628ee9cc474bbe314b5938c98711",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: collect fresh sources, repair records, review"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Implements rule enforcement; does not infer player beliefs or utilities. CPU architecture does not itself create game theory.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "clearance event or readiness bits",
+      "outputs": "version/approval; instructions and cycles",
+      "primarySource": "https://github.com/bfirsh/jsnes/tree/v2.1.0",
+      "sourceAccess": "OPENED",
+      "tests": [
+        "tests/emulation-engine.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(I + guest/runtime work); no universal v86/TinyEMU guest-time bound claimed",
+        "memory": "Configured guest memory plus runtime/JIT and O(command history)",
+        "reasoning": "JSNES command uses bounded original instruction stepping. Arbitrary x86/RISC-V programs can loop; architecture does not establish a gameplay frame budget.",
+        "currentLimits": "JSNES instruction budget64; TinyEMU guest32 cycles; x86 self-check15-second timeout and16MiB configured guest RAM, not measured peak process memory.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "source-root-dedup",
+      "name": "Source lineage deduplication and version invalidation",
+      "status": "ACTIVE_MISSION_RULE",
+      "definition": "Copies of one root are one source family; grid cut supersedes observations and dependent records without deleting history.",
+      "implementation": "js/field-tactics.js",
+      "implementationSha256": "aeee09fb2135755a3a5106587f58f9cc907f7fcfc1f3dcf6cf0a0613c28daf2a",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: inspect, corroborate, repair, review"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Information constraints make scouting, corroboration and coordination different strategies. Confidence is not inferred from combat score.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "terminal events and observation revisions",
+      "outputs": "roots, freshness, dependencies, extraction decision",
+      "primarySource": null,
+      "sourceAccess": "ORIGINAL_IMPLEMENTATION_AND_REPO_SOURCE_INSPECTED",
+      "tests": [
+        "tests/field-tactics.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(T + R) inspect; O(H + U) export",
+        "memory": "O(H + U + R)",
+        "reasoning": "T terminals, R root families, H observations/events, U emulator-command history. Root list uses linear indexOf; export copies accumulated histories.",
+        "currentLimits": "T=4. Session histories have no fixed retention bound because full logging was requested; long runs can exhaust memory/export size.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "repeated-game",
+      "name": "Repeated cooperation / strategic incentives",
+      "status": "PROSPECTIVE_MULTIPLAYER_MODEL",
+      "definition": "Future rewards or penalties may affect behavior; repeated interaction alone does not guarantee cooperation.",
+      "implementation": "design/theory-seeds.json",
+      "implementationSha256": "034f190796a03a099965783f20e1989601ba58aa5a61101979e568c2f0ddf3fc",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "scout",
+          "corroborate",
+          "protect",
+          "fight",
+          "hoard"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Proposed 2\u20134 player squad shares evidence against readable counterplay. No real multiplayer or measured utilities yet.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "future shared-state choices and session horizon",
+      "outputs": "proposed payoff comparisons; presently none",
+      "primarySource": "https://oyc.yale.edu/economics/econ-159/lecture-21",
+      "sourceAccess": "OPENED",
+      "tests": [],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "NOT_APPLICABLE: prospective model, no solver implemented",
+        "memory": "NOT_MEASURED",
+        "reasoning": "Complexity depends on strategy spaces, horizon, equilibrium concept and algorithm; no generic claim from repeated play.",
+        "currentLimits": "No authoritative multiplayer state or equilibrium solver.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "bayesian-update",
+      "name": "Conditional probability / Bayesian updating",
+      "status": "STAGED_NOT_IMPLEMENTED",
+      "definition": "Specify priors and likelihoods before conditional updating; account for dependent sources.",
+      "implementation": "design/theory-seeds.json",
+      "implementationSha256": "034f190796a03a099965783f20e1989601ba58aa5a61101979e568c2f0ddf3fc",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "seek independent evidence",
+          "rely on repeated signal"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Potential information game model; existing tier/lineage scores are not automatically calibrated probabilities.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "prior and likelihood: unset",
+      "outputs": "posterior: not computed",
+      "primarySource": "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/",
+      "sourceAccess": "OPENED",
+      "tests": [],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "NOT_APPLICABLE: staged only; no inference algorithm implemented",
+        "memory": "NOT_MEASURED",
+        "reasoning": "Complexity depends on factorization/inference method. Do not claim constant-time calibrated reasoning without priors/likelihoods.",
+        "currentLimits": "No posterior computed; framework tier scores remain separate.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "objective-list",
+      "name": "Ordered list processing / prerequisite state evaluation",
+      "status": "ACTIVE_EXTRACTION_GATE",
+      "definition": "Process a topologically ordered objective list; locked prerequisites precede pending or complete steps. Reject duplicate IDs or forward dependencies.",
+      "implementation": "engine/objectives.js",
+      "implementationSha256": "adde63e55f632e3ba6aaeec56f39f70a3a0162421e7acbb54d6ac61f9e1e83b4",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: gather, revalidate, repair, review",
+          "future squad: divide collection tasks"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Players choose how to gather evidence and coordinate; mandatory ordered facts constrain extraction. Historical observations are preserved separately.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "ordered objectives and current Boolean facts",
+      "outputs": "locked/pending/complete list; extraction readiness",
+      "primarySource": null,
+      "sourceAccess": "ORIGINAL_IMPLEMENTATION_AND_REPO_SOURCE_INSPECTED",
+      "tests": [
+        "tests/objectives.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(K + A), K objectives and A prerequisite references",
+        "memory": "O(K + A) output",
+        "reasoning": "One ordered pass with map lookups assumed average O(1); JavaScript Map behavior is not a formal worst-case hash guarantee. Invalid forward dependencies reject.",
+        "currentLimits": "K=7 Archive,8 Plant. Historical event storage is separate and unbounded.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "fixed-step-clock",
+      "name": "Bounded fixed-step accumulator",
+      "status": "ACTIVE_STANDALONE_ENGINE_DEMO",
+      "definition": "Accumulate elapsed time, execute fixed simulation steps under a catch-up budget, and record dropped ticks.",
+      "implementation": "engine/core.js",
+      "implementationSha256": "e3f0825097a8323b8a4c7e98a2bad91268ec7b5021c48eea41938c49cbd3be6a",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: time actions within simulation"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Defines a temporal environment; it is not itself a player strategy or payoff model. Hail currently retains its original loop.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "elapsed seconds and tick budget",
+      "outputs": "step counts and dropped ticks",
+      "primarySource": null,
+      "sourceAccess": "ORIGINAL_IMPLEMENTATION_AND_REPO_SOURCE_INSPECTED",
+      "tests": [
+        "tests/engine-core.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(min(B, floor(H dt)) times updateCost)",
+        "memory": "O(1) scheduler state excluding callback data",
+        "reasoning": "B catch-up budget, H tick rate. A bounded number of callbacks does not bound arbitrary callback work.",
+        "currentLimits": "Default B=8,H=60, dt clamped to1 second; lost ticks logged. Used by standalone demo, Hail retains its loop.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "collision-motion",
+      "name": "Bounded collision substeps",
+      "status": "ACTIVE_STANDALONE_ENGINE_DEMO",
+      "definition": "Split travel into short increments and test body corners to prevent wall tunneling.",
+      "implementation": "engine/core.js",
+      "implementationSha256": "e3f0825097a8323b8a4c7e98a2bad91268ec7b5021c48eea41938c49cbd3be6a",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "player: move, strafe, retreat"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Sets constraints on movement choices and cover access; no realism or intelligence inference. Hail retains its existing body movement helper.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "motion vector, radius and solid grid",
+      "outputs": "accepted position",
+      "primarySource": null,
+      "sourceAccess": "ORIGINAL_IMPLEMENTATION_AND_REPO_SOURCE_INSPECTED",
+      "tests": [
+        "tests/engine-core.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(S), S=ceil(travel/radius), plus O(G) world grid setup",
+        "memory": "O(G) grid copy; O(1) motion state",
+        "reasoning": "Each motion substep checks four corners; limits avoid unbounded tunneling budget.",
+        "currentLimits": "Rejects more than4096 substeps; Hail uses its existing movement helper, not this standalone implementation.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "iso9660-medium",
+      "name": "ISO9660 mission-data serialization",
+      "status": "ACTIVE_LOG_EXPORT",
+      "definition": "Use the selected v86 generator to construct an ISO9660 medium containing our mission JSON. This is a data disc, not a bootable OS.",
+      "implementation": "engine/v86-media.mjs",
+      "implementationSha256": "1ce5abfa41da401f0e287d84d9e77240555ab7d3005bb8d85f45236b1a95c9c5",
+      "gameConversion": {
+        "actors": [
+          "player",
+          "NPC/director or future squad"
+        ],
+        "strategies": [
+          "owner: review before repo/model update"
+        ],
+        "information": "Partial room/terminal visibility; hypothetical multiplayer information separation is not implemented",
+        "ruleOrConstraint": "Transfers observations and outcomes for owner review; serialization does not create utility, monetary value or evidence of truth.",
+        "utilityModel": {
+          "survival": null,
+          "completionTime": null,
+          "ammoCost": null,
+          "evidenceQuality": null,
+          "teamBenefit": null
+        },
+        "utilityRationale": "Unset: specify units, assumptions and comparator before estimating. Game score is not calibrated utility or intelligence."
+      },
+      "inputs": "mission JSON bytes",
+      "outputs": "ISO9660 Uint8Array",
+      "primarySource": "https://github.com/copy/v86",
+      "sourceAccess": "OPENED",
+      "tests": [
+        "tests/room-engine.test.js"
+      ],
+      "efficacyStatus": "NO_HUMAN_LEARNING_OR_INTELLIGENCE_VALIDATION",
+      "unresolvedQuestions": [
+        "What player decisions and outcomes should define this skill?",
+        "How should assistance and prior practice be separated?"
+      ],
+      "worstCaseAnalysis": {
+        "time": "O(B + F + nameBytes) for generated medium and file metadata",
+        "memory": "O(B + F + nameBytes)",
+        "reasoning": "Allocates/copies the entire ISO buffer; B includes sector padding/metadata and content. One-file mission export does not imply free/infinite export capacity.",
+        "currentLimits": "Upstream supports flat root directory with approximately42 entries; only one MISSION.JSON file is emitted. No OS boot image.",
+        "typicalCase": "NOT_ESTIMATED: no workload distribution or empirical gameplay sample",
+        "assumptions": [
+          "Input dimensions as stated; no adversarial JS runtime or allocator guarantees",
+          "Event logging and JSON export add history-dependent cost"
+        ],
+        "verification": "Source inspected plus available deterministic tests; microbenchmarks are supplementary, not proof of asymptotic bounds"
+      }
+    },
+    {
+      "id": "deferred-acceptance",
+      "name": "Gale-Shapley deferred acceptance",
+      "status": "ACTIVE_SOLO_NEXT_ROUND_FOCUS_AND_REUSABLE_MATCHER",
+      "definition": "Participants propose in strict ranked order; a role holds its preferred acceptable proposal, displacing weaker proposals. Rejected participants propose again. One-to-one incomplete strict preferences supported.",
+      "implementation": "engine/round-matching.js",
+      "implementationSha256": "e20772271f89e44d338e28d8c8231cb9b4d83dd3543fbe554f738b60026d6e69",
+      "gameConversion": {
+        "actors": [
+          "participants",
+          "role slots"
+        ],
+        "strategies": [
+          "rank sensor, route or cover focus",
+          "future squad: submit acceptable role rankings"
+        ],
+        "information": "Supplied strict preference lists; no authenticated multiplayer preference collection yet",
+        "ruleOrConstraint": "Solo field panel plans a focus and successful mission transition records it; next briefing displays it. Generic module supports multiple participants. Stable matching does not grant mission clearance or change evidence confidence.",
+        "utilityModel": {
+          "teamEffect": null,
+          "fairnessWeight": null,
+          "roleUtility": null
+        },
+        "utilityRationale": "Rankings are ordinal; no cardinal utilities or efficacy weights estimated."
+      },
+      "inputs": "proposer/role IDs and strict acceptable preference lists",
+      "outputs": "assignments, unmatched participants, every proposal/rejection/displacement",
+      "primarySource": "https://www.math.toronto.edu/mccann/assignments/477/GaleShapley62.pdf",
+      "sourceAccess": "OPENED",
+      "tests": [
+        "tests/round-matching.test.js"
+      ],
+      "efficacyStatus": "NOT_HUMAN_VALIDATED",
+      "worstCaseAnalysis": {
+        "time": "O(P + R + Lp + Lr) under average O(1) Map operations; O(n^2) for complete n-by-n preferences",
+        "memory": "O(P + R + Lp + Lr), including ranks, proposal queue and events",
+        "reasoning": "Each acceptable proposer-role pair is proposed at most once. Receiver rankings are precomputed; queue uses a head index, not shift.",
+        "currentLimits": "Solo uses P=1,R=3; generic matching has no hard input-size cap yet",
+        "typicalCase": "NOT_ESTIMATED",
+        "assumptions": [
+          "Strict one-to-one preferences; incomplete acceptable lists",
+          "Map lookup costs are conditional, not adversarial-runtime guarantees"
+        ]
+      },
+      "unresolvedQuestions": [
+        "Define owner counter point principle precisely; no established theorem inferred.",
+        "Should role capacity be many-to-one for a four-person squad?",
+        "Who proposes, and how should unmatched players continue?",
+        "Stability does not guarantee fairness or maximum team utility."
+      ]
+    },
+    {
+      "id": "eda",
+      "name": "Class intervals, linear interpolation and Pearson association",
+      "status": "OFFLINE_PROTOTYPE_NOT_GAMEPLAY_CALIBRATED",
+      "implementation": "engine/eda.js",
+      "implementationSha256": "5bd93a259ef743ef14eeeb311ddbb585e61818e264091f7b39a69209c91787f2",
+      "definition": "Class intervals, linear interpolation and Pearson association",
+      "worstCase": {
+        "time": "Bins/correlation O(N+B); interpolation O(N log N) sorting plus O(log N) bracket search, O(N+B) space",
+        "limits": "EDA \u22641000000 observations; bins\u22641024; voting N\u226464 M\u22648 K\u22641000"
+      },
+      "gameConversion": {
+        "actors": [
+          "player",
+          "future cooperative squad"
+        ],
+        "strategies": [
+          "inspect evidence",
+          "declare model",
+          "compare reports or agendas"
+        ],
+        "utilityModel": null,
+        "utilityRationale": "Uncalibrated; no automatic game weighting"
+      },
+      "testEvidence": "tests/eda.test.js; tests/coop-voting.test.js",
+      "unresolvedQuestions": [
+        "Owner weighting and calibration rules",
+        "Exact chair paradox reference",
+        "Human efficacy and authoritative multiplayer remain unimplemented"
+      ]
+    },
+    {
+      "id": "discrete-probability",
+      "name": "Declared discrete probability moments and seeded sample space",
+      "status": "OFFLINE_PROTOTYPE_NOT_GAMEPLAY_CALIBRATED",
+      "implementation": "engine/eda.js",
+      "implementationSha256": "5bd93a259ef743ef14eeeb311ddbb585e61818e264091f7b39a69209c91787f2",
+      "definition": "Declared discrete probability moments and seeded sample space",
+      "worstCase": {
+        "time": "Moments O(M); S samples O(S*M); counts O(M) space",
+        "limits": "EDA \u22641000000 observations; bins\u22641024; voting N\u226464 M\u22648 K\u22641000"
+      },
+      "gameConversion": {
+        "actors": [
+          "player",
+          "future cooperative squad"
+        ],
+        "strategies": [
+          "inspect evidence",
+          "declare model",
+          "compare reports or agendas"
+        ],
+        "utilityModel": null,
+        "utilityRationale": "Uncalibrated; no automatic game weighting"
+      },
+      "testEvidence": "tests/eda.test.js; tests/coop-voting.test.js",
+      "unresolvedQuestions": [
+        "Owner weighting and calibration rules",
+        "Exact chair paradox reference",
+        "Human efficacy and authoritative multiplayer remain unimplemented"
+      ]
+    },
+    {
+      "id": "coop-agenda",
+      "name": "Cooperative coalition report comparison and agenda sensitivity",
+      "status": "OFFLINE_PROTOTYPE_NOT_GAMEPLAY_CALIBRATED",
+      "implementation": "engine/coop-voting.js",
+      "implementationSha256": "12be1d72ffb024b780169d57eee0c0cb41ddaeea2d7d8cefd9a1dbc08315c6e1",
+      "definition": "Cooperative coalition report comparison and agenda sensitivity",
+      "worstCase": {
+        "time": "Sequential O(N*M\u00b2); K agendas O(K*N*M\u00b2); coalition comparison O(N*M\u00b2+N*C)",
+        "limits": "EDA \u22641000000 observations; bins\u22641024; voting N\u226464 M\u22648 K\u22641000"
+      },
+      "gameConversion": {
+        "actors": [
+          "player",
+          "future cooperative squad"
+        ],
+        "strategies": [
+          "inspect evidence",
+          "declare model",
+          "compare reports or agendas"
+        ],
+        "utilityModel": null,
+        "utilityRationale": "Uncalibrated; no automatic game weighting"
+      },
+      "testEvidence": "tests/eda.test.js; tests/coop-voting.test.js",
+      "unresolvedQuestions": [
+        "Owner weighting and calibration rules",
+        "Exact chair paradox reference",
+        "Human efficacy and authoritative multiplayer remain unimplemented"
+      ],
+      "ownerBackbone": "Agenda control with supplied-response weak dominance and separately audited May pairwise majority",
+      "mayAssumptions": [
+        "two alternatives",
+        "universal domain",
+        "anonymity",
+        "neutrality",
+        "positive responsiveness"
+      ],
+      "weights": null
+    }
+  ],
+  "monetaryFeedback": {
+    "pipeline": "repo hypotheses \u2192 game mechanics \u2192 session events \u2192 unsigned receipt \u2192 owner review \u2192 repo revision",
+    "transactionCount": 0,
+    "revenue": null,
+    "chainAnchor": null,
+    "executionAuthorization": "No live payment, wallet, onboarding or automatic training executed"
+  },
+  "worstCaseAnalysisPolicy": "Source-based bounds for this exact implementation. Bounds are conditional on stated primitive costs, not measured human skill or universal frame-rate guarantees.",
+  "ownerConcepts": {
+    "counterPointPrinciple": {
+      "status": "PENDING_OWNER_DEFINITION",
+      "provisionalUse": "Contrast player task preferences with role priorities; do not claim a formal counterpoint theorem or balanced opposition"
+    }
+  }
+}

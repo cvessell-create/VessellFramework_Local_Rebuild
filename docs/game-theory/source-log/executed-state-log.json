@@ -1,0 +1,899 @@
+{
+  "schema": "hail-state-transition-proof/v1",
+  "title": "The Hybrid State Transition System: Discrete Event in Continuous Motion",
+  "stepSeconds": 0.016666666666666666,
+  "initial": {
+    "schema": "hail-hybrid-state/v1",
+    "mode": "co-op",
+    "discrete": {
+      "phase": "playing",
+      "locked": false,
+      "tick": 0,
+      "roundId": 0,
+      "powerCellConsumed": false,
+      "rewardCacheConsumed": false
+    },
+    "continuous": [
+      {
+        "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+        "position": {
+          "x": 1.5,
+          "y": 1.5,
+          "angle": 0
+        },
+        "hp": 100,
+        "cooldown": 0,
+        "acceptedInput": {
+          "forward": 0,
+          "strafe": 0,
+          "turn": 0,
+          "fire": false
+        },
+        "inputTime": 0
+      },
+      {
+        "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+        "position": {
+          "x": 2.1,
+          "y": 1.5,
+          "angle": 0
+        },
+        "hp": 100,
+        "cooldown": 0,
+        "acceptedInput": {
+          "forward": 0,
+          "strafe": 0,
+          "turn": 0,
+          "fire": false
+        },
+        "inputTime": 0
+      }
+    ],
+    "enemies": [
+      {
+        "id": "counter-0",
+        "position": {
+          "x": 8.5,
+          "y": 1.5,
+          "angle": 0
+        },
+        "hp": 50,
+        "cooldown": 1
+      },
+      {
+        "id": "counter-1",
+        "position": {
+          "x": 8.5,
+          "y": 5.5,
+          "angle": 0
+        },
+        "hp": 50,
+        "cooldown": 1
+      },
+      {
+        "id": "counter-2",
+        "position": {
+          "x": 1.5,
+          "y": 5.5,
+          "angle": 0
+        },
+        "hp": 40,
+        "cooldown": 1
+      }
+    ],
+    "progression": [
+      {
+        "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+        "xp": 0,
+        "savings": {
+          "bank": 0,
+          "available": 0,
+          "earned": 0,
+          "yieldRemaining": 0
+        },
+        "level": 1,
+        "power": 0,
+        "inventory": []
+      },
+      {
+        "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+        "xp": 0,
+        "savings": {
+          "bank": 0,
+          "available": 0,
+          "earned": 0,
+          "yieldRemaining": 0
+        },
+        "level": 1,
+        "power": 0,
+        "inventory": []
+      }
+    ],
+    "economy": {
+      "players": [
+        {
+          "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+          "credits": {
+            "numerator": "1000",
+            "denominator": "1",
+            "value": 1000
+          }
+        },
+        {
+          "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+          "credits": {
+            "numerator": "1000",
+            "denominator": "1",
+            "value": 1000
+          }
+        }
+      ],
+      "treasury": {
+        "numerator": "0",
+        "denominator": "1",
+        "value": 0
+      },
+      "receipts": []
+    },
+    "fixedModel": null,
+    "round": null,
+    "observationLimits": [
+      "Public/log projection omits bearer tokens and unsettled bid values.",
+      "Complete internal kernel state is arena.exportState(), including sessions and sealed bids.",
+      "Clock time and ordered external actions are required for exact replay."
+    ],
+    "retainedEvents": 7,
+    "droppedEvents": 0
+  },
+  "records": [
+    {
+      "step": 1,
+      "before": {
+        "schema": "hail-hybrid-state/v1",
+        "mode": "co-op",
+        "discrete": {
+          "phase": "playing",
+          "locked": false,
+          "tick": 0,
+          "roundId": 0,
+          "powerCellConsumed": false,
+          "rewardCacheConsumed": false
+        },
+        "continuous": [
+          {
+            "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "position": {
+              "x": 1.5,
+              "y": 1.5,
+              "angle": 0
+            },
+            "hp": 100,
+            "cooldown": 0,
+            "acceptedInput": {
+              "forward": 0,
+              "strafe": 0,
+              "turn": 0,
+              "fire": false
+            },
+            "inputTime": 0
+          },
+          {
+            "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+            "position": {
+              "x": 2.1,
+              "y": 1.5,
+              "angle": 0
+            },
+            "hp": 100,
+            "cooldown": 0,
+            "acceptedInput": {
+              "forward": 0,
+              "strafe": 0,
+              "turn": 0,
+              "fire": false
+            },
+            "inputTime": 0
+          }
+        ],
+        "enemies": [
+          {
+            "id": "counter-0",
+            "position": {
+              "x": 8.5,
+              "y": 1.5,
+              "angle": 0
+            },
+            "hp": 50,
+            "cooldown": 1
+          },
+          {
+            "id": "counter-1",
+            "position": {
+              "x": 8.5,
+              "y": 5.5,
+              "angle": 0
+            },
+            "hp": 50,
+            "cooldown": 1
+          },
+          {
+            "id": "counter-2",
+            "position": {
+              "x": 1.5,
+              "y": 5.5,
+              "angle": 0
+            },
+            "hp": 40,
+            "cooldown": 1
+          }
+        ],
+        "progression": [
+          {
+            "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "xp": 0,
+            "savings": {
+              "bank": 0,
+              "available": 0,
+              "earned": 0,
+              "yieldRemaining": 0
+            },
+            "level": 1,
+            "power": 0,
+            "inventory": []
+          },
+          {
+            "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+            "xp": 0,
+            "savings": {
+              "bank": 0,
+              "available": 0,
+              "earned": 0,
+              "yieldRemaining": 0
+            },
+            "level": 1,
+            "power": 0,
+            "inventory": []
+          }
+        ],
+        "economy": {
+          "players": [
+            {
+              "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+              "credits": {
+                "numerator": "1000",
+                "denominator": "1",
+                "value": 1000
+              }
+            },
+            {
+              "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+              "credits": {
+                "numerator": "1000",
+                "denominator": "1",
+                "value": 1000
+              }
+            }
+          ],
+          "treasury": {
+            "numerator": "0",
+            "denominator": "1",
+            "value": 0
+          },
+          "receipts": []
+        },
+        "fixedModel": null,
+        "round": null,
+        "observationLimits": [
+          "Public/log projection omits bearer tokens and unsettled bid values.",
+          "Complete internal kernel state is arena.exportState(), including sessions and sealed bids.",
+          "Clock time and ordered external actions are required for exact replay."
+        ],
+        "retainedEvents": 2,
+        "droppedEvents": 0
+      },
+      "after": {
+        "schema": "hail-hybrid-state/v1",
+        "mode": "co-op",
+        "discrete": {
+          "phase": "playing",
+          "locked": true,
+          "tick": 1,
+          "roundId": 0,
+          "powerCellConsumed": false,
+          "rewardCacheConsumed": false
+        },
+        "continuous": [
+          {
+            "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "position": {
+              "x": 1.5,
+              "y": 1.5,
+              "angle": 0
+            },
+            "hp": 100,
+            "cooldown": 0.3,
+            "acceptedInput": {
+              "sequence": 1,
+              "forward": 0,
+              "strafe": 0,
+              "turn": 0,
+              "fire": true
+            },
+            "inputTime": 1000
+          },
+          {
+            "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+            "position": {
+              "x": 2.1,
+              "y": 1.5,
+              "angle": 0
+            },
+            "hp": 100,
+            "cooldown": 0,
+            "acceptedInput": {
+              "forward": 0,
+              "strafe": 0,
+              "turn": 0,
+              "fire": false
+            },
+            "inputTime": 0
+          }
+        ],
+        "enemies": [
+          {
+            "id": "counter-0",
+            "position": {
+              "x": 8.491666666666667,
+              "y": 1.5,
+              "angle": 3.141592653589793
+            },
+            "hp": 25,
+            "cooldown": 0.9833333333333333
+          },
+          {
+            "id": "counter-1",
+            "position": {
+              "x": 8.5,
+              "y": 5.5,
+              "angle": 0
+            },
+            "hp": 50,
+            "cooldown": 0.9833333333333333
+          },
+          {
+            "id": "counter-2",
+            "position": {
+              "x": 1.5,
+              "y": 5.5,
+              "angle": -1.5707963267948966
+            },
+            "hp": 40,
+            "cooldown": 0.9833333333333333
+          }
+        ],
+        "progression": [
+          {
+            "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "xp": 0,
+            "savings": {
+              "bank": 0,
+              "available": 0,
+              "earned": 0,
+              "yieldRemaining": 0
+            },
+            "level": 1,
+            "power": 0,
+            "inventory": []
+          },
+          {
+            "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+            "xp": 0,
+            "savings": {
+              "bank": 0,
+              "available": 0,
+              "earned": 0,
+              "yieldRemaining": 0
+            },
+            "level": 1,
+            "power": 0,
+            "inventory": []
+          }
+        ],
+        "economy": {
+          "players": [
+            {
+              "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+              "credits": {
+                "numerator": "1000",
+                "denominator": "1",
+                "value": 1000
+              }
+            },
+            {
+              "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+              "credits": {
+                "numerator": "1000",
+                "denominator": "1",
+                "value": 1000
+              }
+            }
+          ],
+          "treasury": {
+            "numerator": "0",
+            "denominator": "1",
+            "value": 0
+          },
+          "receipts": []
+        },
+        "fixedModel": {
+          "schema": "hail-influence/v1",
+          "ids": [
+            "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c"
+          ],
+          "boss": false,
+          "cap": 300,
+          "threatHp": 140,
+          "weights": [
+            27,
+            27
+          ],
+          "quota": 31,
+          "veto": [],
+          "permutationCount": "2",
+          "totalSwings": 2,
+          "players": [
+            {
+              "weight": 27,
+              "swingCount": 1,
+              "pivotalPermutations": "1",
+              "shapleyShubik": 0.5,
+              "banzhafAbsolute": 0.5,
+              "banzhafNormalized": 0.5
+            },
+            {
+              "weight": 27,
+              "swingCount": 1,
+              "pivotalPermutations": "1",
+              "shapleyShubik": 0.5,
+              "banzhafAbsolute": 0.5,
+              "banzhafNormalized": 0.5
+            }
+          ]
+        },
+        "round": null,
+        "observationLimits": [
+          "Public/log projection omits bearer tokens and unsettled bid values.",
+          "Complete internal kernel state is arena.exportState(), including sessions and sealed bids.",
+          "Clock time and ordered external actions are required for exact replay."
+        ],
+        "retainedEvents": 5,
+        "droppedEvents": 0
+      },
+      "change": {
+        "fromTick": 0,
+        "toTick": 1,
+        "phase": [
+          "playing",
+          "playing"
+        ],
+        "reserveModelChanged": true,
+        "players": [
+          {
+            "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "delta": {
+              "x": 0,
+              "y": 0,
+              "hp": 0
+            }
+          },
+          {
+            "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+            "delta": {
+              "x": 0,
+              "y": 0,
+              "hp": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "step": 121,
+      "before": {
+        "schema": "hail-hybrid-state/v1",
+        "mode": "co-op",
+        "discrete": {
+          "phase": "playing",
+          "locked": true,
+          "tick": 120,
+          "roundId": 0,
+          "powerCellConsumed": false,
+          "rewardCacheConsumed": false
+        },
+        "continuous": [
+          {
+            "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "position": {
+              "x": 1.5,
+              "y": 1.5,
+              "angle": 0
+            },
+            "hp": 94,
+            "cooldown": 0,
+            "acceptedInput": {
+              "sequence": 1,
+              "forward": 0,
+              "strafe": 0,
+              "turn": 0,
+              "fire": true
+            },
+            "inputTime": 1000
+          },
+          {
+            "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+            "position": {
+              "x": 2.1,
+              "y": 1.5,
+              "angle": 0
+            },
+            "hp": 93,
+            "cooldown": 0,
+            "acceptedInput": {
+              "forward": 0,
+              "strafe": 0,
+              "turn": 0,
+              "fire": false
+            },
+            "inputTime": 0
+          }
+        ],
+        "enemies": [
+          {
+            "id": "counter-0",
+            "position": {
+              "x": 7.5000000000000036,
+              "y": 1.5,
+              "angle": 3.141592653589793
+            },
+            "hp": 25,
+            "cooldown": 0.19999999999999923
+          },
+          {
+            "id": "counter-1",
+            "position": {
+              "x": 8.5,
+              "y": 5.5,
+              "angle": 0
+            },
+            "hp": 50,
+            "cooldown": 0
+          },
+          {
+            "id": "counter-2",
+            "position": {
+              "x": 1.5,
+              "y": 5.5,
+              "angle": -1.5707963267948966
+            },
+            "hp": 40,
+            "cooldown": 0.19999999999999923
+          }
+        ],
+        "progression": [
+          {
+            "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "xp": 0,
+            "savings": {
+              "bank": 0,
+              "available": 0,
+              "earned": 0,
+              "yieldRemaining": 0
+            },
+            "level": 1,
+            "power": 0,
+            "inventory": []
+          },
+          {
+            "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+            "xp": 0,
+            "savings": {
+              "bank": 0,
+              "available": 0,
+              "earned": 0,
+              "yieldRemaining": 0
+            },
+            "level": 1,
+            "power": 0,
+            "inventory": []
+          }
+        ],
+        "economy": {
+          "players": [
+            {
+              "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+              "credits": {
+                "numerator": "1000",
+                "denominator": "1",
+                "value": 1000
+              }
+            },
+            {
+              "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+              "credits": {
+                "numerator": "1000",
+                "denominator": "1",
+                "value": 1000
+              }
+            }
+          ],
+          "treasury": {
+            "numerator": "0",
+            "denominator": "1",
+            "value": 0
+          },
+          "receipts": []
+        },
+        "fixedModel": {
+          "schema": "hail-influence/v1",
+          "ids": [
+            "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c"
+          ],
+          "boss": false,
+          "cap": 300,
+          "threatHp": 140,
+          "weights": [
+            27,
+            27
+          ],
+          "quota": 31,
+          "veto": [],
+          "permutationCount": "2",
+          "totalSwings": 2,
+          "players": [
+            {
+              "weight": 27,
+              "swingCount": 1,
+              "pivotalPermutations": "1",
+              "shapleyShubik": 0.5,
+              "banzhafAbsolute": 0.5,
+              "banzhafNormalized": 0.5
+            },
+            {
+              "weight": 27,
+              "swingCount": 1,
+              "pivotalPermutations": "1",
+              "shapleyShubik": 0.5,
+              "banzhafAbsolute": 0.5,
+              "banzhafNormalized": 0.5
+            }
+          ]
+        },
+        "round": null,
+        "observationLimits": [
+          "Public/log projection omits bearer tokens and unsettled bid values.",
+          "Complete internal kernel state is arena.exportState(), including sessions and sealed bids.",
+          "Clock time and ordered external actions are required for exact replay."
+        ],
+        "retainedEvents": 7,
+        "droppedEvents": 0
+      },
+      "after": {
+        "schema": "hail-hybrid-state/v1",
+        "mode": "co-op",
+        "discrete": {
+          "phase": "playing",
+          "locked": true,
+          "tick": 121,
+          "roundId": 0,
+          "powerCellConsumed": false,
+          "rewardCacheConsumed": false
+        },
+        "continuous": [
+          {
+            "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "position": {
+              "x": 1.5,
+              "y": 1.5,
+              "angle": 0
+            },
+            "hp": 94,
+            "cooldown": 0,
+            "acceptedInput": {
+              "sequence": 1,
+              "forward": 0,
+              "strafe": 0,
+              "turn": 0,
+              "fire": true
+            },
+            "inputTime": 1000
+          },
+          {
+            "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+            "position": {
+              "x": 2.1,
+              "y": 1.5,
+              "angle": 0
+            },
+            "hp": 93,
+            "cooldown": 0,
+            "acceptedInput": {
+              "forward": 0,
+              "strafe": 0,
+              "turn": 0,
+              "fire": false
+            },
+            "inputTime": 0
+          }
+        ],
+        "enemies": [
+          {
+            "id": "counter-0",
+            "position": {
+              "x": 7.49166666666667,
+              "y": 1.5,
+              "angle": 3.141592653589793
+            },
+            "hp": 25,
+            "cooldown": 0.18333333333333257
+          },
+          {
+            "id": "counter-1",
+            "position": {
+              "x": 8.5,
+              "y": 5.5,
+              "angle": 0
+            },
+            "hp": 50,
+            "cooldown": 0
+          },
+          {
+            "id": "counter-2",
+            "position": {
+              "x": 1.5,
+              "y": 5.5,
+              "angle": -1.5707963267948966
+            },
+            "hp": 40,
+            "cooldown": 0.18333333333333257
+          }
+        ],
+        "progression": [
+          {
+            "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "xp": 0,
+            "savings": {
+              "bank": 0,
+              "available": 0,
+              "earned": 0,
+              "yieldRemaining": 0
+            },
+            "level": 1,
+            "power": 0,
+            "inventory": []
+          },
+          {
+            "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+            "xp": 0,
+            "savings": {
+              "bank": 0,
+              "available": 0,
+              "earned": 0,
+              "yieldRemaining": 0
+            },
+            "level": 1,
+            "power": 0,
+            "inventory": []
+          }
+        ],
+        "economy": {
+          "players": [
+            {
+              "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+              "credits": {
+                "numerator": "1000",
+                "denominator": "1",
+                "value": 1000
+              }
+            },
+            {
+              "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+              "credits": {
+                "numerator": "1000",
+                "denominator": "1",
+                "value": 1000
+              }
+            }
+          ],
+          "treasury": {
+            "numerator": "0",
+            "denominator": "1",
+            "value": 0
+          },
+          "receipts": []
+        },
+        "fixedModel": {
+          "schema": "hail-influence/v1",
+          "ids": [
+            "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c"
+          ],
+          "boss": false,
+          "cap": 300,
+          "threatHp": 140,
+          "weights": [
+            27,
+            27
+          ],
+          "quota": 31,
+          "veto": [],
+          "permutationCount": "2",
+          "totalSwings": 2,
+          "players": [
+            {
+              "weight": 27,
+              "swingCount": 1,
+              "pivotalPermutations": "1",
+              "shapleyShubik": 0.5,
+              "banzhafAbsolute": 0.5,
+              "banzhafNormalized": 0.5
+            },
+            {
+              "weight": 27,
+              "swingCount": 1,
+              "pivotalPermutations": "1",
+              "shapleyShubik": 0.5,
+              "banzhafAbsolute": 0.5,
+              "banzhafNormalized": 0.5
+            }
+          ]
+        },
+        "round": null,
+        "observationLimits": [
+          "Public/log projection omits bearer tokens and unsettled bid values.",
+          "Complete internal kernel state is arena.exportState(), including sessions and sealed bids.",
+          "Clock time and ordered external actions are required for exact replay."
+        ],
+        "retainedEvents": 7,
+        "droppedEvents": 0
+      },
+      "change": {
+        "fromTick": 120,
+        "toTick": 121,
+        "phase": [
+          "playing",
+          "playing"
+        ],
+        "reserveModelChanged": false,
+        "players": [
+          {
+            "id": "6bc6828c-5fcc-408f-98f8-bcc085a4a9c0",
+            "delta": {
+              "x": 0,
+              "y": 0,
+              "hp": 0
+            }
+          },
+          {
+            "id": "9bcb9a7a-8aea-4a2b-8c8f-ad825c5fc83c",
+            "delta": {
+              "x": 0,
+              "y": 0,
+              "hp": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "restoration": {
+    "sameClockAndActions": true,
+    "nextStateEqual": true
+  },
+  "limits": [
+    "This fixture proves the tested transitions, not exhaustive equivalence.",
+    "Bearer tokens and unsettled bid values omitted; private kernel needed for replay.",
+    "Solo campaign randomness is not recorded for exact replay."
+  ]
+}

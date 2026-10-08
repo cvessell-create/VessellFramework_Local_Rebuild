@@ -25,10 +25,23 @@ not implement Outlook integration or email delivery.
 
 Author: Christopher R. Vessell
 
-## Five-pillar Knowing Field architecture
+Civilian-authored research/software: see the
+[source-preservation and model-interference caveat](docs/civilian-authorship-and-model-interference.md).
+It preserves the owner's account and research scope without asserting
+unverified government involvement.
+
+## Six-pillar inquiry architecture
 
 The framework now combines **PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR and
-KNOWING FIELD**. Follow the
+KNOWING FIELD**, now complemented by **GAME THEORY**. Follow the
+[sixth-pillar theory skill](Game_Theory_Theory_SKILL_v0.1.md),
+[strategic blind-spot audit](docs/game-theory-framework-audit.md) and
+[combined application skill](VesselFramework_Game_Theory_SKILL_v0.1.md).
+The case pipeline and specialist contract accept optional source-linked
+matrix, tree, coalition and savings models. Exact conditional calculations
+do not infer motives, raise confidence or authorize action.
+
+For Knowing Field, follow the
 [source-grounded theory skill](Knowing_Field_Theory_SKILL_v0.1.md),
 [framework blind-spot audit](docs/knowing-field-framework-audit.md) and
 [combined fifth-pillar skill](VesselFramework_Knowing_Field_SKILL_v0.1.md).
@@ -54,8 +67,18 @@ see [GAME_DEVELOPMENT_SKILL.md](GAME_DEVELOPMENT_SKILL.md). The new
 [bounded analyst workflow](vessell/workflow.py) reuses the existing gates,
 pipeline and correction machinery; game development itself remains paused.
 
-Package version: v3.12.0 with five-pillar inquiry, durable ambient review, approved static artifact capture and game-pattern workflow adaptations.
-The separate game feature build remains paused and is not a completed release.
+Package version: v3.12.0 with six-pillar inquiry, durable ambient review,
+approved static artifact capture and game-pattern workflow adaptations.
+The separate Hail game continuation is distinct from this framework runtime.
+
+Run the supplied model example without external services:
+
+```bash
+python -m vessell.game_theory examples/game-theory-case.json
+```
+
+Source snapshots and archive fingerprints are preserved in
+[the sixth-pillar source register](docs/game-theory/source-register.json).
 
 ## Scientific foundations and next-stage agent economy
 

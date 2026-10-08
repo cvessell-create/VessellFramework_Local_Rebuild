@@ -1,0 +1,126 @@
+{
+  "standing": "Owner-supplied historical source snapshots; not independent corroboration",
+  "game_base_commit": "5d5c04b63a0048af3e9245a06a41890777271034",
+  "supplied_bundle_head": "f515e107068a8e83949a7f00232e3763bcb3f828",
+  "archives": [
+    {
+      "name": "hail-final-branch.bundle",
+      "sha256": "004e6da0594847fb77f1abbefb86e499a32ee7c04609fea02ee525627fc8cbc5"
+    },
+    {
+      "name": "Hail_Hybrid_State_Transition_System_Log.zip",
+      "sha256": "43f94761ed74fb2259eb10b3d079c31d3c92f495823c59ee93c6716ab2c1445a"
+    },
+    {
+      "name": "Hail_Hosted_App_Source_386aa255.zip",
+      "sha256": "b66ac6e9d48a69f0a8f0c041eff7f01b9a91a8951feed312abe6c1f62f90c386"
+    }
+  ],
+  "files": [
+    {
+      "path": "backward-induction-report.md",
+      "bytes": 19756,
+      "sha256": "dbee4a1001856b52a02e090966fad6cc0cbe4ae8ec3b5ffef1b69a6501f3e6d8"
+    },
+    {
+      "path": "branch-log.md",
+      "bytes": 3865,
+      "sha256": "f6d92449b7e171ccc5964061fb28404b23e49d4bcbe0adb09acac010a97ff16c"
+    },
+    {
+      "path": "dynamical-state-model.md",
+      "bytes": 5682,
+      "sha256": "ae50ea1b3ee68b3e4fdd0143af6bec85efb770151498963b1b14bfb99988b1df"
+    },
+    {
+      "path": "executed-harvest-log.json",
+      "bytes": 2022,
+      "sha256": "6d4b70bc1977f8c2fc8774044561732b15568a61e57cad6b55cc4e2c2edabd8a"
+    },
+    {
+      "path": "executed-math-log.json",
+      "bytes": 11766,
+      "sha256": "20a41f2e80458d1a971fdb2a84097341c07fe4a66a72ee66a679796fcf4f606e"
+    },
+    {
+      "path": "executed-state-log.json",
+      "bytes": 22842,
+      "sha256": "0cba7aa6b3ccdd50ba268a4990dbbccba0dde7d3845436ce91abe3732a9fad27"
+    },
+    {
+      "path": "executed-weight-log.json",
+      "bytes": 4726,
+      "sha256": "6775033b8941dffc6c3fee06471433a89a82285f9298eb08a1848acecc2b7b6f"
+    },
+    {
+      "path": "final-check.md",
+      "bytes": 1811,
+      "sha256": "14556867ca68a76dff8c05ba6d0f64355d14b3e04ccff07fd4e3ae9e5765fa90"
+    },
+    {
+      "path": "originality-side-log.md",
+      "bytes": 4863,
+      "sha256": "c3573a61149a056c1afc0352bc94db871589cdfc30a462ff5bf588bd22a7dfc1"
+    },
+    {
+      "path": "reconciled-algorithm-catalog.json",
+      "bytes": 57604,
+      "sha256": "1c328e867b8fe7d38420b736942725bf7410c0f3e1f2ffa11055cdaf738c8d64"
+    },
+    {
+      "path": "recovered/Hail-algorithm-catalog.json",
+      "bytes": 52341,
+      "sha256": "b80c50554c0fcce7289d1b6f9545f7d5a8899dc538e02ed994b5b7845cbf9324"
+    },
+    {
+      "path": "recovered/Hail-design-blueprint.md",
+      "bytes": 5959,
+      "sha256": "8c191cca2f11aae245a776a48158c1cdf6d21c83a254c3471b519449de9d5f88"
+    },
+    {
+      "path": "slideshow-notes.md",
+      "bytes": 4632,
+      "sha256": "57ec480b1df84d63d3170b397b23d2bfceaac59b402794eb699e36215976762a"
+    },
+    {
+      "path": "slideshow.html",
+      "bytes": 7321,
+      "sha256": "e9a632cc608b2c02519db4385b1a6cca91b760f7a45847f4ce3d1c6a45e34d7f"
+    },
+    {
+      "path": "source-inventory.json",
+      "bytes": 21567,
+      "sha256": "9575ed8690c57cde6f0abc7f4f0200641c9c83325f8bd04253f267351879bbfe"
+    },
+    {
+      "path": "static-reserve-proof.json",
+      "bytes": 876,
+      "sha256": "b7c218b35d242ace3879aa4ddda99f39af231083dcddfead8b336f2626e960be"
+    },
+    {
+      "path": "static-reserve-proof.md",
+      "bytes": 4681,
+      "sha256": "14979bc37c61b3fd4557ff384b544d68d2a70662a6bbb3c533e59d8d7cf6e098"
+    },
+    {
+      "path": "static-reserve-research-log.md",
+      "bytes": 5708,
+      "sha256": "4e760abd5e668de77ea7b3f72169e6008b974182d85fceb8045887ce9fbe242c"
+    },
+    {
+      "path": "sustainable-yield-policy.md",
+      "bytes": 4264,
+      "sha256": "f62f52344cfd037bd4f71829d704fa5af7193213f19e9907a9ceee5f147ec567"
+    },
+    {
+      "path": "test-results.txt",
+      "bytes": 6329,
+      "sha256": "26caf4f270af72b52ccc7f6c3e000c54f948a7eb0846dac6b93945f85d93b7b2"
+    },
+    {
+      "path": "weighting-ledger.md",
+      "bytes": 8734,
+      "sha256": "48185521e18e027942844d1503595b19a3b3b9eec5475c3c840564463fb68249"
+    }
+  ]
+}

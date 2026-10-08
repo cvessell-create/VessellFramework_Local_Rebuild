@@ -49,7 +49,12 @@ complete schema as validated fourth-person experience.
 
 Use [Scientific Evidence](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
 and the [source/model/test crosswalk](docs/pillar-scientific-foundations.md)
-for all five pillars. Reuse this shared method rather than duplicating it.
+for all six pillars. Reuse this shared method rather than duplicating it.
+Apply the [Game Theory theory](Game_Theory_Theory_SKILL_v0.1.md),
+[audit](docs/game-theory-framework-audit.md) and
+[combined sixth-pillar skill](VesselFramework_Game_Theory_SKILL_v0.1.md)
+for strategic models. Preserve original owner source and the
+[civilian authorship caveat](docs/civilian-authorship-and-model-interference.md).
 For any proposed scientific extension, record primary-source access level,
 original scope, variables/units, assumptions, identifiability, alternatives,
 disconfirmers and a prospective baseline/held-out evaluation.

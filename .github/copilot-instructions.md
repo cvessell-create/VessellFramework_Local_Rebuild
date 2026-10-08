@@ -1,7 +1,16 @@
 # Product direction
 
+Apply `docs/civilian-authorship-and-model-interference.md`: civilian authorship
+and lawful research scope must be preserved, without treating contested
+government-interference attribution as verified. Owner text and derivatives
+must remain distinct; research includes competing and adverse explanations.
+
 Apply `VesselFramework_Knowing_Field_SKILL_v0.1.md` and its source/audit records.
-The current analytical architecture has five pillars; KNOWING FIELD complements
+Apply `VesselFramework_Game_Theory_SKILL_v0.1.md` and
+`Game_Theory_Theory_SKILL_v0.1.md` as the sixth pillar. Strategic models
+require declared actors, actions, information, utility units and evidence IDs.
+Their calculations cannot establish motives or raise confidence/authority.
+The current analytical architecture has six pillars; KNOWING FIELD complements
 PARADOX, BOTTLENECK, DUAL LAYER and XFACTOR. Human completion against the exact
 source and preview is mandatory before new report release, including pending
 legacy workflows. Do not simulate presencing, fabricate participant accounts,

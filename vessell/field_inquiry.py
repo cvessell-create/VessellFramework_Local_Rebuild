@@ -9,7 +9,7 @@ from typing import Any
 
 from vessell.validation import validate_record
 
-PILLARS = ("PARADOX", "BOTTLENECK", "DUAL LAYER", "XFACTOR", "KNOWING FIELD")
+PILLARS = ("PARADOX", "BOTTLENECK", "DUAL LAYER", "XFACTOR", "KNOWING FIELD", "GAME THEORY")
 FIELD_POLICY = "knowing-field-v1"
 FIELD_LIMIT = 32 * 1024
 

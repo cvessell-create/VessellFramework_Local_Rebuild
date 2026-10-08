@@ -6,6 +6,7 @@ from __future__ import annotations
 from typing import Any
 
 from vessell.field_inquiry import assess_field_inquiry
+from vessell.game_theory import assess_game_theory
 from vessell.harm_gate import evaluate_harm_gate
 from vessell.provenance import (
     ClaimKind,
@@ -166,6 +167,7 @@ def run_case_pipeline(case: dict[str, Any], *, track_provenance: bool = True) ->
 
     evidence_map = _map_by_source_id(evidence_set)
     field_inquiry = assess_field_inquiry(case.get("field_inquiry"), set(evidence_map))
+    game_theory = assess_game_theory(case.get("game_theory"), set(evidence_map))
     assessments = _build_maskirovka_assessments(case, registry, evidence_map)
     convergence_note = assess_maskirovka_convergence(assessments)
 
@@ -174,6 +176,8 @@ def run_case_pipeline(case: dict[str, Any], *, track_provenance: bool = True) ->
         "Knowing Field: human-led inquiry completion is mandatory before report release; "
         "this analysis is a preview and cannot certify fourth-person experience.",
     )
+    notes.append("Game Theory: declared strategic models yield conditional calculations, "
+                 "not verified motives, confidence upgrades or execution authority.")
     if not harm_gate.cleared:
         notes.append("Harm Gate requires review; this intake does not authorize action.")
     if counts.unresolved_lineage > 0:
@@ -210,4 +214,5 @@ def run_case_pipeline(case: dict[str, Any], *, track_provenance: bool = True) ->
         claim_ids=claim_ids,
         harm_gate=harm_gate,
         field_inquiry=field_inquiry,
+        game_theory=game_theory,
     )

@@ -18,7 +18,7 @@
     },
     {
       "path": ".github/copilot-instructions.md",
-      "sha256": "37f4cd528956e52e4e167a8ab44636a7dd1386d846583d038bcaac5aec3ce9fe"
+      "sha256": "8db899dedabd4fae1f59992ac04c26ec038782fa8517b42453a254228075937e"
     },
     {
       "path": ".github/workflows/ci.yml",
@@ -58,7 +58,7 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "700f0523af55f7ec6dc4723d92c8388eaedebbf9fa776c2ee919f6dda1a2d841"
+      "sha256": "d77c2f774a73bb2e9679182a28f9215c2b6301403875a67869fccc4c3004bef9"
     },
     {
       "path": "CANONICAL_REFERENCE.md",
@@ -77,6 +77,10 @@
       "sha256": "c05df042ed3fe41bbe2c05390c6274f5608e81fd4c004a6cc7afac1cd5a1e182"
     },
     {
+      "path": "Game_Theory_Theory_SKILL_v0.1.md",
+      "sha256": "364027824ed74b1dc3c6bf4019840ef8687fce1c29d9c23c90ea2ef5fc507ca8"
+    },
+    {
       "path": "Knowing_Field_Theory_SKILL_v0.1.md",
       "sha256": "4c601257d51815f4a691acbc1239805dcfd57b24cf664540e85761f0dd14832a"
     },
@@ -86,7 +90,7 @@
     },
     {
       "path": "MANIFEST.in",
-      "sha256": "36b8d33cb2723beca1fd3a21c50260ca4f5dea476cfd5a4b61f89a4c0f2d5bf9"
+      "sha256": "14cc64afadac0f99ed7856d4728068758df7cb9c46e3f9a4297d467995d40038"
     },
     {
       "path": "META_REVIEW_AND_ROADMAP.md",
@@ -102,11 +106,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "be2721e38070ea44fa9890cf19c3be76d7dabad7592dc38dbd2add228cb004b6"
+      "sha256": "97b68bc0cb173be2a71370414e041eab74b546b1404e98046d0197befe0a62f4"
     },
     {
       "path": "SKILL.md",
-      "sha256": "832f67f527865d5957aadddba825fa703561a402c8d85a606eae2fd87ef146a6"
+      "sha256": "78402d0cf9c0b899dfa95ce99582bbe2bbcd0666eca8f77faf9429f3ccf5562d"
     },
     {
       "path": "Security_Control_Selection_Placement_Analyst_SKILL_v0.1.md",
@@ -114,7 +118,7 @@
     },
     {
       "path": "VISION_AND_SCOPE.md",
-      "sha256": "8baea386aa99b81075de97044031f5ca21abc6fd7c6f6cbceb3e108efe2fd0cd"
+      "sha256": "7b8e57ecef5275c24e2ed1868aacfd3c1ccfd0b7326df04e211f4782dfe7ddf6"
     },
     {
       "path": "VesselFramework_Agent.md",
@@ -133,6 +137,10 @@
       "sha256": "623307d961555665f3b43ebfab52ab7544f2ce86bff4717710549f8717e263b4"
     },
     {
+      "path": "VesselFramework_Game_Theory_SKILL_v0.1.md",
+      "sha256": "075f4c0792555062d57728b4e3c2d99495e9235d083c4cff15ed3aa5e6b79e95"
+    },
+    {
       "path": "VesselFramework_Ghost_Job_Filter_SKILL_v0.1.md",
       "sha256": "7f046807d813349c6993d750d16edeaf0e9559c2dc88647c20356aad9a54acbb"
     },
@@ -142,11 +150,11 @@
     },
     {
       "path": "VesselFramework_Knowing_Field_SKILL_v0.1.md",
-      "sha256": "f48d406599b9d654e56d4af576e026217ddce05e8c004a05d647f9209870d2a4"
+      "sha256": "860ca23fed05bc281f7b2a6e991478d919218cadf87f93b714d26fee79f97d46"
     },
     {
       "path": "VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md",
-      "sha256": "0cb9cdcc4ef977caccc0db0b2700cfbb22b5292a60b8cf9d7e7f6986fad30081"
+      "sha256": "f979fe83b0b2315abb6f78b468bb9067d412178325d246449c3c556793686c0b"
     },
     {
       "path": "VesselFramework_News_Edition_Report_SKILL_v0.1.md",
@@ -182,7 +190,7 @@
     },
     {
       "path": "VesselFramework_Skill_Creator_SKILL_v0.1.md",
-      "sha256": "0f6d055c87bc5c2d02f0ce62bebdc1aef6d7c79590399eb4be5f6dd9008d9b5f"
+      "sha256": "9e19abbc34e99840023e934d61dc74d47270a74581e1e8c9894eff883c9a1b1b"
     },
     {
       "path": "VesselFramework_Startle_Gate_Defence.md",
@@ -305,6 +313,10 @@
       "sha256": "70499812f80a17b616043ca3f98fde8d28b46afcc7c05dbce824ca00c1e864b6"
     },
     {
+      "path": "docs/civilian-authorship-and-model-interference.md",
+      "sha256": "b2397f57c293c411d159156dfdf93b26bfb5a7a51e12375c869e9e8aabedfa89"
+    },
+    {
       "path": "docs/claim-correction-case-study.md",
       "sha256": "42b20766faa8192fb720f938980dc824b84f138ec34c60965d2aef3792305b75"
     },
@@ -327,6 +339,102 @@
     {
       "path": "docs/game-integration.md",
       "sha256": "05795da37c9909c87d229b64f618e73d6762643952d9dd7f214f928dc40552d7"
+    },
+    {
+      "path": "docs/game-theory-framework-audit.md",
+      "sha256": "5309a33e2064c6a69ee51fac2e56f619d808956f6b9fad83644e310353acac10"
+    },
+    {
+      "path": "docs/game-theory/continuation-reconciliation.md",
+      "sha256": "088d6528c71ee8c604ad13a914a01a5ef86c468580976e1c6e66f06bf52cf6b8"
+    },
+    {
+      "path": "docs/game-theory/source-log/backward-induction-report.md",
+      "sha256": "dbee4a1001856b52a02e090966fad6cc0cbe4ae8ec3b5ffef1b69a6501f3e6d8"
+    },
+    {
+      "path": "docs/game-theory/source-log/branch-log.md",
+      "sha256": "f6d92449b7e171ccc5964061fb28404b23e49d4bcbe0adb09acac010a97ff16c"
+    },
+    {
+      "path": "docs/game-theory/source-log/dynamical-state-model.md",
+      "sha256": "ae50ea1b3ee68b3e4fdd0143af6bec85efb770151498963b1b14bfb99988b1df"
+    },
+    {
+      "path": "docs/game-theory/source-log/executed-harvest-log.json",
+      "sha256": "6d4b70bc1977f8c2fc8774044561732b15568a61e57cad6b55cc4e2c2edabd8a"
+    },
+    {
+      "path": "docs/game-theory/source-log/executed-math-log.json",
+      "sha256": "20a41f2e80458d1a971fdb2a84097341c07fe4a66a72ee66a679796fcf4f606e"
+    },
+    {
+      "path": "docs/game-theory/source-log/executed-state-log.json",
+      "sha256": "0cba7aa6b3ccdd50ba268a4990dbbccba0dde7d3845436ce91abe3732a9fad27"
+    },
+    {
+      "path": "docs/game-theory/source-log/executed-weight-log.json",
+      "sha256": "6775033b8941dffc6c3fee06471433a89a82285f9298eb08a1848acecc2b7b6f"
+    },
+    {
+      "path": "docs/game-theory/source-log/final-check.md",
+      "sha256": "14556867ca68a76dff8c05ba6d0f64355d14b3e04ccff07fd4e3ae9e5765fa90"
+    },
+    {
+      "path": "docs/game-theory/source-log/originality-side-log.md",
+      "sha256": "c3573a61149a056c1afc0352bc94db871589cdfc30a462ff5bf588bd22a7dfc1"
+    },
+    {
+      "path": "docs/game-theory/source-log/reconciled-algorithm-catalog.json",
+      "sha256": "1c328e867b8fe7d38420b736942725bf7410c0f3e1f2ffa11055cdaf738c8d64"
+    },
+    {
+      "path": "docs/game-theory/source-log/recovered/Hail-algorithm-catalog.json",
+      "sha256": "b80c50554c0fcce7289d1b6f9545f7d5a8899dc538e02ed994b5b7845cbf9324"
+    },
+    {
+      "path": "docs/game-theory/source-log/recovered/Hail-design-blueprint.md",
+      "sha256": "8c191cca2f11aae245a776a48158c1cdf6d21c83a254c3471b519449de9d5f88"
+    },
+    {
+      "path": "docs/game-theory/source-log/slideshow-notes.md",
+      "sha256": "57ec480b1df84d63d3170b397b23d2bfceaac59b402794eb699e36215976762a"
+    },
+    {
+      "path": "docs/game-theory/source-log/slideshow.html",
+      "sha256": "e9a632cc608b2c02519db4385b1a6cca91b760f7a45847f4ce3d1c6a45e34d7f"
+    },
+    {
+      "path": "docs/game-theory/source-log/source-inventory.json",
+      "sha256": "9575ed8690c57cde6f0abc7f4f0200641c9c83325f8bd04253f267351879bbfe"
+    },
+    {
+      "path": "docs/game-theory/source-log/static-reserve-proof.json",
+      "sha256": "b7c218b35d242ace3879aa4ddda99f39af231083dcddfead8b336f2626e960be"
+    },
+    {
+      "path": "docs/game-theory/source-log/static-reserve-proof.md",
+      "sha256": "14979bc37c61b3fd4557ff384b544d68d2a70662a6bbb3c533e59d8d7cf6e098"
+    },
+    {
+      "path": "docs/game-theory/source-log/static-reserve-research-log.md",
+      "sha256": "4e760abd5e668de77ea7b3f72169e6008b974182d85fceb8045887ce9fbe242c"
+    },
+    {
+      "path": "docs/game-theory/source-log/sustainable-yield-policy.md",
+      "sha256": "f62f52344cfd037bd4f71829d704fa5af7193213f19e9907a9ceee5f147ec567"
+    },
+    {
+      "path": "docs/game-theory/source-log/test-results.txt",
+      "sha256": "26caf4f270af72b52ccc7f6c3e000c54f948a7eb0846dac6b93945f85d93b7b2"
+    },
+    {
+      "path": "docs/game-theory/source-log/weighting-ledger.md",
+      "sha256": "48185521e18e027942844d1503595b19a3b3b9eec5475c3c840564463fb68249"
+    },
+    {
+      "path": "docs/game-theory/source-register.json",
+      "sha256": "7513d852710d3a60ea9988132042433ba45bfd1a04f80c9a47995a513ef96daa"
     },
     {
       "path": "docs/github-control-panel.md",
@@ -374,7 +482,7 @@
     },
     {
       "path": "docs/pillar-scientific-foundations.md",
-      "sha256": "c92499bdfabe22fe6d41ee3d809474495fd4f358fac1451865a82e8f010d38b7"
+      "sha256": "e7337a138d0fc77b4ecc9b5f6facca231c3eb25c425625df9ae9b6b4bce9c497"
     },
     {
       "path": "docs/references.md",
@@ -386,7 +494,7 @@
     },
     {
       "path": "docs/specialist-agent.md",
-      "sha256": "f75d2ea733b41d99787420361ad146cc43a8853df4f834fd32299b118d7a3589"
+      "sha256": "02981a965df726ae9a4cb6fb1e66f9af1e9733299603b44853e6d918e2988ff7"
     },
     {
       "path": "docs/static-artifact-capture.md",
@@ -427,6 +535,10 @@
     {
       "path": "example_recognition_evidence.json",
       "sha256": "07046a9b93315c7a8f56171e6c68293ce2cabb96a9810ab8528a8c87613caf1b"
+    },
+    {
+      "path": "examples/game-theory-case.json",
+      "sha256": "dc543c26bcc6b465521f7950e20ca25c18a79d9a74d3b4b816fb4d611ff41fcd"
     },
     {
       "path": "examples/organizational_psychology_evidence_catalog.json",
@@ -542,11 +654,11 @@
     },
     {
       "path": "mnt/skills/user/vessel-framework-analyst/SKILL.md",
-      "sha256": "832f67f527865d5957aadddba825fa703561a402c8d85a606eae2fd87ef146a6"
+      "sha256": "78402d0cf9c0b899dfa95ce99582bbe2bbcd0666eca8f77faf9429f3ccf5562d"
     },
     {
       "path": "pyproject.toml",
-      "sha256": "bb9e4255fa9bc60861b665e0f41c2d44c840ef53f10d8fa13ec9af226d59b514"
+      "sha256": "e864fca7ad4ad859c13e40c73407234cfefbdb7e341d9526c765a728046f6331"
     },
     {
       "path": "r/convert_python_memory_db.R",
@@ -650,7 +762,7 @@
     },
     {
       "path": "schemas/case.schema.json",
-      "sha256": "091685cb4c0d2082a70e556c5f4069d056d4c22e25794643955f066e1dea8330"
+      "sha256": "2ef5e62deba99d62d21b6ce8b09b6b5164f6bcbe698a09b49f24365a8de91c6c"
     },
     {
       "path": "schemas/claim.record.schema.json",
@@ -671,6 +783,10 @@
     {
       "path": "schemas/forecast.schema.json",
       "sha256": "db9c0d6ad951a9ce3b5eacbac48bc5899e2b436a9498ce7b8222fbd45cd7aab3"
+    },
+    {
+      "path": "schemas/game-theory.schema.json",
+      "sha256": "ba742d0b061031ee2dc722cb45cc2667a011c80e384338b88ffd261045eb1ba8"
     },
     {
       "path": "schemas/research-evidence-catalog.schema.json",
@@ -797,6 +913,10 @@
       "sha256": "1e06f188a0edc0bf22b87444d1b4fdb5b45e1982afcd09a1af89bf3e5e140726"
     },
     {
+      "path": "tests/test_civilian_source_preservation.py",
+      "sha256": "7159d6f814b86611634b74be814e798c6b17fb442fc8ede01767dc6b4cd8e22b"
+    },
+    {
       "path": "tests/test_claim_lifecycle_api.py",
       "sha256": "e2fb8ca87e7b6d7271fcdbfe05037e82a0061c3430a96369b05e96f08236abd7"
     },
@@ -826,7 +946,7 @@
     },
     {
       "path": "tests/test_field_inquiry.py",
-      "sha256": "4d3cd5a4849c7ddb645f30f11e14169d50519adb3a3a4b06fa5a8b5970d79a04"
+      "sha256": "9950373178c3566dce900ab5f5fae8ac6d83004801cb6ba4b454914a1b812d9b"
     },
     {
       "path": "tests/test_game_architecture.py",
@@ -835,6 +955,10 @@
     {
       "path": "tests/test_game_bridge.py",
       "sha256": "d71d206eca69e1cb8d07a2dae0dceff49b784b288130362ad83e592e6c6df340"
+    },
+    {
+      "path": "tests/test_game_theory.py",
+      "sha256": "85348ad40ea553eb0c436607f6659b4849b8fff72815612898986b94bec3a1e8"
     },
     {
       "path": "tests/test_harm_gate.py",
@@ -994,11 +1118,11 @@
     },
     {
       "path": "vesselframework_agent.py",
-      "sha256": "2720995fff43601e02c384f227cf03f32a7a7a2bc81d2009bcab738646a726e2"
+      "sha256": "76714f8e2a582b644e85f5f1f4e10b6471ef1a8044990dc249e4ead76a60b355"
     },
     {
       "path": "vesselframework_case_runner.py",
-      "sha256": "a493687fa12b4a16952cc2e57e6a7a13a1103bcd846afd47b1f3d6eada6f81dd"
+      "sha256": "1418dd987ad8671fdadbcb1679b54754f568726da3093e31d02dec5f18180bae"
     },
     {
       "path": "vesselframework_reference_v1.1_provenance_firewall.py",
@@ -1034,15 +1158,15 @@
     },
     {
       "path": "vessell/ambient/models.py",
-      "sha256": "52c742537a681530dacce9ef3bba2edbab27cdcbb8a033d9bbd2509d796d84a8"
+      "sha256": "08627844a2146f9b0714dd90ba0434e936699e395a848390e7e600e28670f620"
     },
     {
       "path": "vessell/ambient/specialist.py",
-      "sha256": "cc2baf505267fb18c587c0799ad68b2f84f2aea867331c4cecc8286e41e015cc"
+      "sha256": "1265f2f837497ca4ede421e9e5ec15a36727e8029244eaf0bdd6d16a26e37502"
     },
     {
       "path": "vessell/ambient/store.py",
-      "sha256": "dfda4853f21e5d3d1ab39267fb2a71a4315c9e53965b3f407208301676e4abc8"
+      "sha256": "b9f01d06b69fc11447417b7e5772da5a3e3ff59cef25cf6fb23befbc13f16fde"
     },
     {
       "path": "vessell/app/__init__.py",
@@ -1062,11 +1186,11 @@
     },
     {
       "path": "vessell/app/models.py",
-      "sha256": "6ce8fdf4eda7a062f04f56c70042e1228c4bf6b75f92b23a7c48cb6a0c36caf3"
+      "sha256": "c9c2d75e7973e55399429e9c180116d553fd7f8547f89566abe75c2058a2ca9a"
     },
     {
       "path": "vessell/app/pipeline.py",
-      "sha256": "641a32ce9fb8e1fd312615e9be714b7fc728345f8574ffbbee59b40ab74b957d"
+      "sha256": "74dfb998615923c119d94dedc60d5e4d401c38fa1048b432d501840c3061a059"
     },
     {
       "path": "vessell/app/preflight.py",
@@ -1082,7 +1206,7 @@
     },
     {
       "path": "vessell/app/reporting.py",
-      "sha256": "efcd30a85b32df657ef0abc6c49b39a280c68bac41b7e434d7455d7c1e4227d1"
+      "sha256": "7002254ade495a9c3b3d02273bae9be216179d6b9b4dfb4966aa1e39f7368796"
     },
     {
       "path": "vessell/app/scanner_adapters.py",
@@ -1122,7 +1246,7 @@
     },
     {
       "path": "vessell/field_inquiry.py",
-      "sha256": "57d2403b3733555b37445ec5947522dc6671aad2956fe7b56c936b6fb06274ed"
+      "sha256": "57dc81bb097003f701121c9b8f90878573994b50bece1d4d06ed6bbf2870ce61"
     },
     {
       "path": "vessell/game_architecture.py",
@@ -1131,6 +1255,10 @@
     {
       "path": "vessell/game_bridge.py",
       "sha256": "f064de8fe7bf0cf079582b8e97cfeb1ec8bf89bfa1a5fc9cbdc0e2454a015954"
+    },
+    {
+      "path": "vessell/game_theory.py",
+      "sha256": "dc5a3bd532abe1458d6afff430e0b6230ce03f9c6da99c03a44d63919e7fec39"
     },
     {
       "path": "vessell/harm_gate.py",
@@ -1194,7 +1322,7 @@
     },
     {
       "path": "vessell/schemas/case.schema.json",
-      "sha256": "091685cb4c0d2082a70e556c5f4069d056d4c22e25794643955f066e1dea8330"
+      "sha256": "2ef5e62deba99d62d21b6ce8b09b6b5164f6bcbe698a09b49f24365a8de91c6c"
     },
     {
       "path": "vessell/schemas/claim.record.schema.json",
@@ -1215,6 +1343,10 @@
     {
       "path": "vessell/schemas/forecast.schema.json",
       "sha256": "db9c0d6ad951a9ce3b5eacbac48bc5899e2b436a9498ce7b8222fbd45cd7aab3"
+    },
+    {
+      "path": "vessell/schemas/game-theory.schema.json",
+      "sha256": "ba742d0b061031ee2dc722cb45cc2667a011c80e384338b88ffd261045eb1ba8"
     },
     {
       "path": "vessell/schemas/search.path.schema.json",
@@ -1266,7 +1398,7 @@
     },
     {
       "path": "vessell/validation.py",
-      "sha256": "4b3ae84d1260b3f8f55470a458e18364039c0c7078f6f60a37a5d054a59c033d"
+      "sha256": "2b6c08eb33529e0c39b67df43b6764a2f134f7b1e2f4fe56d4dbc58d8297f8c3"
     },
     {
       "path": "vessell/verify.py",

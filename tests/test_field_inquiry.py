@@ -42,7 +42,7 @@ def test_missing_and_blank_scaffold_never_imply_completion():
     assert result.status == "MISSING" and result.assessment is None
     assert result.human_completion_required
     assert not result.validates_experience and not result.grants_authority
-    assert PILLARS[-1] == "KNOWING FIELD" and len(PILLARS) == 5
+    assert PILLARS[-2:] == ("KNOWING FIELD", "GAME THEORY") and len(PILLARS) == 6
     with pytest.raises(InvalidFieldInquiry):
         assess_field_inquiry(field_template(["external-event"]), {"external-event"})
 

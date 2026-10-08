@@ -17,6 +17,11 @@ include VesselFramework_Knowing_Field_SKILL_v0.1.md
 include VesselFramework_Skill_Creator_SKILL_v0.1.md
 include VesselFramework_Scientific_Evidence_SKILL_v0.1.md
 include docs/pillar-scientific-foundations.md
+include Game_Theory_Theory_SKILL_v0.1.md
+include VesselFramework_Game_Theory_SKILL_v0.1.md
+include docs/game-theory-framework-audit.md
+include docs/civilian-authorship-and-model-interference.md
+recursive-include docs/game-theory *.json *.md *.html *.txt
 include docs/blockchain-agent-economy-roadmap.md
 include docs/knowing-field-framework-audit.md
 include docs/specialist-agent.md

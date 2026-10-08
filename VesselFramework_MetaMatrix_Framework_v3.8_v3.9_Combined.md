@@ -1,8 +1,13 @@
 # VesselFramework — Complete Meta Matrix Framework
-## Current application: 3.12.0 — Five-Pillar Knowing Field Adaptation
+## Current application: 3.12.0 — Six-Pillar Strategic Inquiry Adaptation
 
 The active analytical architecture comprises **PARADOX, BOTTLENECK, DUAL LAYER,
-XFACTOR and KNOWING FIELD**. Apply the
+XFACTOR, KNOWING FIELD and GAME THEORY**. Apply the
+[sixth-pillar skill](VesselFramework_Game_Theory_SKILL_v0.1.md),
+[theory skill](Game_Theory_Theory_SKILL_v0.1.md) and
+[strategic audit](docs/game-theory-framework-audit.md). Conditional model
+calculations do not establish motives, empirical efficacy or authority.
+Apply the
 [combined fifth-pillar skill](VesselFramework_Knowing_Field_SKILL_v0.1.md)
 and [current analyst skill](SKILL.md). The
 [source-grounded theory skill](Knowing_Field_Theory_SKILL_v0.1.md) and
@@ -40,7 +45,7 @@ mining, automatic hash credits or implemented chain integration.
 
 **Historical boundary:** The consolidated v3.8/v3.9 material below, including
 embedded four-pillar code/examples and version claims, remains historical
-reference. Where it conflicts with current five-pillar application, use the
+reference. Where it conflicts with current six-pillar application, use the
 current skill and product vision. Do not rewrite the author's original paper,
 historical results or private-runtime installation record.
 

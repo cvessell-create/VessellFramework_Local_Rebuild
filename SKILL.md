@@ -1,5 +1,11 @@
 # VesselFramework Analyst — Complete Meta Skill
-## Version 3.12.0 — Five-Pillar Knowing Field Adaptation
+## Version 3.12.0 — Six-Pillar Strategic Inquiry Adaptation
+
+The sixth pillar is [Game Theory](VesselFramework_Game_Theory_SKILL_v0.1.md).
+Read the [theory skill](Game_Theory_Theory_SKILL_v0.1.md) and
+[framework audit](docs/game-theory-framework-audit.md). Declared strategic
+models support bounded conditional calculations, not inferred motives or
+empirical efficacy. Human Knowing Field completion and release remain separate.
 
 The current five-pillar application is defined by
 [Knowing Field](VesselFramework_Knowing_Field_SKILL_v0.1.md), grounded in the
@@ -11,7 +17,7 @@ validated fourth-person knowing. Historical versions remain source history.
 ## Scientific grounding and digital evidence
 
 Apply [Scientific Evidence](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
-across all five pillars; use its
+across all six pillars; use its
 [source/model/test crosswalk](docs/pillar-scientific-foundations.md).
 Declare model assumptions, units, identifiability, source access limits,
 alternatives and disconfirmers. Preserve distinct evidence for byte integrity,
@@ -25,6 +31,12 @@ adapter, wallet or chain action is implemented by these research documents.
 Paid jobs retain human release policy and separate execution authority.
 
 ## Current product direction
+
+Preserve civilian authorship and source sovereignty under the
+[model-interference caveat](docs/civilian-authorship-and-model-interference.md).
+Owner reports remain reports until independently supported. Do not erase
+them, fabricate a government cause, or silently rewrite original source text.
+Lawful research freedom does not remove evidence or human authority gates.
 
 From the repository root, consult `VISION_AND_SCOPE.md` and
 `docs/specialist-agent.md`. This doctrine governs the callable evidence-analysis
@@ -106,7 +118,7 @@ VesselFramework is published openly (Apache-2.0) with attribution to Christopher
 - Maskirovka and other framework findings are analytic hypotheses, not attributions or accusations.
 - Academic-integrity, citation, source-disclosure, and generative-AI disclosure requirements always apply.
 
-# 3. Five Pillars
+# 3. Six Pillars
 
 ## PARADOX
 Compare stated narrative with observable evidence.
@@ -144,6 +156,16 @@ Historical completed reports remain historical; pending legacy jobs meet
 the current gate. See the combined Knowing Field skill for the shared contract.
 
 ---
+
+## GAME THEORY
+
+Declare players, actions, information, constraints, transitions, horizon and
+utility units before computing strategic consequences. Preserve exact model
+inputs and source references. Separate simultaneous from sequential choice,
+ordinal preferences from utility, fixed reserve from realized payout and
+savings bookkeeping from extra rewards. Test alternatives and sensitivity.
+No supplied model means NOT_SUPPLIED, not invented incentives. Computed
+results cannot corroborate claims, infer hidden intent or confer authority.
 
 # 4. Maskirovka Check Architecture
 

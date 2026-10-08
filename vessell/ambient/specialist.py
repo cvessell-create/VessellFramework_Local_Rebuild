@@ -20,11 +20,13 @@ class SpecialistTask(StrictModel):
     question: Text
     evidence: Annotated[list[AgentEvidence], Field(min_length=1, max_length=24)]
     field_inquiry: dict[str, object] | None = None
+    game_theory: dict[str, object] | None = None
 
     def event(self) -> AmbientEvent:
         data = SpecialistData(
             domain="specialist", question=self.question, evidence=self.evidence,
             field_inquiry=self.field_inquiry,
+            game_theory=self.game_theory,
         )
         return AmbientEvent(
             event_id=self.task_id, source=self.caller, timestamp=self.timestamp,

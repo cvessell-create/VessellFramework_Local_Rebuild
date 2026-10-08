@@ -31,6 +31,11 @@ completion, release approval or execution authority.
 
 ## Purpose and authority
 
+The current architecture also includes
+[GAME THEORY as its sixth pillar](VesselFramework_Game_Theory_SKILL_v0.1.md).
+Declared incentives and conditional solver output inform inquiry, never
+replace human perspective accounts or satisfy this release gate.
+
 KNOWING FIELD asks: **How do the observer, affected participants, relationships,
 absent perspectives and emerging possibilities shape this analysis and its
 consequences, and who may legitimately act?**

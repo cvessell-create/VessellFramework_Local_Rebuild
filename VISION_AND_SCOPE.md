@@ -30,10 +30,27 @@ independent evidence of its original incidents.
 
 ## Architectural and governance principles
 
-### Five-pillar inquiry architecture
+### Civilian authorship and source preservation
+
+This is owner-designated civilian research and software. Apply the
+[authorship/model-interference caveat](docs/civilian-authorship-and-model-interference.md).
+Owner sources govern what the author wrote; external claims retain their
+evidence standing. Preserve originals and separate model rewrites. Do not
+restrict lawful research solely because of institutional terminology, and do
+not invent government authority or validate unverified interference claims.
+Privacy, licensing, harm protections and human release/execution gates remain.
+
+### Six-pillar inquiry architecture
 
 The current framework uses PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR and
-**KNOWING FIELD**. The fifth pillar extends inquiry to observer participation,
+**KNOWING FIELD**, supplemented by **GAME THEORY** as the sixth pillar.
+Use the [theory skill](Game_Theory_Theory_SKILL_v0.1.md),
+[framework audit](docs/game-theory-framework-audit.md) and
+[combined application skill](VesselFramework_Game_Theory_SKILL_v0.1.md).
+The executable reference computes source-linked bounded matrices, deterministic
+trees, weighted coalitions and conserved savings transitions. It does not infer
+real-world motives, fit utilities or authorize execution. An absent strategic
+model is explicitly NOT_SUPPLIED. The fifth pillar extends inquiry to observer participation,
 affected parties, perspective gaps, dissent, relational source conditions
 and attention/intention/agency. It is grounded in the entire Scharmer and
 Pomeroy (2024) article, not only its abstract.
@@ -99,6 +116,8 @@ distinct from completed tasks.
   Harm Gate and durable human-reviewed report lifecycle.
 - Source/preview-bound Knowing Field completion with independent human audit
   revisions and mandatory checks at approval and worker release.
+- Source-linked Game Theory intake through case/specialist interfaces and
+  conditional calculations in JSON/Markdown previews; no confidence uplift.
 - Existing validators, evidence pipeline and case studies as reusable methods.
 - GitHub App owner sign-in and three named GitHub Actions operations on master:
   framework validation, claim-correction study and static-capture study.

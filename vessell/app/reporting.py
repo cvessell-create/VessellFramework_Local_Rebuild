@@ -70,6 +70,15 @@ def render_markdown_report(result: PipelineResult) -> str:
         if result.field_inquiry.assessment is not None:
             lines.extend(["", "```json", json.dumps(result.field_inquiry.assessment, indent=2), "```"])
     lines.extend([
+        "", "## Game Theory: Sixth Pillar", "",
+        f"- Model status: {result.game_theory.status if result.game_theory else 'NOT_SUPPLIED'}",
+        "- Conditional calculations do not establish motives, merit, efficacy or execution authority.",
+    ])
+    if result.game_theory:
+        lines.extend(f"- Limitation: {item}" for item in result.game_theory.limitations)
+        if result.game_theory.model is not None:
+            lines.extend(["", "```json", json.dumps(asdict(result.game_theory), indent=2), "```"])
+    lines.extend([
         "",
         ("This report structures supplied evidence; it does not independently verify "
          "source contents or establish control efficacy."),

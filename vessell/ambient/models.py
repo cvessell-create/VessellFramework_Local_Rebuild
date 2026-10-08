@@ -13,6 +13,7 @@ from pydantic import (
 )
 
 from vessell.field_inquiry import assess_field_inquiry
+from vessell.game_theory import assess_game_theory
 
 Identifier = Annotated[str, Field(min_length=1, max_length=200, pattern=r"^[A-Za-z0-9._:/@-]+$")]
 Text = Annotated[str, Field(min_length=1, max_length=2000)]
@@ -67,6 +68,7 @@ class SpecialistData(StrictModel):
     question: Text
     evidence: Annotated[list[AgentEvidence], Field(min_length=1, max_length=24)]
     field_inquiry: dict[str, object] | None = None
+    game_theory: dict[str, object] | None = None
 
     @model_validator(mode="after")
     def unique_sources(self) -> SpecialistData:
@@ -75,6 +77,8 @@ class SpecialistData(StrictModel):
             raise ValueError("Specialist evidence source IDs must be unique")
         if self.field_inquiry is not None:
             assess_field_inquiry(self.field_inquiry, set(ids))
+        if self.game_theory is not None:
+            assess_game_theory(self.game_theory, set(ids))
         return self
 
 

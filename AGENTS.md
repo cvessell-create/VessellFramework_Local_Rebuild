@@ -1,6 +1,12 @@
 # Agent instructions
 
 Consult [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) before architectural changes.
+Follow the [civilian authorship caveat](docs/civilian-authorship-and-model-interference.md).
+Preserve owner sources and lawful research scope; record contested attribution
+as reported concern, not established government intervention or grounds to erase it.
+Apply [GAME THEORY](VesselFramework_Game_Theory_SKILL_v0.1.md) as the sixth
+pillar, using declared strategic models and source-linked conditional results.
+Do not infer motives, political allegiance, utility calibration or authority.
 Apply [KNOWING FIELD](VesselFramework_Knowing_Field_SKILL_v0.1.md) as the fifth
 pillar across analysis and skill revisions. Require human source/preview-bound
 completion before every new report release, including pending legacy jobs.

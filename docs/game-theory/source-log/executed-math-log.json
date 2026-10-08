@@ -1,0 +1,634 @@
+{
+  "schema": "hail-backward-audit/v1",
+  "source": "Uploaded 0.2.0 source and GitHub main 5d5c04b63a0048af3e9245a06a41890777271034",
+  "assumptions": [
+    "Outputs below execute the supplied code with explicit fixed inputs.",
+    "Boss planner excludes optional d20 UI retry probability.",
+    "Game scores and balance weights are designer choices, not estimated learning effects."
+  ],
+  "boss": {
+    "value": 490,
+    "actions": [
+      {
+        "action": "collect",
+        "token": "boost-1"
+      },
+      {
+        "action": "reform",
+        "team": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "action": "check",
+        "team": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "exact": true,
+    "nodes": 25
+  },
+  "bossBottomUp": {
+    "feasible": true,
+    "boosts": [
+      "boost-1"
+    ],
+    "shield": {
+      "feasible": true,
+      "coalition": [
+        0,
+        1,
+        2
+      ],
+      "cost": 2,
+      "steps": [
+        {
+          "add": 1,
+          "team": [
+            0,
+            1
+          ],
+          "weight": 4
+        },
+        {
+          "add": 2,
+          "team": [
+            0,
+            1,
+            2
+          ],
+          "weight": 6
+        }
+      ],
+      "critical": [
+        {
+          "player": 0,
+          "critical": true
+        },
+        {
+          "player": 1,
+          "critical": true
+        },
+        {
+          "player": 2,
+          "critical": true
+        }
+      ]
+    },
+    "challenge": {
+      "feasible": true,
+      "coalition": [
+        0,
+        1,
+        2
+      ],
+      "cost": 2,
+      "steps": [
+        {
+          "add": 1,
+          "team": [
+            0,
+            1
+          ],
+          "weight": 4
+        },
+        {
+          "add": 2,
+          "team": [
+            0,
+            1,
+            2
+          ],
+          "weight": 6
+        }
+      ],
+      "critical": [
+        {
+          "player": 0,
+          "critical": true
+        },
+        {
+          "player": 1,
+          "critical": true
+        },
+        {
+          "player": 2,
+          "critical": true
+        }
+      ]
+    },
+    "steps": [
+      {
+        "action": "collect",
+        "token": "boost-1"
+      },
+      {
+        "action": "recruit",
+        "player": 2,
+        "weight": 4
+      },
+      {
+        "action": "recruit",
+        "player": 3,
+        "weight": 6
+      },
+      {
+        "action": "reform",
+        "team": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "action": "check",
+        "team": [
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  "chicken": {
+    "constantSum": false,
+    "sum": null,
+    "dominance": [
+      {
+        "comparisons": [],
+        "strictlyDominant": []
+      },
+      {
+        "comparisons": [],
+        "strictlyDominant": []
+      }
+    ],
+    "pureNash": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "interiorMixed": {
+      "row": [
+        0.9,
+        0.09999999999999998
+      ],
+      "column": [
+        0.9,
+        0.09999999999999998
+      ],
+      "expected": [
+        -0.09999999999999995,
+        -0.09999999999999995
+      ]
+    },
+    "saddle": {
+      "applicable": false,
+      "reason": "Minimax saddle test requires zero-sum or constant-sum payoffs."
+    }
+  },
+  "sequentialChicken": {
+    "payoff": [
+      1,
+      -1
+    ],
+    "path": [
+      "Charge",
+      "Yield"
+    ],
+    "policy": {
+      "actor": 0,
+      "choice": "Charge",
+      "outcomes": [
+        {
+          "label": "Yield",
+          "payoff": [
+            -1,
+            1
+          ],
+          "path": [
+            "Charge"
+          ],
+          "policy": {
+            "actor": 1,
+            "choice": "Charge",
+            "outcomes": [
+              {
+                "label": "Yield",
+                "payoff": [
+                  0,
+                  0
+                ],
+                "path": [],
+                "policy": null
+              },
+              {
+                "label": "Charge",
+                "payoff": [
+                  -1,
+                  1
+                ],
+                "path": [],
+                "policy": null
+              }
+            ]
+          }
+        },
+        {
+          "label": "Charge",
+          "payoff": [
+            1,
+            -1
+          ],
+          "path": [
+            "Yield"
+          ],
+          "policy": {
+            "actor": 1,
+            "choice": "Yield",
+            "outcomes": [
+              {
+                "label": "Yield",
+                "payoff": [
+                  1,
+                  -1
+                ],
+                "path": [],
+                "policy": null
+              },
+              {
+                "label": "Charge",
+                "payoff": [
+                  -10,
+                  -10
+                ],
+                "path": [],
+                "policy": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "nodes": 7,
+    "assumptions": "Finite perfect-information tree; declared additive utilities; deterministic first-choice tie-break; rationality means maximizing the acting player utility."
+  },
+  "power": {
+    "weights": [
+      4,
+      3,
+      2,
+      1
+    ],
+    "quota": 6,
+    "veto": [],
+    "permutationCount": "24",
+    "totalSwings": 12,
+    "players": [
+      {
+        "weight": 4,
+        "swingCount": 5,
+        "pivotalPermutations": "10",
+        "shapleyShubik": 0.4166666666666667,
+        "banzhafAbsolute": 0.625,
+        "banzhafNormalized": 0.4166666666666667
+      },
+      {
+        "weight": 3,
+        "swingCount": 3,
+        "pivotalPermutations": "6",
+        "shapleyShubik": 0.25,
+        "banzhafAbsolute": 0.375,
+        "banzhafNormalized": 0.25
+      },
+      {
+        "weight": 2,
+        "swingCount": 3,
+        "pivotalPermutations": "6",
+        "shapleyShubik": 0.25,
+        "banzhafAbsolute": 0.375,
+        "banzhafNormalized": 0.25
+      },
+      {
+        "weight": 1,
+        "swingCount": 1,
+        "pivotalPermutations": "2",
+        "shapleyShubik": 0.08333333333333333,
+        "banzhafAbsolute": 0.125,
+        "banzhafNormalized": 0.08333333333333333
+      }
+    ]
+  },
+  "dean": {
+    "method": "dean",
+    "total": 12,
+    "weights": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "allocations": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "tieBreak": "lower index",
+    "minimum": "one unit per positive participant; zero weights excluded"
+  },
+  "hill": {
+    "method": "hill",
+    "total": 12,
+    "weights": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "allocations": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "tieBreak": "lower index",
+    "minimum": "one unit per positive participant; zero weights excluded"
+  },
+  "skill": {
+    "roll": 10,
+    "bonus": 2,
+    "npcLevel": 3,
+    "target": 13,
+    "total": 12,
+    "success": false
+  },
+  "vickrey": {
+    "method": "vickrey/v1",
+    "winner": 0,
+    "price": {
+      "numerator": "80",
+      "denominator": "1",
+      "value": 80
+    },
+    "topBid": 100,
+    "tieBreak": "lower player index",
+    "reserve": 0
+  },
+  "knaster": {
+    "method": "knaster/v1",
+    "tieBreak": "lower player index",
+    "owners": [
+      0,
+      1
+    ],
+    "surplus": {
+      "numerator": "40",
+      "denominator": "1",
+      "value": 40
+    },
+    "players": [
+      {
+        "ownGoodsValue": {
+          "numerator": "100",
+          "denominator": "1",
+          "value": 100
+        },
+        "fairShare": {
+          "numerator": "70",
+          "denominator": "1",
+          "value": 70
+        },
+        "surplusShare": {
+          "numerator": "20",
+          "denominator": "1",
+          "value": 20
+        },
+        "cash": {
+          "numerator": "-10",
+          "denominator": "1",
+          "value": -10
+        },
+        "utility": {
+          "numerator": "90",
+          "denominator": "1",
+          "value": 90
+        }
+      },
+      {
+        "ownGoodsValue": {
+          "numerator": "80",
+          "denominator": "1",
+          "value": 80
+        },
+        "fairShare": {
+          "numerator": "70",
+          "denominator": "1",
+          "value": 70
+        },
+        "surplusShare": {
+          "numerator": "20",
+          "denominator": "1",
+          "value": 20
+        },
+        "cash": {
+          "numerator": "10",
+          "denominator": "1",
+          "value": 10
+        },
+        "utility": {
+          "numerator": "90",
+          "denominator": "1",
+          "value": 90
+        }
+      }
+    ]
+  },
+  "adjustedWinner": {
+    "method": "adjusted-winner/v1",
+    "tieBreak": "lower player index",
+    "budget": 100,
+    "allocations": [
+      [
+        {
+          "numerator": "1",
+          "denominator": "1",
+          "value": 1
+        },
+        {
+          "numerator": "0",
+          "denominator": "1",
+          "value": 0
+        }
+      ],
+      [
+        {
+          "numerator": "1",
+          "denominator": "11",
+          "value": 0.09090909090909091
+        },
+        {
+          "numerator": "10",
+          "denominator": "11",
+          "value": 0.9090909090909091
+        }
+      ]
+    ],
+    "utilities": [
+      {
+        "numerator": "700",
+        "denominator": "11",
+        "value": 63.63636363636363
+      },
+      {
+        "numerator": "700",
+        "denominator": "11",
+        "value": 63.63636363636363
+      }
+    ],
+    "otherBundle": [
+      {
+        "numerator": "400",
+        "denominator": "11",
+        "value": 36.36363636363637
+      },
+      {
+        "numerator": "400",
+        "denominator": "11",
+        "value": 36.36363636363637
+      }
+    ],
+    "transfers": [
+      {
+        "item": 1,
+        "from": 1,
+        "to": 0,
+        "share": {
+          "numerator": "1",
+          "denominator": "11",
+          "value": 0.09090909090909091
+        }
+      }
+    ],
+    "splitItems": [
+      1
+    ]
+  },
+  "missionMachine": {
+    "schema": "hail-emulation-engine/v1",
+    "runtime": "JSNES 2.1.0",
+    "processor": "NES 2A03 / 6502",
+    "mission": 0,
+    "programBytes": [
+      165,
+      16,
+      240,
+      252,
+      201,
+      1,
+      240,
+      7,
+      201,
+      2,
+      240,
+      20,
+      76,
+      46,
+      128,
+      165,
+      20,
+      208,
+      27,
+      230,
+      17,
+      169,
+      1,
+      133,
+      20,
+      169,
+      0,
+      133,
+      21,
+      76,
+      46,
+      128,
+      169,
+      0,
+      133,
+      21,
+      165,
+      18,
+      201,
+      15,
+      208,
+      4,
+      169,
+      1,
+      133,
+      21,
+      169,
+      0,
+      133,
+      16,
+      76,
+      0,
+      128
+    ],
+    "settings": {
+      "instructionBudget": 64,
+      "readyMask": 15
+    },
+    "state": {
+      "version": 2,
+      "changed": true,
+      "approved": true
+    },
+    "events": [
+      {
+        "seq": 1,
+        "command": 1,
+        "input": 0,
+        "instructions": 14,
+        "cycles": 45,
+        "version": 2,
+        "changed": true,
+        "approved": false
+      },
+      {
+        "seq": 2,
+        "command": 2,
+        "input": 7,
+        "instructions": 14,
+        "cycles": 35,
+        "version": 2,
+        "changed": true,
+        "approved": false
+      },
+      {
+        "seq": 3,
+        "command": 2,
+        "input": 15,
+        "instructions": 16,
+        "cycles": 39,
+        "version": 2,
+        "changed": true,
+        "approved": true
+      }
+    ],
+    "limits": [
+      "Original homebrew mission program; no third-party ROM or BIOS.",
+      "CPU instruction execution only; FPS graphics/physics remain original browser code.",
+      "Local adapter is not an authenticated multiplayer authority."
+    ]
+  }
+}
