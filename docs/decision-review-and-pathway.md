@@ -9,8 +9,9 @@ transcript.
 The review covers the local repository checkout, the user's supplied workflow
 status excerpt, and the files cited below. A session-history query limited to
 the prior 30 days and matching case-insensitive substrings “decision graph,”
-“game theory,” or “chain of thought” returned no rows. GitHub job logs, PR review
-comments, other accounts/branches, and private chain-of-thought were not available or reviewed.
+“game theory,” or “chain of thought” returned no rows (NOT FOUND IN SCOPE;
+hyphenated variants were not searched). GitHub job logs, PR review comments,
+other accounts/branches, and private chain-of-thought were not available or reviewed.
 The supplied status excerpt reports successful CI and CodeQL runs and a merge of
 PR #11; those statuses were not independently confirmed from run logs here.
 
@@ -21,14 +22,15 @@ or every branch.
 
 **SEARCH RECORD 1:** query: regex
 `decision|rationale|alternatives|open questions|chain.of.thought|reasoning trace`
-/ tool: repository `rg` / scope: Markdown files at checkout revision
+/ tool: repository `rg`, case-sensitive (no `-i`) / scope: Markdown files at checkout revision
 `6304f576ac1364715c02d56e1cfeaf0f5840eb43` / result_count: 253 matches across
 49 files / limit_hit: yes, display capped at 140 results /
 primary_source_opened: yes / status: source-bounded findings / what was NOT
 checked: files on other branches, external accounts and hidden reasoning.
 
 **SEARCH RECORD 2:** query: regex
-`decision|rationale|chain.of.thought|reasoning trace` / tool: repository `rg` /
+`decision|rationale|chain.of.thought|reasoning trace` / tool: repository `rg`,
+case-sensitive (no `-i`) /
 scope: Python, schemas and tests at checkout revision
 `6304f576ac1364715c02d56e1cfeaf0f5840eb43` / result_count: 157 matches across
 34 files / limit_hit: yes, display capped at 100 results /
