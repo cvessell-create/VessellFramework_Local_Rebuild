@@ -26,6 +26,18 @@ Before opening RStudio, record:
 - the outcome and grouping/predictor variables, their units, and the dataset source;
 - inclusion/exclusion rules, missing-data handling, and the assignment's reporting requirements.
 
+Install required packages once, then load the packages needed by the selected
+procedure at the start of each R session:
+
+```r
+install.packages(c(
+  "readxl", "ggpubr", "dplyr", "effectsize", "effsize", "rstatix"
+))
+```
+
+Do not rerun package installation in every analysis. For a reproducible report,
+record the packages used and their versions when required by the course.
+
 Choose the test from the design, not from which result appears more favorable:
 
 | Design and question | Candidate procedure |
@@ -173,6 +185,28 @@ boundaries.
 - Describe association, not causation. Avoid “as X increased, Y increased”
   unless the observational nature and noncausal meaning are clear.
 
+Use the assignment's required p-value format. The supplied course rule is
+`p < .001` for values below .001, the exact p-value to three decimals for
+`.001 ≤ p < .05`, and `p > .05` for nonsignificant results. If the p-value is
+exactly .05 or a rounding boundary makes the category unclear, report the
+unrounded value according to instructor guidance rather than changing its
+meaning through rounding.
+
+```r
+# Pearson:
+# A Pearson correlation tested the relationship between Variable1
+# (M = xx.xx, SD = xx.xx) and Variable2 (M = xx.xx, SD = xx.xx).
+# The relationship was / was not statistically significant,
+# r(df) = .xx, p = .xxx.
+# The relationship was positive / negative and very weak / weak / moderate / strong / very strong.
+
+# Spearman:
+# A Spearman correlation tested the relationship between Variable1 (Mdn = xx.xx)
+# and Variable2 (Mdn = xx.xx).
+# The relationship was / was not statistically significant, rho = .xx, p = .xxx.
+# The relationship was positive / negative and very weak / weak / moderate / strong / very strong.
+```
+
 ## Procedure B: paired t-test or Wilcoxon signed-rank test
 
 ### Question and assumptions
@@ -214,6 +248,7 @@ sd(Before)
 mean(After)
 median(After)
 sd(After)
+nrow(paired)
 
 hist(Differences, breaks = 15, col = "blue", border = "white")
 boxplot(
@@ -262,6 +297,29 @@ can affect the test's calculation and interpretation.
   relative to the chosen subtraction order.
 - Report outlier/normality observations separately from the inferential result.
 
+```r
+# Paired t-test:
+# A paired t-test assessed the difference in OutcomeVariable between Before and After.
+# Before scores (M = xx.xx, SD = xx.xx) were significantly / not significantly
+# different from After scores (M = xx.xx, SD = xx.xx), t(df) = x.xx, p = .xxx.
+# Cohen's d = x.xx.
+
+# Wilcoxon signed-rank:
+# A Wilcoxon signed-rank test assessed the difference in OutcomeVariable between Before and After.
+# Before scores (Mdn = xx.xx) were significantly / not significantly different
+# from After scores (Mdn = xx.xx), V = xx, p = .xxx.
+# If required and statistically significant: the effect size was small / medium / large, r = .xx.
+```
+
+The supplied paired-test example labels Cohen's d = .65 “large,” while its
+listed reference values place .50 near medium and .80 near large. These labels
+are inconsistent; report the effect estimate and confirm the verbal category
+against the instructor's rubric rather than silently choosing a cutoff.
+
+The supplied Wilcoxon course bands are approximately `r = .10` small, `.30`
+medium, and `.50` large. These are conventions for the assignment, not universal
+boundaries.
+
 ## Procedure C: independent t-test or Mann–Whitney test
 
 ### Question and assumptions
@@ -302,6 +360,7 @@ independent$GroupVariable <- factor(
   levels = c("Group1", "Group2")
 )
 stopifnot(!anyNA(independent$GroupVariable))
+stopifnot(length(unique(independent$GroupVariable)) == 2)
 
 independent %>%
   group_by(GroupVariable) %>%
@@ -374,6 +433,20 @@ only after a statistically significant result.
   to the stated group order.
 - Do not say the group medians differ based on Mann–Whitney unless the
   distribution-shape conditions support that interpretation.
+
+```r
+# Independent t-test:
+# An independent t-test compared OutcomeVariable between Group1 and Group2.
+# Group1 scores (M = xx.xx, SD = xx.xx) were significantly / not significantly
+# different from Group2 scores (M = xx.xx, SD = xx.xx), t(df) = x.xx, p = .xxx.
+# If required and statistically significant: Cohen's d = x.xx (small / medium / large / very large).
+
+# Mann–Whitney / Wilcoxon rank-sum:
+# A Mann–Whitney test compared OutcomeVariable between Group1 and Group2.
+# Group1 scores (Mdn = xx.xx) were significantly / not significantly different
+# from Group2 scores (Mdn = xx.xx), W = xx, p = .xxx.
+# If required and statistically significant: Cliff's delta = x.xx (use effsize's magnitude label).
+```
 
 ## Reproducibility and release
 
