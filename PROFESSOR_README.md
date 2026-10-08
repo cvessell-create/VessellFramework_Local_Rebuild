@@ -1,68 +1,79 @@
-# VesselFramework Graduate Review Packet (Rough Working Version)
+# VessellFramework Faculty Review Brief
 
 Author: Christopher R. Vessell  
-Program context: M.S. Strategic Intelligence (graduate project candidate)
+Program context: M.S. Strategic Intelligence
 
-## 1) What this project has become
+## Purpose of this review
 
-VesselFramework has become a cross-domain analytical framework with three integrated layers:
+I would appreciate your candid assessment of the project's research scope,
+methodological contribution and appropriate graduate-level next steps. This is a
+working research and software project, not a claim of a validated or production
+ready superintelligence system.
 
-1. Doctrine layer: five analytical pillars (PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR, KNOWING FIELD), Decision Provenance Chain, Harm Gate, and Maskirovka check architecture.
-2. Operational skill layer: analyst and forecasting execution guides that enforce evidence-status discipline, provenance checks, alternatives testing, and calibrated posture language.
-3. Executable reference layer: provenance/firewall logic and deterministic case intake tooling that operationalize selected controls for repeatability and regression testing.
+## Current direction
 
-This package is submitted as a rough working candidate for critique, not as a finished production platform.
+VessellFramework is being developed as a **full-stack strategic-intelligence
+sub-agent**: a callable, bounded evidence-analysis service for coordinating
+agents, supported by durable evidence/provenance records, human review and
+separately authorized execution interfaces. The email-inspired workspace is the
+human-facing control plane for inspecting, organizing and reviewing work; it is
+not the primary product or a substitute for the specialist service.
 
-The fifth pillar adapts Scharmer and Pomeroy's (2024) fourth-person knowing
-theory through human-led inquiry and a mandatory pre-release completion record.
-The [source skill](Knowing_Field_Theory_SKILL_v0.1.md),
-[audit](docs/knowing-field-framework-audit.md) and
-[combined skill](VesselFramework_Knowing_Field_SKILL_v0.1.md) distinguish the
-external theory, framework synthesis and owner-selected release policy.
-It is not empirically validated and does not assert AI presencing.
+Its analytical architecture currently has six pillars: PARADOX, BOTTLENECK,
+DUAL LAYER, XFACTOR, KNOWING FIELD and GAME THEORY. The surrounding methods
+include evidence assurance, provenance tracing, alternative explanations and
+harm-aware controls. Strategic calculations are conditional on declared
+actors, actions, information, utility units and evidence IDs; they do not
+establish motives, increase confidence or authorize action.
 
-## 2) What this project can become
+The implementation and the longer-term product direction should be assessed
+separately. The [product vision](VISION_AND_SCOPE.md) describes current scope
+and acceptance boundaries; the [specialist contract](docs/specialist-agent.md)
+describes the callable agent interface. Human source- and preview-bound inquiry
+and a separate human release decision are required before new reports are
+released. Software records do not demonstrate embodied knowing or validate the
+framework's empirical efficacy.
 
-Near-term (course and committee relevance):
-- A defensible graduate capstone framework for evidence-to-decision analysis under uncertainty.
-- A structured method for distinguishing source-established facts from synthesis and hypotheses.
-- A testable doctrine/code alignment case study for intelligence-method rigor.
+## Blockchain and agent-economy direction
 
-Medium-term (research and applied value):
-- A validated comparative framework for cross-domain analytical failures (governance, authority, efficacy, and operator-risk errors).
-- A reproducible teaching artifact for analytic tradecraft and calibration discipline.
-- A candidate publication pipeline once empirical validation and external review milestones are completed.
+The [blockchain roadmap](docs/blockchain-agent-economy-roadmap.md) is a
+prospective research sequence, not an implemented capability or revenue claim.
+It proposes investigating versioned evidence receipts and offline verification,
+privacy-reviewed existence anchoring, then a bounded test-asset payment
+experiment and conditional marketplace feasibility. A hash is not payment,
+mining, proof of truth or a financial entitlement. No wallet, payment adapter,
+chain anchor or miner is represented as operating. Any economic or network
+execution requires further owner decisions, security/privacy review and
+empirical acceptance evidence.
 
-## 3) How to describe it (short form)
+## Academic limits and review questions
 
-VesselFramework is a structured analytical method that combines evidence assurance, decision-provenance tracing, bottleneck diagnostics, and operator-risk controls to support more defensible high-consequence assessments across intelligence, cybersecurity, and organizational domains.
+- The framework is an authorial synthesis; distinguish original contribution
+  from adapted theory and established methods.
+- Several claims and proposed capabilities require prospective empirical
+  evaluation. Implementation tests establish behavior under tested conditions,
+  not field efficacy.
+- The original author-source paper and its historical account remain distinct
+  from later software and model-generated derivatives.
+- What is the strongest, appropriately narrow research question or capstone
+  contribution in this material?
+- Which claims, constructs or terminology need better sourcing or narrower
+  treatment?
+- What evaluation design, comparison baseline and failure criteria would be
+  defensible at graduate level?
+- Should the blockchain/agent-economy roadmap remain a separate future-work
+  track rather than part of the central scholarly claim?
 
-## 4) How to describe it (long form)
+## Suggested review sequence
 
-VesselFramework is an authorial synthesis that translates qualitative and mixed-source evidence into auditable analytical posture decisions. It enforces source-status tagging, provenance independence checks, alternatives testing, and harm-aware decision controls before consequential recommendations. It is not a prediction oracle; it is a disciplined reasoning architecture with explicit confidence and exposure boundaries.
+1. `VISION_AND_SCOPE.md` — product boundary, current scope and acceptance gates.
+2. `CANONICAL_REFERENCE.md` — source and package boundaries.
+3. `META_REVIEW_AND_ROADMAP.md` — research framing, limits and proposed next steps.
+4. `VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md` — doctrine.
+5. `VesselFramework_Knowing_Field_SKILL_v0.1.md` and `VesselFramework_Game_Theory_SKILL_v0.1.md` — fifth- and sixth-pillar applications.
+6. `docs/specialist-agent.md` — callable service contract.
+7. `docs/pillar-scientific-foundations.md` and `docs/blockchain-agent-economy-roadmap.md` — evaluation boundaries and explicitly prospective economic work.
+8. `README.md` — implementation overview and repository entry points.
 
-## 5) Current limits (important for academic review)
-
-- Some historical artifacts cited by legacy sections are intentionally not bundled in this submission package.
-- Not all framework claims are empirically validated; parts remain synthesis requiring prospective calibration.
-- The executable layer is partial by design and should be evaluated as implementation evidence, not constitutional doctrine.
-
-## 6) Requested feedback from professor/reviewer
-
-1. Conceptual coherence: Is the doctrine internally consistent and teachable?
-2. Methodological rigor: Are the evidence/provenance gates defensible for graduate-level work?
-3. Novelty boundaries: Which elements appear genuinely original vs derivative synthesis?
-4. Validation design: What empirical design would best test utility and failure modes?
-5. Publication pathway: What should be refined first for scholarship competitiveness?
-
-## 7) Suggested reading order
-
-1. `CANONICAL_REFERENCE.md`
-2. `VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md`
-3. `SKILL.md`
-4. `VesselFramework_Forecasting_SKILL_v1.0.md`
-5. `META_REVIEW_AND_ROADMAP.md`
-
-## 8) Package intent
-
-This is a rough working version prepared for critical feedback, method refinement, and supervised maturation into a graduate-quality research artifact.
+This packet is offered for critique and advising. It does not claim academic
+endorsement, completed validation or readiness for deployment.

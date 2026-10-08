@@ -1,58 +1,97 @@
-# Meta-Level Review and Forward Roadmap
+# Meta-Level Review Notes and Forward Roadmap
 
-## Current identity of the project
+## Reviewer orientation
 
-VesselFramework is currently best understood as:
+VessellFramework is both a research-method synthesis and a software project.
+The product direction is a **full-stack strategic-intelligence sub-agent** whose
+implemented core offers callable, bounded, provenance-aware evidence analysis
+to coordinating agents. Durable evidence history, human review/release and
+separately authorized execution are distinct supporting boundaries. The
+email-inspired workspace is the human-facing control plane, not the primary
+product.
 
-- A methodological framework for disciplined evidence-to-decision analysis.
-- A doctrine-plus-runtime experiment in translating qualitative tradecraft into auditable controls.
-- A graduate-level synthesis artifact that is partially executable and partially doctrinal.
+The current analytical architecture has six pillars: PARADOX, BOTTLENECK, DUAL
+LAYER, XFACTOR, KNOWING FIELD and GAME THEORY. Do not read this product vision
+as evidence that the system is superintelligent, field-validated, production
+certified or independently effective. See `VISION_AND_SCOPE.md` for the
+implemented scope and acceptance boundaries.
 
-## Strengths
+## Research strengths to examine
 
-1. Strong evidence-status taxonomy (source-established vs synthesis vs hypothesis vs illustrative).
-2. Explicit provenance firewall and independence logic.
-3. Useful separation of assessment confidence from action posture.
-4. Operator exposure and harm controls improve real-world defensibility.
-5. Cross-domain portability is architecturally explicit.
+1. Evidence-status distinctions, provenance independence and traceable
+   decision records provide concrete, reviewable methodological commitments.
+2. Confidence is distinguished from action posture; human authorization is
+   distinct from analysis and task submission.
+3. The six-pillar architecture attempts to combine evidence, system constraints,
+   operator/observer conditions and explicitly bounded strategic models.
+4. Selected methods have executable implementations and regression checks that
+   can support repeatable software-behavior evaluation.
 
-## Weaknesses and risks
+These are candidates for evaluation, not findings that the method improves
+real-world intelligence outcomes.
 
-1. Version identity can be confusing without reviewer orientation.
-2. Historical references in long-form doctrine can look over-extended for a rough submission.
-3. Some claims remain synthesis and require clearer empirical validation boundaries.
-4. Package still contains operational scaffolding that can distract from scholarly core if unframed.
+## Risks and limits
 
-## What to move forward with now
+1. The breadth of doctrine, skills, service infrastructure and domain examples
+   can obscure a tractable thesis question and the framework's original
+   contribution.
+2. Adapted theory, authorial synthesis, implemented behavior and empirically
+   demonstrated effects need separate attribution and evidence.
+3. Versioned legacy material can confuse readers unless the canonical scope and
+   historical/source boundaries are explicit.
+4. A deterministic calculation or passing test shows only the result under its
+   declared inputs and tested conditions; it cannot establish external truth,
+   motive, utility calibration or field efficacy.
+5. Human Knowing Field completion is a release policy and research adaptation;
+   a complete record is not proof of presencing or embodied knowing.
+6. The operational software may distract from the scholarly question unless
+   each component is tied to an explicit method or evaluation need.
 
-1. Keep and defend:
-- Evidence Assurance model
-- Decision Provenance Chain
-- Harm Gate and Forward Posture controls
-- Primary/Reference Maskirovka check architecture
+## Blockchain / agent-economy track
 
-2. Tighten next:
-- Formal validation plan with explicit hypotheses, metrics, and failure criteria
-- Version governance and release labeling
-- Reviewer-facing concise statement of novelty and scope limits
+`docs/blockchain-agent-economy-roadmap.md` is prospective. Its proposed order
+is: versioned deterministic receipts and an offline verifier; privacy-reviewed
+existence proofs; a bounded, owner-authorized payment test; then conditional
+marketplace or protocol feasibility. These are research stages, not a
+description of live functionality. Hashes alone do not earn money, constitute
+mining, prove truth or confer payment rights. No wallet, payment, anchor, miner
+or revenue is claimed as implemented.
 
-3. Defer until after advisor feedback:
-- Broader automation claims
-- Production-canonical build assertions
-- Expansion to additional domain packs without validation baselines
+Keep this track subordinate to the scholarly method until an advisor approves
+its relevance and a specific research question can be evaluated. Economic work
+requires separate owner decisions, appropriate privacy/security review,
+measured costs and demand, and clear human-review/refund boundaries. It must
+not imply the framework's conclusions are for sale.
 
-## Suggested advisor feedback prompts
+## Recommended next steps for academic review
 
-- Which framework elements are strongest candidates for thesis central argument?
-- Which claims require citation hardening or narrower wording?
-- What validation design would be publishable at graduate level?
-- How should novelty be framed to avoid overclaim while preserving contribution?
+1. Agree on one central research question and define which artifacts are in
+   scope for that study.
+2. Separate the primary scholarly contribution from product vision,
+   implementation demonstrations and future economic experiments.
+3. State hypotheses, comparison baselines, units, data/source access,
+   assumptions, disconfirmers and failure criteria before outcome evaluation.
+4. Review novelty and attribution against primary sources; preserve the
+   author's source material separately from derivative analysis.
+5. Decide whether the agent-economy roadmap belongs in future work or outside
+   the capstone, rather than presenting it as validated product value.
+6. Label version and validation status consistently across the review packet.
 
-## Scholarship positioning (practical)
+## Questions for the faculty reviewer
 
-Most competitive framing is likely:
-- methodological innovation + traceable risk controls + validation roadmap,
-not
-- finished product/platform claim.
+- Which bounded research question offers the strongest graduate-level
+  contribution?
+- Which claims require narrower wording, primary-source support or removal
+  from the central argument?
+- What data, comparison design, sample and failure criteria would make an
+  evaluation credible and feasible?
+- How should the distinction between framework synthesis and implemented
+  software be represented in the final research artifact?
+- Should the blockchain/agent-economy track be excluded from the main study?
 
-Prioritize clarity of research question, measurable validation path, and demonstrated intellectual discipline over feature breadth.
+## Positioning
+
+Present the work as a methodological synthesis with selected executable
+controls and a proposed validation program—not as a finished platform or
+demonstrated SI capability. Prioritize a clear question, bounded claims,
+reproducible methods and honest adverse/null results over feature breadth.

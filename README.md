@@ -159,13 +159,19 @@ For the complete skill, agent, executable-code, scanner, and authorized remediat
 
 ## Reviewer quick orientation
 
-If you are reviewing this as an academic rough-working submission, read in this order:
+For faculty review, start with [`PROFESSOR_README.md`](PROFESSOR_README.md)
+and the [packet manifest](PROFESSOR_PACKET_MANIFEST.md). The brief frames
+VessellFramework as a full-stack SI sub-agent in development, distinguishes the
+callable evidence specialist from its human-facing control plane, and identifies
+the blockchain/agent-economy roadmap as prospective—not current functionality,
+revenue or proof of truth.
 
-1. `PROFESSOR_README.md` (purpose, contribution, current limits, and requested feedback)
-2. `VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md` (integrated doctrine and methods)
-3. `SKILL.md` (operational analyst execution layer)
-4. `VesselFramework_Forecasting_SKILL_v1.0.md` (forecasting controls and calibration form)
-5. `vesselframework_reference_v1.1_provenance_firewall.py` + `tests/` (executable reference and regression checks)
+Recommended sequence: `VISION_AND_SCOPE.md`, `CANONICAL_REFERENCE.md`,
+`META_REVIEW_AND_ROADMAP.md`, the combined doctrine, the Knowing Field and Game
+Theory skills, and `docs/specialist-agent.md`. Consult
+`docs/pillar-scientific-foundations.md` for scientific claim boundaries and
+`docs/blockchain-agent-economy-roadmap.md` for the explicitly prospective
+economic/anchoring research sequence.
 
 For package boundaries and canonical scope, see `CANONICAL_REFERENCE.md`.
 The claim lifecycle API and its limits are documented in
