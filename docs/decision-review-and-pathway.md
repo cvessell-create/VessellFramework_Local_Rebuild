@@ -1,0 +1,125 @@
+# Decision review and development pathway
+
+**Status:** Source-bounded review, October 8, 2026. This reviews durable
+repository records, not private model reasoning or a complete conversation
+transcript.
+
+## Scope and limits
+
+The review covers the local repository checkout, the user's supplied workflow
+status excerpt, and the files cited below. A recent session-history query for
+decision-graph/game-theory discussion returned no rows. GitHub job logs, PR
+review comments, other accounts/branches, and private chain-of-thought were not
+available or reviewed. The supplied status excerpt reports successful CI and
+CodeQL runs and a merge of PR #11; those statuses were not independently
+confirmed from run logs here.
+
+Repository search used `rg` over Markdown, Python, schemas, and tests for
+decision/rationale/alternatives/chain-of-thought terms. It returned 253 matches
+across 49 Markdown files and 157 across 34 source/schema/test files; displayed
+matches were capped. Targeted primary files were opened, but this is not a
+line-by-line audit of every match or every branch.
+
+**SEARCH RECORD:** decision/rationale/alternatives/chain-of-thought terms /
+repository `rg` / current local checkout, Markdown plus Python, schemas and
+tests / 253 Markdown matches in 49 files and 157 source/schema/test matches in
+34 files / yes, displayed output capped / primary repository sources opened:
+yes / source-bounded findings / GitHub job logs, PR comments, other branches,
+private accounts and hidden reasoning NOT checked.
+
+## Conclusions
+
+1. **The recorded architectural direction is coherent.** The current vision
+   treats VessellFramework as a callable, provenance-aware evidence specialist,
+   with the HTML workspace as its human control plane. It distinguishes task
+   intake, bounded analysis, durable evidence, human release, and authorized
+   execution. The six-pillar architecture places GAME THEORY alongside the
+   existing pillars; KNOWING FIELD completion remains a human release
+   prerequisite. See [`VISION_AND_SCOPE.md`](../VISION_AND_SCOPE.md).
+2. **The decision-graph work is bounded, not an authority engine.** The
+   Game Theory audit identifies motive attribution, information structure,
+   model inputs, and oversight as design risks. Its response is source-linked
+   conditional models, explicit limits, and continued human review. The
+   specialist contract describes this as preview analysis, not corroboration,
+   approval, or execution. See
+   [`docs/game-theory-framework-audit.md`](game-theory-framework-audit.md),
+   [`docs/specialist-agent.md`](specialist-agent.md), and
+   [`VesselFramework_Game_Theory_SKILL_v0.1.md`](../VesselFramework_Game_Theory_SKILL_v0.1.md).
+3. **Tests support implementation claims, not empirical efficacy.** The kernel
+   bounds inputs and reports conditional results; tests cover exact calculations,
+   malformed inputs, source binding, replay identity, and unchanged confidence
+   and release state. These establish tested software behavior for those cases,
+   not truth of supplied sources, human decision improvement, or deployed
+   effectiveness. See [`vessell/game_theory.py`](../vessell/game_theory.py) and
+   [`tests/test_game_theory.py`](../tests/test_game_theory.py).
+4. **There is an existing decision-provenance concept to build on.** The
+   historical combined framework describes a Decision Provenance Chain from
+   signal through evidence to decision and feedback. The current pathway should
+   connect that concept to the specialist's versioned evidence and review
+   lifecycle rather than create a competing “reasoning” subsystem. Its older
+   five-pillar wording should not override the current six-pillar vision.
+   See [MetaMatrix section 4](../VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md).
+5. **The reviewed record does not expose the author's private decision process.**
+   It supports evaluating decisions that were recorded in source, contracts,
+   tests, and supplied status snapshots—not reconstructing unshared reasoning
+   or attributing intent. The continuation reconciliation likewise separates
+   owner-shared requests, observed code, and unverified claims; see
+   [`docs/game-theory/continuation-reconciliation.md`](game-theory/continuation-reconciliation.md).
+
+## Review assessment
+
+**Strong choices:** preserving original sources and separating derivatives;
+adding strategic analysis only when actors, actions, information, utility units,
+and evidence are declared; keeping calculations conditional; retaining
+source-bound human completion and separate release authority; and treating
+tests, source integrity, empirical effects, and authorization as different
+claims.
+
+**Main improvement opportunity:** make decision provenance easy to review
+end-to-end. The relevant policy, model, audit, code, tests, and workflow status
+are documented in different places. For consequential changes, add a compact
+decision record that links the owner's stated need to source revisions,
+alternatives, implementation, test/evaluation results, unresolved risks, and
+the human release decision. Do not rewrite historical decisions or silently
+upgrade the evidence status of a prior release.
+
+This is an auditable rationale summary, **not hidden chain-of-thought**. Do not
+persist private internal reasoning, fabricate a thought transcript, or treat
+longer reasoning text as stronger evidence. Record reviewable inputs, concise
+reasons, alternatives, uncertainty, outcomes, and provenance instead.
+
+## Proposed pathway
+
+1. **Decision record (documentation/process):** identify the decision question,
+   owner and scope; link source IDs and revisions; distinguish established
+   evidence, framework synthesis, and working hypotheses; record alternatives,
+   concise rationale, assumptions, disconfirmers, harms, authority, expected
+   consequences, and conditions for revisiting the decision.
+2. **Implementation traceability:** where a change is consequential, link its
+   decision record to the task/preview/result version, code revision, tests, and
+   human review. Keep those links separate from filing metadata and do not let a
+   caller-authored rationale confer corroboration, confidence, approval, or
+   execution authority.
+3. **Comparative evaluation:** define the target decision and baseline before
+   evaluation; use held-out cases and independent/blinded review where feasible;
+   measure relevant outcomes and harms; preserve disagreement, null results, and
+   adverse findings. Do not promote the framework based on coherence, test
+   counts, or model-generated confidence.
+4. **Human promotion and revision:** treat new methods and records as candidates
+   until an authorized human review accepts them. Preserve the exact source and
+   preview binding, the prior released version, and an auditable correction or
+   supersession history.
+
+## Open questions
+
+- Should the next deliverable be a reusable decision-record schema and UI/API
+  linkage, or first a documented manual review template?
+- Which human role may approve a decision record, and is its scope task-level,
+  project-level, or both?
+- Can the owner provide PR #11 review comments and workflow logs if a
+  commit-by-commit decision review is wanted? The supplied status summary alone
+  does not show the underlying review evidence.
+- Should the older MetaMatrix document remain a historical source as-is, with a
+  current-status crosswalk, or receive a carefully attributed status annotation?
+- What held-out decision tasks, baseline, outcome measures, and harm criteria
+  should govern any future empirical promotion?
