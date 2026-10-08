@@ -58,7 +58,7 @@ private accounts and hidden reasoning NOT checked.
    connect that concept to the specialist's versioned evidence and review
    lifecycle rather than create a competing “reasoning” subsystem. Its older
    five-pillar wording should not override the current six-pillar vision.
-   See [MetaMatrix section 4](../VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md).
+   See [MetaMatrix section 4: The Decision Provenance Chain](../VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md#4-the-decision-provenance-chain-cross-domain-extension).
 5. **The reviewed record does not expose the author's private decision process.**
    It supports evaluating decisions that were recorded in source, contracts,
    tests, and supplied status snapshots—not reconstructing unshared reasoning
