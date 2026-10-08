@@ -8,9 +8,9 @@ transcript.
 
 The review covers the local repository checkout, the user's supplied workflow
 status excerpt, and the files cited below. A session-history query limited to
-the prior 30 days and matching the exact phrases “decision graph,” “game theory,”
-or “chain of thought” returned no rows. GitHub job logs, PR review comments,
-other accounts/branches, and private chain-of-thought were not available or reviewed.
+the prior 30 days and matching case-insensitive substrings “decision graph,”
+“game theory,” or “chain of thought” returned no rows. GitHub job logs, PR review
+comments, other accounts/branches, and private chain-of-thought were not available or reviewed.
 The supplied status excerpt reports successful CI and CodeQL runs and a merge of
 PR #11; those statuses were not independently confirmed from run logs here.
 
