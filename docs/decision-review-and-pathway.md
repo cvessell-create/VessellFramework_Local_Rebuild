@@ -19,27 +19,29 @@ Repository searches used `rg` on checkout revision
 but capped search output means this is not a line-by-line audit of every match
 or every branch.
 
-**SEARCH RECORD 1:** query regex
+**SEARCH RECORD 1:** query: regex
 `decision|rationale|alternatives|open questions|chain.of.thought|reasoning trace`
-/ repository `rg` / Markdown files at checkout revision
-`6304f576ac1364715c02d56e1cfeaf0f5840eb43` / 253 matches in 49 files / yes,
-display capped at 140 results / primary sources opened: yes / source-bounded
-findings / files on other branches, external accounts and hidden reasoning NOT
-checked.
+/ tool: repository `rg` / scope: Markdown files at checkout revision
+`6304f576ac1364715c02d56e1cfeaf0f5840eb43` / result_count: 253 matches across
+49 files / limit_hit: yes, display capped at 140 results /
+primary_source_opened: yes / status: source-bounded findings / what was NOT
+checked: files on other branches, external accounts and hidden reasoning.
 
-**SEARCH RECORD 2:** query regex `decision|rationale|chain.of.thought|reasoning trace`
-/ repository `rg` / Python, schemas and tests at checkout revision
-`6304f576ac1364715c02d56e1cfeaf0f5840eb43` / 157 matches in 34 files / yes,
-display capped at 100 results / primary sources opened: yes / source-bounded
-findings / GitHub job logs, PR comments, files on other branches, external
-accounts and hidden reasoning NOT checked.
+**SEARCH RECORD 2:** query: regex
+`decision|rationale|chain.of.thought|reasoning trace` / tool: repository `rg` /
+scope: Python, schemas and tests at checkout revision
+`6304f576ac1364715c02d56e1cfeaf0f5840eb43` / result_count: 157 matches across
+34 files / limit_hit: yes, display capped at 100 results /
+primary_source_opened: yes / status: source-bounded findings / what was NOT
+checked: GitHub job logs, PR comments, files on other branches, external
+accounts and hidden reasoning.
 
-**SEARCH RECORD 3:** query
+**SEARCH RECORD 3:** query:
 `t.user_message ILIKE '%decision graph%' OR t.user_message ILIKE '%game theory%' OR t.user_message ILIKE '%chain of thought%'`
-/ `session_store_sql` / accessible session history, last 30 days, maximum 20 rows
-/ result_count: 0 / limit_hit: no / primary_source_opened: no / status: NOT FOUND
-IN SCOPE / what was NOT checked: other time periods, hyphenated variants,
-private accounts and hidden reasoning.
+/ tool: `session_store_sql` / scope: accessible session history, last 30 days,
+maximum 20 rows / result_count: 0 / limit_hit: no / primary_source_opened: no
+/ status: NOT FOUND IN SCOPE / what was NOT checked: other time periods,
+hyphenated variants, private accounts and hidden reasoning.
 
 ## Conclusions
 
