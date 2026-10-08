@@ -18,13 +18,15 @@ Repository search used `rg` over Markdown, Python, schemas, and tests for
 decision/rationale/alternatives/chain-of-thought terms. It returned 253 matches
 across 49 Markdown files and 157 across 34 source/schema/test files; displayed
 matches were capped. Targeted primary files were opened, but this is not a
-line-by-line audit of every match or every branch.
+line-by-line audit of every match or every branch. Search revision:
+`6304f576ac1364715c02d56e1cfeaf0f5840eb43`.
 
 **SEARCH RECORD:** decision/rationale/alternatives/chain-of-thought terms /
-repository `rg` / current local checkout, Markdown plus Python, schemas and
+repository `rg` / checkout revision
+`6304f576ac1364715c02d56e1cfeaf0f5840eb43`, Markdown plus Python, schemas and
 tests / 253 Markdown matches in 49 files and 157 source/schema/test matches in
-34 files / yes, displayed output capped / primary repository sources opened:
-yes / source-bounded findings / GitHub job logs, PR comments, other branches,
+34 files / yes, displayed output capped / primary repository sources opened: yes
+/ source-bounded findings / GitHub job logs, PR comments, other branches,
 private accounts and hidden reasoning NOT checked.
 
 ## Conclusions
