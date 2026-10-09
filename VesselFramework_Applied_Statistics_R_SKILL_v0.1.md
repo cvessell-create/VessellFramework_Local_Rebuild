@@ -10,6 +10,11 @@ This skill organizes the supplied course procedures for five common questions:
 4. Does one categorical variable follow a specified distribution? **Chi-Square Goodness-of-Fit**
 5. Are two categorical variables associated? **Chi-Square Test of Independence**
 
+For the AA 5221 four-test final project, see the
+[workflow overview](docs/final-project-workflow-overview.md) for the
+research-question-to-dataset mapping, script order, report structure, and private
+submission checklist.
+
 It is an instructional workflow, not a statistical software feature or evidence
 that an analysis is valid. Follow the instructor's assignment rubric where it
 specifies a decision rule. Course rules below are labeled as such; they are not
