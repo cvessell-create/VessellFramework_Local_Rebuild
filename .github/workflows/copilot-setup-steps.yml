@@ -38,11 +38,12 @@ jobs:
         with:
           r-version: "4.3.3"
           use-public-rspm: true
+      - uses: r-lib/actions/setup-pandoc@v2
       - name: Install Python project and development dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install -e ".[dev,core,agent,documents,evaluation,research,soc,orchestrator]"
-      - name: Install R memory environment dependencies
+      - name: Install R memory and statistics dependencies
         run: Rscript r/setup.R
       - name: Verify Python and R toolchains
         run: |
@@ -54,4 +55,5 @@ jobs:
         run: |
           python -m pytest -q
           Rscript r/test_memory_store.R
+          Rscript r/test_statistics_environment.R
           python verify_manifest.py

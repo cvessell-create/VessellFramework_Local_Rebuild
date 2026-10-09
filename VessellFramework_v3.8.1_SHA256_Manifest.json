@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-09T00:49:28.589639+00:00",
+  "generated_utc": "2026-10-09T01:24:06.876262+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -21,12 +21,16 @@
       "sha256": "2a1d25bd81ffbfc99a5542b3b88ff5d02e201ddfb0e2e4488867cfb51c942b5d"
     },
     {
+      "path": ".github/skills/r-inferential-workflow/SKILL.md",
+      "sha256": "c1a3cdd737ed407cc39753035329ab91002ed7854f6d542681757bb8bd482680"
+    },
+    {
       "path": ".github/workflows/ci.yml",
       "sha256": "c79372009ade2d41d23723c581d156f9988767e0125e9e57487c2d87d2393a30"
     },
     {
       "path": ".github/workflows/copilot-setup-steps.yml",
-      "sha256": "22fad0b083c4953b51aadd53b5eee1431153725d54a48f01f39f874a324669d5"
+      "sha256": "172095912aa8fb7f3be8d226aceab654868ebfde0dfab4181f639b17cef31552"
     },
     {
       "path": ".github/workflows/dashboard-pages.yml",
@@ -38,7 +42,7 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "597ff8f7c45abff0db137632aa42d62a0fa7a021f90183f579e8b1b013b103ea"
+      "sha256": "7f184d25f442a76dae0825dda39cb9f0354b5933c72391b9f0812c23f896630b"
     },
     {
       "path": ".vscode/extensions.json",
@@ -106,7 +110,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "4db7b6343d97b1382266b9b8d28790f0285a2e6ea9c905ecce8416ba47903102"
+      "sha256": "884528044499697f114aa77ac89ed9938b1d3860313f08d9856e0eb4897e1e09"
     },
     {
       "path": "SECURITY.md",
@@ -698,11 +702,15 @@
     },
     {
       "path": "r/setup.R",
-      "sha256": "14bc65fea724287624e69766065ad06e9218ccf2225a05d5ffb976fa45c11f6f"
+      "sha256": "6bcd6da055d6848a7799d8c3c0e5faafff9fc8971b0844cb3e9c922e7b084ac0"
     },
     {
       "path": "r/test_memory_store.R",
       "sha256": "268e60978ec3ef1180e7cd9b523b3f6bbb66b61198e49af97f1acce03d69e581"
+    },
+    {
+      "path": "r/test_statistics_environment.R",
+      "sha256": "a9f3855040f47222915665612eb7506d2550cfa98933469ada7cf518526de130"
     },
     {
       "path": "requirements/agent.txt",

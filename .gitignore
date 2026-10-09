@@ -24,3 +24,7 @@ frontend/*.tsbuildinfo
 /mnt/
 /build/
 /dist/
+/private-projects/
+/Final Project/
+.Rhistory
+.RData

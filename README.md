@@ -427,6 +427,19 @@ For offline use, pass play-by-play JSON files or directories instead of
 `--cache-dir`. Formats: HTML, terminal text, CSV and JSON. Tests use synthetic
 game data only; no fabricated real-game data is included.
 
+## R inferential statistics workflows
+
+The [R workflow skill](.github/skills/r-inferential-workflow/SKILL.md) guides
+Excel import, paired and independent comparisons, categorical association,
+correlation, assumption checks, effect sizes, and private RMarkdown reporting.
+Run `Rscript r/setup.R`, then `Rscript r/test_statistics_environment.R`.
+The Copilot setup workflow installs Pandoc for rendering; local RStudio
+supplies its own Pandoc. Smoke checks use synthetic data, not student results.
+
+Keep coursework and workbooks in a private course folder outside this public
+repository. Local `private-projects/` and `Final Project/` directories are also
+ignored as a safeguard. Do not publish completed assignments or use RPubs.
+
 ## Keeping repository artifacts synchronized
 
 After reviewing and staging source changes, run
