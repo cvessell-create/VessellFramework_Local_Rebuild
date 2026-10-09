@@ -2,11 +2,13 @@
 
 ## Purpose and scope
 
-This skill organizes the supplied course procedures for three common questions:
+This skill organizes the supplied course procedures for five common questions:
 
 1. Are two quantitative variables associated? **Pearson or Spearman correlation**
 2. Do the same participants' scores differ before and after? **Paired t-test or Wilcoxon signed-rank test**
 3. Do two independent groups differ on an outcome? **Independent t-test or Mann–Whitney (Wilcoxon rank-sum) test**
+4. Does one categorical variable follow a specified distribution? **Chi-Square Goodness-of-Fit**
+5. Are two categorical variables associated? **Chi-Square Test of Independence**
 
 It is an instructional workflow, not a statistical software feature or evidence
 that an analysis is valid. Follow the instructor's assignment rubric where it
@@ -25,6 +27,14 @@ Before opening RStudio, record:
 - the unit of observation and whether measurements are paired or independent;
 - the outcome and grouping/predictor variables, their units, and the dataset source;
 - inclusion/exclusion rules, missing-data handling, and the assignment's reporting requirements.
+
+For an assignment, then follow this sequence: identify the design and variable
+types; choose the matching procedure below; import and verify the assigned data;
+calculate descriptive summaries and required diagnostics; run the selected
+inferential test once; calculate its matching effect size; write the result in
+the assigned format; knit and inspect the HTML; and submit the requested file or
+link. Keep the script, report, and source data together without publishing
+identifiable or restricted information.
 
 Install required packages once, then load the packages needed by the selected
 procedure at the start of each R session:
@@ -45,6 +55,8 @@ Choose the test from the design, not from which result appears more favorable:
 | Two quantitative variables measured on the same observational units | Pearson or Spearman correlation |
 | Same participants measured twice (or otherwise matched pairs) | Paired t-test or Wilcoxon signed-rank |
 | Two unrelated groups and one quantitative outcome | Independent t-test or Mann–Whitney / Wilcoxon rank-sum |
+| One categorical variable compared with specified expected proportions | Chi-Square Goodness-of-Fit |
+| Association between two categorical variables | Chi-Square Test of Independence |
 
 Do not treat repeated observations from the same person as independent groups.
 Do not describe either variable in a correlation as a causal independent or
@@ -78,6 +90,8 @@ before selecting or reporting a test:
   scores**; assess the difference-score distribution and potential outliers.
 - Independent groups: inspect distributions and boxplots separately by group;
   assess group independence and potential outliers.
+- Categorical counts: inspect frequency/contingency tables and expected counts;
+  normality checks do not apply to categorical count data.
 
 Use Shapiro–Wilk only as one normality diagnostic. A p-value above .05 does not
 prove normality, and a p-value below .05 does not automatically identify a data
@@ -446,6 +460,196 @@ only after a statistically significant result.
 # Group1 scores (Mdn = xx.xx) were significantly / not significantly different
 # from Group2 scores (Mdn = xx.xx), W = xx, p = .xxx.
 # If required and statistically significant: Cliff's delta = x.xx (use effsize's magnitude label).
+```
+
+## Procedure D: Chi-Square Goodness-of-Fit
+
+### Question and assumptions
+
+Use this test for one categorical variable when the question is whether its
+observed category counts differ from a prespecified expected distribution. The
+expected proportions must be justified by the assignment's historical,
+research, or theoretical reference, sum to 1, and correspond to the correct
+categories. This is observational count analysis: there is no IV/DV distinction
+and no normality assumption.
+
+Each observation must be independent and belong to exactly one mutually
+exclusive category. The supplied course rule requires every expected count to
+be at least 5. Calculate and inspect expected counts before interpreting the
+test. If that condition fails, do not present the asymptotic result as
+trustworthy; consult the instructor about an appropriate exact or simulation
+approach. Do not combine categories after seeing results unless the grouping is
+substantively justified in advance.
+
+### R workflow
+
+Replace the example category labels and probabilities. Defining the factor
+levels explicitly preserves categories with zero observed counts and aligns the
+expected proportions by name.
+
+```r
+library(readxl)
+
+DatasetName <- read_excel("path/to/data.xlsx")
+category_data <- DatasetName$CategoryVariable
+category_data <- category_data[!is.na(category_data)]
+
+expected <- c(Category1 = 0.10, Category2 = 0.60, Category3 = 0.30)
+stopifnot(
+  length(expected) >= 2,
+  !is.null(names(expected)),
+  !anyDuplicated(names(expected)),
+  all(is.finite(expected)),
+  all(expected > 0),
+  isTRUE(all.equal(sum(expected), 1))
+)
+stopifnot(all(unique(category_data) %in% names(expected)))
+
+observed <- table(factor(category_data, levels = names(expected)))
+stopifnot(identical(names(observed), names(expected)))
+observed
+
+barplot(
+  observed,
+  main = "CategoryVariable",
+  xlab = "Category",
+  ylab = "Frequency",
+  col = rainbow(length(observed))
+)
+
+expected_counts <- sum(observed) * expected
+expected_counts
+if (any(expected_counts < 5)) {
+  stop("An expected count is below 5; consult the instructor before using the asymptotic test.")
+}
+
+chi_result <- chisq.test(x = observed, p = expected)
+chi_result
+chi_result$expected
+chi_result$stdres
+
+# Cohen's w for the goodness-of-fit test.
+w <- sqrt(as.numeric(chi_result$statistic) / sum(observed))
+w
+```
+
+The degrees of freedom are the number of included categories minus 1. Report
+the R statistic as χ², sample size `N = sum(observed)`, p-value, and Cohen's
+`w`. The supplied course bands are `< .10` negligible, `.10–<.30` small,
+`.30–<.50` moderate, and `≥ .50` large. Cohen's w can exceed 1. Standardized
+residuals can help locate category-level discrepancies, but inspect them as
+follow-up descriptions rather than treating each as a separate confirmatory
+test.
+
+```r
+# A Chi-Square Goodness-of-Fit test assessed whether observed CategoryVariable
+# frequencies differed from the expected distribution.
+# The observed frequencies did / did not differ from expected frequencies,
+# χ²(df, N = xxx) = xx.xx, p = .xxx.
+# The difference was negligible / small / moderate / large (Cohen's w = x.xx).
+```
+
+## Procedure E: Chi-Square Test of Independence
+
+### Question and assumptions
+
+Use this test to ask whether two categorical variables are associated. Create
+one contingency table; rows and columns represent the categories of each
+variable, and cells contain observed counts. It is observational and does not
+require a causal IV/DV designation. A statistically significant association
+does not establish that one variable causes the other.
+
+Each case must be independent, and each variable's categories must be mutually
+exclusive. The supplied course rule expects every cell's expected count to be
+at least 5. Inspect the expected-count table. If the condition fails, the
+ordinary Pearson chi-square approximation may be unreliable; for a 2 × 2 table
+consider Fisher's exact test, or ask the instructor about an appropriate
+simulation/exact method for the design. Do not silently report an asymptotic
+chi-square p-value as definitive.
+
+### R workflow
+
+Keep only cases with both categorical values present. Factor levels are
+explicitly supplied here to preserve the intended category set; replace them
+with the actual mutually exclusive categories in the assignment.
+
+```r
+library(readxl)
+
+DatasetName <- read_excel("path/to/data.xlsx")
+independence_data <- DatasetName[
+  complete.cases(DatasetName[c("Variable1", "Variable2")]),
+  c("Variable1", "Variable2")
+]
+independence_data$Variable1 <- factor(
+  independence_data$Variable1,
+  levels = c("Level1", "Level2")
+)
+independence_data$Variable2 <- factor(
+  independence_data$Variable2,
+  levels = c("OutcomeA", "OutcomeB")
+)
+stopifnot(
+  !anyNA(independence_data$Variable1),
+  !anyNA(independence_data$Variable2),
+  nlevels(droplevels(independence_data$Variable1)) >= 2,
+  nlevels(droplevels(independence_data$Variable2)) >= 2
+)
+
+independence_table <- table(
+  independence_data$Variable1,
+  independence_data$Variable2
+)
+stopifnot(all(rowSums(independence_table) > 0), all(colSums(independence_table) > 0))
+independence_table
+
+barplot(
+  independence_table,
+  beside = TRUE,
+  col = rainbow(nrow(independence_table)),
+  legend = rownames(independence_table),
+  xlab = "Variable2",
+  ylab = "Frequency"
+)
+
+chi_result <- chisq.test(independence_table, correct = FALSE)
+chi_result$expected
+if (any(chi_result$expected < 5)) {
+  if (all(dim(independence_table) == c(2, 2))) {
+    fisher.test(independence_table)
+  } else {
+    chisq.test(independence_table, simulate.p.value = TRUE, B = 10000)
+  }
+} else {
+  chi_result
+}
+
+# Cramer's V from the Pearson chi-square statistic.
+cramers_v <- sqrt(
+  as.numeric(chi_result$statistic) /
+    (sum(independence_table) * min(nrow(independence_table) - 1,
+                                   ncol(independence_table) - 1))
+)
+cramers_v
+```
+
+When expected counts meet the course rule, report χ², degrees of freedom
+`(rows − 1) × (columns − 1)`, p-value, and Cramér's V. If using Fisher's exact
+or a simulated p-value because of small expected counts, report the method and
+statistic/output actually used; do not pair that p-value with the asymptotic
+chi-square result as if they were one test. For a simulated test, record `B`
+and the random seed if reproducibility is required.
+
+The supplied course bands are Cramér's V `< .10` negligible, `.10–<.30` small,
+`.30–<.50` moderate, and `≥ .50` large. These are course conventions; strength
+can depend on table dimensions. Cramér's V has no direction. Use observed
+proportions or residuals to describe the pattern, with suitable caution about
+multiple comparisons.
+
+```r
+# A Chi-Square Test of Independence assessed the association between Variable1 and Variable2.
+# There was / was not evidence of an association, χ²(df) = xx.xx, p = .xxx.
+# The association was negligible / small / moderate / large (Cramér's V = .xx).
 ```
 
 ## Reproducibility and release

@@ -74,7 +74,7 @@ The model agent, public-web OSINT, and vendor/product correlation may supply lea
 | Adversarial / Evil Twin review | [VesselFramework_Evil_Twin_Adversarial_Analyst_SKILL_v0.1.md](VesselFramework_Evil_Twin_Adversarial_Analyst_SKILL_v0.1.md) | `VesselFramework_SingleFile_EvilTwin_v0.2.py` |
 | Recognition assurance | [VesselFramework_Startle_Gate_Defence.md](VesselFramework_Startle_Gate_Defence.md) | `VesselFramework_SingleFile_EvilTwin_v0.2.py` |
 | Security-control selection | [Security_Control_Selection_Placement_Analyst_SKILL_v0.1.md](Security_Control_Selection_Placement_Analyst_SKILL_v0.1.md) | Defense plan output |
-| Applied statistics in R | [VesselFramework_Applied_Statistics_R_SKILL_v0.1.md](VesselFramework_Applied_Statistics_R_SKILL_v0.1.md) | Course-oriented workflow for correlations and two-group comparisons; not an efficacy claim |
+| Applied statistics in R | [VesselFramework_Applied_Statistics_R_SKILL_v0.1.md](VesselFramework_Applied_Statistics_R_SKILL_v0.1.md) | Course-oriented workflow for correlations, group comparisons, and Chi-Square tests; not an efficacy claim |
 | Cyber-range analysis | [XP_Cyber_Range_Challenge_Analyst_SKILL_v0.1.md](XP_Cyber_Range_Challenge_Analyst_SKILL_v0.1.md) | Range exercises only |
 | Cyber-range master challenge | [XP_Cyber_Range_Master_Challenge_Skill_v0.2.md](XP_Cyber_Range_Master_Challenge_Skill_v0.2.md) | Range exercises only |
 | Skill authoring | [VesselFramework_Skill_Creator_SKILL_v0.1.md](VesselFramework_Skill_Creator_SKILL_v0.1.md) | Documentation/skill lifecycle |
