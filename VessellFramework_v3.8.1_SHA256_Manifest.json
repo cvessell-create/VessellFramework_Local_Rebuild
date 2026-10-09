@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-09T01:30:04.993663+00:00",
+  "generated_utc": "2026-10-09T02:15:13.996716+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -26,7 +26,7 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "c79372009ade2d41d23723c581d156f9988767e0125e9e57487c2d87d2393a30"
+      "sha256": "193362048c7111e289c493bd905b4d9d5f9b7df562b8356e55f08cd9621181f4"
     },
     {
       "path": ".github/workflows/copilot-setup-steps.yml",
@@ -35,6 +35,10 @@
     {
       "path": ".github/workflows/dashboard-pages.yml",
       "sha256": "376766f2f6f354a14e81649242897adb2c6ea4abc5617568695fe7af7669f999"
+    },
+    {
+      "path": ".github/workflows/github-observatory.yml",
+      "sha256": "368f6a93ba83e4230e12cfd4ec07271fa3d4cbc84d854e70516ac4b33f68c243"
     },
     {
       "path": ".github/workflows/run-framework.yml",
@@ -110,7 +114,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "884528044499697f114aa77ac89ed9938b1d3860313f08d9856e0eb4897e1e09"
+      "sha256": "2cbb30c6f38da45aaab26f64a013d5ed3e97da67ba232cce884b6028318e7433"
     },
     {
       "path": "SECURITY.md",
@@ -461,6 +465,10 @@
       "sha256": "3c2b9bdf553b3259e5b9bdce49a5c68aa3e23c172ef975347a23fd66e65b86aa"
     },
     {
+      "path": "docs/github-metadata-observatory.md",
+      "sha256": "a9a4babb2c99ce8a22b46d5362f6e9f2496e490c62486783e19fd7ecad413b7b"
+    },
+    {
       "path": "docs/grad-school-prospectus.md",
       "sha256": "34d16c5b29acda1784732e2c1f4fd4256dba68f407ef3c1a4dc12b28b9bf5c2a"
     },
@@ -507,6 +515,10 @@
     {
       "path": "docs/prompt-steering-and-reasoning-audit.md",
       "sha256": "de78dcec4baab5b20a14a6341accdc92959dc30bb0631d4ec7ef97c4d1bd2a25"
+    },
+    {
+      "path": "docs/python-metadata-observatory.md",
+      "sha256": "932da247e5cfab202645009add163c3a8b7dec15b92cb210f94b026289a24117"
     },
     {
       "path": "docs/references.md",
@@ -682,7 +694,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "e864fca7ad4ad859c13e40c73407234cfefbdb7e341d9526c765a728046f6331"
+      "sha256": "ce22e5566f53b43b6d77b851719adb85cfdf802bf3b074b6cbdc84e97da01b5c"
     },
     {
       "path": "r/convert_python_memory_db.R",
@@ -693,16 +705,32 @@
       "sha256": "67b7be59879dfbbb3d76742ed60fc744f49d466dc50b6158b4ba8c275acc3caf"
     },
     {
+      "path": "r/github_metadata.R",
+      "sha256": "7cf0324b20b29cd37c604134b7bb2f442f75eb6910000533661f704a60a53644"
+    },
+    {
       "path": "r/memory_store.R",
       "sha256": "55253eff5153ba9d5d41c5b1282b55e2c8a72657cfc9e910b0276e035951889d"
+    },
+    {
+      "path": "r/metadata_learning.R",
+      "sha256": "6200d6f67f724052e9f392bd714dc246f278285624f4eba7143a93f50514233b"
     },
     {
       "path": "r/prompt_audit.R",
       "sha256": "5540077ccbef161c2dbcbd2d270a5b83b909d13eaf1e5e718febbb6f10147a16"
     },
     {
+      "path": "r/run_github_observatory.R",
+      "sha256": "b1fc9edf7829c3f7c188446b43dbe6b741888f2234c1364ae751649d894ea186"
+    },
+    {
       "path": "r/setup.R",
       "sha256": "6bcd6da055d6848a7799d8c3c0e5faafff9fc8971b0844cb3e9c922e7b084ac0"
+    },
+    {
+      "path": "r/test_github_observatory.R",
+      "sha256": "dd1bf607ca371eed653fb0d26501d104423b80521550c3477bf614a289cd5614"
     },
     {
       "path": "r/test_memory_store.R",
@@ -1033,6 +1061,10 @@
       "sha256": "c1f6c44839b9f16213864413b675d6b3d1ccaac7bd62874207688be2a588ae8c"
     },
     {
+      "path": "tests/test_metadata_observatory.py",
+      "sha256": "f4ece684f3e72fbb144f683c28bff515c578b751e628172c1bdd65843275d7ac"
+    },
+    {
       "path": "tests/test_microsoft_intune.py",
       "sha256": "7866cb8aa1ae337693bb57f6cbd289a6121f644ce402efa517b1d0e6c2ea0302"
     },
@@ -1335,6 +1367,10 @@
     {
       "path": "vessell/memory_store.py",
       "sha256": "4e673f74c9bdafd3fbe62e57d245db7c1f2ae2e2c93f7d358f17462339f59ac5"
+    },
+    {
+      "path": "vessell/metadata_observatory.py",
+      "sha256": "f976db8816b08c7481f00d1b7559f44b035ab8050a72f518cc0302d33ef80910"
     },
     {
       "path": "vessell/posture_agent.py",

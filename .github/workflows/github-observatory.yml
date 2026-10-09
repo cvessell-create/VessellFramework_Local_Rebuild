@@ -1,0 +1,36 @@
+name: GitHub metadata observatory
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "release"
+          use-public-rspm: true
+      - name: Install JSON support
+        run: Rscript -e 'install.packages("jsonlite", repos = "https://cloud.r-project.org")'
+      - name: Verify observatory
+        run: Rscript r/test_github_observatory.R
+      - name: Collect metadata and prepare human-review suggestions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: Rscript r/run_github_observatory.R
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: github-observatory-preview
+          path: outputs/github-observatory
+          if-no-files-found: warn
+          retention-days: 30

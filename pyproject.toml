@@ -45,6 +45,7 @@ vf-posture-agent = "vessell.posture_agent:main"
 vf-search-gate = "vessell.search_gate:main"
 vessell-memory = "vessell.memory_store:main"
 vessell-research-catalog = "vessell.research_catalog:main"
+vessell-observatory = "vessell.metadata_observatory:main"
 
 [tool.setuptools.packages.find]
 include = ["vessell*", "vessel*"]

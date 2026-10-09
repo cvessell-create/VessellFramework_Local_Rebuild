@@ -429,6 +429,41 @@ game data only; no fabricated real-game data is included.
 
 ## R inferential statistics workflows
 
+### GitHub metadata observatory
+
+The [read-only R observatory](docs/github-metadata-observatory.md) downloads
+paginated repository metadata, saves CSV/JSON/RDS snapshots and creates
+source-linked improvement suggestions for human review. Its experimental
+two-hidden-layer neural network learns CI outcome patterns only when the
+chronological, commit-separated data meets explicit sample/class gates. It
+compares held-out performance against logistic and historical-rate baselines.
+It never rewrites code, releases framework reports or treats a model as causal
+evidence. No paid model service is used.
+
+```sh
+gh auth login
+Rscript r/run_github_observatory.R
+Rscript r/test_github_observatory.R
+```
+
+Run from the repository root after `Rscript r/setup.R`. Outputs are kept in
+ignored, independently timestamped `outputs/github-observatory/` directories.
+The manual GitHub Actions workflow uploads review artifacts; daily local runs
+can be configured in the Agent Host. Neither workflow enables the other, and
+the existing GitHub control panel's dispatch allowlist is unchanged.
+
+The [Python metadata interface](docs/python-metadata-observatory.md) also
+records current-environment package versions, dependency compatibility,
+tracked Python source metadata and optional pytest outcomes/timings. It reuses
+the same R GitHub learning engine rather than claiming independent model evidence:
+
+```sh
+.venv/bin/python -m vessell.metadata_observatory --run-tests --github
+```
+
+Local environment metadata remains descriptive until a suitable labeled
+history exists. Raw logs, source text and credentials are not saved in datasets.
+
 The [R workflow skill](.github/skills/r-inferential-workflow/SKILL.md) guides
 Excel import, paired and independent comparisons, categorical association,
 correlation, assumption checks, effect sizes, and private RMarkdown reporting.
