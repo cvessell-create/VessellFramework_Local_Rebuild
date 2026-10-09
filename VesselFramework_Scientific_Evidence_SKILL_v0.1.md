@@ -1,7 +1,7 @@
 ---
 name: vessel-framework-scientific-evidence
 description: >
-  Grounds all five pillars in source-bounded scientific models, explicit
+  Grounds all six pillars in source-bounded scientific models, explicit
   assumptions, falsifiable tests and claim-specific digital evidence. Separates
   cryptographic records, mathematical results and empirical validation.
 ---
@@ -79,8 +79,32 @@ payments/anchoring, not as evidence that those capabilities exist.
    and supersession; do not rewrite old hashes or historical source documents.
 9. Apply Harm Gate and human release policy separately. No proof, payment,
    consensus, score or digital credit grants execution authority.
+10. For prompt-steering studies, use consented, user-exported visible records
+    and clearly labeled editor metadata. Never infer private chain-of-thought
+    from rationales, edits, timestamps, or outcome correlations. Record the
+    capture boundary, selection process, missing turns, and data-retention
+    choice; do not keylog or scrape private editor/chat stores.
 
-## Five-pillar checks
+## Reciprocal strategic-model check
+
+When a case involves interdependent actor choices, a game-theoretic model may
+be considered after source, context, feasibility, observation and perspective
+checks. Require evidence-linked players/actions/information, declared utility
+units, assumptions, horizon and missing actors. Model outputs are conditional
+mathematics, not empirical observations or motive evidence. Feed the result
+back through the five other pillars; revise, abstain or report NOT_SUPPLIED if
+the model boundary or assumptions do not survive. Do not tune utilities to
+produce a preferred outcome, and do not mistake scenario sensitivity for
+calibrated probability.
+
+External sources on linked cooperative games in ecosystems or
+evolutionary/social-ecological change supply possible analytical concepts only.
+Record their access level and limits in the
+[scientific foundations crosswalk](docs/pillar-scientific-foundations.md);
+neither source establishes the validity, fairness or efficacy of this
+framework's adaptation.
+
+## Six-pillar checks
 
 | Pillar | Model/test handoff | Prohibited leap |
 |---|---|---|
@@ -89,6 +113,7 @@ payments/anchoring, not as evidence that those capabilities exist.
 | DUAL LAYER | Explicit observation/latent-state model and identifiability/sensitivity checks. | Missing observations prove a hidden reality or source condition. |
 | XFACTOR | Predeclared scenarios, bounded losses, frozen probabilities and proper scoring. | Surprise, narrative plausibility or presencing establishes calibrated probabilities. |
 | KNOWING FIELD | Human-led reflexive inquiry; consent/dissent and independently specified outcome study. | Schema completeness, entropy or group agreement measures consciousness. |
+| GAME THEORY | Evidence-linked actors, feasible actions, information, utility units, alternatives and sensitivity; conditional results return to the other five checks. | A computed equilibrium reveals real preferences, predicts unobserved conduct, establishes fairness or authorizes action. |
 
 ## Digital evidence dossier output
 

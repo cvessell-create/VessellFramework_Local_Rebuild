@@ -66,6 +66,15 @@ research adaptation, not demonstrated efficacy. Honest missing/declined
 perspectives are acceptable findings; fabricated accounts are not.
 Existing released records remain historical and are not retroactively certified.
 
+The six pillars work reciprocally rather than as independent scores or a
+one-way sequence. PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR and KNOWING FIELD
+constrain the boundary, evidence and assumptions of any applicable GAME THEORY
+model; its conditional results then return to those five checks for sensitivity,
+omitted-actor, feasibility, interpretation and human-perspective review.
+Strategic analysis is optional, source-linked and non-authoritative. External
+systems/evolutionary research informs possible cross-pillar questions, not
+VessellFramework validity or the calibration of case-specific utilities.
+
 The stack maintains distinct functional and authorization boundaries:
 
 1. **Agent task intake:** authenticated, typed interfaces accept bounded

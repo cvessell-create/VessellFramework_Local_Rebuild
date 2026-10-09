@@ -1,4 +1,6 @@
-Supported Versions
+# Security Policy
+
+## Supported Versions
 
 Security fixes are provided for the current `3.12.x` release line. Older
 versions are not currently supported; upgrade to the latest available release
@@ -54,3 +56,6 @@ continue testing beyond what is necessary to establish the report.
   the decision and any relevant scope or evidence limitations.
 - Please keep non-public details confidential until coordinated disclosure.
   We will credit reporters in an advisory only with their permission.
+
+The project does not currently promise a bug bounty or a fixed remediation
+deadline.

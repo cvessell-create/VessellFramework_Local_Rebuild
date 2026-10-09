@@ -1,6 +1,6 @@
 # Five-pillar scientific foundations and digital evidence dossier
 
-## Current sixth-pillar extension
+## Current reciprocal six-pillar extension
 
 The original five-pillar dossier below remains source history. The current
 architecture adds GAME THEORY; use the
@@ -12,6 +12,14 @@ coalitions and conserved savings receipts. Conditional proofs and tests do
 not establish real-world motives, utility calibration or framework efficacy.
 The [civilian authorship caveat](civilian-authorship-and-model-interference.md)
 preserves the owner account without asserting unverified external intervention.
+
+GAME THEORY is optional and reciprocal: the first five pillars constrain
+players, boundary, evidence, feasibility, observations, uncertainty and human
+perspectives; a declared strategic model returns conditional consequences for
+all five to challenge. Do not fill missing utilities or actors, infer motives,
+or turn sensitivity analysis into forecast probabilities. This section adds
+source-bounded research leads for actor/artifact ecosystems and dynamic
+social-ecological systems; neither validates this framework's adaptation.
 
 Research date: October 7, 2026. Status: source-bounded research synthesis and
 prospective validation plan, not proof of the whole framework.
@@ -49,6 +57,9 @@ findings. No new participant study or economic experiment was performed.
 | S8 | NIST [FIPS 180-4 publication record](https://csrc.nist.gov/pubs/fips/180-4/upd1/final) and [AI RMF overview](https://www.nist.gov/itl/ai-risk-management-framework); publication/overview pages reviewed, not full technical texts. | SHA standard identity and risk-management/evaluation framing. | A standards citation is not certification, implementation conformance or empirical validation. |
 | S9 | [RFC 8785](https://www.rfc-editor.org/rfc/rfc8785.txt), introduction/scope reviewed; [RFC 9162](https://www.rfc-editor.org/rfc/rfc9162.txt), section 2.1 Merkle definitions/inclusion reviewed. | Deterministic serialization as a separately specified contract; Merkle inclusion versus consistency. | Existing Python sorted JSON is not JCS; proposed receipts are not implemented or Certificate Transparency compliant. |
 | S10 | [OpenTimestamps](https://opentimestamps.org/) documentation and [EAS official contracts](https://github.com/ethereum-attestation-service/eas-contracts) README reviewed. | Existence commitments and signed assertions have distinct evidentiary scope. | No timestamp proof, signature or onchain attestation was created/verified for this release. |
+| S11 | Granstrand (2024), [Chalmers research record](https://research.chalmers.se/en/publication/538847), publisher-hosted abstract and metadata reviewed; full text not reviewed. | Describes a systems/game-theory approach linking cooperative games over artifact and actor systems, complement/substitute relations and value creation/capture. | Abstract-level support for a candidate systems mapping only; does not validate this framework's payoff adapters, weights, fairness or outcomes. |
+| S12 | Currie et al. (2024), [Royal Society article in PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC10645068/), abstract reviewed. | Connects evolutionary theory and social-ecological systems and suggests systems mapping to represent change processes. | Not a game-theory validation or a universal model-selection rule; dynamic assumptions require case evidence and a suitable design. |
+| S13 | NIST, [AI RMF overview](https://www.nist.gov/itl/ai-risk-management-framework), current official overview reviewed October 7, 2026; linked AI RMF 1.0 is voluntary and the page says revision is underway. | Supports a governance/lifecycle framing for responsible AI risk work. | Does not prescribe or endorse game-theoretic analysis; framework crosswalk is an adaptation, not NIST certification. |
 
 ### Bibliographic candidates, not adopted findings
 
@@ -62,6 +73,43 @@ read empirical support or independent corroboration.
 Unverified search-suggested notarization/antifragility citations and mismatched
 paper links were not adopted. A source about an unrelated universal/Akashic
 field was not substituted for the selected Knowing Field theory.
+
+### Strategic cross-pillar questions
+
+- **PARADOX:** Does an apparent contradiction persist when the actors, time
+  horizon, rules and information set are aligned, or is it a competing objective?
+- **BOTTLENECK:** Is the alleged binding constraint physically/resource
+  infeasible, institutionally imposed, or incentive-dependent? Keep causal
+  evidence for the real-world claim separate from a conditional model.
+- **DUAL LAYER:** Are utilities, preferences or strategic types observed,
+  elicited, or simply analyst-supplied? Preserve that status in every output.
+- **XFACTOR:** Could additional players, changing rules, feedback or strategic
+  adaptation reverse the result? Report scenario sensitivity without
+  pretending scenarios have calibrated probabilities.
+- **KNOWING FIELD:** Whose perspective defined the game and its utility scale?
+  Record observer participation, consent, dissent and missing/declined voices;
+  do not fabricate a participant or infer consent from the model.
+- **GAME THEORY:** Is strategic interaction necessary for the question, and is
+  there adequate source-linked input to model it? If not, use NOT_SUPPLIED.
+
+The candidate implications from S11-S12 are deliberately narrow: map coupled
+actor/artifact relations when interdependence is at issue and test dynamic
+feedback only when the setting is repeated/changing and observations support
+that boundary. Those choices must be evaluated against alternatives. The NIST
+AI RMF (S13) can organize governance and review steps, but it is not evidence
+for the game model itself.
+
+**Search record (this update):** Tools: web search and direct web fetch.
+Scope: targeted searches for recent game-theory/systems integration, the exact
+Granstrand title/DOI, evolutionary/social-ecological systems and official NIST
+AI RMF material; then direct checks of the Chalmers record 538847, Crossref
+DOI `10.1016/j.technovation.2023.102926`, PMC article PMC10645068 and NIST
+overview. The search interface did not expose result counts or a pagination
+limit, so counts/limit status are NOT_REPORTED, not assumed zero/unlimited.
+The Chalmers and Currie et al. abstracts were reviewed; Granstrand full text,
+the full NIST technical document and exhaustive prior art were not reviewed.
+NIST overview was used only for governance/current-status framing. No
+participant study or utility calibration was performed.
 
 ## PARADOX: context before contradiction
 

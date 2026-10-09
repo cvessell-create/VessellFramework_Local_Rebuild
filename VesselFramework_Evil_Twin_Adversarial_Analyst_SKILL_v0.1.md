@@ -93,6 +93,12 @@ The adjudicator must not average the primary and Twin outputs. It preserves
 claims that survive, downgrades claims that fail, records unresolved evidence
 debt, and assigns the final permissible confidence and posture.
 
+For prompt or agent behavior cases, challenge whether the evidence consists of
+visible, consented prompts/responses and independently checked outcomes.
+Keystroke counts or file-edit timing do not reveal hidden reasoning, prompt
+intent, or causality. Reject datasets collected through keylogging, secret
+capture, or unconsented private-store scraping.
+
 ## Deterministic Offline Gate
 
 The single-file runtime provides an offline challenge for repeatable

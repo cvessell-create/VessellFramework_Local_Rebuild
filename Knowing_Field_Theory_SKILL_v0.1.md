@@ -108,6 +108,24 @@ Reject automatic sentiment/personality inference, a numerical consciousness
 score, collective consensus as truth, and a fifth-person hierarchy. None is
 needed to operationalize the requested inquiry.
 
+### Sixth-pillar strategic-model bridge
+
+The current [GAME THEORY skill](VesselFramework_Game_Theory_SKILL_v0.1.md) and
+[audit](docs/game-theory-framework-audit.md) provide a strategic-model handoff,
+not a revision of Scharmer and Pomeroy's theory. Human field inquiry informs
+model boundaries and participant coverage, observer position and model choices,
+declared assumptions, and interpretation of conditional outputs. Record
+affected people outside the modeled actors, missing or declined perspectives,
+participation consent and dissent. Keep human accounts distinct from modeled
+actors, actions, information and utilities; absence is not an inferred
+preference or agreement.
+
+This bridge is VessellFramework synthesis, not external validation of the
+adaptation. Game-theory outputs do not substitute for human inquiry, create
+consent, infer motives, raise confidence or validate outcomes. They cannot
+bypass source/preview-bound human completion, the separate human release
+decision, Harm Gate or execution authority.
+
 ## Output and decision rules
 
 Output a bounded field map: observer position, affected parties, perspective

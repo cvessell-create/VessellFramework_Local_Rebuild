@@ -20,7 +20,7 @@ Runtime implementation validates records and authority, not presencing.
 ## Scientific and digital-evidence handoff
 
 Apply [Scientific Evidence](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
-and its [five-pillar model/test crosswalk](docs/pillar-scientific-foundations.md).
+and its [historical five-pillar dossier and current reciprocal six-pillar extension](docs/pillar-scientific-foundations.md).
 Keep mathematical assumptions, observed associations, causal identification,
 human accounts and empirical outcomes distinct. Use the dossier template
 without claiming a new runtime schema or validated theory.
@@ -30,6 +30,14 @@ is prospective and cannot convert a receipt, payment or consensus into human
 completion, release approval or execution authority.
 
 ## Purpose and authority
+
+For prompt-trajectory audits, keep the owner's explicit self-report, visible
+assistant output, analyst synthesis, and any independently observed result as
+separate perspectives with separate provenance. Record revision history and
+missing turns; do not translate a prompt sequence into a claim about the
+owner's private mental state or a generated rationale into access to model
+internals. Apply the protocol in
+[`docs/prompt-steering-and-reasoning-audit.md`](docs/prompt-steering-and-reasoning-audit.md).
 
 The current architecture also includes
 [GAME THEORY as its sixth pillar](VesselFramework_Game_Theory_SKILL_v0.1.md).
@@ -45,6 +53,23 @@ XFACTOR. Harm Gate, Evidence Assurance, Provenance Firewall and author-source
 preservation retain precedence. The policy requires a human-completed fifth
 pillar before any new human report release, including pending legacy jobs.
 No retrospective rewriting or automatic assessment of historical releases.
+
+## Sixth-pillar strategic-model bridge
+
+Use the [GAME THEORY skill](VesselFramework_Game_Theory_SKILL_v0.1.md) and
+[audit](docs/game-theory-framework-audit.md) for the strategic-model handoff.
+Human field inquiry informs model boundaries and participant coverage,
+observer position and model choices, declared assumptions, and interpretation
+of conditional outputs. Record affected people outside the modeled actors,
+missing or declined perspectives, participation consent and dissent; do not
+turn unavailable accounts into inferred preferences or agreement. Keep human
+accounts distinct from modeled actors, actions, information and utilities.
+
+This bridge is VessellFramework synthesis, not an external validation claim.
+Game-theory outputs do not substitute for human inquiry, create consent, infer
+motives, raise confidence or validate outcomes. They cannot bypass human
+completion bound to the actual source and exact preview, the separate human
+release decision, Harm Gate or execution authority.
 
 ## Source adoption and modification
 
@@ -90,6 +115,7 @@ Consent applies to inquiry participation, not to fabricated group agreement.
 | DUAL LAYER | Distinguish observable manifestation from proposed source conditions; disclose the analyst's intervention. |
 | XFACTOR | Convert emergent possibilities into bounded alternatives and disconfirmers, not forecasts or action grants. |
 | KNOWING FIELD | Integrate observer participation, perspective gaps, dissent and attention/intention/agency into a documented, correctable human assessment. |
+| GAME THEORY | Use human inquiry to bound strategic models and participant coverage, disclose observer/model choices and assumptions, and interpret conditional outputs without replacing missing accounts, consent or dissent. |
 
 1. Read the theory skill; scope the relevant human/system field.
 2. Preserve provenance and mark source reports versus interpretations.
@@ -106,7 +132,7 @@ Consent applies to inquiry participation, not to fabricated group agreement.
 
 ## Decision and output contract
 
-Outputs include five-pillar framing, inquiry status, source-linked assessment,
+Outputs include six-pillar framing, inquiry status, source-linked assessment,
 unresolved limitations, human completion actor/time/bindings, and next test.
 Machine validation means DOCUMENTED_UNREVIEWED, not HUMAN_COMPLETED.
 Human completion means procedural completion, not truth or field experience.

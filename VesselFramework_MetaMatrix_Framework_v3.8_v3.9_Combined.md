@@ -19,6 +19,27 @@ conditions and attention/intention/agency. The four earlier pillars retain
 their diagnostic contributions, but their conclusions must account for these
 conditions before a human report-release decision.
 
+### Reciprocal full-circle Game Theory integration
+
+GAME THEORY is a conditional analytic lens within the six-pillar system, not a
+final arbiter or an independent source of evidence. PARADOX establishes whether
+claims share a context, time and information set; BOTTLENECK distinguishes
+feasibility from willingness and coordination; DUAL LAYER keeps reported
+preferences separate from observed behavior; XFACTOR tests omitted actors,
+payoffs, thresholds and adaptation; KNOWING FIELD records observer/model
+choices, affected people, consent, missing voices and dissent. A bounded
+strategic model may then calculate consequences from declared inputs. Feed its
+assumptions and outputs back through all five pillars; preserve disagreement,
+revise the model or return NOT_SUPPLIED when it fails those checks.
+
+This cycle is source-led and iterative, not a requirement to force a game into
+every case. External research informs candidate concepts such as linked
+cooperative games for actor/artifact ecosystems and feedback-aware
+social-ecological change; it does not validate this framework's adapters,
+utility values, fairness or human outcomes. Read
+[the current crosswalk and source limits](docs/pillar-scientific-foundations.md)
+alongside the [sixth-pillar audit](docs/game-theory-framework-audit.md).
+
 Every new report release requires a human-completed inquiry bound to the
 actual source and preview, independently of Harm Gate and review authority.
 Caller context, metadata filing, generated text or collective agreement cannot

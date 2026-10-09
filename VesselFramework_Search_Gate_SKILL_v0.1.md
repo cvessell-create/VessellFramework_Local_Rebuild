@@ -84,6 +84,9 @@ the primary licence verification, attribution and recorded decision above.
 4. **Never fabricate inaccessible content.**
 5. **Correct names before writes.**
 6. **Licence-blocked material is never imported.**
+7. **Local history is not automatically authorized.** Use only user-exported
+   records or explicit-consent capture. Never scrape private VS Code/Copilot
+   stores or collect raw keystrokes, credentials, or unrelated file contents.
 
 Unverified external claims return:
 `FRAMEWORK STATE: DEGRADED — UNVERIFIED EXTERNAL CLAIM`.

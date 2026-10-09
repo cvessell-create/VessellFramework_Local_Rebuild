@@ -41,6 +41,14 @@ The case pipeline and specialist contract accept optional source-linked
 matrix, tree, coalition and savings models. Exact conditional calculations
 do not infer motives, raise confidence or authorize action.
 
+The pillars are applied in a reciprocal full-circle cycle: evidence and
+perspective checks shape any strategic model, then its declared assumptions and
+conditional outputs are challenged against all five other pillars. A model is
+optional; without adequate actor/evidence inputs report NOT_SUPPLIED. See the
+[cross-pillar audit](docs/game-theory-framework-audit.md) and
+[source-bounded scientific crosswalk](docs/pillar-scientific-foundations.md)
+for the updated research basis and its limits.
+
 For Knowing Field, follow the
 [source-grounded theory skill](Knowing_Field_Theory_SKILL_v0.1.md),
 [framework blind-spot audit](docs/knowing-field-framework-audit.md) and
@@ -82,7 +90,7 @@ Source snapshots and archive fingerprints are preserved in
 
 ## Scientific foundations and next-stage agent economy
 
-The [five-pillar scientific crosswalk](docs/pillar-scientific-foundations.md)
+The [scientific foundations crosswalk](docs/pillar-scientific-foundations.md)
 maps reviewed sources to models, assumptions, limits and falsifiable tests.
 The [Scientific Evidence skill](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
 expands the analyst, Knowing Field, forecasting and Skill Creator methods.
@@ -419,6 +427,34 @@ For offline use, pass play-by-play JSON files or directories instead of
 `--cache-dir`. Formats: HTML, terminal text, CSV and JSON. Tests use synthetic
 game data only; no fabricated real-game data is included.
 
+## SQL quick reference and repository usage map
+
+See the [SQL quick reference](SQL_QUICK_REFERENCE.md) for retrieval, joins,
+filtering, aggregation, window functions, data changes, schema objects, stored
+procedures and SQL Server/SQLite differences. The generated
+[SQLite catalog](data/sql_reference.sqlite) indexes these concepts, reusable
+safe prompt patterns paired for SQL Server and SQLite, engine syntax examples,
+and source-line examples of SQL used in this repository.
+Regenerate it with `python scripts/build_sql_reference_db.py`; it stores no
+private conversation transcripts.
+
+For a bounded comparison of explicit prompt steering, visible assistant
+outputs and verified outcomes—without attempting to reconstruct private
+chain-of-thought—see the [prompt steering and reasoning audit](docs/prompt-steering-and-reasoning-audit.md).
+The owner-provided [GitHub agent session handoff](data/prompt_session_handoff.json)
+contains summarized historical goals, visible rationale summaries, and
+verifiable work, with unavailable history and private reasoning explicitly
+marked. Validate and render it with
+`python -m vessell.agent_handoff`; then ask the GitHub coding agent to continue
+the `github_agent_task` in that JSON. Review the data before publishing it.
+Build/import the supplied, selected audit summaries with
+`python scripts/build_sql_reference_db.py --prompt-audit-zip /path/to/Prompt_Usage_Audit.zip`,
+then summarize with `python -m vessell.prompt_audit` or
+`Rscript r/prompt_audit.R`. These tools do not call an LLM.
+The same catalog inventories repository Markdown/RST/TXT prompt, skill, and
+documentation sources by path, hash, and counts without copying their text;
+the Python report shows source counts by category.
+
 ## Public Display Mode and supplemental research tools
 
 The [approved static artifact capture](docs/static-artifact-capture.md) records
@@ -436,3 +472,6 @@ framework or replace the author's canonical claim-correction paper.
 ## License
 
 Apache License 2.0 — see [LICENSE](LICENSE). Copyright 2026 Christopher R. Vessell.
+
+See [SECURITY.md](SECURITY.md) for supported versions and private vulnerability
+reporting guidance.

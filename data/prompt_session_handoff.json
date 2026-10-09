@@ -1,0 +1,157 @@
+{
+  "schema_version": "1",
+  "handoff_id": "prompt-steering-session-2026-10",
+  "created_at": "2026-10-08",
+  "classification": "OWNER-PROVIDED SUMMARY; REVIEW BEFORE PUBLICATION",
+  "source_and_completeness": {
+    "source": "Conversation history and compacted session summary supplied in this chat",
+    "is_complete_transcript": false,
+    "contains_raw_model_internal_reasoning": false,
+    "missing_history": "Earlier assistant turns and full raw conversation transcripts were not supplied here."
+  },
+  "owner_goal": {
+    "summary": "Give the repository's GitHub coding agent the usable conversation context, visible rationale, and verifiable work from this session so it can continue the prompt-steering audit.",
+    "explicit_ip_context": "The user says this is their own IP and wants to develop it further.",
+    "latest_correction": "The intended target is a GitHub agent that can consume a handoff from this chat, not a VS Code recorder that attempts to obtain hidden reasoning."
+  },
+  "historical_request_summaries": [
+    {
+      "sequence": 1,
+      "summary": "Integrate game theory throughout the framework's pillars, main document, documentation, and skills."
+    },
+    {
+      "sequence": 2,
+      "summary": "Research additions to game theory that fit the other-pillar rework and analyze the framework in a parallel, cross-pillar way."
+    },
+    {
+      "sequence": 3,
+      "summary": "Test the rebuilt repository against a story and identify improvement opportunities."
+    },
+    {
+      "sequence": 4,
+      "summary": "Apply results to the separate Hail game repository; later approve its upload change."
+    },
+    {
+      "sequence": 5,
+      "summary": "Create a SQL Server and SQLite quick reference, map SQL concepts to repository usage, and build a SQLite catalog of prompt/code patterns."
+    },
+    {
+      "sequence": 6,
+      "summary": "Compare prompt-steering patterns with observable LLM outputs and outcomes; include Python and R tooling and integrate the method across repository pillars."
+    },
+    {
+      "sequence": 7,
+      "summary": "Use available VS Code/repository information to extend the audit, then clarified that the target is a GitHub agent handoff rather than editor activity capture."
+    }
+  ],
+  "current_message_summaries": [
+    {
+      "summary": "The user wants available conversation material added to their GitHub agent and used there.",
+      "verbatim": false
+    },
+    {
+      "summary": "The user wants to use their own intellectual property to develop the system.",
+      "verbatim": false
+    },
+    {
+      "summary": "The user said local logs/keystrokes were acceptable and wanted to use their own IP.",
+      "verbatim": false
+    },
+    {
+      "summary": "The user corrected the target: prepare information from this chat for the GitHub agent, rather than build a local VS Code capture tool.",
+      "verbatim": false
+    }
+  ],
+  "clarification_sequence": [
+    {
+      "actor": "user",
+      "summary": "Authorized broad local history/keystroke collection and emphasized their own IP.",
+      "verbatim": false
+    },
+    {
+      "actor": "assistant",
+      "summary": "Declined keylogging/private-store scraping and began a metadata-only VS Code recorder.",
+      "verbatim": false
+    },
+    {
+      "actor": "user",
+      "summary": "Corrected the intent: prepare the available conversation material for the GitHub agent; the editor recorder was the wrong direction.",
+      "verbatim": false
+    },
+    {
+      "actor": "assistant",
+      "summary": "Removed the mistaken recorder and prepared this bounded, source-labeled GitHub-agent handoff.",
+      "verbatim": false
+    }
+  ],
+  "assistant_visible_rationale_summary": [
+    {
+      "claim": "The supplied 12-case audit is a selected set of analyst summaries, not a complete account export or raw transcript.",
+      "verbatim": false,
+      "basis": "The archive contents and schema inspected in this session.",
+      "limit": "Does not establish prevalence, causality, or complete conversational history."
+    },
+    {
+      "claim": "SQL injection, prompt injection, and ordinary user steering are different mechanisms.",
+      "verbatim": false,
+      "basis": "Database parser boundaries versus LLM instruction/data boundaries.",
+      "limit": "Their shared use of the word injection does not make SQL a method for decoding model reasoning."
+    },
+    {
+      "claim": "A visible rationale or explanation is observable output, not verified access to the model's private computation.",
+      "verbatim": false,
+      "basis": "Research and evidence boundaries recorded in the prompt-steering audit.",
+      "limit": "This handoff includes concise visible rationale summaries only; it does not contain private chain-of-thought."
+    },
+    {
+      "claim": "A local VS Code recorder was the wrong deliverable for the corrected goal and was removed.",
+      "verbatim": false,
+      "basis": "The user clarified that the handoff should go to their GitHub coding agent.",
+      "limit": "No capture events were collected; no editor data is included in this handoff."
+    }
+  ],
+  "observable_work_and_verification": {
+    "generated_catalog": {
+      "path": "data/sql_reference.sqlite",
+      "schema_version": 4,
+      "sql_concepts": 90,
+      "dialect_entries": 180,
+      "repository_sql_usage_references": 640,
+      "guidance_documents_inventoried": 99,
+      "selected_audit_summaries": 12,
+      "vscode_activity_events": 0,
+      "integrity_check": "ok",
+      "foreign_key_check": "empty"
+    },
+    "focused_tests": {
+      "command": "./.venv/bin/python -m pytest tests/test_sql_quick_reference.py tests/test_agent_handoff.py -q",
+      "result": "6 passed"
+    },
+    "other_checks": {
+      "ruff": "passed",
+      "GitHub handoff CLI": "rendered successfully",
+      "R report syntax": "parsed successfully",
+      "R report": "not run successfully because DBI and RSQLite are not installed"
+    },
+    "actions_not_performed": [
+      "No GitHub agent was launched from this session.",
+      "No changes were committed or pushed.",
+      "The R packages DBI and RSQLite were not installed."
+    ]
+  },
+  "reasoning_access_boundary": {
+    "private_model_chain_of_thought": "NOT_AVAILABLE",
+    "user_private_mental_state": "NOT_INFERRED",
+    "available_from_this_handoff": [
+      "User statements and historical request summaries explicitly supplied in the conversation context",
+      "Assistant-visible conclusions and concise rationale summaries",
+      "Tool actions, repository artifacts, and validation results recorded in the session summary"
+    ],
+    "not_available_from_this_handoff": [
+      "Private token-by-token model reasoning",
+      "Unprovided full chat transcripts or hidden account history",
+      "An exact causal explanation for why a model generated a particular response"
+    ]
+  },
+  "github_agent_task": "Read this handoff and docs/prompt-steering-and-reasoning-audit.md. Produce a source-attributed timeline of the owner's stated goals, revisions, assistant-visible decisions, actions, and verified outcomes. Label paraphrased history as summaries, distinguish assistant-visible rationale from private chain-of-thought, identify missing evidence, and propose measurable next steps for the audit. Do not claim access to hidden reasoning or invent missing turns. Review this owner-provided material before publishing it in a public repository."
+}

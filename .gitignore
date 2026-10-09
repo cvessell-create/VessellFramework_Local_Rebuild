@@ -13,6 +13,7 @@ frontend/*.tsbuildinfo
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
+!data/sql_reference.sqlite
 *.zip
 .vesselframework_target_root.txt
 *.vesselframework_backup_*

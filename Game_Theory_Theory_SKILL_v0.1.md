@@ -19,6 +19,9 @@ scarce allocation, information asymmetry or sequential decisions.
 Do not create a strategic model for mere contradiction, mechanical throughput,
 an unsupported attribution or a collection of unexplained scores.
 Harm Gate, Evidence Assurance, provenance and human release retain precedence.
+GAME THEORY is an optional, reciprocal lens: the five other pillars constrain
+the model and then recheck its assumptions and outputs. It does not supersede
+their evidence, human-perspective, confidence or authority boundaries.
 
 ## Source record and access
 
@@ -51,6 +54,16 @@ SEARCH RECORD: publisher PMLR page / direct fetch / one exact source / one
 opened / no pagination limit / primary abstract yes / source-bounded support /
 full proof, exhaustive prior art and participant outcomes NOT checked.
 
+Additional scoped research for the cross-pillar rework:
+
+- Granstrand (2024), [Chalmers publication record](https://research.chalmers.se/en/publication/538847), abstract/metadata only. Supports the existence of a systems and cooperative-game-theory approach to actor/artifact ecosystem relations; the full article and transfer to this framework were not validated.
+- Currie et al. (2024), [Royal Society article in PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC10645068/), abstract only. Supports a research connection between evolutionary theory and social-ecological systems; it is not evidence that a given case should be modeled as an evolutionary game.
+- NIST's [AI RMF overview](https://www.nist.gov/itl/ai-risk-management-framework), official overview opened. Used only as lifecycle/governance context, not as a game-theory endorsement or validation.
+
+Search was targeted, not exhaustive. Full texts for Granstrand and the NIST
+technical framework were not reviewed; no case-specific utilities,
+participant outcomes or causal effects were established.
+
 ## Inputs and transformations
 
 Require players; available actions; who observes what and when; terminal
@@ -81,6 +94,24 @@ Ordinal preference, eligibility, cost and cardinal utility are different types.
 6. **Hybrid state:** `S_next=F(S,action,dt,time,random)`; observation `h(S)`
    is a projection. Complete replay also needs ordered accepted actions, clock
    and RNG state. Sampled snapshots do not reconstruct hidden bids or actions.
+
+## Reciprocal six-pillar application
+
+| Pillar | Before a model | Return check on conditional results |
+|---|---|---|
+| PARADOX | Align claims to context, actors, rules, time and information; distinguish a contradiction from a persistent trade-off. | Confirm that comparisons keep the same boundary; report whether alternate assumptions explain the tension. |
+| BOTTLENECK | Establish evidence for feasibility, resource and coordination limits. | Do not infer a binding operational constraint from a modeled incentive; separate feasibility from willingness. |
+| DUAL LAYER | Mark preferences/utilities as observed, elicited or analyst-supplied and preserve provenance. | Do not re-label a payoff or equilibrium as behavior, hidden state or motive. |
+| XFACTOR | Identify omitted actors, information gaps, changing rules and uncertain outcomes. | Vary assumptions and report sensitivity without inventing calibrated scenario probabilities. |
+| KNOWING FIELD | Record observer participation, affected parties, consent, absent/declined perspectives and dissent. | Human inquiry remains separate; machine output cannot supply consent, dialogue or source/preview-bound completion. |
+| GAME THEORY | Model only evidence-supported interdependence with declared inputs and scope. | Return assumptions/results for all five checks; revise or abstain if they fail. |
+
+An example full-cycle trace is: **source/evidence → context and alternatives →
+feasibility/observation/uncertainty → human perspective review → optional
+declared game → bounded calculation → five-pillar challenge → provenance and
+uncertainty update → Harm Gate and separate human release decision**. This is
+iterative; it is not a mandatory linear order or an instruction to force every
+case into a game.
 
 ## Cross-domain limits and failure criteria
 
@@ -117,3 +148,18 @@ Owner-supplied source snapshots preserved in this repository.
 Wang, J. T., & Jia, R. (2023). Data Banzhaf: A robust data valuation framework
 for machine learning. *Proceedings of Machine Learning Research, 206*,
 6388-6421. https://proceedings.mlr.press/v206/wang23e.html
+
+Granstrand, O. (2024). A cooperative game theory systems approach to the value
+analysis of (innovation) ecosystems. *Technovation, 130*, 102926.
+https://doi.org/10.1016/j.technovation.2023.102926
+
+Currie, T. E., Borgerhoff Mulder, M., Fogarty, L., Schlüter, M., Folke, C.,
+Haider, L. J., Caniglia, G., Tavoni, A., & Jansen, R. E. V. (2024).
+Integrating evolutionary theory and social-ecological systems research to
+address the sustainability challenges of the Anthropocene. *Philosophical
+Transactions of the Royal Society B: Biological Sciences, 379*(1893), 20220262.
+https://doi.org/10.1098/rstb.2022.0262
+
+National Institute of Standards and Technology. (2023). *Artificial
+intelligence risk management framework (AI RMF 1.0)* (NIST AI 100-1).
+https://doi.org/10.6028/NIST.AI.100-1

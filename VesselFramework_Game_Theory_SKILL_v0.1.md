@@ -21,7 +21,8 @@ and [Knowing Field](VesselFramework_Knowing_Field_SKILL_v0.1.md).
 
 Ask: **Which outcomes follow from declared actor choices, information,
 constraints, transitions and utilities, and which assumptions change them?**
-This supplements PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR and KNOWING FIELD.
+This is an optional, reciprocal lens within PARADOX, BOTTLENECK, DUAL LAYER,
+XFACTOR and KNOWING FIELD, not a final scoring pillar above them.
 It cannot infer political allegiance, planted code, hidden intent, intelligence
 or real-world fairness from a payoff table.
 
@@ -45,9 +46,18 @@ numerator/denominator strings. No missing coefficient defaults to zero.
 
 ## Full-circle sequence
 
-`OWNER SOURCE -> THEORY SKILL -> BLIND-SPOT AUDIT -> COMBINED SKILL
--> DECLARED MODEL -> BOUNDED EXECUTION -> PROVENANCE/REPORT
--> HUMAN FIELD COMPLETION -> RELEASE DECISION -> EVALUATION -> VERSIONED REVISION`
+For prompt-injection studies, model the attacker, user, agent, tools, data
+sources, permissions, available actions, information, utilities, and evidence
+before calculating any conditional outcome. Ordinary user steering is not an
+attack label. Never infer intent or private chain-of-thought from a selected
+prompt/result trace; mark unavailable actor or model-state inputs
+NOT_SUPPLIED. Apply the prompt evidence boundaries in
+[`docs/prompt-steering-and-reasoning-audit.md`](docs/prompt-steering-and-reasoning-audit.md).
+
+`SOURCE / CONTEXT / FIVE-PILLAR CHECKS -> OPTIONAL DECLARED MODEL
+-> BOUNDED EXECUTION -> RETURN TO ALL FIVE PILLARS -> PROVENANCE / LIMITS
+-> HARM GATE -> HUMAN FIELD COMPLETION -> SEPARATE RELEASE DECISION
+-> EVALUATION -> VERSIONED REVISION`
 
 For each model:
 1. State question, observer participation and affected parties.
@@ -59,15 +69,31 @@ For each model:
 7. State uncertainty, non-identifiability, harm and authority constraints.
 8. Compare observed outcomes only when independently collected; revise
    coefficients explicitly with rationale and validation, never by hidden fitting.
+9. Return the result to each other pillar; preserve unresolved disagreement,
+   revise the boundary or mark NOT_SUPPLIED instead of forcing convergence.
 
 | Pillar | Sixth-pillar handoff |
 |---|---|
-| PARADOX | Same context/game/information before claiming contradiction |
-| BOTTLENECK | Resource feasibility, strategic incentives and coordination |
-| DUAL LAYER | Reported bid versus actual behavior; no inferred hidden intent |
-| XFACTOR | Sensitivity to payoffs, quotas, survival and unmodeled actors |
-| KNOWING FIELD | Human observer/model choices, absent perspectives, dissent |
-| GAME THEORY | Conditional consequences, assumptions and alternative models |
+| PARADOX | Align actors, rules, time and information; separate contradiction from competing objectives; recheck conditional claims against that context. |
+| BOTTLENECK | Separate evidenced resource feasibility from strategic incentives and coordination; do not let the model establish a real-world constraint. |
+| DUAL LAYER | Preserve reported/elicited/model-assigned utilities separately from observed actions; never infer hidden intent from equilibrium. |
+| XFACTOR | Vary payoffs, quotas, information, omitted players and adaptation; sensitivity is not a probability forecast. |
+| KNOWING FIELD | Human observer/model choices, affected people, missing/declined perspectives and dissent remain part of inquiry; output cannot substitute for human completion. |
+| GAME THEORY | Conditional consequences, assumptions and alternatives; optional and subordinate to source, evidence, harm and release controls. |
+
+## Research-informed integration (source-bounded)
+
+Granstrand's Chalmers abstract describes linked cooperative games over
+artifact and actor systems in ecosystem analysis. Use it only to motivate
+explicit mapping of interdependent actors/artifacts and complementary or
+substitute relations when relevant; full-text review, transfer validity and
+this framework's utility adapters remain unestablished. Currie et al.'s
+abstract connects evolutionary theory with social-ecological systems research;
+use this only as a lead for checking feedback/adaptation in genuinely repeated
+or changing systems, not as evidence that all strategic settings evolve.
+NIST AI RMF materials may structure governance/review, but do not endorse this
+model or validate its claims. Source access levels and limits are recorded in
+[the crosswalk](docs/pillar-scientific-foundations.md).
 
 ## Author design boundaries
 

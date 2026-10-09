@@ -36,6 +36,11 @@ Submitting a strategic model never raises the VERY LOW caller-evidence ceiling
 or completes human inquiry. Changing it changes replay identity and preview
 binding. Omission preserves legacy request identities.
 
+The model is optional and participates in a reciprocal six-pillar analysis:
+the other pillars constrain and then recheck its assumptions and conditional
+results. A submitted model does not supply missing evidence, participant
+consent, human review, release authority or external-action permission.
+
 ```python
 import os
 from datetime import UTC, datetime

@@ -96,6 +96,9 @@ Execution: not performed by the planning layer
 
 Isolation, account disablement, firewall changes, or VM shutdown require a separate,
 audited executor with least privilege, explicit authorization, and a tested rollback path.
+The same least-collection rule applies to local development evidence: gather only
+explicitly authorized, necessary metadata; never capture raw keystrokes, secrets,
+or private editor/chat stores.
 
 ## 8. Validation and Promotion
 

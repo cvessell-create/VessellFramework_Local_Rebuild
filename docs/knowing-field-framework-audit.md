@@ -64,6 +64,26 @@ does not imply report release. Existing permission gates for scanners,
 remediation and owner workflows remain intact; the new inquiry cannot grant
 additional authority or rewrite their measured outputs.
 
+## Current sixth-pillar strategic-model bridge
+
+The current architecture includes [GAME THEORY](../VesselFramework_Game_Theory_SKILL_v0.1.md);
+its [audit](game-theory-framework-audit.md) records the strategic-model surface.
+Human field inquiry informs model boundaries and participant coverage,
+observer position and model choices, declared assumptions, and interpretation
+of conditional outputs. The handoff must retain affected people outside the
+modeled actors, missing or declined perspectives, participation consent and
+dissent. Human accounts remain distinct from modeled actors, actions,
+information and utilities; unavailable accounts are not inferred preferences
+or agreement.
+
+Game-theory outputs do not substitute for human inquiry, create consent, infer
+motives, raise confidence or validate outcomes. They cannot bypass human
+completion bound to the actual source and exact preview, the separate human
+release decision, Harm Gate or execution authority. This documentary bridge
+is VessellFramework synthesis, not external validation of the adaptation or
+new software/empirical verification. The original fifth-pillar migration and
+3.12.0 verification records below remain historical records.
+
 ## Skill Creator record and validation criteria
 
 Selected mosaic: human fourth-person inquiry; original four diagnostics;
