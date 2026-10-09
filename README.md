@@ -427,6 +427,20 @@ For offline use, pass play-by-play JSON files or directories instead of
 `--cache-dir`. Formats: HTML, terminal text, CSV and JSON. Tests use synthetic
 game data only; no fabricated real-game data is included.
 
+## Keeping repository artifacts synchronized
+
+After reviewing and staging source changes, run
+`python scripts/sync_repository_artifacts.py --apply`, then
+`python verify_manifest.py` and the regression checks. The refresh copies the
+canonical skill into its tracked packaged mirror and hashes tracked source
+files, excluding the manifest itself. It preserves historical runtime-status
+metadata; refreshed hashes establish byte consistency, not research validity.
+Stage the refreshed mirror and manifest before committing.
+
+Generated `build/` and `dist/` directories are ignored, not repository source.
+Do not purge authored research, historical evidence, or application data simply
+because a mirror or hash needs refreshing.
+
 ## SQL quick reference and repository usage map
 
 See the [SQL quick reference](SQL_QUICK_REFERENCE.md) for retrieval, joins,
@@ -435,8 +449,13 @@ procedures and SQL Server/SQLite differences. The generated
 [SQLite catalog](data/sql_reference.sqlite) indexes these concepts, reusable
 safe prompt patterns paired for SQL Server and SQLite, engine syntax examples,
 and source-line examples of SQL used in this repository.
-Regenerate it with `python scripts/build_sql_reference_db.py`; it stores no
-private conversation transcripts.
+The catalog and handoff are point-in-time records, not a continuously updated
+index or current runtime attestation. Regenerate into a new output with
+`python scripts/build_sql_reference_db.py --output /path/to/new-catalog.sqlite`;
+it stores no private conversation transcripts. To retain the selected audit
+summaries when rebuilding, supply the original `--prompt-audit-zip` input.
+Rebuilding without that input creates an empty audit-case table; do not
+overwrite the historical catalog merely to refresh repository metadata.
 
 For a bounded comparison of explicit prompt steering, visible assistant
 outputs and verified outcomes—without attempting to reconstruct private

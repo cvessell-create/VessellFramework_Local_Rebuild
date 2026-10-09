@@ -22,3 +22,5 @@ frontend/*.tsbuildinfo
 /areas/
 /topics/
 /mnt/
+/build/
+/dist/

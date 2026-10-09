@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-07T20:26:07.960777+00:00",
+  "generated_utc": "2026-10-09T00:49:28.589639+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -18,7 +18,7 @@
     },
     {
       "path": ".github/copilot-instructions.md",
-      "sha256": "8db899dedabd4fae1f59992ac04c26ec038782fa8517b42453a254228075937e"
+      "sha256": "2a1d25bd81ffbfc99a5542b3b88ff5d02e201ddfb0e2e4488867cfb51c942b5d"
     },
     {
       "path": ".github/workflows/ci.yml",
@@ -38,7 +38,7 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "5021934d96490d6cd471959444496835a975744b37df9503a449fd67ff68a929"
+      "sha256": "597ff8f7c45abff0db137632aa42d62a0fa7a021f90183f579e8b1b013b103ea"
     },
     {
       "path": ".vscode/extensions.json",
@@ -78,11 +78,11 @@
     },
     {
       "path": "Game_Theory_Theory_SKILL_v0.1.md",
-      "sha256": "364027824ed74b1dc3c6bf4019840ef8687fce1c29d9c23c90ea2ef5fc507ca8"
+      "sha256": "a3fc5ba700f2ae1a46672d1fffdd37de9df03ded7fcae2c9b9e38a013a7cabca"
     },
     {
       "path": "Knowing_Field_Theory_SKILL_v0.1.md",
-      "sha256": "4c601257d51815f4a691acbc1239805dcfd57b24cf664540e85761f0dd14832a"
+      "sha256": "65b5fee68ac08f74b401a046d327438d42c22f09092f595dc1772dcc82d328d5"
     },
     {
       "path": "LICENSE",
@@ -106,11 +106,19 @@
     },
     {
       "path": "README.md",
-      "sha256": "97b68bc0cb173be2a71370414e041eab74b546b1404e98046d0197befe0a62f4"
+      "sha256": "4db7b6343d97b1382266b9b8d28790f0285a2e6ea9c905ecce8416ba47903102"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "b78ffed44c67f916fd2aa7b0b668d99124d8f3e62855b82aac51091d0ff99210"
     },
     {
       "path": "SKILL.md",
-      "sha256": "78402d0cf9c0b899dfa95ce99582bbe2bbcd0666eca8f77faf9429f3ccf5562d"
+      "sha256": "ec838004e1ceaf7a85f38d3e4148971a10de177a73e5b5465add894b27664ed9"
+    },
+    {
+      "path": "SQL_QUICK_REFERENCE.md",
+      "sha256": "c79e17297b793c600a9c8fb9ef4d1a755cdb938cfb4b4968c911cb0c882c58cb"
     },
     {
       "path": "Security_Control_Selection_Placement_Analyst_SKILL_v0.1.md",
@@ -118,7 +126,7 @@
     },
     {
       "path": "VISION_AND_SCOPE.md",
-      "sha256": "7b8e57ecef5275c24e2ed1868aacfd3c1ccfd0b7326df04e211f4782dfe7ddf6"
+      "sha256": "38f0147267d199460f41e70b047cc6821d4ca114eac75e06d7e90a4431e98e01"
     },
     {
       "path": "VesselFramework_Agent.md",
@@ -126,11 +134,11 @@
     },
     {
       "path": "VesselFramework_Agentic_SOC_Analyst_SKILL_v0.1.md",
-      "sha256": "43f3fe0a2793b697d313c63e067ae3d39d0c708c8f88d5e24bbf46ad470cf5ce"
+      "sha256": "fb048f15cd1f7f40ace9b1d013686c775ea4b215af6dd2362f39bb9c61f506a7"
     },
     {
       "path": "VesselFramework_Evil_Twin_Adversarial_Analyst_SKILL_v0.1.md",
-      "sha256": "864df4cec47f07ad73f2ccdcd1f893ef5670de345ca6a41ec4086886dd945b8f"
+      "sha256": "9b6ce6fc77b176f41ec9cc83d7d6d634ef693e664879f26971c7c2e1a706a566"
     },
     {
       "path": "VesselFramework_Forecasting_SKILL_v1.0.md",
@@ -138,7 +146,7 @@
     },
     {
       "path": "VesselFramework_Game_Theory_SKILL_v0.1.md",
-      "sha256": "075f4c0792555062d57728b4e3c2d99495e9235d083c4cff15ed3aa5e6b79e95"
+      "sha256": "6744d95ae9317469c2c4861caf727acfae79bebf2d7988b275f0e3d92a5b83d4"
     },
     {
       "path": "VesselFramework_Ghost_Job_Filter_SKILL_v0.1.md",
@@ -150,11 +158,11 @@
     },
     {
       "path": "VesselFramework_Knowing_Field_SKILL_v0.1.md",
-      "sha256": "860ca23fed05bc281f7b2a6e991478d919218cadf87f93b714d26fee79f97d46"
+      "sha256": "a3a5e8c81810d273cca22a7cacbb5cc937c8a195117ab011aa26c69c2400d119"
     },
     {
       "path": "VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md",
-      "sha256": "f979fe83b0b2315abb6f78b468bb9067d412178325d246449c3c556793686c0b"
+      "sha256": "9ec3928cc8b5ea813685d7fa6360c173cb765ad597363a6861d030d045353dcd"
     },
     {
       "path": "VesselFramework_News_Edition_Report_SKILL_v0.1.md",
@@ -178,11 +186,11 @@
     },
     {
       "path": "VesselFramework_Scientific_Evidence_SKILL_v0.1.md",
-      "sha256": "49ddf44a156a2e4154b7954703cf7d0c50b6afd98e13d8e3dfeb4198fbe2ec6b"
+      "sha256": "696a0a2e465f7c9275aaa70e50384865246ddf99fe50bbf4179982be8359fd70"
     },
     {
       "path": "VesselFramework_Search_Gate_SKILL_v0.1.md",
-      "sha256": "a6ecbec09ebbea4d31318a2b28e854ef05a29eb9d3130d4faf0eb34116f0847e"
+      "sha256": "37e352d040e6d2e71948061fdac8bf22263088d89c13c2b7b509148795354a1b"
     },
     {
       "path": "VesselFramework_SingleFile_EvilTwin_v0.2.py",
@@ -285,6 +293,14 @@
       "sha256": "a1da47d2a0c761accaf2ce39a0c5ff8c573f822779ce403d9397891c63a71556"
     },
     {
+      "path": "data/prompt_session_handoff.json",
+      "sha256": "0910c608972742b76f52b4d585166cf585ed30bb9f82bd9fba5fbab2e23f9795"
+    },
+    {
+      "path": "data/sql_reference.sqlite",
+      "sha256": "b61aa5fbc030d1d74a23126e628571411ab22f98b198b8caeb34c741494a9246"
+    },
+    {
       "path": "deploy/ambient/backend.Dockerfile",
       "sha256": "a344b4b0fe7682d1b37c95a117f5e6fc256cd44b056da9d4a1690687b870c448"
     },
@@ -326,7 +342,7 @@
     },
     {
       "path": "docs/evaluation-methods.md",
-      "sha256": "f2ec3e4773b5826c7b4af4151cfae958a5bd3ae08ffbbb8307d072ee8f57c375"
+      "sha256": "0aeeef0c1c6900117ad5bf225f2cf846664485d17a3d1a5d41a6aaf7596d41d6"
     },
     {
       "path": "docs/free-method-courses.md",
@@ -342,7 +358,7 @@
     },
     {
       "path": "docs/game-theory-framework-audit.md",
-      "sha256": "5309a33e2064c6a69ee51fac2e56f619d808956f6b9fad83644e310353acac10"
+      "sha256": "c03058e9fc1af17aa1e0c9c5bcfcc17e756f24c99fe6172d46bdceb019fb7a76"
     },
     {
       "path": "docs/game-theory/continuation-reconciliation.md",
@@ -446,7 +462,7 @@
     },
     {
       "path": "docs/knowing-field-framework-audit.md",
-      "sha256": "8426b7913d845d0700d5571de6294ead7243a4323382514e6f42e2cb1701c3ee"
+      "sha256": "dfc536aa634ef71450fe1f83697aa680b9101ee4881d9fa393fb9dcc9a560afa"
     },
     {
       "path": "docs/local-vision-weight-candidates.md",
@@ -482,7 +498,11 @@
     },
     {
       "path": "docs/pillar-scientific-foundations.md",
-      "sha256": "e7337a138d0fc77b4ecc9b5f6facca231c3eb25c425625df9ae9b6b4bce9c497"
+      "sha256": "762d156b5bf7b57acf15613073f80f0b905af1d71e070e78386946491f8a912d"
+    },
+    {
+      "path": "docs/prompt-steering-and-reasoning-audit.md",
+      "sha256": "de78dcec4baab5b20a14a6341accdc92959dc30bb0631d4ec7ef97c4d1bd2a25"
     },
     {
       "path": "docs/references.md",
@@ -494,7 +514,7 @@
     },
     {
       "path": "docs/specialist-agent.md",
-      "sha256": "02981a965df726ae9a4cb6fb1e66f9af1e9733299603b44853e6d918e2988ff7"
+      "sha256": "b6435cdcad82c1e26e09e40a59b4fb049f41f3ff487bf056b0d810bf32ed09de"
     },
     {
       "path": "docs/static-artifact-capture.md",
@@ -654,7 +674,7 @@
     },
     {
       "path": "mnt/skills/user/vessel-framework-analyst/SKILL.md",
-      "sha256": "78402d0cf9c0b899dfa95ce99582bbe2bbcd0666eca8f77faf9429f3ccf5562d"
+      "sha256": "ec838004e1ceaf7a85f38d3e4148971a10de177a73e5b5465add894b27664ed9"
     },
     {
       "path": "pyproject.toml",
@@ -671,6 +691,10 @@
     {
       "path": "r/memory_store.R",
       "sha256": "55253eff5153ba9d5d41c5b1282b55e2c8a72657cfc9e910b0276e035951889d"
+    },
+    {
+      "path": "r/prompt_audit.R",
+      "sha256": "5540077ccbef161c2dbcbd2d270a5b83b909d13eaf1e5e718febbb6f10147a16"
     },
     {
       "path": "r/setup.R",
@@ -817,6 +841,14 @@
       "sha256": "60ae73bbd7450eddccbf8211c19e39493c4a709215e6606bf0b0105d9671538f"
     },
     {
+      "path": "scripts/build_sql_reference_db.py",
+      "sha256": "a66492453c346d49f687ba039a6489cb137c858babbec594a9cc39dff695dc3c"
+    },
+    {
+      "path": "scripts/sync_repository_artifacts.py",
+      "sha256": "4b35a04e343b29862d2da8adeaa0ac3c299811e4f64891405380c73d9bc82917"
+    },
+    {
       "path": "setup.py",
       "sha256": "d4890d0d3b7e45009f5d75b2ccdff8853565e7238450d9f712c373a07fa83dd3"
     },
@@ -883,6 +915,10 @@
     {
       "path": "tests/fixtures/live_sources/cisa_kev_sample.json",
       "sha256": "47d21535af7089b74a1d38cb741ac790bcba1ce3914c9868b07c2dbfea12ea51"
+    },
+    {
+      "path": "tests/test_agent_handoff.py",
+      "sha256": "38c073e162247ca2ea521021f83257ebef496d219e7e997d2ea062bfd517cc02"
     },
     {
       "path": "tests/test_agentic_soc.py",
@@ -1037,6 +1073,10 @@
       "sha256": "91044d4f158ec28cdfb8a789be2caa3037e390b55e370c9b181bb4ddc7bed687"
     },
     {
+      "path": "tests/test_repository_artifacts.py",
+      "sha256": "0fe971b93b16135834db1e52b252683f4c7873c29eb776de2c104370956500cb"
+    },
+    {
       "path": "tests/test_research_catalog.py",
       "sha256": "e4aa1703c20270864058d81e96408d13106ca8954fd712d6a9439ff5305c2444"
     },
@@ -1075,6 +1115,10 @@
     {
       "path": "tests/test_specialist_agent.py",
       "sha256": "ccaeeba9fef66dad963457cc502a707e2a5c7a9dc1e817c5238959d6cfd69e45"
+    },
+    {
+      "path": "tests/test_sql_quick_reference.py",
+      "sha256": "e073425689347ed84e86d7096b471a307d7ac10602ba7be846b5565738fc416d"
     },
     {
       "path": "tests/test_static_capture.py",
@@ -1131,6 +1175,10 @@
     {
       "path": "vessell/__init__.py",
       "sha256": "348434ca0091f8b9f166f007452e5a168fb610e4cfc1614e09f86b845685f035"
+    },
+    {
+      "path": "vessell/agent_handoff.py",
+      "sha256": "7d2b9a8edd8dde7a704b85aa6fc593bd7bf93142adffff6b9532eb57875ec128"
     },
     {
       "path": "vessell/agentic_soc.py",
@@ -1283,6 +1331,10 @@
     {
       "path": "vessell/posture_agent.py",
       "sha256": "91ad1084d7b0d1890b3096c35ee02efb1407948c8960ba982f8effe0d45b081a"
+    },
+    {
+      "path": "vessell/prompt_audit.py",
+      "sha256": "06ac30c32755a9e3e7e836638f1eaff69022dde3bf489863c07f6a23f3611a76"
     },
     {
       "path": "vessell/provenance.py",
