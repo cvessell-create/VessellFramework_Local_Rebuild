@@ -39,6 +39,10 @@ jobs:
           r-version: "4.3.3"
           use-public-rspm: true
       - uses: r-lib/actions/setup-pandoc@v2
+      - name: Install system dependency for R filesystem and rendering packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libuv1-dev
       - name: Install Python project and development dependencies
         run: |
           python -m pip install --upgrade pip

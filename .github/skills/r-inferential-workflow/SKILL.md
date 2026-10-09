@@ -29,6 +29,9 @@ Base R's `stats` supplies the inferential tests; `readxl` reads Excel,
 `effsize` supports Cohen's d, and `knitr`/`rmarkdown` support reporting.
 RMarkdown rendering additionally requires Pandoc, available through RStudio
 or the cloud setup workflow. Verify availability rather than assuming it.
+On Linux, source installation of the rendering dependency `fs` requires
+libuv headers; the cloud workflow installs `libuv1-dev` explicitly. Diagnose
+the first dependency build error rather than hiding downstream package failures.
 Run `Rscript r/test_statistics_environment.R` for synthetic smoke checks.
 
 ## Data checks

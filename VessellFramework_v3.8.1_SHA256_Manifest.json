@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-09T01:24:06.876262+00:00",
+  "generated_utc": "2026-10-09T01:30:04.993663+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -22,7 +22,7 @@
     },
     {
       "path": ".github/skills/r-inferential-workflow/SKILL.md",
-      "sha256": "c1a3cdd737ed407cc39753035329ab91002ed7854f6d542681757bb8bd482680"
+      "sha256": "6be34cb83bb8a06fc3a3d53681a72d8ba9ebb0b7a2750043de7ce254001a31d7"
     },
     {
       "path": ".github/workflows/ci.yml",
@@ -30,7 +30,7 @@
     },
     {
       "path": ".github/workflows/copilot-setup-steps.yml",
-      "sha256": "172095912aa8fb7f3be8d226aceab654868ebfde0dfab4181f639b17cef31552"
+      "sha256": "f7d6a3b9710e8f42323e70c48f28b2a8724af4f1eb693b65286cf21777cdb5d4"
     },
     {
       "path": ".github/workflows/dashboard-pages.yml",
