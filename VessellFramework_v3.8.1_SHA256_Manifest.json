@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-08T23:48:32.452893+00:00",
+  "generated_utc": "2026-10-09T00:12:58.089331+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -122,7 +122,7 @@
     },
     {
       "path": "VesselFramework_Agent.md",
-      "sha256": "f85197ee136034d387a53df7b45ba103ca68de7568b3e10689ceb140c8252152"
+      "sha256": "dc95fd12fc7aae8702c2924cc7cfb91d1578d5ca4a4c586d43635b12b022cf7d"
     },
     {
       "path": "VesselFramework_Agentic_SOC_Analyst_SKILL_v0.1.md",
@@ -130,7 +130,7 @@
     },
     {
       "path": "VesselFramework_Applied_Statistics_R_SKILL_v0.1.md",
-      "sha256": "9f44a67fe7d577d167792d78dbf3c382dadb037a1eecc2b6e51ed1e9f6ce4e7e"
+      "sha256": "7fb14a2846e9f823b78539ef02581973bb67db728022099388aeaa57d974dddd"
     },
     {
       "path": "VesselFramework_Evil_Twin_Adversarial_Analyst_SKILL_v0.1.md",

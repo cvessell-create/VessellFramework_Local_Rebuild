@@ -109,6 +109,9 @@ using the same subtraction/group order used in the analysis.
 
 Statistical significance is not effect size, practical importance, or causation.
 Avoid describing p > .05 as proof of no difference/relationship.
+For the supplied course reporting rule, report p-values below .001 as `p < .001`,
+`.001 ≤ p < .05` to three decimals, and values above .05 as `p > .05`; follow
+the instructor's instructions for exactly .05 and other rounding boundaries.
 
 ### 5. Reproduce and share the report
 
@@ -618,6 +621,7 @@ if (any(chi_result$expected < 5)) {
   if (all(dim(independence_table) == c(2, 2))) {
     fisher.test(independence_table)
   } else {
+    set.seed(20261009)
     chisq.test(independence_table, simulate.p.value = TRUE, B = 10000)
   }
 } else {
@@ -661,3 +665,8 @@ multiple comparisons.
 - Distinguish the student's analysis and interpretation from software output.
 - Do not publish identifiable or restricted participant data. Public availability
   of an RPubs page is a sharing decision, not evidence of analytical correctness.
+
+Course-provided tools:
+
+- [Inferential Test Selector](https://fsaffaf.github.io/AA5221/tools/inferential_test_selector.html)
+- [P-Value Interpreter](https://fsaffaf.github.io/AA5221/tools/p_value_interpreter.html)
