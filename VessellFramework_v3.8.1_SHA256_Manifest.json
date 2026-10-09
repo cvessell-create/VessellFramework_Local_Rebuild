@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-09T00:13:25.030385+00:00",
+  "generated_utc": "2026-10-09T00:22:01.857177+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -130,7 +130,7 @@
     },
     {
       "path": "VesselFramework_Applied_Statistics_R_SKILL_v0.1.md",
-      "sha256": "b7d3642dcf23e09af9ee1c6e69d01a941a1e1b5b7d87060ba9b0d6252c60615c"
+      "sha256": "da23396c4540c0b7d61045594312d2d6f3a2d708f9221f0349851d64c0dfecd4"
     },
     {
       "path": "VesselFramework_Evil_Twin_Adversarial_Analyst_SKILL_v0.1.md",
@@ -331,6 +331,10 @@
     {
       "path": "docs/evaluation-methods.md",
       "sha256": "f2ec3e4773b5826c7b4af4151cfae958a5bd3ae08ffbbb8307d072ee8f57c375"
+    },
+    {
+      "path": "docs/final-project-workflow-overview.md",
+      "sha256": "a1de1fd4e4401aebbba78788aa880bc8cb6a2b1890e8f7ab7f798258a9fa882e"
     },
     {
       "path": "docs/free-method-courses.md",

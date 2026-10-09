@@ -12,9 +12,9 @@ diagnostics; no results are supplied or inferred here.
 
 | Question | Dataset and variables | Design | Test family and decision |
 |---|---|---|---|
-| 1. Did Team 1 communication effectiveness increase after the workshop? | `Team1Data.xlsx`: `BeforeComm`, `AfterComm` | Paired scores for the same Team 1 employees | Paired t-test if the `AfterComm - BeforeComm` difference scores meet the course normality rule; otherwise Wilcoxon signed-rank |
-| 2. After the workshop, is communication effectiveness different between Team 1 and Team 2? | `Team1vTeam2.xlsx`: `Team`, `CommScore` | Independent groups measured after the workshop | Independent t-test if each team's `CommScore` meets the course normality rule; otherwise Mann–Whitney / Wilcoxon rank-sum |
-| 3. Is perceived workshop effectiveness associated with gender? | `Team1Data.xlsx`: `Effective`, `Gender` | Two categorical variables from Team 1 | Chi-Square Test of Independence; verify expected cell counts |
+| 1. Did Team 1 communication effectiveness increase after the workshop? | `Team1Data.xlsx`: `BeforeComm`, `AfterComm`; use `ID` to verify pairing | Paired scores for the same Team 1 employees | Paired t-test if the `AfterComm - BeforeComm` difference scores meet the course normality rule; otherwise Wilcoxon signed-rank |
+| 2. After the workshop, is communication effectiveness different between Team 1 and Team 2? | `Team1vTeam2.xlsx`: `Team` (1 or 2), `CommScore` | Independent groups measured after the workshop | Independent t-test if each team's `CommScore` meets the course normality rule; otherwise Mann–Whitney / Wilcoxon rank-sum |
+| 3. Is perceived workshop effectiveness associated with gender? | `Team1Data.xlsx`: `Effective` (Yes/No), `Gender` (male/female) | Two categorical variables from Team 1 | Chi-Square Test of Independence; verify expected cell counts |
 | 4. Is job satisfaction positively related to communication effectiveness after the workshop? | `Team1Data.xlsx`: `Satisfaction`, `AfterComm` | Two quantitative variables for Team 1 | Pearson correlation for an approximately linear relationship when the course normality rule is met; otherwise Spearman correlation if a monotonic association is appropriate |
 
 Use question 3's **Test of Independence**, not Goodness-of-Fit: it asks whether
