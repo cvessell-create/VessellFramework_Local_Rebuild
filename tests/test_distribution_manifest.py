@@ -1,4 +1,5 @@
 import json
+import subprocess
 from pathlib import Path
 
 
@@ -17,3 +18,15 @@ def test_distribution_manifest_has_only_unique_source_artifacts():
         }
         assert name != ".env"
         assert (root / path).is_file()
+
+
+def test_distribution_manifest_covers_all_tracked_sources():
+    root = Path(__file__).resolve().parents[1]
+    manifest_name = "VessellFramework_v3.8.1_SHA256_Manifest.json"
+    manifest = json.loads((root / manifest_name).read_text())
+    result = subprocess.run(
+        ["git", "ls-files", "-z"], cwd=root, check=True, capture_output=True,
+    )
+    tracked = set(result.stdout.decode("utf-8").rstrip("\0").split("\0"))
+    listed = {entry["path"] for entry in manifest["files"]}
+    assert listed == tracked - {manifest_name}

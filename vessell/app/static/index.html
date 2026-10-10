@@ -65,7 +65,7 @@
 <body>
 <header>
   <h1>VessellFramework — Claim Verifier</h1>
-  <p>Deterministic verification doctrine, running live: corroboration scoring, hostile-spread analysis, ghost-job filtering. Every verdict reproduces byte-identically from its evidence.</p>
+  <p>Analyze supplied records with the Python verifier. URLs are not fetched or authenticated; tiers and official-record flags remain supplied assertions. Results do not release reports or authorize action.</p>
 </header>
 <nav>
   <button class="active" data-tab="t-verify">Verify a claim</button>
@@ -79,7 +79,7 @@
     <div id="v-sightings"></div>
     <div class="btnrow">
       <button class="ghost" onclick="addSighting('v-sightings')">+ Add sighting</button>
-      <button class="ghost" onclick="loadExample('wauna')">Load worked example: Wauna earthquake</button>
+      <button class="ghost" onclick="loadExample('wauna')">Load illustrative earthquake fixture</button>
       <button class="action" onclick="runVerify()">Verify claim</button>
     </div>
     <div id="v-result"></div>
@@ -91,7 +91,7 @@
     <div id="p-sightings"></div>
     <div class="btnrow">
       <button class="ghost" onclick="addSighting('p-sightings')">+ Add sighting</button>
-      <button class="ghost" onclick="loadExample('bridge')">Load worked example: bridge-closure scare</button>
+      <button class="ghost" onclick="loadExample('bridge')">Load illustrative spread fixture</button>
       <button class="action" onclick="runPlanted()">Analyze spread</button>
     </div>
     <div id="p-result"></div>
@@ -101,14 +101,15 @@
     <div id="g-postings"></div>
     <div class="btnrow">
       <button class="ghost" onclick="addPosting()">+ Add posting sighting</button>
-      <button class="ghost" onclick="loadExample('uline')">Load worked example: Uline ghost pattern</button>
+      <button class="ghost" onclick="loadExample('uline')">Load illustrative posting fixture</button>
       <button class="action" onclick="runGhost()">Check for ghost pattern</button>
     </div>
     <div id="g-result"></div>
   </section>
 </main>
 <footer>
-  VessellFramework v3.8.1 — deterministic verification doctrine by Christopher R. Vessell (Apache-2.0).
+  VessellFramework v3.12.0 — supplied-record analysis by Christopher R. Vessell (Apache-2.0).
+  Examples are fixtures, not current event verification or employer findings.
   Verdicts: VERIFIED / CORROBORATED / SINGLE_SOURCE / UNCORROBORATED / CONTRADICTED ·
   AUTHENTIC / LIKELY_PLANTED / SUSPECT / UNVERIFIABLE · LIKELY_GHOST / SUSPECT / NO_SIGNAL.
 </footer>
@@ -136,7 +137,7 @@ function addSighting(containerId, data) {
     '<label>Source name</label><input type="text" class="s-name" value="' + esc(data.source_name || "") + '">' +
     '<div class="cols3">' +
     '<div><label>Tier</label><select class="s-tier">' +
-      TIERS.map(t => '<option' + (t === (data.tier || "SOURCE-ESTABLISHED") ? " selected" : "") + ">" + t + "</option>").join("") +
+      TIERS.map(t => '<option' + (t === (data.tier || "WORKING HYPOTHESIS") ? " selected" : "") + ">" + t + "</option>").join("") +
     '</select></div>' +
     '<div><label>Evidentiary root (optional)</label><input type="text" class="s-root" placeholder="e.g. ap-wire" value="' + esc(data.root || "") + '"></div>' +
     '<div><label>URL (optional)</label><input type="text" class="s-url" value="' + esc(data.url || "") + '"></div>' +
@@ -310,7 +311,9 @@ function signalList(signals) {
 }
 
 function renderResult(d) {
-  let html = '<p class="verdict ' + verdictClass(d.verdict) + '">' + esc(d.verdict) + "</p>";
+  let html = '<p class="score">Source access: ' + esc(d.source_access) +
+    ' · ' + esc(d.release_status) + '</p><p>' + esc(d.note) + '</p>' +
+    '<p class="verdict ' + verdictClass(d.verdict) + '">' + esc(d.verdict) + "</p>";
   if (d.corroboration_score !== undefined) {
     html += '<p class="score">Corroboration score <b>' + d.corroboration_score +
             "</b> · independent roots <b>" + d.independent_roots + "</b>" +

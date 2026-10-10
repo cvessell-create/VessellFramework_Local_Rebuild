@@ -21,6 +21,11 @@ include Game_Theory_Theory_SKILL_v0.1.md
 include VesselFramework_Game_Theory_SKILL_v0.1.md
 include docs/game-theory-framework-audit.md
 include docs/civilian-authorship-and-model-interference.md
+include docs/state-law-protections.md
+include docs/state-law-protections.json
+include docs/washington-rcw-19.74.md
+include docs/trade-secrets-notice.md
+include docs/claim-verifier.md
 recursive-include docs/game-theory *.json *.md *.html *.txt
 include docs/blockchain-agent-economy-roadmap.md
 include docs/knowing-field-framework-audit.md

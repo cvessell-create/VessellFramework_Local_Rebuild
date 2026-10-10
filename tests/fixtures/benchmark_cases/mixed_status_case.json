@@ -1,5 +1,6 @@
 {
   "title": "Mixed status benchmark",
+  "domain": "Synthetic provenance benchmark",
   "subject": "Source status separation",
   "decision_question": "Are status classes preserved in executable counts?",
   "evidence": [

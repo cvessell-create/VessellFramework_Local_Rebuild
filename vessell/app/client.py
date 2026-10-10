@@ -3,7 +3,7 @@
 
 Two ways to drive the app from Python::
 
-    # 1. In-process: no server, no HTTP — the app runs in your thread.
+    # 1. In-process: a loopback HTTP server runs in a background thread.
     from vessell.app.client import launch
 
     with launch() as client:
@@ -66,7 +66,7 @@ class VerifierClient:
         except HTTPError as error:
             try:
                 detail = json.loads(error.read().decode("utf-8"))
-                message = detail.get("error", error.reason)
+                message = detail.get("error", error.reason) if isinstance(detail, dict) else error.reason
             except (ValueError, UnicodeDecodeError):
                 message = error.reason
             raise VerifierError(f"{path} -> HTTP {error.code}: {message}") from error

@@ -1,5 +1,6 @@
 import hashlib
 import json
+import tomllib
 from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
@@ -32,3 +33,24 @@ def test_authorship_policy_is_wired_and_does_not_claim_interference_as_fact():
     assert "cannot\n   disable host/provider controls" in text
     assert (ROOT / "SKILL.md").read_bytes() == (
         ROOT / "mnt/skills/user/vessel-framework-analyst/SKILL.md").read_bytes()
+
+
+def test_readme_preserves_product_boundaries_and_source_references():
+    readme = (ROOT / "README.md").read_text()
+    version = tomllib.loads((ROOT / "pyproject.toml").read_text())["project"]["version"]
+    assert f"**{version}**" in readme
+    assert "**full-stack SI sub-agent**" in readme
+    assert "**human-facing control plane**" in readme
+    for source in (
+        "VISION_AND_SCOPE.md",
+        "VesselFramework_Knowing_Field_SKILL_v0.1.md",
+        "VesselFramework_Game_Theory_SKILL_v0.1.md",
+        "docs/paper-source-reconciliation.md",
+        "docs/claim-verifier.md",
+        "docs/specialist-agent.md",
+        "docs/ambient-workflows.md",
+        "scripts/sync_repository_artifacts.py",
+    ):
+        assert source in readme
+    assert "CLI analyses remain\npreviews" in readme
+    assert "not citations or historical incidents in the author's supplied paper" in readme

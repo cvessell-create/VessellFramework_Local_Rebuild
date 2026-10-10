@@ -54,7 +54,7 @@ include = ["vessell*", "vessel*"]
 
 [tool.setuptools.package-data]
 vessell = ["schemas/*.json", "py.typed"]
-"vessell.app" = ["*.html"]
+"vessell.app" = ["*.html", "static/*.html"]
 
 [tool.ruff]
 line-length = 100

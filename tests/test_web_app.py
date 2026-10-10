@@ -7,10 +7,13 @@ the real vessell/verify.py doctrine.
 
 from __future__ import annotations
 
+import http.client
 import json
 import threading
+import tomllib
 import urllib.request
 from http.server import ThreadingHTTPServer
+from pathlib import Path
 
 import pytest
 
@@ -166,6 +169,8 @@ def test_api_verify_end_to_end(live_server: str) -> None:
     assert data["verdict"] == "VERIFIED"
     assert data["official_record"] is True
     assert data["corroboration_score"] == 1.0
+    assert data["source_access"] == "NOT_PERFORMED"
+    assert data["release_status"] == "ANALYSIS_ONLY_NOT_RELEASED"
 
 
 def test_api_verify_rejects_bad_tier(live_server: str) -> None:
@@ -234,6 +239,78 @@ def test_api_ghost_job_rejects_empty(live_server: str) -> None:
 def test_unknown_endpoint_404(live_server: str) -> None:
     status, _ = _post(live_server, "/api/nope", {})
     assert status == 404
+
+
+@pytest.mark.parametrize(
+    "payload",
+    [
+        {"claim": 5, "sightings": []},
+        {"claim": "X", "sightings": False},
+        {"claim": "X", "sightings": [_sighting(denies="maybe")]},
+        {"claim": "X", "sightings": [_sighting(published_at="not-a-date")]},
+        {"claim": "X", "sightings": [_sighting()] * 101},
+        {"claim": "X", "sightings": [], "approved": True},
+    ],
+)
+def test_api_rejects_invalid_records(live_server: str, payload: dict) -> None:
+    status, data = _post(live_server, "/api/verify", payload)
+    assert status == 400
+    assert data["error"]
+
+
+def test_api_rejects_unrelated_job_roles(live_server: str) -> None:
+    status, data = _post(
+        live_server, "/api/ghost-job",
+        {"postings": [_posting(), _posting(title="Inventory Analyst")]},
+    )
+    assert status == 400
+    assert "one employer/title/location" in data["error"]
+
+
+@pytest.mark.parametrize(
+    ("headers", "body", "status"),
+    [
+        ({"Host": "remote.example"}, b"{}", 403),
+        ({"Origin": "https://remote.example"}, b"{}", 403),
+        ({"Content-Length": "-1"}, b"", 400),
+        ({"Content-Length": "invalid"}, b"", 400),
+        ({"Content-Length": "65537"}, b"", 413),
+        ({"Transfer-Encoding": "chunked"}, b"", 400),
+        ({"Content-Type": "text/plain"}, b"{}", 415),
+    ],
+)
+def test_http_boundary_rejects_invalid_requests(
+    live_server: str, headers: dict, body: bytes, status: int,
+) -> None:
+    connection = http.client.HTTPConnection(live_server.removeprefix("http://"), timeout=5)
+    try:
+        connection.request(
+            "POST", "/api/verify", body=body,
+            headers={"Content-Type": "application/json", **headers},
+        )
+        response = connection.getresponse()
+        assert response.status == status
+        assert json.loads(response.read())["error"]
+        assert response.getheader("Cache-Control") == "no-store"
+        assert response.getheader("X-Content-Type-Options") == "nosniff"
+    finally:
+        connection.close()
+
+
+def test_ui_marks_examples_and_defaults_as_unverified(live_server: str) -> None:
+    with urllib.request.urlopen(live_server + "/") as response:
+        body = response.read().decode("utf-8")
+        assert "frame-ancestors 'none'" in response.headers["Content-Security-Policy"]
+    assert 'data.tier || "WORKING HYPOTHESIS"' in body
+    assert "Examples are fixtures" in body
+    assert "URLs are not fetched or authenticated" in body
+
+
+def test_package_configuration_includes_form_ui() -> None:
+    root = Path(__file__).resolve().parents[1]
+    config = tomllib.loads((root / "pyproject.toml").read_text())
+    assert "static/*.html" in config["tool"]["setuptools"]["package-data"]["vessell.app"]
+    assert (root / "vessell/app/static/index.html").is_file()
 
 
 # ---------------------------------------------------------------------------
