@@ -264,6 +264,9 @@ not citations or historical incidents in the author's supplied paper:
 
 ## Quick start
 
+Run the local browser verifier with `python -m pip install -e ".[verifier]"`
+followed by `vessell-verify-ui`; see [docs/claim-verifier.md](docs/claim-verifier.md).
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
