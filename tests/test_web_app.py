@@ -14,6 +14,7 @@ from http.server import ThreadingHTTPServer
 
 import pytest
 
+from vessell.app.client import VerifierClient, VerifierError, launch
 from vessell.app.server import (
     VerifierHandler,
     build_claim_check,
@@ -233,3 +234,82 @@ def test_api_ghost_job_rejects_empty(live_server: str) -> None:
 def test_unknown_endpoint_404(live_server: str) -> None:
     status, _ = _post(live_server, "/api/nope", {})
     assert status == 404
+
+
+# ---------------------------------------------------------------------------
+# Programmatic client
+# ---------------------------------------------------------------------------
+
+
+def test_client_verify_in_process() -> None:
+    with launch() as client:
+        report = client.verify(
+            claim="M4.2 earthquake near Wauna, WA",
+            sightings=[
+                {"source_name": "USGS", "tier": "SOURCE-ESTABLISHED",
+                 "is_official_record": True},
+                {"source_name": "KOMO", "tier": "SOURCE-ESTABLISHED"},
+            ],
+        )
+    assert report["verdict"] == "VERIFIED"
+    assert report["corroboration_score"] == 1.0
+
+
+def test_client_planted_news_in_process() -> None:
+    sightings = [
+        {
+            "source_name": f"Outlet {i}",
+            "tier": "ILLUSTRATIVE",
+            "root": "viral-post",
+            "text": "BREAKING: bridge closed, avoid the area",
+            "seen_at": f"2026-10-10T08:{i:02d}:00",
+            "published_at": f"2026-10-10T08:{i:02d}:00",
+        }
+        for i in range(5)
+    ]
+    with launch() as client:
+        report = client.planted_news(claim="Bridge closed", sightings=sightings)
+    assert report["verdict"] == "LIKELY_PLANTED"
+    assert report["burst_detected"] is True
+
+
+def test_client_ghost_job_in_process() -> None:
+    text = "Operations Manager. Pay from $96,000 to $160,000 per year."
+    postings = [
+        {
+            "title": "Operations Manager",
+            "employer": "Uline",
+            "location": "Lacey, WA",
+            "description_text": text,
+            "source": source,
+            "listing_id": lid,
+            "claimed_posted": claimed,
+            "first_seen": seen,
+        }
+        for source, lid, claimed, seen in [
+            ("Monster", "m-1", "2026-09-25", "2025-12-24"),
+            ("Ladders", "l-1", "2026-09-23", "2026-01-15"),
+        ]
+    ]
+    with launch() as client:
+        report = client.ghost_job(postings=postings)
+    assert report["verdict"] in ("LIKELY_GHOST", "SUSPECT")
+    assert report["distinct_sources"] == 2
+
+
+def test_client_raises_verifier_error_on_bad_input() -> None:
+    with launch() as client, pytest.raises(VerifierError, match="Unknown source tier"):
+        client.verify(
+            claim="X",
+            sightings=[{"source_name": "Y", "tier": "BOGUS"}],
+        )
+
+
+def test_client_talks_to_external_server(live_server: str) -> None:
+    client = VerifierClient(live_server)
+    report = client.verify(
+        claim="M4.2 earthquake near Wauna, WA",
+        sightings=[{"source_name": "USGS", "tier": "SOURCE-ESTABLISHED",
+                    "is_official_record": True}],
+    )
+    assert report["verdict"] == "VERIFIED"
