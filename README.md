@@ -1,5 +1,7 @@
 # VessellFramework
 
+<a href="#run-the-claim-verifier-web-app"><img src="https://img.shields.io/badge/Launch-Claim_Verifier-5aa9ff?style=for-the-badge" alt="Launch the Claim Verifier web app"></a>
+
 VessellFramework is an auditable Python runtime and a set of doctrine and skill artifacts for evidence, provenance, case analysis, forecasting, and approved remediation control.
 
 Author: Christopher R. Vessell
@@ -62,6 +64,33 @@ citations are in [docs/references.md](docs/references.md):
   silent out-of-order completion.
 
 ## Quick start
+
+### Run the Claim Verifier web app
+
+The fastest way to see the framework working — no install step, just Python 3.12+:
+
+```powershell
+python -m vessell.app
+```
+
+This starts the Claim Verifier at http://127.0.0.1:8765/ and opens your browser.
+It is the real `vessell/verify.py` doctrine behind a web UI, not a mock:
+
+- **Verify a claim** — enter a claim plus its source sightings; get the
+  tier-weighted, independence-discounted verdict (VERIFIED → CONTRADICTED)
+  with the full audit trail.
+- **Planted-news spread** — hunt synchronized bursts, text-clone armies,
+  single-origin laundering, and orphaned circulation
+  (AUTHENTIC → LIKELY_PLANTED).
+- **Ghost-job filter** — paste job-posting sightings; get the ghost verdict
+  with its signal details.
+
+Each tab ships a one-click worked example (Wauna earthquake, bridge-closure
+scare, Uline ghost pattern). The same engine is also a JSON API
+(`POST /api/verify`, `/api/planted-news`, `/api/ghost-job`) — see
+`vessell/app/server.py` for the contract.
+
+### Developer setup
 
 ```powershell
 python -m venv .venv
@@ -127,7 +156,8 @@ The original flat launchers and doctrine files remain the compatibility layer fo
 
 Five-minute tour (see `VessellFramework_Portfolio_Showcase_SKILL_v1.0.md` for the guided version):
 
-1. `python -m pytest tests/ -q` — 206-test regression suite: provenance, validation, scanner adapters, malware triage, defense planning, remediation orchestration, agentic SOC, EvilTwin gate, Llama evidence weighting, planted-news verification, hostile-spread intel, ghost-job filtering, the claim-correction doctrine reconciliation (`tests/test_doctrine_reconciliation.py`), live-event verification (`tests/test_live_event_verification.py`), cross-domain maskirovka convergence benchmarks (`tests/conformance/test_maskirovka_convergence.py`), and end-to-end output snapshots (`tests/conformance/test_output_snapshot.py`).
+1. `python -m vessell.app` — the working Claim Verifier web app: verify claims, analyze hostile spread, and filter ghost jobs through the real doctrine, in your browser.
+2. `python -m pytest tests/ -q` — 206-test regression suite: provenance, validation, scanner adapters, malware triage, defense planning, remediation orchestration, agentic SOC, EvilTwin gate, Llama evidence weighting, planted-news verification, hostile-spread intel, ghost-job filtering, the claim-correction doctrine reconciliation (`tests/test_doctrine_reconciliation.py`), live-event verification (`tests/test_live_event_verification.py`), cross-domain maskirovka convergence benchmarks (`tests/conformance/test_maskirovka_convergence.py`), and end-to-end output snapshots (`tests/conformance/test_output_snapshot.py`).
 2. `python vesselframework_case_runner.py example_case.json` — structured case intake: provenance firewall, deception (maskirovka) checks, harm gate, analyst-ready report.
 3. `python run_live_kev_case.py` — live CISA Known Exploited Vulnerabilities intake through the same pipeline.
 4. `python VesselFramework_SingleFile_EvilTwin_v0.2.py selftest` — identity/recognition provenance gate.
