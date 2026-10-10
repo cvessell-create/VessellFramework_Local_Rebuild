@@ -1,0 +1,134 @@
+{
+  "review_date": "2026-10-10",
+  "scope": "50 US states targeted; electronic transactions and trade secrets only; DC and territories excluded.",
+  "completion": "PARTIAL",
+  "included_state_count": 3,
+  "pending_state_count": 47,
+  "status_meaning": {
+    "SOURCE-ESTABLISHED": "Official substantive source opened; supports only the cited text, not applicability or complete legal protection.",
+    "UNVERIFIED": "Official substantive text not confirmed in this bounded pass; citation is a lead only, not an established legal conclusion."
+  },
+  "limitations": [
+    "Legal information, not legal advice or automatic nationwide protection.",
+    "State and federal rules interact; jurisdiction, scope, consent, exceptions and facts require separate review.",
+    "Public Apache-licensed repository contents are not made trade secrets by this catalog.",
+    "No license amendment, NDA, copyright registration, patent filing, legal notice service or infringement finding.",
+    "No comprehensive case-law, common-law, remedy, limitations-period or post-observation amendment review.",
+    "Page access and tests do not prove statutory correctness, legal applicability or validity of any project signature.",
+    "Edition labels and inaccessible pages remain source limits; successful HTTP responses without statute text do not count as opened."
+  ],
+  "states": [
+    {
+      "state": "California",
+      "electronic_transactions": {
+        "citation": "Cal. Civ. Code §§ 1633.1–1633.17; §§ 1633.3, 1633.5, 1633.7",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1633.7",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Electronic Transactions title; electronic form alone does not defeat legal effect. Section 1633.5 requires agreement, with specific consent restrictions; section 1633.3 lists exclusions. Not automatic contract validity.",
+        "search_record": {
+          "query": "California official electronic transactions Civil Code 1633.3 1633.5 1633.7",
+          "tool": "web_search; web_fetch; integrated browser",
+          "scope": "California Legislative Information; three substantive section pages opened in browser after web_fetch 403",
+          "result_count": 3,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Full title, case law, post-observation amendments, transaction-specific enforceability, signatures or facts of this project.",
+          "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1633.7"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Cal. Civ. Code §§ 3426–3426.11; § 3426.1",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=3426.1",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Uniform Trade Secrets Act; section 3426.1 requires independent economic value from secrecy and reasonable secrecy efforts. Reverse engineering or independent derivation alone is not improper means. Public licensed materials are not made secret by a notice.",
+        "search_record": {
+          "query": "California official Uniform Trade Secrets Act Civil Code 3426.1",
+          "tool": "web_search; web_fetch; integrated browser",
+          "scope": "California Legislative Information; section 3426.1 text and title range opened in browser after web_fetch 403",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Other sections, case law, remedies, limitation periods, post-observation amendments or any particular trade-secret claim.",
+          "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=3426.1"
+        }
+      }
+    },
+    {
+      "state": "Missouri",
+      "electronic_transactions": {
+        "citation": "Mo. Rev. Stat. §§ 432.200–432.295; §§ 432.220, 432.230",
+        "url": "https://revisor.mo.gov/main/OneSection.aspx?section=432.230",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Uniform Electronic Transactions Act; electronic-form recognition is subject to its scope and other applicable law. Section 432.220 requires parties' agreement to transact electronically.",
+        "search_record": {
+          "query": "Missouri official electronic transactions 432.200 432.220 432.230",
+          "tool": "direct official lookup; web_fetch",
+          "scope": "Missouri Revisor; three section pages opened",
+          "result_count": 3,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Full act, case law, post-observation amendments or transaction-specific enforceability.",
+          "primary_source": "https://revisor.mo.gov/main/OneSection.aspx?section=432.230"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Mo. Rev. Stat. §§ 417.450–417.467; § 417.453",
+        "url": "https://revisor.mo.gov/main/OneSection.aspx?section=417.453",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Missouri Uniform Trade Secrets Act; section 417.453 defines secrecy-derived economic value, reasonable secrecy efforts, improper means and misappropriation.",
+        "search_record": {
+          "query": "Missouri official trade secrets 417.450 417.453",
+          "tool": "direct official lookup; web_fetch",
+          "scope": "Missouri Revisor; title and definition sections opened",
+          "result_count": 2,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Other sections, case law, remedies, limitation periods, post-observation amendments or any particular trade-secret claim.",
+          "primary_source": "https://revisor.mo.gov/main/OneSection.aspx?section=417.453"
+        }
+      }
+    },
+    {
+      "state": "Washington",
+      "electronic_transactions": {
+        "citation": "RCW 1.80; RCW 1.80.040, 1.80.060, 1.80.900",
+        "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=1.80.060",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Uniform Electronic Transactions Act; section .040 requires parties' agreement and .060 addresses electronic-form recognition. Existing repository citation RCW 19.74 returned citation not found; corrected to chapter 1.80.",
+        "search_record": {
+          "query": "Washington current electronic transactions chapter; verify RCW 19.74 and RCW 1.80",
+          "tool": "web_search; direct official lookup; web_fetch",
+          "scope": "Washington Legislature; three substantive section pages opened; RCW 19.74 returned citation not found; chapter landing page did not expose substantive text",
+          "result_count": 3,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Full chapter, case law, history of the invalid citation, post-observation amendments or applicability to a specific transaction.",
+          "primary_source": "https://app.leg.wa.gov/rcw/default.aspx?cite=1.80.060",
+          "corrected_name": "Washington Uniform Electronic Transactions Act, chapter 1.80 RCW"
+        }
+      },
+      "trade_secrets": {
+        "citation": "RCW 19.108; RCW 19.108.010",
+        "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=19.108.010",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Trade-secret definition requires secrecy-derived economic value and reasonable secrecy efforts; the section separately defines misappropriation and improper means.",
+        "search_record": {
+          "query": "Washington official trade secret definition RCW 19.108.010",
+          "tool": "direct official lookup; web_fetch",
+          "scope": "Washington Legislature; definition section opened",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Other sections, case law, remedies, limitation periods, post-observation amendments or any particular trade-secret claim.",
+          "primary_source": "https://app.leg.wa.gov/rcw/default.aspx?cite=19.108.010"
+        }
+      }
+    }
+  ]
+}

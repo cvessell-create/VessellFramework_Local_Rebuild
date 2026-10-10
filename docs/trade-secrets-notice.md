@@ -3,8 +3,12 @@
 This notice describes the project's approach to information that may qualify
 for trade secret protection under applicable law, including the federal Defend
 Trade Secrets Act (18 U.S.C. §§ 1836, 1839), the Washington Uniform Trade
-Secrets Act (RCW 19.108), and the Missouri Uniform Trade Secrets Act
-(Mo. Rev. Stat. §§ 417.450–417.467).
+Secrets Act (RCW 19.108), the Missouri Uniform Trade Secrets Act
+(Mo. Rev. Stat. §§ 417.450–417.467), and California's Uniform Trade Secrets Act
+(Cal. Civ. Code §§ 3426–3426.11). See the
+[50-state research catalog](state-law-protections.md) for additional state
+sources, access status and research limits. Inclusion is not a determination
+that a state's law governs this project or a particular dispute.
 
 ## Public repository materials
 
@@ -33,9 +37,21 @@ This notice does not identify any particular information as a trade secret,
 create a confidentiality agreement, or change the terms governing publicly
 distributed project materials.
 
+California Civil Code § 3426.1 expressly excludes reverse engineering or
+independent derivation alone from improper means. Its trade-secret definition
+requires independent economic value from secrecy and reasonable secrecy
+efforts. This notice does not prohibit lawful acquisition, create a new
+license restriction, or declare any person to have misappropriated information.
+
+Legal information only, not legal advice. Counsel should assess jurisdiction,
+secrecy measures, ownership, applicable agreements, exceptions and the actual
+facts before anyone asserts a legal claim. A catalog covering all 50 states
+does not create uniform or automatic nationwide protection.
+
 ## Statutory references
 
 - [18 U.S.C. § 1836 — Civil proceedings](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1836&num=0&edition=prelim)
 - [18 U.S.C. § 1839 — Definitions](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1839&num=0&edition=prelim)
 - [Washington RCW 19.108 — Uniform Trade Secrets Act](https://app.leg.wa.gov/rcw/default.aspx?cite=19.108)
 - [Missouri RSMo 417.450–417.467 — Uniform Trade Secrets Act](https://revisor.mo.gov/main/OneChapterRng.aspx?tb1=417.450%20to%20417.467)
+- [California Civil Code § 3426.1 — Definitions](https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=3426.1)
