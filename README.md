@@ -90,6 +90,35 @@ scare, Uline ghost pattern). The same engine is also a JSON API
 (`POST /api/verify`, `/api/planted-news`, `/api/ghost-job`) — see
 `vessell/app/server.py` for the contract.
 
+### Drive it programmatically
+
+Standard library only — no server process needed:
+
+```python
+from vessell.app.client import launch
+
+with launch() as client:  # app runs in-process on an ephemeral port
+    report = client.verify(
+        claim="M4.2 earthquake near Wauna, WA",
+        sightings=[
+            {"source_name": "USGS", "tier": "SOURCE-ESTABLISHED",
+             "is_official_record": True},
+            {"source_name": "KOMO", "tier": "SOURCE-ESTABLISHED"},
+        ],
+    )
+    print(report["verdict"])  # VERIFIED
+
+    spread = client.planted_news(claim="...", sightings=[...])
+    ghosts = client.ghost_job(postings=[...])
+```
+
+Against a running server (`python -m vessell.app`), use
+`VerifierClient("http://127.0.0.1:8765")` instead — same three methods.
+Raw HTTP works too: `POST` JSON to `/api/verify`, `/api/planted-news`,
+or `/api/ghost-job`. Sightings and postings are plain dicts in the shape
+documented in `vessell/app/server.py`; bad input returns HTTP 400 with an
+`error` message, never a traceback.
+
 ### Developer setup
 
 ```powershell
