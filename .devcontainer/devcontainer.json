@@ -1,0 +1,1 @@
+{"customizations":{"vscode":{"extensions":["ms-python.python"]}},"forwardPorts":[8765],"image":"mcr.microsoft.com/devcontainers/python:3.13","name":"VessellFramework","portsAttributes":{"8765":{"label":"Claim Verifier","onAutoForward":"openPreview"}},"postCreateCommand":"pip install -e ."}
