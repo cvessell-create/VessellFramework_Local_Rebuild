@@ -124,7 +124,12 @@ licence checks, attribution and search records before third-party imports.
 
 ### Run the Claim Verifier web app
 
-From a checkout with Python **3.13+**:
+The [browser bundle](docs/index.html) loads Python via Pyodide and verifier
+modules from this repository. Deployment availability is not verified.
+Runtime and module loading make network requests; supplied records are analyzed
+in the browser, not independently authenticated or released.
+
+For local use, from a checkout with Python **3.13+**:
 
 ```powershell
 python -m vessell.app

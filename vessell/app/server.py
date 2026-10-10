@@ -35,7 +35,6 @@ from __future__ import annotations
 
 import json
 import logging
-import webbrowser
 from datetime import date, datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -359,6 +358,8 @@ class VerifierHandler(BaseHTTPRequestHandler):
 
 def run_server(port: int = DEFAULT_PORT, open_browser: bool = True) -> ThreadingHTTPServer:
     """Start the verifier app; returns the server (caller owns shutdown)."""
+    import webbrowser  # lazy: not needed for the API or the browser bundle
+
     server = ThreadingHTTPServer(("127.0.0.1", port), VerifierHandler)
     url = f"http://127.0.0.1:{server.server_port}/"
     print(f"VessellFramework Claim Verifier running at {url}")

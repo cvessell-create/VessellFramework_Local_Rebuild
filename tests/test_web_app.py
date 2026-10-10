@@ -7,8 +7,10 @@ the real vessell/verify.py doctrine.
 
 from __future__ import annotations
 
+import ast
 import http.client
 import json
+import re
 import threading
 import tomllib
 import urllib.request
@@ -390,3 +392,64 @@ def test_client_talks_to_external_server(live_server: str) -> None:
                     "is_official_record": True}],
     )
     assert report["verdict"] == "VERIFIED"
+
+
+# ---------------------------------------------------------------------------
+# GitHub Pages bundle (docs/index.html)
+# ---------------------------------------------------------------------------
+
+DOCS_INDEX = Path(__file__).resolve().parent.parent / "docs" / "index.html"
+
+
+def _docs_html() -> str:
+    assert DOCS_INDEX.exists(), "docs/index.html missing — the GitHub Pages app is gone"
+    return DOCS_INDEX.read_text(encoding="utf-8")
+
+
+def test_pages_bundle_references_repo_files() -> None:
+    """Every Python file the Pages app fetches must exist in the repo."""
+    html = _docs_html()
+    repo_root = Path(__file__).resolve().parent.parent
+    # The bootstrap fetches a literal list of repo-relative .py paths.
+    paths = set(re.findall(r'"(vessell/[\w/]+\.py|vesselframework_reference[\w.]+\.py)"', html))
+    assert paths, "no Python file list found in docs/index.html"
+    missing = [p for p in paths if not (repo_root / p).exists()]
+    assert not missing, f"Pages bundle references missing repo files: {missing}"
+
+
+def test_pages_bundle_glue_is_valid_python() -> None:
+    """The Pyodide glue code embedded in docs/index.html must parse."""
+    html = _docs_html()
+    match = re.search(r"const GLUE = `\n(.*?)`;\n", html, re.DOTALL)
+    assert match, "GLUE block not found in docs/index.html"
+    ast.parse(match.group(1))  # raises SyntaxError if invalid
+
+
+def test_pages_bundle_declares_pyodide() -> None:
+    html = _docs_html()
+    assert "pyodide" in html.lower()
+    assert "loadPyodide" in html
+
+
+def test_pages_bundle_preserves_analysis_boundaries() -> None:
+    html = _docs_html()
+    assert "VessellFramework_Local_Rebuild@master/" in html
+    assert 'data.tier || "WORKING HYPOTHESIS"' in html
+    assert "illustrative fixtures" in html
+    match = re.search(r"const GLUE = `\n(.*?)`;\n", html, re.DOTALL)
+    assert match
+    namespace: dict = {}
+    exec(compile(match.group(1), str(DOCS_INDEX), "exec"), namespace)  # noqa: S102 - test the repository-owned browser glue
+    report = json.loads(namespace["api_verify"](json.dumps({
+        "claim": "Synthetic claim",
+        "sightings": [{"source_name": "Synthetic source", "tier": "WORKING HYPOTHESIS"}],
+    })))
+    assert report["source_access"] == "NOT_PERFORMED"
+    assert report["release_status"] == "ANALYSIS_ONLY_NOT_RELEASED"
+    mixed_roles = [
+        {"title": title, "employer": "Synthetic", "location": "Test",
+         "description_text": "Synthetic description"}
+        for title in ("Engineer", "Manager")
+    ]
+    rejected = json.loads(namespace["api_ghost"](json.dumps({"postings": mixed_roles})))
+    assert "one employer, title and location" in rejected["error"]

@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-10T23:33:39.295806+00:00",
+  "generated_utc": "2026-10-10T23:37:20.082558+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -114,7 +114,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "05ee70501325c136352b5fe4efdf08395e4bde7bde0d75b3279d5f61c9fe6439"
+      "sha256": "c404c7195f4b39ca48aaacd908c63e685e137561c5b5024a354dc1bbb976725b"
     },
     {
       "path": "SECURITY.md",
@@ -475,6 +475,10 @@
     {
       "path": "docs/grad-school-prospectus.md",
       "sha256": "ac41f4dae04a2bb4de474100d06421fbfeaeae591104d47520bd5bbcf384eef3"
+    },
+    {
+      "path": "docs/index.html",
+      "sha256": "4beef498c3e6abbdcca42e7fe901f3993d44dc8afb4711f05954ae01b9153cb5"
     },
     {
       "path": "docs/knowing-field-framework-audit.md",
@@ -1226,7 +1230,7 @@
     },
     {
       "path": "tests/test_web_app.py",
-      "sha256": "2b080cd2a00723196a6a65083cdd234cdff8b2eb97372e31cf269b68d9c20034"
+      "sha256": "14b669e8b1a6553f8e30c1c368a7d3e68df09f0ecdef8cccb22794c7861fbcc5"
     },
     {
       "path": "tests/test_weighter.py",
@@ -1362,7 +1366,7 @@
     },
     {
       "path": "vessell/app/server.py",
-      "sha256": "4594e8e373c8ca17fe73ce76513aec7ee70ac05a2d90ead403ebcac87a75f292"
+      "sha256": "ce0711a8c455c529714f2532175f87c2569d3bfd1b685be27bd42f7d67d27d67"
     },
     {
       "path": "vessell/app/sources/__init__.py",
