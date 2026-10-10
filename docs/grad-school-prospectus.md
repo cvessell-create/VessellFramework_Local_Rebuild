@@ -32,7 +32,7 @@ The contribution is not a new theory of disinformation. It is a **formalized, te
 
 ## 4. The method: VessellFramework `vessell/verify.py`
 
-The candidate has built and tested the method as a Python package (VessellFramework, Apache-2.0, 99-test regression suite, type-checked and lint-gated). The capstone treats this implementation as the method under evaluation, not as a product pitch. Three components:
+The candidate has built and tested the method as a Python package (VessellFramework, Apache-2.0, 206-test regression suite, type-checked and lint-gated). The capstone treats this implementation as the method under evaluation, not as a product pitch. Three components:
 
 **4a. Corroboration check (`verify_claim`).** A claim plus its source sightings (each carrying a source tier, evidentiary root, publish time, wording excerpt, and official-record flag) is scored by tier-weighted independent roots:
 - Tier weights: established source 1.00, framework synthesis 0.60, working hypothesis 0.35, illustrative 0.10.
