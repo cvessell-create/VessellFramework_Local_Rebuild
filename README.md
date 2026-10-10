@@ -1,6 +1,6 @@
 # VessellFramework
 
-<a href="#run-the-claim-verifier-web-app"><img src="https://img.shields.io/badge/Launch-Claim_Verifier-5aa9ff?style=for-the-badge" alt="Launch the Claim Verifier web app"></a>
+<a href="https://cvessell-create.github.io/VessellFramework/"><img src="https://img.shields.io/badge/Launch-Claim_Verifier-live_app-5aa9ff?style=for-the-badge" alt="Launch the Claim Verifier web app"></a>
 
 VessellFramework is an auditable Python runtime and a set of doctrine and skill artifacts for evidence, provenance, case analysis, forecasting, and approved remediation control.
 
@@ -67,7 +67,13 @@ citations are in [docs/references.md](docs/references.md):
 
 ### Run the Claim Verifier web app
 
-The fastest way to see the framework working — no install step, just Python 3.12+:
+The fastest way to see the framework working — **no install, no clone:**
+
+**[Launch the Claim Verifier](https://cvessell-create.github.io/VessellFramework/)** —
+runs entirely in your browser. The real `vessell/verify.py` doctrine executes
+via Pyodide; nothing is uploaded anywhere.
+
+Prefer local? No install step, just Python 3.12+:
 
 ```powershell
 python -m vessell.app
