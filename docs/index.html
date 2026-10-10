@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VessellFramework — Claim Verifier</title>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<style>
+  :root {
+    --bg: #0f1420; --panel: #171e2e; --line: #2a3450;
+    --text: #e8ecf4; --muted: #9aa5bd; --accent: #5aa9ff;
+    --good: #4ade80; --warn: #fbbf24; --bad: #f87171; --info: #93c5fd;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { padding: 20px 28px; border-bottom: 1px solid var(--line); }
+  header h1 { margin: 0 0 4px; font-size: 22px; }
+  header p { margin: 0; color: var(--muted); font-size: 14px; }
+  #engine-status { display: inline-block; margin-top: 10px; font-size: 13px;
+    color: var(--info); border: 1px solid var(--line); border-radius: 6px;
+    padding: 6px 12px; background: #121829; }
+  #engine-status.ready { color: var(--good); }
+  #engine-status.failed { color: var(--bad); }
+  nav { display: flex; gap: 8px; padding: 14px 28px 0; }
+  nav button { background: none; border: 1px solid var(--line); color: var(--muted);
+               padding: 9px 18px; border-radius: 8px 8px 0 0; cursor: pointer; font-size: 14px; }
+  nav button.active { background: var(--panel); color: var(--text); border-bottom-color: var(--panel); }
+  main { padding: 20px 28px 60px; max-width: 1100px; }
+  .tab { display: none; background: var(--panel); border: 1px solid var(--line);
+         border-radius: 0 8px 8px 8px; padding: 20px; }
+  .tab.active { display: block; }
+  label { display: block; font-size: 12px; color: var(--muted); margin: 12px 0 4px; }
+  input[type=text], textarea, select {
+    width: 100%; background: #0d1220; border: 1px solid var(--line);
+    color: var(--text); border-radius: 6px; padding: 8px 10px; font-size: 14px; }
+  textarea { min-height: 60px; resize: vertical; font-family: inherit; }
+  .row-grid { display: grid; gap: 10px; }
+  .sighting, .posting { border: 1px solid var(--line); border-radius: 8px;
+    padding: 12px; margin-top: 12px; background: #121829; position: relative; }
+  .sighting h4, .posting h4 { margin: 0 0 4px; font-size: 13px; color: var(--muted); }
+  .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .checkline { display: flex; gap: 18px; margin-top: 10px; font-size: 13px; color: var(--muted); }
+  .checkline label { display: inline; margin: 0; }
+  .rm { position: absolute; top: 8px; right: 8px; background: none; border: none;
+        color: var(--muted); cursor: pointer; font-size: 16px; }
+  .btnrow { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  button.action { background: var(--accent); border: none; color: #06121f;
+    padding: 10px 22px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  button.action:disabled { background: var(--line); color: var(--muted); cursor: wait; }
+  button.ghost { background: none; border: 1px solid var(--line); color: var(--text);
+    padding: 10px 16px; border-radius: 8px; font-size: 14px; cursor: pointer; }
+  button.action:hover:not(:disabled) { filter: brightness(1.1); }
+  #result { margin-top: 20px; }
+  .verdict { font-size: 26px; font-weight: 700; letter-spacing: 1px; margin: 0 0 8px; }
+  .v-good { color: var(--good); } .v-warn { color: var(--warn); }
+  .v-bad { color: var(--bad); } .v-info { color: var(--info); }
+  .card { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px;
+          margin-top: 12px; background: #121829; }
+  .card h3 { margin: 0 0 8px; font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+  .card p { margin: 6px 0; font-size: 14px; line-height: 1.5; }
+  .card ul { margin: 6px 0; padding-left: 20px; font-size: 14px; line-height: 1.6; }
+  .mono { font-family: ui-monospace, monospace; font-size: 12.5px; color: var(--muted);
+          white-space: pre-wrap; word-break: break-word; }
+  .err { color: var(--bad); margin-top: 12px; font-size: 14px; }
+  footer { padding: 20px 28px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
+  .score { font-size: 15px; color: var(--muted); }
+  .score b { color: var(--text); font-size: 20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>VessellFramework — Claim Verifier</h1>
+  <p>Deterministic verification doctrine, running live in your browser: corroboration scoring,
+     hostile-spread analysis, ghost-job filtering. No server, no data leaves your machine —
+     the real <span class="mono">vessell/verify.py</span> executes here via Pyodide.</p>
+  <div id="engine-status">Starting…</div>
+</header>
+<nav>
+  <button class="active" data-tab="t-verify">Verify a claim</button>
+  <button data-tab="t-planted">Planted-news spread</button>
+  <button data-tab="t-ghost">Ghost-job filter</button>
+</nav>
+<main>
+  <section id="t-verify" class="tab active">
+    <label>Claim</label>
+    <input type="text" id="v-claim" placeholder="e.g. M4.2 earthquake near Wauna, WA">
+    <div id="v-sightings"></div>
+    <div class="btnrow">
+      <button class="ghost" onclick="addSighting('v-sightings')">+ Add sighting</button>
+      <button class="ghost" onclick="loadExample('wauna')">Load worked example: Wauna earthquake</button>
+      <button class="action" id="btn-verify" onclick="runVerify()" disabled>Verify claim</button>
+    </div>
+    <div id="v-result"></div>
+  </section>
+
+  <section id="t-planted" class="tab">
+    <label>Claim</label>
+    <input type="text" id="p-claim" placeholder="e.g. Tacoma Narrows Bridge closed due to structural failure">
+    <div id="p-sightings"></div>
+    <div class="btnrow">
+      <button class="ghost" onclick="addSighting('p-sightings')">+ Add sighting</button>
+      <button class="ghost" onclick="loadExample('bridge')">Load worked example: bridge-closure scare</button>
+      <button class="action" id="btn-planted" onclick="runPlanted()" disabled>Analyze spread</button>
+    </div>
+    <div id="p-result"></div>
+  </section>
+
+  <section id="t-ghost" class="tab">
+    <div id="g-postings"></div>
+    <div class="btnrow">
+      <button class="ghost" onclick="addPosting()">+ Add posting sighting</button>
+      <button class="ghost" onclick="loadExample('uline')">Load worked example: Uline ghost pattern</button>
+      <button class="action" id="btn-ghost" onclick="runGhost()" disabled>Check for ghost pattern</button>
+    </div>
+    <div id="g-result"></div>
+  </section>
+</main>
+<footer>
+  VessellFramework v3.8.1 — deterministic verification doctrine by Christopher R. Vessell (Apache-2.0).
+  Verdicts: VERIFIED / CORROBORATED / SINGLE_SOURCE / UNCORROBORATED / CONTRADICTED ·
+  AUTHENTIC / LIKELY_PLANTED / SUSPECT / UNVERIFIABLE · LIKELY_GHOST / SUSPECT / NO_SIGNAL.<br>
+  Served from the <a href="https://github.com/cvessell-create/VessellFramework" style="color:var(--accent)">GitHub repo</a>;
+  doctrine files load from the repo at master.
+</footer>
+
+<script>
+const TIERS = ["SOURCE-ESTABLISHED", "FRAMEWORK SYNTHESIS", "WORKING HYPOTHESIS", "ILLUSTRATIVE"];
+
+// --- Pyodide engine ---------------------------------------------------------
+let VF = null;
+
+const GLUE = `
+import json
+from vessell.verify import verify_claim, analyze_planted_news, detect_ghost_job
+from vessell.app.server import build_claim_check, build_postings
+
+def _report(fn, payload_json):
+    try:
+        return json.dumps(fn(payload_json).to_dict())
+    except (ValueError, TypeError) as e:
+        return json.dumps({"error": str(e)})
+
+def api_verify(payload_json):
+    return _report(lambda p: verify_claim(build_claim_check(json.loads(p))), payload_json)
+
+def api_planted(payload_json):
+    return _report(lambda p: analyze_planted_news(build_claim_check(json.loads(p))), payload_json)
+
+def api_ghost(payload_json):
+    return _report(lambda p: detect_ghost_job(build_postings(json.loads(p))), payload_json)
+`;
+
+async function boot() {
+  const status = document.getElementById("engine-status");
+  try {
+    status.textContent = "Loading Python runtime (first visit downloads ~10 MB)…";
+    const pyodide = await loadPyodide();
+    status.textContent = "Loading doctrine from the GitHub repo…";
+    const base = "https://cdn.jsdelivr.net/gh/cvessell-create/VessellFramework@master/";
+    const files = [
+      "vessell/verify.py",
+      "vessell/provenance.py",
+      "vessell/weights.py",
+      "vessell/app/__init__.py",
+      "vessell/app/models.py",
+      "vessell/app/pipeline.py",
+      "vessell/app/server.py",
+      "vesselframework_reference_v1.1_provenance_firewall.py"
+    ];
+    for (const path of files) {
+      const resp = await fetch(base + path);
+      if (!resp.ok) throw new Error("could not fetch " + path + " (" + resp.status + ")");
+      const dir = path.split("/").slice(0, -1).join("/");
+      if (dir) pyodide.FS.mkdirTree(dir);
+      pyodide.FS.writeFile(path, await resp.text());
+    }
+    // Minimal package init: doctrine modules are imported directly; the real
+    // __init__ pulls in optional third-party deps the browser bundle skips.
+    pyodide.FS.writeFile("vessell/__init__.py",
+      "# Browser-bundle init: doctrine modules (verify/provenance/weights) are the real repo files.\n");
+    await pyodide.runPythonAsync(GLUE);
+    VF = {
+      api_verify: pyodide.globals.get("api_verify"),
+      api_planted: pyodide.globals.get("api_planted"),
+      api_ghost: pyodide.globals.get("api_ghost")
+    };
+    status.textContent = "Engine ready — the real vessell/verify.py is running in your browser.";
+    status.classList.add("ready");
+    document.querySelectorAll("button.action").forEach(b => { b.disabled = false; });
+  } catch (e) {
+    status.textContent = "Engine failed to load: " + (e && e.message ? e.message : e);
+    status.classList.add("failed");
+  }
+}
+
+// --- UI (same as the local app) ---------------------------------------------
+function tabSwitch() {
+  document.querySelectorAll("nav button").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll("nav button").forEach(x => x.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
+    document.getElementById(b.dataset.tab).classList.add("active");
+  }));
+}
+
+function addSighting(containerId, data) {
+  data = data || {};
+  const wrap = document.getElementById(containerId);
+  const n = wrap.children.length + 1;
+  const div = document.createElement("div");
+  div.className = "sighting";
+  div.innerHTML =
+    '<h4>Sighting ' + n + '</h4><button class="rm" title="Remove">&times;</button>' +
+    '<label>Source name</label><input type="text" class="s-name" value="' + esc(data.source_name || "") + '">' +
+    '<div class="cols3">' +
+    '<div><label>Tier</label><select class="s-tier">' +
+      TIERS.map(t => '<option' + (t === (data.tier || "SOURCE-ESTABLISHED") ? " selected" : "") + ">" + t + "</option>").join("") +
+    '</select></div>' +
+    '<div><label>Evidentiary root (optional)</label><input type="text" class="s-root" placeholder="e.g. ap-wire" value="' + esc(data.root || "") + '"></div>' +
+    '<div><label>URL (optional)</label><input type="text" class="s-url" value="' + esc(data.url || "") + '"></div>' +
+    '</div>' +
+    '<div class="cols2">' +
+    '<div><label>Seen at (ISO, optional)</label><input type="text" class="s-seen" placeholder="2026-10-10" value="' + esc(data.seen_at || "") + '"></div>' +
+    '<div><label>Published at (ISO, optional)</label><input type="text" class="s-pub" value="' + esc(data.published_at || "") + '"></div>' +
+    '</div>' +
+    '<label>Wording excerpt (optional — used for clone detection)</label>' +
+    '<textarea class="s-text">' + esc(data.text || "") + '</textarea>' +
+    '<div class="checkline">' +
+    '<span><input type="checkbox" class="s-official"' + (data.is_official_record ? " checked" : "") + '> <label>Official record</label></span>' +
+    '<span><input type="checkbox" class="s-denies"' + (data.denies ? " checked" : "") + '> <label>Denies the claim</label></span>' +
+    '</div>' +
+    '<label>Note (optional)</label><input type="text" class="s-note" value="' + esc(data.note || "") + '">';
+  div.querySelector(".rm").addEventListener("click", () => div.remove());
+  wrap.appendChild(div);
+}
+
+function collectSightings(containerId) {
+  return Array.from(document.getElementById(containerId).children).map(div => ({
+    source_name: div.querySelector(".s-name").value,
+    tier: div.querySelector(".s-tier").value,
+    root: div.querySelector(".s-root").value,
+    url: div.querySelector(".s-url").value,
+    seen_at: div.querySelector(".s-seen").value,
+    published_at: div.querySelector(".s-pub").value,
+    text: div.querySelector(".s-text").value,
+    is_official_record: div.querySelector(".s-official").checked,
+    denies: div.querySelector(".s-denies").checked,
+    note: div.querySelector(".s-note").value
+  }));
+}
+
+function addPosting(data) {
+  data = data || {};
+  const wrap = document.getElementById("g-postings");
+  const n = wrap.children.length + 1;
+  const div = document.createElement("div");
+  div.className = "posting";
+  div.innerHTML =
+    '<h4>Posting sighting ' + n + '</h4><button class="rm" title="Remove">&times;</button>' +
+    '<div class="cols3">' +
+    '<div><label>Title</label><input type="text" class="p-title" value="' + esc(data.title || "") + '"></div>' +
+    '<div><label>Employer</label><input type="text" class="p-emp" value="' + esc(data.employer || "") + '"></div>' +
+    '<div><label>Location</label><input type="text" class="p-loc" value="' + esc(data.location || "") + '"></div>' +
+    '</div>' +
+    '<label>Description text</label><textarea class="p-desc">' + esc(data.description_text || "") + '</textarea>' +
+    '<div class="cols3">' +
+    '<div><label>Source</label><input type="text" class="p-src" placeholder="e.g. Monster" value="' + esc(data.source || "") + '"></div>' +
+    '<div><label>Listing ID</label><input type="text" class="p-lid" value="' + esc(data.listing_id || "") + '"></div>' +
+    '<div><label>Salary text</label><input type="text" class="p-sal" value="' + esc(data.salary_text || "") + '"></div>' +
+    '</div>' +
+    '<div class="cols2">' +
+    '<div><label>Claimed posted (ISO date)</label><input type="text" class="p-claimed" placeholder="2026-09-25" value="' + esc(data.claimed_posted || "") + '"></div>' +
+    '<div><label>First seen (ISO date)</label><input type="text" class="p-seen" placeholder="2025-12-24" value="' + esc(data.first_seen || "") + '"></div>' +
+    '</div>';
+  div.querySelector(".rm").addEventListener("click", () => div.remove());
+  wrap.appendChild(div);
+}
+
+function collectPostings() {
+  return Array.from(document.getElementById("g-postings").children).map(div => ({
+    title: div.querySelector(".p-title").value,
+    employer: div.querySelector(".p-emp").value,
+    location: div.querySelector(".p-loc").value,
+    description_text: div.querySelector(".p-desc").value,
+    source: div.querySelector(".p-src").value,
+    listing_id: div.querySelector(".p-lid").value,
+    salary_text: div.querySelector(".p-sal").value,
+    claimed_posted: div.querySelector(".p-claimed").value,
+    first_seen: div.querySelector(".p-seen").value
+  }));
+}
+
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+const EXAMPLES = {
+  wauna: {
+    claim: "M4.2 earthquake near Wauna, WA at 2:05 PM PT Sept 29 2026",
+    sightings: [
+      { source_name: "USGS", tier: "SOURCE-ESTABLISHED", is_official_record: true,
+        note: "M4.2 event page, reviewed by seismologist, 7,155 felt reports" },
+      { source_name: "PNSN", tier: "SOURCE-ESTABLISHED", note: "ShakeAlert detection, weak shaking in Olympia" },
+      { source_name: "KOMO News", tier: "SOURCE-ESTABLISHED", note: "intensity map, Sound Transit reroute" },
+      { source_name: "Kitsap Sun", tier: "FRAMEWORK SYNTHESIS", note: "local reporting" }
+    ]
+  },
+  bridge: {
+    claim: "Tacoma Narrows Bridge closed due to structural failure",
+    sightings: [
+      { source_name: "TransitAlert Blog", tier: "ILLUSTRATIVE", root: "viral-post",
+        text: "BREAKING: Tacoma Narrows Bridge CLOSED — structural failure reported, avoid the area",
+        seen_at: "2026-10-10T08:02:00", published_at: "2026-10-10T08:01:00" },
+      { source_name: "NW Traffic Watch", tier: "ILLUSTRATIVE", root: "viral-post",
+        text: "BREAKING: Tacoma Narrows Bridge CLOSED — structural failure reported, avoid the area",
+        seen_at: "2026-10-10T08:14:00", published_at: "2026-10-10T08:12:00" },
+      { source_name: "Commuter Feed", tier: "ILLUSTRATIVE", root: "viral-post",
+        text: "BREAKING: Tacoma Narrows Bridge CLOSED — structural failure reported, avoid the area",
+        seen_at: "2026-10-10T08:31:00", published_at: "2026-10-10T08:29:00" },
+      { source_name: "SoundScan", tier: "ILLUSTRATIVE", root: "viral-post",
+        text: "BREAKING: Tacoma Narrows Bridge CLOSED, structural failure reported — avoid the area",
+        seen_at: "2026-10-10T08:47:00", published_at: "2026-10-10T08:44:00" },
+      { source_name: "Harbor Alerts", tier: "ILLUSTRATIVE", root: "viral-post",
+        text: "BREAKING: Tacoma Narrows Bridge CLOSED — structural failure reported, avoid the area",
+        seen_at: "2026-10-10T09:05:00", published_at: "2026-10-10T09:02:00" }
+    ]
+  },
+  uline: [
+    { title: "Operations Manager", employer: "Uline", location: "Lacey, WA",
+      description_text: "Operations Manager. Pay from $96,000 to $160,000 per year. Washington Branch, Lacey WA. Oversee operations including the Warehouse, Customer Service, Sales, HR, IT and Facilities departments. Bachelor's degree. 5+ years experience in operations or general management.",
+      salary_text: "$96,000-$160,000", source: "Monster", listing_id: "m-741f855b",
+      claimed_posted: "2026-09-25", first_seen: "2025-12-24" },
+    { title: "Operations Manager", employer: "Uline", location: "Lacey, WA",
+      description_text: "Operations Manager. Pay from $96,000 to $160,000 per year. Washington Branch, Lacey WA. Oversee operations including the Warehouse, Customer Service, Sales, HR, IT and Facilities departments. Bachelor's degree. 5+ years experience in operations or general management.",
+      salary_text: "$96,000-$160,000", source: "CareerBuilder", listing_id: "cb-e6547854",
+      claimed_posted: "2026-09-23", first_seen: "2026-01-15" },
+    { title: "Operations Manager", employer: "Uline", location: "Lacey, WA",
+      description_text: "Operations Manager. Pay from $96,000 to $160,000 per year. Washington Branch, Lacey WA. Oversee operations including the Warehouse, Customer Service, Sales, HR, IT and Facilities departments. Bachelor's degree. 5+ years experience in operations or general management.",
+      salary_text: "$96,000-$160,000", source: "Ladders", listing_id: "la-88670188",
+      claimed_posted: "2026-09-07", first_seen: "2026-02-10" }
+  ]
+};
+
+function loadExample(which) {
+  if (which === "uline") {
+    document.getElementById("g-postings").innerHTML = "";
+    EXAMPLES.uline.forEach(p => addPosting(p));
+    return;
+  }
+  const ex = EXAMPLES[which];
+  const claimId = which === "wauna" ? "v-claim" : "p-claim";
+  const boxId = which === "wauna" ? "v-sightings" : "p-sightings";
+  document.getElementById(claimId).value = ex.claim;
+  document.getElementById(boxId).innerHTML = "";
+  ex.sightings.forEach(s => addSighting(boxId, s));
+}
+
+function verdictClass(v) {
+  if (["VERIFIED", "AUTHENTIC", "NO_SIGNAL"].includes(v)) return "v-good";
+  if (["CORROBORATED"].includes(v)) return "v-info";
+  if (["SINGLE_SOURCE", "SUSPECT", "UNCORROBORATED", "UNVERIFIABLE"].includes(v)) return "v-warn";
+  return "v-bad";
+}
+
+function postJSON(path, body, resultId) {
+  const box = document.getElementById(resultId);
+  if (!VF) {
+    box.innerHTML = '<p class="err">Engine still loading — give it a moment, then try again.</p>';
+    return;
+  }
+  box.innerHTML = "<p class='score'>Running doctrine…</p>";
+  try {
+    const fn = path === "/api/verify" ? VF.api_verify
+             : path === "/api/planted-news" ? VF.api_planted : VF.api_ghost;
+    const data = JSON.parse(fn(JSON.stringify(body)));
+    if (data.error) { box.innerHTML = '<p class="err">Error: ' + esc(data.error) + "</p>"; return; }
+    box.innerHTML = renderResult(data);
+  } catch (e) {
+    box.innerHTML = '<p class="err">Engine error: ' + esc(e && e.message ? e.message : String(e)) + "</p>";
+  }
+}
+
+function signalList(signals) {
+  if (!signals || !signals.length) return "<p>No signals recorded.</p>";
+  return "<ul>" + signals.map(s => "<li>" + esc(s) + "</li>").join("") + "</ul>";
+}
+
+function renderResult(d) {
+  let html = '<p class="verdict ' + verdictClass(d.verdict) + '">' + esc(d.verdict) + "</p>";
+  if (d.corroboration_score !== undefined) {
+    html += '<p class="score">Corroboration score <b>' + d.corroboration_score +
+            "</b> · independent roots <b>" + d.independent_roots + "</b>" +
+            (d.official_record ? " · <b>official record</b>" : "") + "</p>";
+  }
+  html += '<div class="card"><h3>Rationale</h3><p>' + esc(d.rationale) + "</p></div>";
+  if (d.indicators && d.indicators.length) {
+    html += '<div class="card"><h3>Hostile-spread indicators</h3><p class="mono">' +
+            d.indicators.map(esc).join("\n") + "</p>" +
+            "<p>Burst: <b>" + d.burst_detected + "</b> · Orphaned: <b>" + d.orphaned +
+            "</b> · Single origin: <b>" + d.single_origin +
+            "</b> · Clone army: <b>" + d.clone_army_size + "</b></p></div>";
+  }
+  if (d.text_groups !== undefined) {
+    html += '<div class="card"><h3>Ghost signals</h3><p>Text groups <b>' + d.text_groups +
+            "</b> · largest group <b>" + d.largest_group_size + "</b> · sources <b>" +
+            d.distinct_sources + "</b> · listing IDs <b>" + d.distinct_listing_ids + "</b>" +
+            (d.circulation_days !== null ? " · circulation <b>" + d.circulation_days + " days</b>" : "") +
+            (d.freshness_gap_days !== null ? " · freshness gap <b>" + d.freshness_gap_days + " days</b>" : "") +
+            "</p></div>";
+  }
+  html += '<div class="card"><h3>Signals</h3>' + signalList(d.signals) + "</div>";
+  if (d.corroboration) {
+    const c = d.corroboration;
+    html += '<div class="card"><h3>Base corroboration</h3><p class="verdict ' +
+            verdictClass(c.verdict) + '" style="font-size:18px">' + esc(c.verdict) +
+            '</p><p class="score">Score <b>' + c.corroboration_score + "</b> · roots <b>" +
+            c.independent_roots + "</b></p><p>" + esc(c.rationale) + "</p></div>";
+  }
+  html += '<div class="card"><h3>Audit record</h3><p class="mono">' +
+          esc(JSON.stringify(d, null, 2)) + "</p></div>";
+  return html;
+}
+
+function runVerify() {
+  postJSON("/api/verify",
+    { claim: document.getElementById("v-claim").value,
+      sightings: collectSightings("v-sightings") }, "v-result");
+}
+function runPlanted() {
+  postJSON("/api/planted-news",
+    { claim: document.getElementById("p-claim").value,
+      sightings: collectSightings("p-sightings") }, "p-result");
+}
+function runGhost() {
+  postJSON("/api/ghost-job", { postings: collectPostings() }, "g-result");
+}
+
+tabSwitch();
+addSighting("v-sightings");
+addSighting("p-sightings");
+addPosting();
+boot();
+</script>
+</body>
+</html>
