@@ -1,9 +1,13 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-10T23:37:20.082558+00:00",
+  "generated_utc": "2026-10-11T00:34:40.081260+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
+    {
+      "path": ".devcontainer/devcontainer.json",
+      "sha256": "d84135eb51b65b6aa1e720bab44f2c3e690c5d589c0f7c1e7715b14360da93bc"
+    },
     {
       "path": ".dockerignore",
       "sha256": "261224f12cc61c005e49497e40e5f265a6a5c07b220cda0689c9af4f9d44989a"
@@ -34,7 +38,7 @@
     },
     {
       "path": ".github/workflows/dashboard-pages.yml",
-      "sha256": "376766f2f6f354a14e81649242897adb2c6ea4abc5617568695fe7af7669f999"
+      "sha256": "83dfa674534e9be869f4517fc6ade0926e6336b227e41288ed084a6b59b7fe0f"
     },
     {
       "path": ".github/workflows/github-observatory.yml",
@@ -98,7 +102,7 @@
     },
     {
       "path": "MANIFEST.in",
-      "sha256": "6de1a9ee411a05f533d7103d3ee3f3b440b4d8e11015349a7cfb6cfe5b242488"
+      "sha256": "564b8d62fa0f5b6382445f4cf1dad2688e7170d96029eb27aaf32134883e7bf3"
     },
     {
       "path": "META_REVIEW_AND_ROADMAP.md",
@@ -114,7 +118,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "c404c7195f4b39ca48aaacd908c63e685e137561c5b5024a354dc1bbb976725b"
+      "sha256": "d0f2b8d35b1a183dd115ea21c40c58f08dedcc8f3b2e4aaaed7a8adb44da7534"
     },
     {
       "path": "SECURITY.md",
@@ -521,6 +525,14 @@
       "sha256": "762d156b5bf7b57acf15613073f80f0b905af1d71e070e78386946491f8a912d"
     },
     {
+      "path": "docs/platform-accountability-laws.json",
+      "sha256": "56f730e2122f95adf93e79a60864734342f2607d684f3d8505391c16061de9c9"
+    },
+    {
+      "path": "docs/platform-accountability-laws.md",
+      "sha256": "8b21fd6feca2565825c13c660af108ed4e93d5445b98de3385ae5eb30dc2fc72"
+    },
+    {
       "path": "docs/prompt-steering-and-reasoning-audit.md",
       "sha256": "de78dcec4baab5b20a14a6341accdc92959dc30bb0631d4ec7ef97c4d1bd2a25"
     },
@@ -542,11 +554,11 @@
     },
     {
       "path": "docs/state-law-protections.json",
-      "sha256": "78dc75b33321b086deb29c97effdc61ea4e851ef4d6dbc4f0dcb0888416a903e"
+      "sha256": "796b2f9616c680b054e1c46c1b61d7390df3841d8589c57f4525a1e53a86848e"
     },
     {
       "path": "docs/state-law-protections.md",
-      "sha256": "09cbc68e38ec962326cf78b04cecb16a7b4eae045de4a6c04735193bed302fc0"
+      "sha256": "592d626ea2d965e20942c7f7b825aa4b936a4d7ce47dcb77d0f20926170414db"
     },
     {
       "path": "docs/static-artifact-capture.md",
@@ -1202,7 +1214,7 @@
     },
     {
       "path": "tests/test_state_law_catalog.py",
-      "sha256": "e0196c8e0422262cb1d5408e1b19b1937ccb12446e43f09edd0efd78766c44ce"
+      "sha256": "3b24debd82e57957797dedc75315b8a0c2e7e292c4ecb3819164c0a095b33381"
     },
     {
       "path": "tests/test_static_capture.py",
@@ -1290,7 +1302,7 @@
     },
     {
       "path": "vessell/ambient/capture.py",
-      "sha256": "6ffa3e63f91ee9be75dcd94ce5e6ad45bc53466a6804c5d0c0c7563f428373ea"
+      "sha256": "0430442c99e7b0c10f51d5fed68d5d6a6fd66c20c5c116ab61fdf34c76cfbe1b"
     },
     {
       "path": "vessell/ambient/cli.py",
@@ -1582,7 +1594,7 @@
     },
     {
       "path": "vessell/weights.py",
-      "sha256": "5d6f09042e695fb98b7136a6de136e68bcbd843bc7b580e456a8c05420516dfe"
+      "sha256": "91fbf46182e9d8efa570d007cd0ee8a4ff4cc95a1bde7160178d7e69fd6ab896"
     },
     {
       "path": "vessell/workflow.py",

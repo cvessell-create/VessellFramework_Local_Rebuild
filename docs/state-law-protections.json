@@ -1,9 +1,9 @@
 {
   "review_date": "2026-10-10",
   "scope": "50 US states targeted; electronic transactions and trade secrets only; DC and territories excluded.",
-  "completion": "PARTIAL",
-  "included_state_count": 3,
-  "pending_state_count": 47,
+  "completion": "COMPLETE_BOUNDED_PASS",
+  "included_state_count": 50,
+  "pending_state_count": 0,
   "status_meaning": {
     "SOURCE-ESTABLISHED": "Official substantive source opened; supports only the cited text, not applicability or complete legal protection.",
     "UNVERIFIED": "Official substantive text not confirmed in this bounded pass; citation is a lead only, not an established legal conclusion."
@@ -15,9 +15,167 @@
     "No license amendment, NDA, copyright registration, patent filing, legal notice service or infringement finding.",
     "No comprehensive case-law, common-law, remedy, limitations-period or post-observation amendment review.",
     "Page access and tests do not prove statutory correctness, legal applicability or validity of any project signature.",
-    "Edition labels and inaccessible pages remain source limits; successful HTTP responses without statute text do not count as opened."
+    "Edition labels and inaccessible pages remain source limits; successful HTTP responses without statute text do not count as opened.",
+    "Recorded HTTP URLs are retained as observed rather than silently rewritten to HTTPS; transport and source authenticity were not independently certified.",
+    "Some opened provisions establish only statutory titles, definitions or scope; each row states what was and was not read."
   ],
   "states": [
+    {
+      "state": "Alabama",
+      "electronic_transactions": {
+        "citation": "Code of Alabama Title 8, Chapter 1A (UETA)",
+        "url": "http://alisondb.legislature.state.al.us/alison/CodeOfAlabama/1975/Coatoc.htm",
+        "status": "UNVERIFIED",
+        "note": "Appears to be standard UETA adoption per secondary sources; scope/exclusions not verified from primary text.",
+        "search_record": {
+          "query": "Alabama Uniform Electronic Transactions Act official statute Code of Alabama Title 8 Chapter 1A text",
+          "tool": "web_search + web_fetch + openBrowserPage",
+          "scope": "official state legislature code site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Could not reach any working official Alabama code domain in bounded pass; did not try Thomson Reuters/LexisNexis paid mirrors",
+          "reported_access_status": "citation-located-not-opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - DNS resolution failure on official alisondb.legislature.state.al.us domain, 2 attempts"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Ala. Code § 8-27-1 et seq. (cited by secondary sources; not independently confirmed)",
+        "url": "https://alisondb.legislature.state.al.us/alison/codeofalabama/1975/coatoc.htm",
+        "status": "UNVERIFIED",
+        "note": "Secondary sources describe an Alabama Trade Secrets Act at Ala. Code Title 8, Ch. 27. Official alisondb.legislature.state.al.us domain returned DNS failure (NXDOMAIN) on direct access attempts; no substantive statutory text was opened.",
+        "search_record": {
+          "query": "Alabama Trade Secrets Act Ala Code 8-27-1 official site",
+          "tool": "web_fetch/web_search",
+          "scope": "official .gov/.us legislature domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Could not reach alisondb.legislature.state.al.us (DNS/NXDOMAIN both attempts); did not try archive.org mirror or third-party certified copies as those are not primary sources.",
+          "reported_access_status": "blocked"
+        }
+      }
+    },
+    {
+      "state": "Alaska",
+      "electronic_transactions": {
+        "citation": "Alaska Statutes AS 09.80 (UETA)",
+        "url": "https://www.akleg.gov/basis/statutes.asp",
+        "status": "UNVERIFIED",
+        "note": "Official akleg.gov statutes browser is a JS-driven single-page app; static fetch returns only navigation shell, not section text (AS 09.80.010 scope language seen only via search engine excerpt, not directly opened by me).",
+        "search_record": {
+          "query": "Alaska Uniform Electronic Transactions Act official Alaska Statutes citation AS 09.80",
+          "tool": "web_search + web_fetch",
+          "scope": "official state legislature statutes site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt headless JS rendering or PDF session-law mirrors beyond one 520 error",
+          "reported_access_status": "citation-located-not-opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 2 fetch attempts, JS rendering + 520 errors on deep links"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Alaska Stat. § 45.50.910 et seq. (Alaska Uniform Trade Secrets Act) — title/TOC confirmed only",
+        "url": "http://www.akleg.gov/basis/statutes.asp#45.50.910",
+        "status": "UNVERIFIED",
+        "note": "Official akleg.gov site rendered only a table-of-contents/section-title listing for AS 45.50.910-945; the substantive definitions paragraph text was not reached/rendered in either attempt.",
+        "search_record": {
+          "query": "Alaska Uniform Trade Secrets Act AS 45.50.910 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official akleg.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Section-title page only; did not attempt a third alternate URL structure or PDF session-law version per the two-attempt bound.",
+          "reported_access_status": "partial (TOC only)"
+        }
+      }
+    },
+    {
+      "state": "Arizona",
+      "electronic_transactions": {
+        "citation": "Arizona Revised Statutes Title 44, Ch. 26, A.R.S. 44-7001 et seq. (Arizona Electronic Transactions Act / UETA)",
+        "url": "https://www.azleg.gov/ars/44/07001.htm",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official azleg.gov text of A.R.S. 44-7001 (short title: \"Arizona electronic transactions act\"). Full scope/exclusions sections not individually opened in this pass.",
+        "search_record": {
+          "query": "Arizona Uniform Electronic Transactions Act official Arizona Revised Statutes citation ARS 44-7001",
+          "tool": "web_search + web_fetch",
+          "scope": "official state legislature ARS site azleg.gov",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open 44-7002 (scope/exclusions) text in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Ariz. Rev. Stat. § 44-401 et seq. (Arizona Uniform Trade Secrets Act)",
+        "url": "https://www.azleg.gov/arsDetail/?title=44",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official azleg.gov page opened; substantive definitions text (44-401) confirming UTSA-based definitions of trade secret/misappropriation/improper means was read directly.",
+        "search_record": {
+          "query": "Arizona Uniform Trade Secrets Act ARS 44-401 official site",
+          "tool": "web_fetch",
+          "scope": "official azleg.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check subsequent remedy sections beyond definitions; not required for this scope.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Arkansas",
+      "electronic_transactions": {
+        "citation": "Arkansas Code Title 25, Chapter 32 (UETA), Ark. Code Ann. 25-32-101 et seq.",
+        "url": "https://www.arkleg.state.ar.us/ARCode.aspx",
+        "status": "UNVERIFIED",
+        "note": "Official Arkansas code portal (arkleg.state.ar.us) is JS-driven and returned HTTP 500/empty on static fetch attempts; could not directly open primary statute text within bounded attempts.",
+        "search_record": {
+          "query": "Arkansas Uniform Electronic Transactions Act official Arkansas Code citation",
+          "tool": "web_search + web_fetch",
+          "scope": "official Arkansas General Assembly code portal",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not pursue Lexis-hosted official mirror (paywalled/not confirmed free)",
+          "reported_access_status": "citation-located-not-opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 2 fetch attempts, portal errors"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Ark. Code § 4-75-601 et seq. (Arkansas Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://www.arkleg.state.ar.us/Acts/Document?type=code&id=1234",
+        "status": "UNVERIFIED",
+        "note": "Official arkleg.state.ar.us code-lookup attempts returned HTTP 500 server errors on both tries; no substantive text opened.",
+        "search_record": {
+          "query": "Arkansas Trade Secrets Act 4-75-601 official site",
+          "tool": "web_fetch",
+          "scope": "official arkleg.state.ar.us domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not try the arkleg.state.ar.us full-text-search UI (JS-driven) as a third method; bounded at two attempts.",
+          "reported_access_status": "server error (HTTP 500)"
+        }
+      }
+    },
     {
       "state": "California",
       "electronic_transactions": {
@@ -34,7 +192,8 @@
           "primary_source_opened": true,
           "status": "SOURCE-ESTABLISHED",
           "what_was_not_checked": "Full title, case law, post-observation amendments, transaction-specific enforceability, signatures or facts of this project.",
-          "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1633.7"
+          "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1633.7",
+          "reported_access_status": "SOURCE-ESTABLISHED"
         }
       },
       "trade_secrets": {
@@ -51,7 +210,749 @@
           "primary_source_opened": true,
           "status": "SOURCE-ESTABLISHED",
           "what_was_not_checked": "Other sections, case law, remedies, limitation periods, post-observation amendments or any particular trade-secret claim.",
-          "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=3426.1"
+          "primary_source": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=3426.1",
+          "reported_access_status": "SOURCE-ESTABLISHED"
+        }
+      }
+    },
+    {
+      "state": "Colorado",
+      "electronic_transactions": {
+        "citation": "Colorado Revised Statutes Title 24, Article 71.3 (UETA), C.R.S. 24-71.3-101 et seq.",
+        "url": "https://leg.colorado.gov/agencies/office-legislative-legal-services/colorado-revised-statutes",
+        "status": "UNVERIFIED",
+        "note": "Official General Assembly statutes page explicitly directs to a Lexis Advance subscription link for the official text; PDF title mirrors on leg.colorado.gov timed out twice. No free primary text opened in bounded pass.",
+        "search_record": {
+          "query": "Colorado Uniform Electronic Transactions Act official Colorado Revised Statutes citation C.R.S. 24-71.3",
+          "tool": "web_search + web_fetch",
+          "scope": "official Colorado General Assembly / OLLS site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt Lexis Advance paywalled portal (access not confirmed free/public)",
+          "reported_access_status": "citation-located-not-opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 2 PDF fetch timeouts + 1 redirect to paywalled Lexis"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Colo. Rev. Stat. § 7-74-101 et seq. (Colorado Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://leg.colorado.gov/colorado-revised-statutes",
+        "status": "UNVERIFIED",
+        "note": "Colorado's official statute portal routes full text through a paywalled LexisNexis/Colorado Revised Statutes subscription interface; no free substantive text was reachable in two attempts.",
+        "search_record": {
+          "query": "Colorado Uniform Trade Secrets Act 7-74-101 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official leg.colorado.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt to create/use a LexisNexis account to bypass the paywall (out of scope; would not be a free official public source).",
+          "reported_access_status": "paywalled"
+        }
+      }
+    },
+    {
+      "state": "Connecticut",
+      "electronic_transactions": {
+        "citation": "Connecticut General Statutes Title 1, Chapter 15, Secs. 1-266 to 1-286 (Connecticut UETA)",
+        "url": "https://www.cga.ct.gov/current/pub/chap_015.htm",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official cga.ct.gov text: Sec 1-266 short title through definitions (Sec 1-267); confirms Connecticut-specific UETA with added Sec. 1-284 (electronic record presumed not sent/received by consumer) as a consumer-protection variation from uniform act.",
+        "search_record": {
+          "query": "Connecticut Uniform Electronic Transactions Act official Connecticut General Statutes citation Chapter 926b",
+          "tool": "web_search + web_fetch",
+          "scope": "official Connecticut General Assembly statutes site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open full scope-exclusions text (Sec. 1-268) in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Conn. Gen. Stat. § 35-51 et seq. (Connecticut Uniform Trade Secrets Act)",
+        "url": "https://www.cga.ct.gov/current/pub/chap_623.htm",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official cga.ct.gov chapter page opened; substantive definitions text (Sec. 35-51) was read directly confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Connecticut Uniform Trade Secrets Act Conn Gen Stat 35-51 official site",
+          "tool": "web_fetch",
+          "scope": "official cga.ct.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy/damages sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Delaware",
+      "electronic_transactions": {
+        "citation": "Delaware Code Title 6, Chapter 12A (UETA), 6 Del. C. Section 12A-101 et seq.",
+        "url": "https://delcode.delaware.gov/title6/c012a/index.html",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official delcode.delaware.gov text including Section 12A-103 Scope, which begins listing exclusions (e.g., wills/codicils) consistent with standard UETA carve-outs; full exclusion list truncated by fetch length limit.",
+        "search_record": {
+          "query": "Delaware Uniform Electronic Transactions Act official Delaware Code Title 6 Chapter 12A",
+          "tool": "web_search + web_fetch",
+          "scope": "official Delaware Code Online (delcode.delaware.gov)",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not fetch remainder of Section 12A-103(b) exclusion list beyond truncation point",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Del. Code tit. 6, § 2001 et seq. (Delaware Uniform Trade Secrets Act)",
+        "url": "https://delcode.delaware.gov/title6/c020/index.html",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official delcode.delaware.gov chapter page opened; substantive definitions text (§2001) was read directly confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Delaware Uniform Trade Secrets Act Title 6 2001 official site",
+          "tool": "web_fetch",
+          "scope": "official delcode.delaware.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Florida",
+      "electronic_transactions": {
+        "citation": "Florida Statutes Chapter 668, Part I, Electronic Signature Act of 1996, Fla. Stat. 668.001-668.006",
+        "url": "https://www.flsenate.gov/Laws/Statutes/2025/668.001",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official flsenate.gov text of 668.001 (short title). Florida statute is a narrower electronic-signature act (pre-UETA-style) rather than full UETA; scope/exclusion sections not separately opened in this pass.",
+        "search_record": {
+          "query": "Florida Electronic Signature Act official Florida Statutes Chapter 668",
+          "tool": "web_search + web_fetch",
+          "scope": "official Florida Senate Statutes site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open 668.002-668.006 individually in this pass; note Florida also separately regulates e-notarization under Ch. 117/118, not checked here",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Fla. Stat. § 688.001 et seq. (Florida Uniform Trade Secrets Act)",
+        "url": "http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0600-0699/0688/0688.html",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official leg.state.fl.us chapter page opened; substantive definitions text (§688.002) was read directly confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Florida Uniform Trade Secrets Act 688.001 official site",
+          "tool": "web_fetch",
+          "scope": "official leg.state.fl.us domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Georgia",
+      "electronic_transactions": {
+        "citation": "O.C.G.A. Title 10, Chapter 12 (Georgia Electronic Records and Signatures Act / UETA-based)",
+        "url": "https://www.legis.ga.gov/legislation/statutes?title=10&chapter=12",
+        "status": "UNVERIFIED",
+        "note": "Official Georgia General Assembly statutes portal is a JS single-page app (\"Loading...\"); static fetch did not return section text within bounded attempts.",
+        "search_record": {
+          "query": "Georgia Uniform Electronic Transactions Act official Georgia Code citation Title 10 Chapter 12",
+          "tool": "web_search + web_fetch",
+          "scope": "official legis.ga.gov statutes portal",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not try headless rendering or GA session-law PDF mirror",
+          "reported_access_status": "citation-located-not-opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 1 fetch attempt, JS-rendered shell only"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Ga. Code § 10-1-760 et seq. (Georgia Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://www.legis.ga.gov/legislation/statutes",
+        "status": "UNVERIFIED",
+        "note": "Official legis.ga.gov statute search is a JS-driven application; direct document-ID guesses returned HTTP 500 errors and the search UI remained in a client-side 'Loading...' state in both attempts. No substantive text opened.",
+        "search_record": {
+          "query": "Georgia Trade Secrets Act 10-1-760 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official legis.ga.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt Georgia's separate 'legis-api' document-ID brute-force beyond two guesses; bounded.",
+          "reported_access_status": "JS-loading stuck / 500 error"
+        }
+      }
+    },
+    {
+      "state": "Hawaii",
+      "electronic_transactions": {
+        "citation": "Hawaii Revised Statutes Chapter 489E (Uniform Electronic Transactions Act), HRS 489E-1 et seq.",
+        "url": "https://data.capitol.hawaii.gov/sessions/session2017/HRS-Chapter-PDF's/HRS_0489E.pdf",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official capitol.hawaii.gov PDF (downloaded/extracted): confirms Ch. 489E short title and full section table of contents (489E-1 through 489E-19+), matching standard UETA structure.",
+        "search_record": {
+          "query": "Hawaii Uniform Electronic Transactions Act official Hawaii Revised Statutes citation Chapter 489E",
+          "tool": "web_search + web_fetch + bash/pypdf extraction",
+          "scope": "official Hawaii State Legislature data portal",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not extract/read full scope-exclusion text of 489E-3 in detail, only table of contents + short title",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Haw. Rev. Stat. § 482B-1 et seq. (Hawaii Uniform Trade Secrets Act) — TOC/case-notes confirmed only",
+        "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol12_Ch0476-0490/HRS0482B/HRS_0482B-.htm",
+        "status": "UNVERIFIED",
+        "note": "Official capitol.hawaii.gov chapter table-of-contents/case-notes page was opened, but the definitions section (482B-2) returned HTTP 403 on the follow-up fetch; only TOC-level content was confirmed, not substantive paragraph text.",
+        "search_record": {
+          "query": "Hawaii Uniform Trade Secrets Act HRS 482B-2 official site",
+          "tool": "web_fetch",
+          "scope": "official capitol.hawaii.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not retry with a different user-agent/browser render as a third method; bounded at two.",
+          "reported_access_status": "partial (TOC opened, definitions section 403)"
+        }
+      }
+    },
+    {
+      "state": "Idaho",
+      "electronic_transactions": {
+        "citation": "Idaho Code Title 28, Chapter 50 (Uniform Electronic Transactions Act), I.C. 28-50-101 et seq.",
+        "url": "https://legislature.idaho.gov/statutesrules/idstat/Title28/T28CH50/SECT28-50-101/",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official legislature.idaho.gov text of I.C. 28-50-101 (short title, \"Uniform Electronic Transactions Act\"). Scope/exclusion sections not separately opened.",
+        "search_record": {
+          "query": "Idaho Uniform Electronic Transactions Act official Idaho Statutes citation Title 28 Chapter 50",
+          "tool": "web_search + web_fetch",
+          "scope": "official Idaho State Legislature statutes site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open 28-50-104 (scope) individually",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Idaho Code § 48-801 et seq. (Idaho Trade Secrets Act)",
+        "url": "https://legislature.idaho.gov/statutesrules/idstat/Title48/T48CH8/",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official legislature.idaho.gov chapter page opened; substantive definitions text (§48-801) was read directly confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Idaho Trade Secrets Act 48-801 official site",
+          "tool": "web_fetch",
+          "scope": "official legislature.idaho.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Illinois",
+      "electronic_transactions": {
+        "citation": "Illinois Electronic Commerce Security Act (non-UETA alternative statute), 5 ILCS 175/1-101 et seq.",
+        "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=2709",
+        "status": "UNVERIFIED",
+        "note": "Illinois did NOT adopt uniform UETA; it enacted its own Electronic Commerce Security Act. Official ilga.gov ILCS lookup URLs (ActID 346 and 2709 both tried) returned HTTP 404 in this bounded pass; primary text not opened.",
+        "search_record": {
+          "query": "Illinois Electronic Commerce Security Act official Illinois Compiled Statutes citation 5 ILCS 175",
+          "tool": "web_search + web_fetch",
+          "scope": "official Illinois General Assembly ILCS site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not try ilga.gov full-text search UI or session law (Public Act 90-759) PDF",
+          "reported_access_status": "citation-located-not-opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 2 fetch attempts, both 404"
+        }
+      },
+      "trade_secrets": {
+        "citation": "765 ILCS 1065/1 et seq. (Illinois Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=2375&ChapterID=67",
+        "status": "UNVERIFIED",
+        "note": "Official ilga.gov ilcs3.asp lookup and documents/legislation/ilcs direct-path attempts both returned HTTP 404 across multiple tries (web_fetch x2, browser x1). No substantive text opened.",
+        "search_record": {
+          "query": "Illinois Trade Secrets Act 765 ILCS 1065 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official ilga.gov domain",
+          "result_count": 3,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not identify the correct current ActID/ChapterID pair for 765 ILCS 1065; bounded after three combined attempts.",
+          "reported_access_status": "404 not found"
+        }
+      }
+    },
+    {
+      "state": "Indiana",
+      "electronic_transactions": {
+        "citation": "Indiana Code Title 26, Article 2, Chapter 8 (Uniform Electronic Transactions Act), IC 26-2-8-101 et seq.",
+        "url": "https://iga.in.gov/laws/ic/26/2/8/101",
+        "status": "UNVERIFIED",
+        "note": "Official iga.in.gov is a JS-rendered site; static fetch of both the HTML statute page and a chapter PDF link returned no usable statute text (PDF link returned an HTML error page, not a PDF) in bounded attempts.",
+        "search_record": {
+          "query": "Indiana Uniform Electronic Transactions Act official Indiana Code citation IC 26-2-8",
+          "tool": "web_search + web_fetch + bash curl",
+          "scope": "official Indiana General Assembly iga.in.gov site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not pursue Indiana session law PDF (P.L.62-2000) as an alternate official primary source",
+          "reported_access_status": "citation-located-not-opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 3 fetch/curl attempts, JS shell + broken PDF link"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Ind. Code § 24-2-3-1 et seq. (Indiana Uniform Trade Secrets Act)",
+        "url": "https://iga.in.gov/laws/2024/ic/titles/24#24-2-3",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official iga.in.gov Title 24 page (large JS-rendered) opened via browser; substantive definitions text of Chapter 3, Secs. 1-6 (Uniform Trade Secrets Act) was confirmed via rendered page content.",
+        "search_record": {
+          "query": "Indiana Uniform Trade Secrets Act IC 24-2-3 official site",
+          "tool": "browser",
+          "scope": "official iga.in.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Iowa",
+      "electronic_transactions": {
+        "citation": "Iowa Code Chapter 554D, Subchapter I (Uniform Electronic Transactions Act), Iowa Code 554D.101 et seq.",
+        "url": "https://www.legis.iowa.gov/docs/code/554D.pdf",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened and extracted official legis.iowa.gov PDF: confirms Chapter 554D structure, Subchapter I = Uniform Electronic Transactions Act (554D.101 short title through scope/definitions); notes several sections (554D.102, 554D.105, 554D.106A) were repealed by later acts, an Iowa-specific deviation from the uniform model.",
+        "search_record": {
+          "query": "Iowa Uniform Electronic Transactions Act official Iowa Code citation Chapter 554D",
+          "tool": "web_search + web_fetch + bash/pypdf extraction",
+          "scope": "official Iowa Legislature code PDF site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not read full scope (554D.104) exclusion list text, only table of contents/repeal notes",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Iowa Code § 550.1 et seq. (Uniform Trade Secrets Act)",
+        "url": "https://www.legis.iowa.gov/docs/code/550.pdf",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official legis.iowa.gov PDF (Chapter 550) opened in browser and read via screenshot, showing §§550.1-550.2 full definitions text.",
+        "search_record": {
+          "query": "Iowa Uniform Trade Secrets Act Chapter 550 official site",
+          "tool": "browser (PDF screenshot)",
+          "scope": "official legis.iowa.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions; PDF required visual read, not machine-parsed.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Kansas",
+      "electronic_transactions": {
+        "citation": "Kansas Statutes Annotated, Chapter 16, Article 16 (Uniform Electronic Transactions Act), K.S.A. 16-1601 et seq.",
+        "url": "https://ksrevisor.gov/statutes/chapters/ch16/016_016_0001.html",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official ksrevisor.gov (Office of Revisor of Statutes, State of Kansas) text of K.S.A. 16-1601 (short title, \"uniform electronic transactions act\"). Scope section not separately opened.",
+        "search_record": {
+          "query": "Kansas Uniform Electronic Transactions Act official Kansas Statutes citation K.S.A. 16-1601",
+          "tool": "web_search + web_fetch",
+          "scope": "official Kansas Office of Revisor of Statutes site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open 16-1602/1603 (scope/exclusions) individually",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Kan. Stat. § 60-3320 et seq. (Kansas Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://www.kslegislature.gov/li/b2025_26/statute/060_000_0000_chapter/060_033_0000_article/",
+        "status": "UNVERIFIED",
+        "note": "All attempted kslegislature.gov/.org URL path formats (multiple session-year prefixes) returned HTTP 404; site appears restructured and old path patterns no longer resolve. No substantive text opened.",
+        "search_record": {
+          "query": "Kansas Uniform Trade Secrets Act 60-3320 official site",
+          "tool": "web_fetch",
+          "scope": "official kslegislature.gov domain",
+          "result_count": 3,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not locate the current correct URL structure for KSA Chapter 60 Article 33; bounded after multiple path-guess attempts.",
+          "reported_access_status": "404 not found"
+        }
+      }
+    },
+    {
+      "state": "Kentucky",
+      "electronic_transactions": {
+        "citation": "Kentucky Revised Statutes Chapter 369 (Uniform Electronic Transactions Act), KRS 369.101 to 369.120",
+        "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=35200",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened and extracted official apps.legislature.ky.gov PDF: confirms KRS 369.101 short title, \"KRS 369.101 to 369.120 may be cited as the Uniform Electronic Transactions Act,\" effective Aug 1, 2000.",
+        "search_record": {
+          "query": "Kentucky Uniform Electronic Transactions Act official Kentucky Revised Statutes citation KRS 369",
+          "tool": "web_search + web_fetch + bash/pypdf extraction",
+          "scope": "official Kentucky Legislature statutes application",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open scope/exclusion section (KRS 369.104) in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Ky. Rev. Stat. § 365.880 et seq. (Kentucky Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=15058",
+        "status": "UNVERIFIED",
+        "note": "Official apps.legislature.ky.gov statute.aspx and chapter.aspx pages both returned service-error/copyright-only placeholder pages across two attempts; the substantive KRS 365.880 text was never reached.",
+        "search_record": {
+          "query": "Kentucky Uniform Trade Secrets Act KRS 365.880 official site",
+          "tool": "web_fetch",
+          "scope": "official apps.legislature.ky.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not retry with a corrected statute ID guess as a third method; bounded at two.",
+          "reported_access_status": "service error / placeholder only"
+        }
+      }
+    },
+    {
+      "state": "Louisiana",
+      "electronic_transactions": {
+        "citation": "Louisiana Revised Statutes Title 9, Chapter 1 (Louisiana Uniform Electronic Transactions Act), La. R.S. 9:2601 et seq.",
+        "url": "https://www.legis.la.gov/legis/Law.aspx?d=107127",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official legis.la.gov text of R.S. 9:2601 (short title, \"Louisiana Uniform Electronic Transactions Act,\" Acts 2001, No. 244). Scope/exclusions not separately opened.",
+        "search_record": {
+          "query": "Louisiana Uniform Electronic Transactions Act official Louisiana Revised Statutes citation R.S. 9:2601",
+          "tool": "web_search + web_fetch",
+          "scope": "official Louisiana State Legislature site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open scope section (R.S. 9:2602 or equivalent)",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no (2 wrong-doc-id misses before correct one found)"
+        }
+      },
+      "trade_secrets": {
+        "citation": "La. Rev. Stat. § 51:1431 et seq. (Louisiana Uniform Trade Secrets Act)",
+        "url": "https://legis.la.gov/legis/Law.aspx?d=90395",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official legis.la.gov page (correct document ID found after one wrong guess) opened; substantive definitions text (§1431) read directly confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Louisiana Uniform Trade Secrets Act 51:1431 official site",
+          "tool": "web_fetch",
+          "scope": "official legis.la.gov domain",
+          "result_count": 2,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success (after one wrong doc-ID retry)"
+        }
+      }
+    },
+    {
+      "state": "Maine",
+      "electronic_transactions": {
+        "citation": "Maine Revised Statutes Title 10, Chapter 1051 (Uniform Electronic Transactions Act), 10 M.R.S. 9401 et seq.",
+        "url": "https://legislature.maine.gov/legis/statutes/10/title10sec9401.html",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official legislature.maine.gov text of 10 M.R.S. 9401 (short title, \"Uniform Electronic Transactions Act,\" PL 1999 c.762 s2). Scope section not separately opened.",
+        "search_record": {
+          "query": "Maine Uniform Electronic Transactions Act official Maine Revised Statutes citation Title 10 Chapter 1051",
+          "tool": "web_search + web_fetch",
+          "scope": "official Maine State Legislature statutes site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open scope/exclusions section (9403) in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Me. Rev. Stat. tit. 10, § 1542 et seq. (Uniform Trade Secrets Act)",
+        "url": "https://legislature.maine.gov/statutes/10/title10sec1542.html",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official mainelegislature.org/legislature.maine.gov page opened; substantive definitions text (§1542) read directly confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Maine Uniform Trade Secrets Act Title 10 1542 official site",
+          "tool": "web_fetch",
+          "scope": "official legislature.maine.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Maryland",
+      "electronic_transactions": {
+        "citation": "Maryland Code, Commercial Law Article, Title 21 (Maryland Uniform Electronic Transactions Act), Md. Code Com. Law 21-101 et seq.",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/laws/StatuteText?article=gcl&section=21-120",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official mgaleg.maryland.gov text of 21-120 (title of the act, \"Maryland Uniform Electronic Transactions Act\"). Scope/exclusion sections not separately opened.",
+        "search_record": {
+          "query": "Maryland Uniform Electronic Transactions Act official Maryland Code Commercial Law citation Title 21",
+          "tool": "web_search + web_fetch",
+          "scope": "official Maryland General Assembly statute-text tool",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open scope section (21-103 or similar) in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Md. Code, Com. Law § 11-1201 et seq. (Maryland Uniform Trade Secrets Act)",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=11-1201",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official mgaleg.maryland.gov StatuteText page opened with full §11-1201 definitions text confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Maryland Uniform Trade Secrets Act 11-1201 official site",
+          "tool": "web_fetch",
+          "scope": "official mgaleg.maryland.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Massachusetts",
+      "electronic_transactions": {
+        "citation": "Massachusetts General Laws Part I, Title XV, Chapter 110G, Section 1 et seq. (Uniform Electronic Transactions Act)",
+        "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter110G/Section1",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official malegislature.gov HTML (raw, non-simplified) confirming Section 1: \"This chapter may be cited as 'The Uniform Electronic Transactions Act'.\" Required raw-HTML text extraction because the page is JS-templated; scope section not separately opened.",
+        "search_record": {
+          "query": "Massachusetts Uniform Electronic Transactions Act official Massachusetts General Laws chapter 110G",
+          "tool": "web_search + web_fetch + bash raw-HTML text extraction",
+          "scope": "official Massachusetts General Court (malegislature.gov) site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open Section 3 (scope) text in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Mass. Gen. Laws ch. 93, § 42 et seq. (current, post-2018 trade secrets chapter)",
+        "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter93/Section42",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official malegislature.gov Chapter 93 §42 page opened; current (2018-amended) definitions text confirmed, including an explicit '[Text of section applicable as provided by 2018, 228, Sec. 70.]' annotation. This is the CURRENT chapter, not an obsolete pre-2018 UTSA-adoption-map reference.",
+        "search_record": {
+          "query": "Massachusetts trade secrets chapter 93 section 42 current official site",
+          "tool": "web_fetch",
+          "scope": "official malegislature.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Michigan",
+      "electronic_transactions": {
+        "citation": "Michigan Compiled Laws, Uniform Electronic Transactions Act, Act 305 of 2000, MCL 450.831 et seq.",
+        "url": "https://www.legislature.mi.gov/documents/mcl/pdf/mcl-450-831.pdf",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened and extracted official legislature.mi.gov PDF: MCL 450.831, \"This act shall be known and may be cited as the 'uniform electronic transactions act',\" Act 305 of 2000.",
+        "search_record": {
+          "query": "Michigan Uniform Electronic Transactions Act official Michigan Compiled Laws citation MCL 450.831",
+          "tool": "web_search + web_fetch + bash/pypdf extraction",
+          "scope": "official Michigan Legislature MCL PDF site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open scope section (450.833/834) in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Mich. Comp. Laws § 445.1901 et seq. (Michigan Uniform Trade Secrets Act)",
+        "url": "https://www.legislature.mi.gov/documents/mcl/pdf/mcl-Act-448-of-1998.pdf",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official legislature.mi.gov PDF opened and read via browser screenshot; short-title section (MCL 445.1901, Act 448 of 1998) confirmed visible and readable.",
+        "search_record": {
+          "query": "Michigan Uniform Trade Secrets Act MCL 445.1901 official site",
+          "tool": "browser (PDF screenshot)",
+          "scope": "official legislature.mi.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Full definitions section beyond the short-title page not separately re-screenshotted; PDF required visual read.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Minnesota",
+      "electronic_transactions": {
+        "citation": "Minnesota Statutes Chapter 325L (Uniform Electronic Transactions Act), Minn. Stat. 325L.01 et seq.",
+        "url": "https://www.revisor.mn.gov/statutes/cite/325L.01",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official revisor.mn.gov text of 325L.01 (short title, \"Uniform Electronic Transactions Act\"). Scope section not separately opened.",
+        "search_record": {
+          "query": "Minnesota Uniform Electronic Transactions Act official Minnesota Statutes citation chapter 325L",
+          "tool": "web_search + web_fetch",
+          "scope": "official Minnesota Office of the Revisor of Statutes site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open 325L.03 (scope) in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Minn. Stat. § 325C.01 et seq. (Minnesota Uniform Trade Secrets Act)",
+        "url": "https://www.revisor.mn.gov/statutes/cite/325C.01",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official revisor.mn.gov page opened with full §325C.01 definitions text confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Minnesota Uniform Trade Secrets Act 325C.01 official site",
+          "tool": "web_fetch",
+          "scope": "official revisor.mn.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Mississippi",
+      "electronic_transactions": {
+        "citation": "Mississippi Code Annotated Title 75, Chapter 12 (Uniform Electronic Transactions Act), Miss. Code Ann. 75-12-1 et seq.",
+        "url": "http://billstatus.ls.state.ms.us/htms/txtsearch.htm",
+        "status": "UNVERIFIED",
+        "note": "Mississippi Code full text is not freely hosted in an easily fetchable static form on the official Legislature site within bounded attempts; Secretary of State law-publications page returned HTTP 404. Citation sourced from secondary legal references only; primary text not opened.",
+        "search_record": {
+          "query": "Mississippi Uniform Electronic Transactions Act official Mississippi Code citation Title 75 Chapter 12",
+          "tool": "web_search + web_fetch",
+          "scope": "official Mississippi Legislature / Secretary of State sites",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt the billstatus.ls.state.ms.us text-search tool interactively (form-based, not a direct static URL)",
+          "reported_access_status": "citation-located-not-opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 1 fetch attempt (404) + search-only for code portal"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Miss. Code § 75-26-1 et seq. (Mississippi Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://www.sos.ms.gov/publications-external-affairs/mississippi-law",
+        "status": "UNVERIFIED",
+        "note": "Mississippi's official statute access is routed through a LexisNexis subscription portal referenced by the Secretary of State's site; a direct legislature.ms.gov code-TOC attempt returned HTTP 404. No free substantive text was reachable in two attempts.",
+        "search_record": {
+          "query": "Mississippi Uniform Trade Secrets Act 75-26-3 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official sos.ms.gov / legislature.ms.gov domains",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt a LexisNexis subscription login (out of scope; not a free official public source).",
+          "reported_access_status": "paywalled / 404"
         }
       }
     },
@@ -71,7 +972,8 @@
           "primary_source_opened": true,
           "status": "SOURCE-ESTABLISHED",
           "what_was_not_checked": "Full act, case law, post-observation amendments or transaction-specific enforceability.",
-          "primary_source": "https://revisor.mo.gov/main/OneSection.aspx?section=432.230"
+          "primary_source": "https://revisor.mo.gov/main/OneSection.aspx?section=432.230",
+          "reported_access_status": "SOURCE-ESTABLISHED"
         }
       },
       "trade_secrets": {
@@ -88,7 +990,827 @@
           "primary_source_opened": true,
           "status": "SOURCE-ESTABLISHED",
           "what_was_not_checked": "Other sections, case law, remedies, limitation periods, post-observation amendments or any particular trade-secret claim.",
-          "primary_source": "https://revisor.mo.gov/main/OneSection.aspx?section=417.453"
+          "primary_source": "https://revisor.mo.gov/main/OneSection.aspx?section=417.453",
+          "reported_access_status": "SOURCE-ESTABLISHED"
+        }
+      }
+    },
+    {
+      "state": "Montana",
+      "electronic_transactions": {
+        "citation": "Montana Code Annotated Title 30, Chapter 18, Part 1 (Uniform Electronic Transactions Act), Mont. Code Ann. 30-18-101 et seq.",
+        "url": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0180/part_0010/section_0010/0300-0180-0010-0010.html",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official mca.legmt.gov (raw HTML extraction) confirming 30-18-101, \"This part may be cited as the 'Uniform Electronic Transactions Act',\" History: En. Sec. 1, Ch. 52, L. 2001.",
+        "search_record": {
+          "query": "Montana Uniform Electronic Transactions Act official Montana Code Annotated citation Title 30 Chapter 18 Part 1",
+          "tool": "web_search + web_fetch + bash raw-HTML text extraction",
+          "scope": "official Montana Code Annotated site (mca.legmt.gov)",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open scope section (30-18-104) in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Mont. Code § 30-14-401 et seq. (Montana Uniform Trade Secrets Act)",
+        "url": "https://leg.mt.gov/bills/mca/title_0300/chapter_0140/part_0040/section_0020/0300-0140-0040-0020.html",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official mca.leg.mt.gov page opened with full §30-14-402 definitions text confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Montana Uniform Trade Secrets Act 30-14-402 official site",
+          "tool": "web_fetch",
+          "scope": "official leg.mt.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Nebraska",
+      "electronic_transactions": {
+        "citation": "Nebraska Revised Statutes Chapter 86, Sections 86-612 to 86-643 (Uniform Electronic Transactions Act)",
+        "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=86-612",
+        "status": "UNVERIFIED",
+        "note": "Official nebraskalegislature.gov page loaded navigation shell only in two fetch attempts (first page + offset); actual statute text appears to be injected dynamically and was not retrieved within bounded attempts.",
+        "search_record": {
+          "query": "Nebraska Uniform Electronic Transactions Act official Nebraska Revised Statutes citation chapter 86",
+          "tool": "web_search + web_fetch (2 attempts)",
+          "scope": "official Nebraska Legislature statutes site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not retrieve actual statutory text (only nav/header HTML returned both times)",
+          "reported_access_status": "not opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 2 fetch attempts, no statute text retrieved"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Neb. Rev. Stat. § 87-501 et seq. (Nebraska Trade Secrets Act)",
+        "url": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-502",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official nebraskalegislature.gov page opened with full §87-502 definitions text (plus case annotations) confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Nebraska Trade Secrets Act 87-502 official site",
+          "tool": "web_fetch",
+          "scope": "official nebraskalegislature.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Nevada",
+      "electronic_transactions": {
+        "citation": "Nevada Revised Statutes Chapter 719 (Electronic Transactions (Uniform Act)), NRS 719.010 et seq.",
+        "url": "https://www.leg.state.nv.us/NRS/NRS-719.html",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official leg.state.nv.us text: NRS 719.010 \"This chapter may be cited as the Uniform Electronic Transactions Act.\" Chapter TOC shows a dedicated NRS 719.200 \"Scope\" section (not separately opened in this pass); notable Nevada-specific additions for blockchain/public blockchain terms.",
+        "search_record": {
+          "query": "Nevada Uniform Electronic Transactions Act official Nevada Revised Statutes NRS 719",
+          "tool": "web_search + web_fetch",
+          "scope": "official Nevada Legislature NRS site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open NRS 719.200 (Scope) full text in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Nev. Rev. Stat. § 600A.010 et seq. (Nevada Uniform Trade Secrets Act)",
+        "url": "https://www.leg.state.nv.us/NRS/NRS-600A.html",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official leg.state.nv.us page opened with substantive NRS 600A.030 definitions text confirmed (partially truncated render, but substantive paragraphs visible).",
+        "search_record": {
+          "query": "Nevada Uniform Trade Secrets Act NRS 600A.030 official site",
+          "tool": "web_fetch",
+          "scope": "official leg.state.nv.us domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not re-fetch to capture full untruncated section; core definitions confirmed.",
+          "reported_access_status": "success (partial truncation, substantive text confirmed)"
+        }
+      }
+    },
+    {
+      "state": "New Hampshire",
+      "electronic_transactions": {
+        "citation": "New Hampshire Revised Statutes Annotated Chapter 294-E (Uniform Electronic Transactions Act), RSA 294-E:1 et seq.",
+        "url": "https://gc.nh.gov/rsa/html/XXVII/294-E/294-E-mrg.htm",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official gc.nh.gov text confirming 294-E:1 short title and 294-E:3 Scope, which excludes wills/codicils/testamentary trusts and most of UCC Article 2/2A (except UCC 1-107, 1-206).",
+        "search_record": {
+          "query": "New Hampshire Uniform Electronic Transactions Act official RSA chapter 294-E",
+          "tool": "web_search + web_fetch",
+          "scope": "official New Hampshire General Court (gc.nh.gov) RSA site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "None - full short title, definitions, and scope text were retrieved in a single fetch",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "N.H. Rev. Stat. § 350-B:1 et seq. (Uniform Trade Secrets Act)",
+        "url": "https://gc.nh.gov/rsa/html/XXXI/350-B/350-B-1.htm",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official gc.nh.gov (gencourt.state.nh.us redirect) page opened with full §350-B:1 definitions text confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "New Hampshire Uniform Trade Secrets Act RSA 350-B official site",
+          "tool": "web_fetch",
+          "scope": "official gc.nh.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "New Jersey",
+      "electronic_transactions": {
+        "citation": "New Jersey Statutes Annotated Title 12A, Chapter 12 (Uniform Electronic Transaction Act), N.J.S.A. 12A:12-1 et seq.",
+        "url": "https://www.njleg.state.nj.us/statutes",
+        "status": "UNVERIFIED",
+        "note": "Citation located via search (N.J.S.A. 12A:12-1 et seq.); the official njleg statutes portal is a search-form interface, not a directly fetchable static statute-text URL, and was not opened/confirmed within bounded attempts in this pass.",
+        "search_record": {
+          "query": "New Jersey Uniform Electronic Transaction Act official citation N.J.S.A. 12A:12",
+          "tool": "web_search only (no fetch attempted)",
+          "scope": "official New Jersey Legislature statutes site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt to drive the njleg.state.nj.us search form to retrieve 12A:12-1 text directly",
+          "reported_access_status": "citation-located-not-opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - search only, no fetch attempt made (form-based portal)"
+        }
+      },
+      "trade_secrets": {
+        "citation": "N.J. Stat. § 56:15-1 et seq. (New Jersey Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://www.njleg.state.nj.us/statutes/statutes.cfm?Title=56&Chapter=15&Section=2",
+        "status": "UNVERIFIED",
+        "note": "Official njleg.state.nj.us statutes.cfm lookup returned HTTP 404 on direct fetch and ERR_FAILED on browser navigation; no substantive text opened in two attempts.",
+        "search_record": {
+          "query": "New Jersey Trade Secrets Act 56:15-2 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official njleg.state.nj.us domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not try pub.njleg.gov bill-history mirror as a third method; bounded at two.",
+          "reported_access_status": "404 / connection failed"
+        }
+      }
+    },
+    {
+      "state": "New Mexico",
+      "electronic_transactions": {
+        "citation": "New Mexico Statutes Annotated 1978, Chapter 14, Article 16 (Uniform Electronic Transactions Act), NMSA 1978 14-16-1 et seq.",
+        "url": "https://nmonesource.com/nmsa/en/nav.do",
+        "status": "UNVERIFIED",
+        "note": "Official nmonesource.com (New Mexico Compilation Commission) site returned 404 on direct navigation and on the NMSA index path; nmlegis.gov only hosts individual session-bill PDFs, not consolidated statute text, within bounded attempts.",
+        "search_record": {
+          "query": "New Mexico Uniform Electronic Transactions Act official citation NMSA 1978 Chapter 14 Article 16",
+          "tool": "web_search + web_fetch + openBrowserPage (2 attempts)",
+          "scope": "official nmonesource.com (NM Compilation Commission) and nmlegis.gov sites",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not try the nmonesource.com internal search UI interactively (JS search tool, not a direct URL)",
+          "reported_access_status": "not opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 2 attempts, both 404"
+        }
+      },
+      "trade_secrets": {
+        "citation": "N.M. Stat. § 57-3A-1 et seq. (Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://nmonesource.com/nmos/nmsa/en/item/4381/index.do",
+        "status": "UNVERIFIED",
+        "note": "Official nmonesource.com (New Mexico Compilation Commission) page opened, but the statute text is rendered inside a nested iframe that did not load substantive content in the available attempt; the resolved page title ('Chapter 6 - Public Finances') also did not match the target chapter (57-3A), indicating a stale/incorrect deep link.",
+        "search_record": {
+          "query": "New Mexico Uniform Trade Secrets Act 57-3A-2 official site",
+          "tool": "browser",
+          "scope": "official nmonesource.com domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not navigate NMOneSource's internal chapter browser from the homepage as a third method; bounded at two.",
+          "reported_access_status": "iframe did not render / wrong chapter resolved"
+        }
+      }
+    },
+    {
+      "state": "New York",
+      "electronic_transactions": {
+        "citation": "New York State Technology Law, Article 3 (Electronic Signatures and Records Act / ESRA), NY STT Law 301-309",
+        "url": "https://www.nysenate.gov/legislation/laws/STT/301",
+        "status": "UNVERIFIED",
+        "note": "Official nysenate.gov page is protected by an active Cloudflare bot-verification challenge (\"Performing security verification\") on both plain fetch and browser navigation; per instructions, access controls were not defeated, so primary text was not inspected. Non-UETA alternative statute (ESRA), notable scope exception per secondary sources.",
+        "search_record": {
+          "query": "New York Electronic Signatures and Records Act official State Technology Law citation",
+          "tool": "web_search + web_fetch + openBrowserPage (2 attempts)",
+          "scope": "official NY State Senate (nysenate.gov) legislation site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not retry with extended wait for Cloudflare challenge to clear (bounded attempt limit)",
+          "reported_access_status": "blocked-by-bot-challenge",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - both attempts blocked by active Cloudflare challenge page"
+        }
+      },
+      "trade_secrets": {
+        "citation": "No comprehensive New York civil trade secrets statute opened/identified; secondary sources describe common-law misappropriation doctrine (NOT UTSA-based)",
+        "url": "https://www.nysenate.gov/legislation",
+        "status": "UNVERIFIED",
+        "note": "New York is widely reported by secondary sources to rely on common-law trade secret misappropriation (no enacted UTSA), but nysenate.gov is protected by a Cloudflare bot-challenge ('Performing security verification') that blocked both web_fetch (403) and browser navigation in two attempts. Per instruction, NOT labeled UTSA, and the common-law characterization is NOT certified here because no official primary source was actually opened.",
+        "search_record": {
+          "query": "New York trade secrets statute OR common law official site",
+          "tool": "web_fetch/browser",
+          "scope": "official nysenate.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Could not verify via primary source whether any codified civil trade-secret statute exists in NY; relied only on secondary-source description, which per task rules cannot be certified as SOURCE-ESTABLISHED.",
+          "reported_access_status": "blocked (Cloudflare challenge)"
+        }
+      }
+    },
+    {
+      "state": "North Carolina",
+      "electronic_transactions": {
+        "citation": "North Carolina General Statutes Chapter 66, Article 40 (Uniform Electronic Transactions Act), N.C.G.S. 66-311 et seq.",
+        "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/PDF/BySection/Chapter_66/GS_66-311.pdf",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened and extracted official ncleg.gov PDF: G.S. 66-311, \"This Article may be cited as the Uniform Electronic Transactions Act.\" (2000-152, s.1). HTML chapter page returned a transient 520 error; PDF-by-section succeeded on first retry.",
+        "search_record": {
+          "query": "North Carolina Uniform Electronic Transactions Act official N.C.G.S. Chapter 66 Article 40",
+          "tool": "web_search + web_fetch(520 fail) + bash/pypdf extraction(success)",
+          "scope": "official North Carolina General Assembly (ncleg.gov) site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open scope/exclusions section (G.S. 66-313 or similar) in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "N.C. Gen. Stat. § 66-152 et seq. (North Carolina Trade Secrets Protection Act) — cited by secondary sources only",
+        "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/ByArticle/Chapter_66/Article_24.html",
+        "status": "UNVERIFIED",
+        "note": "Official ncleg.gov domain returned HTTP 520 (Cloudflare origin error) on both web_fetch and browser attempts. No substantive text opened.",
+        "search_record": {
+          "query": "North Carolina Trade Secrets Protection Act 66-152 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official ncleg.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Site-wide outage appeared persistent across both attempts; did not retry a third time per the bounded-pass rule.",
+          "reported_access_status": "HTTP 520 origin error"
+        }
+      }
+    },
+    {
+      "state": "North Dakota",
+      "electronic_transactions": {
+        "citation": "North Dakota Century Code Chapter 9-16 (Electronic Transactions / Uniform Electronic Transactions Act), N.D.C.C. 9-16-01 et seq.",
+        "url": "https://ndlegis.gov/cencode/t09c16.pdf",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened and extracted official ndlegis.gov PDF: Chapter 9-16, \"Electronic Transactions,\" 9-16-01 Definitions text confirmed. Short-title section not on page 1 extract; chapter heading and definitions directly verified from official 7-page PDF.",
+        "search_record": {
+          "query": "North Dakota Uniform Electronic Transactions Act official N.D.C.C. Chapter 9-16 citation",
+          "tool": "web_search + bash/pypdf extraction",
+          "scope": "official North Dakota Legislative Assembly (ndlegis.gov) Century Code PDF",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not confirm exact short-title section number (searched page 1 only of 7-page PDF) or scope/exclusions section",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "N.D. Cent. Code § 47-25.1-01 et seq. (Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://www.ndlegis.gov/cencode/t47c25-1.pdf",
+        "status": "UNVERIFIED",
+        "note": "Official ndlegis.gov web_fetch attempt returned only breadcrumb navigation (JS-rendered content not captured); browser attempt returned ERR_FAILED. No substantive text opened.",
+        "search_record": {
+          "query": "North Dakota Uniform Trade Secrets Act 47-25.1 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official ndlegis.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not try an alternate PDF-direct URL as a third method; bounded at two.",
+          "reported_access_status": "breadcrumb only / connection failed"
+        }
+      }
+    },
+    {
+      "state": "Ohio",
+      "electronic_transactions": {
+        "citation": "Ohio Revised Code Chapter 1306 (Uniform Electronic Transactions Act), R.C. 1306.01 et seq.",
+        "url": "https://codes.ohio.gov/ohio-revised-code/chapter-1306",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official codes.ohio.gov chapter page; retrieved definitions text (R.C. 1306.01) including Ohio-specific blockchain language added to electronic record/signature definitions. Scope section (R.C. 1306.02) and public-records exemption (1306.23) not separately opened.",
+        "search_record": {
+          "query": "Ohio Uniform Electronic Transactions Act official R.C. Chapter 1306 citation",
+          "tool": "web_search + web_fetch",
+          "scope": "official Ohio Revised Code (codes.ohio.gov) site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open R.C. 1306.02 (Scope/exceptions) or 1306.23 (public-records exemption) text in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Ohio Rev. Code § 1333.61 et seq. (Ohio Uniform Trade Secrets Act)",
+        "url": "https://codes.ohio.gov/ohio-revised-code/section-1333.61",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official codes.ohio.gov page opened with full §1333.61 definitions text confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Ohio Uniform Trade Secrets Act 1333.61 official site",
+          "tool": "web_fetch",
+          "scope": "official codes.ohio.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Oklahoma",
+      "electronic_transactions": {
+        "citation": "Oklahoma Statutes Title 12A, Article 15 (Uniform Electronic Transactions Act), 12A O.S. 15-101 et seq.",
+        "url": "http://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKST&level=1",
+        "status": "UNVERIFIED",
+        "note": "Two official-domain attempts failed to return statute text within bounded attempts: oscn.net DeliverDocument returned HTTP 503, and oscn.net Index/ftdb path returned HTTP 403. oklegislature.gov statute pages are session/form-based and were not independently confirmed to open.",
+        "search_record": {
+          "query": "Oklahoma Uniform Electronic Transactions Act official 12A O.S. 15-101 citation",
+          "tool": "web_search + web_fetch (2 attempts: 503, 403)",
+          "scope": "official OSCN (oscn.net) and oklegislature.gov sites",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt the oklegislature.gov interactive statute browser as a third method (bounded to 2 attempts)",
+          "reported_access_status": "not opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 2 attempts, 503 then 403"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Okla. Stat. tit. 78, § 85 et seq. (Oklahoma Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=74214",
+        "status": "UNVERIFIED",
+        "note": "Official oscn.net domain returned HTTP 403 Forbidden on both web_fetch and browser attempts (likely bot-blocking/WAF). No substantive text opened.",
+        "search_record": {
+          "query": "Oklahoma Uniform Trade Secrets Act Title 78 85 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official oscn.net domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt the Oklahoma Legislature's separate statutes portal (oklegislature.gov) as a third method; bounded at two.",
+          "reported_access_status": "403 forbidden"
+        }
+      }
+    },
+    {
+      "state": "Oregon",
+      "electronic_transactions": {
+        "citation": "Oregon Revised Statutes Chapter 84 (Uniform Electronic Transactions Act), ORS 84.001 to 84.061",
+        "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors084.html",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official oregonlegislature.gov text: \"84.001 Short title. ORS 84.001 to 84.061 may be cited as the Uniform Electronic Transactions Act.\" Also lists Oregon-specific non-uniform additions: 84.014 (consent for transactions with governmental agency) and 84.070 (consumer transactions/oral communications). Scope section (84.007) not separately opened.",
+        "search_record": {
+          "query": "Oregon Uniform Electronic Transactions Act official ORS Chapter 84 citation",
+          "tool": "web_search + web_fetch",
+          "scope": "official Oregon State Legislature (oregonlegislature.gov) ORS site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open full 84.007 (Scope) text in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Or. Rev. Stat. § 646.461 et seq. (Oregon Uniform Trade Secrets Act) — TOC confirmed only, substantive text not opened on an official domain",
+        "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors646.html",
+        "status": "UNVERIFIED",
+        "note": "Official oregonlegislature.gov page rendered only the chapter table of contents across two fetch attempts (confirmed with different offsets); the only place substantive §646.461 text was observed was via a web_search AI synthesis citing a third-party mirror (oregon.public.law), which is not an official .gov domain and was not directly opened. Per task rules, this is not sufficient for SOURCE-ESTABLISHED.",
+        "search_record": {
+          "query": "Oregon Uniform Trade Secrets Act ORS 646.461 official site",
+          "tool": "web_fetch",
+          "scope": "official oregonlegislature.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not open the third-party oregon.public.law mirror as a substitute primary source, consistent with 'do not use summaries/non-official mirrors as verification'.",
+          "reported_access_status": "TOC only"
+        }
+      }
+    },
+    {
+      "state": "Pennsylvania",
+      "electronic_transactions": {
+        "citation": "Pennsylvania Electronic Transactions Act, 73 P.S. 2260.101 et seq. (Chapters 1, 3, 5 cited as Uniform Electronic Transactions Act)",
+        "url": "https://www.legis.state.pa.us/WU01/LI/LI/US/HTM/1999/0/0069..HTM?85",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official legis.state.pa.us text of Act of Dec. 16, 1999, P.L. 971, No. 69, confirming Section 101 (Short title) and Section 104 (Scope) exist, plus notable Pennsylvania-specific Chapter 9 (\"Consumer Agreements - Limitation on consumer agreements\") not present in standard UETA.",
+        "search_record": {
+          "query": "Pennsylvania Uniform Electronic Transactions Act official 73 P.S. 2260.101 citation",
+          "tool": "web_search + web_fetch",
+          "scope": "official Pennsylvania General Assembly (legis.state.pa.us) site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open full text of Section 104 (Scope) or Chapter 9 (Consumer Agreements) in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "12 Pa. Cons. Stat. § 5301 et seq. (Pennsylvania Uniform Trade Secrets Act)",
+        "url": "https://www.legis.state.pa.us/cfdocs/legis/LI/consCheck.cfm?txtType=HTM&ttl=12&div=0&chpt=53",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official legis.state.pa.us Chapter 53 page opened with full text (§§5301-5302) confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Pennsylvania Uniform Trade Secrets Act 12 Pa CS 5301 official site",
+          "tool": "web_fetch",
+          "scope": "official legis.state.pa.us domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Rhode Island",
+      "electronic_transactions": {
+        "citation": "Rhode Island General Laws Chapter 42-127.1 (Uniform Electronic Transactions Act), R.I. Gen. Laws 42-127.1-1 et seq.",
+        "url": "https://webserver.rilegislature.gov/statutes/title42/42-127.1/42-127.1-1.HTM",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official webserver.rilegislature.gov text: \"Section 42-127.1-1. Short title. This chapter may be cited as the Uniform Electronic Transactions Act.\" Scope section not separately opened.",
+        "search_record": {
+          "query": "Rhode Island Uniform Electronic Transactions Act official R.I. Gen. Laws Chapter 42-127.1 citation",
+          "tool": "web_search + web_fetch",
+          "scope": "official Rhode Island General Assembly statutes site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open scope/exclusions section (42-127.1-3 or similar) in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "R.I. Gen. Laws § 6-41-1 et seq. (Rhode Island Uniform Trade Secrets Act)",
+        "url": "http://webserver.rilegislature.gov/Statutes/TITLE6/6-41/6-41-1.HTM",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official webserver.rilegislature.gov page opened with full §6-41-1 definitions text confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Rhode Island Uniform Trade Secrets Act 6-41-1 official site",
+          "tool": "web_fetch",
+          "scope": "official rilegislature.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "South Carolina",
+      "electronic_transactions": {
+        "citation": "South Carolina Code of Laws Title 26, Chapter 6 (Uniform Electronic Transactions Act), S.C. Code Ann. 26-6-10 et seq.",
+        "url": "https://www.scstatehouse.gov/code/t26c006.php",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official scstatehouse.gov text: Section 26-6-10 short title/purpose, including notable SC-specific language citing 15 U.S.C. 7002(a) (federal ESIGN alternative-procedure authorization), plus beginning of Section 26-6-30 (applicability exceptions).",
+        "search_record": {
+          "query": "South Carolina Uniform Electronic Transactions Act official S.C. Code Chapter 6 Title 26 citation",
+          "tool": "web_search + web_fetch",
+          "scope": "official South Carolina Legislature (scstatehouse.gov) Code of Laws site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open full Section 26-6-30 exceptions text (was truncated mid-section) in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "S.C. Code § 39-8-10 et seq. (South Carolina Trade Secrets Act)",
+        "url": "https://www.scstatehouse.gov/code/t39c008.php",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official scstatehouse.gov Title 39 Chapter 8 page opened with full text (§§39-8-10, 39-8-20) confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "South Carolina Trade Secrets Act 39-8-10 official site",
+          "tool": "web_fetch",
+          "scope": "official scstatehouse.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "South Dakota",
+      "electronic_transactions": {
+        "citation": "South Dakota Codified Laws Chapter 53-12 (Uniform Electronic Transactions), SDCL 53-12-1 et seq.",
+        "url": "https://sdlegislature.gov/Statutes/53-12",
+        "status": "UNVERIFIED",
+        "note": "Static web_fetch returned a browser-compatibility error page; opened via integrated browser navigation (not defeating any access control), but this surfaced only chapter index/section-title listing (e.g., titles of 53-12-2 and 53-12-3) -- NOT substantive section body text. Per scope requirement that primary statute content (not just titles) be opened, this is downgraded to UNVERIFIED: title/index-level access does not satisfy substantive statute source access.",
+        "search_record": {
+          "query": "South Dakota Uniform Electronic Transactions Act official SDCL Chapter 53-12 citation",
+          "tool": "web_search + web_fetch(failed, compatibility page) + openBrowserPage(success)",
+          "scope": "official South Dakota Legislature (sdlegislature.gov) Codified Laws site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Opened TOC/index page only; did not open full text of individual sections (e.g., 53-12-1 definitions or 53-12-3 exclusions)",
+          "reported_access_status": "citation-located-index-opened-not-substantive-text",
+          "reported_primary_access": "no (title/index only - not substantive statute text)",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "S.D. Codified Laws § 37-29-1 et seq. (Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://sdlegislature.gov/Statutes/37-29-1",
+        "status": "UNVERIFIED",
+        "note": "Official sdlegislature.gov page returned a 'Your browser is not supported' placeholder on web_fetch and ERR_FAILED on browser navigation in two attempts. No substantive text opened.",
+        "search_record": {
+          "query": "South Dakota Uniform Trade Secrets Act 37-29-1 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official sdlegislature.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not try the api.sdlegislature.gov JSON/HTML-fragment endpoint as a third method; bounded at two.",
+          "reported_access_status": "unsupported-browser placeholder / connection failed"
+        }
+      }
+    },
+    {
+      "state": "Tennessee",
+      "electronic_transactions": {
+        "citation": "Tennessee Code Annotated Title 47, Chapter 10 (Uniform Electronic Transactions), Tenn. Code Ann. 47-10-101 et seq.",
+        "url": "https://wapp.capitol.tn.gov/apps/code_browser/",
+        "status": "UNVERIFIED",
+        "note": "Official Tennessee General Assembly code-browser URL returned a site error page (\"Sorry! We cannot seem to find the page\") on fetch; Tennessee Code full text is otherwise distributed via a Lexis-hosted link from tncourts.gov, not a freely fetchable state-hosted static page, within bounded attempts.",
+        "search_record": {
+          "query": "Tennessee Uniform Electronic Transactions Act official Tenn. Code Ann. Title 47 Chapter 10 citation",
+          "tool": "web_search + web_fetch (2 attempts: wrong app path, error page)",
+          "scope": "official Tennessee General Assembly (capitol.tn.gov) site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt the Lexis-hosted tncourts.gov mirror (third-party-hosted, not primary state-authored text)",
+          "reported_access_status": "not opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 2 attempts, both failed to reach statute text"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Tenn. Code § 47-25-1701 et seq. (Tennessee Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://www.tncourts.gov/Tennessee%20Code",
+        "status": "UNVERIFIED",
+        "note": "Tennessee's official court-system page directs users to an external LexisNexis Law Link for current statutory text; a direct capitol.tn.gov CodeSection app attempt returned an error page. No free substantive text was reachable in two attempts.",
+        "search_record": {
+          "query": "Tennessee Uniform Trade Secrets Act 47-25-1702 official site",
+          "tool": "web_fetch",
+          "scope": "official capitol.tn.gov / tncourts.gov domains",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt a LexisNexis subscription login (out of scope; not a free official public source).",
+          "reported_access_status": "paywalled (Lexis Law Link) / error page"
+        }
+      }
+    },
+    {
+      "state": "Texas",
+      "electronic_transactions": {
+        "citation": "Texas Business and Commerce Code, Title 10, Subtitle B, Chapter 322 (Uniform Electronic Transactions Act), Tex. Bus. & Com. Code 322.001 et seq.",
+        "url": "https://statutes.capitol.texas.gov/Docs/BC/htm/BC.322.htm",
+        "status": "UNVERIFIED",
+        "note": "Official statutes.capitol.texas.gov page is rendered entirely client-side; both a plain fetch and curl retrieval returned only CSS/font/script payload with no statute text, and browser navigation failed to load (ERR_FAILED). Citation sourced from search only.",
+        "search_record": {
+          "query": "Texas Uniform Electronic Transactions Act official Business and Commerce Code Chapter 322 citation",
+          "tool": "web_search + web_fetch + bash curl + openBrowserPage (all failed to surface text)",
+          "scope": "official Texas Legislature statutes site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt the site search-driven alternate HTML renderer (if one exists) beyond the direct chapter URL",
+          "reported_access_status": "not opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 3 technical attempts, none returned statute text"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Tex. Civ. Prac. & Rem. Code § 134A.001 et seq. (Texas Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://statutes.capitol.texas.gov/Docs/CP/htm/CP.134A.htm",
+        "status": "UNVERIFIED",
+        "note": "Official statutes.capitol.texas.gov page is JS-framed; web_fetch returned only a placeholder icon glyph ('chevron_right') and browser navigation returned ERR_FAILED in two attempts. No substantive text opened.",
+        "search_record": {
+          "query": "Texas Uniform Trade Secrets Act Civ Prac Rem 134A official site",
+          "tool": "web_fetch/browser",
+          "scope": "official statutes.capitol.texas.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not try the texas.public.law or OS Docs mirror as those are not official; bounded at two official-site attempts.",
+          "reported_access_status": "placeholder glyph only / connection failed"
+        }
+      }
+    },
+    {
+      "state": "Utah",
+      "electronic_transactions": {
+        "citation": "Utah Code Title 46, Chapter 4 (Uniform Electronic Transactions Act), Utah Code 46-4-101 et seq.",
+        "url": "https://le.utah.gov/xcode/Title46/Chapter4/46-4.html",
+        "status": "UNVERIFIED",
+        "note": "Official le.utah.gov page is a JS single-page app; both static fetch and browser navigation returned only the site header/footer navigation shell, with statute text loaded dynamically and not captured within bounded attempts.",
+        "search_record": {
+          "query": "Utah Uniform Electronic Transactions Act official Utah Code Title 46 Chapter 4 citation",
+          "tool": "web_search + web_fetch + openBrowserPage (2 attempts)",
+          "scope": "official Utah State Legislature (le.utah.gov) code site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not retrieve actual statutory text of Title 46 Chapter 4 in either attempt",
+          "reported_access_status": "not opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 2 attempts, both returned nav shell only"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Utah Code § 13-24-1 et seq. (Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://le.utah.gov/xcode/Title13/Chapter24/13-24-S2.html",
+        "status": "UNVERIFIED",
+        "note": "Official le.utah.gov page opened in browser but only rendered site navigation/footer chrome (header, menu, footer links); the statutory text itself did not render in the captured snapshot across two attempts.",
+        "search_record": {
+          "query": "Utah Uniform Trade Secrets Act 13-24-2 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official le.utah.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not attempt a third alternate print-view URL; bounded at two.",
+          "reported_access_status": "navigation chrome only, no body text rendered"
+        }
+      }
+    },
+    {
+      "state": "Vermont",
+      "electronic_transactions": {
+        "citation": "Vermont Statutes Annotated Title 9, Chapter 20 (Uniform Electronic Transactions Act), 9 V.S.A. 270 et seq.",
+        "url": "https://legislature.vermont.gov/statutes/section/09/020/00271",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened official legislature.vermont.gov text of 9 V.S.A. Section 271 (Definitions), confirming the chapter is Title 9, Chapter 20. Note: the Vermont Legislature site itself labels its online statutes \"unofficial\" compiled copy, though it is the state's own official public-access portal. Short-title/scope sections not separately opened.",
+        "search_record": {
+          "query": "Vermont Uniform Electronic Transactions Act official 9 V.S.A. Chapter 59 citation",
+          "tool": "web_search + web_fetch",
+          "scope": "official Vermont General Assembly (legislature.vermont.gov) statutes site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open short-title (9 V.S.A. 270) or scope/exclusions sections in this pass; site itself flags statutes as an unofficial compiled copy",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Vt. Stat. tit. 9, § 4601 et seq. (Vermont trade secrets chapter)",
+        "url": "https://legislature.vermont.gov/statutes/section/09/143/04601",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official legislature.vermont.gov page opened with full §4601 definitions text confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Vermont trade secrets Title 9 Chapter 143 4601 official site",
+          "tool": "web_fetch",
+          "scope": "official legislature.vermont.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
+        }
+      }
+    },
+    {
+      "state": "Virginia",
+      "electronic_transactions": {
+        "citation": "Code of Virginia Title 59.1, Chapter 42.1 (Uniform Electronic Transactions Act), Va. Code Ann. 59.1-479 et seq.",
+        "url": "https://law.lis.virginia.gov/vacode/title59.1/chapter42.1/",
+        "status": "UNVERIFIED",
+        "note": "Opened official law.lis.virginia.gov chapter index confirming real section numbers/titles (59.1-479 through 59.1-498) only -- the one individual section fetch attempted (59.1-479) returned a generic historical-citation disclaimer, not substantive text. Per scope requirement that primary statute content (not just titles) be opened, this is downgraded to UNVERIFIED: title/index-level access does not satisfy substantive statute source access.",
+        "search_record": {
+          "query": "Virginia Uniform Electronic Transactions Act official Va. Code Title 59.1 Chapter 42 citation",
+          "tool": "web_search + web_fetch (2 attempts: section-level then chapter-index)",
+          "scope": "official Virginia Legislative Information System (law.lis.virginia.gov) site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not retrieve full substantive text of an individual section (first section attempt returned boilerplate only); opened chapter-level index instead",
+          "reported_access_status": "citation-located-index-opened-not-substantive-text",
+          "reported_primary_access": "no (title/index only - not substantive statute text)",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Va. Code § 59.1-336 et seq. (Virginia Uniform Trade Secrets Act)",
+        "url": "https://law.lis.virginia.gov/vacode/title59.1/chapter26/section59.1-336/",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official law.lis.virginia.gov page opened with full §59.1-336 definitions text confirming UTSA-based definitions.",
+        "search_record": {
+          "query": "Virginia Uniform Trade Secrets Act 59.1-336 official site",
+          "tool": "web_fetch",
+          "scope": "official law.lis.virginia.gov domain",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not check remedy sections beyond definitions.",
+          "reported_access_status": "success"
         }
       }
     },
@@ -109,7 +1831,8 @@
           "status": "SOURCE-ESTABLISHED",
           "what_was_not_checked": "Full chapter, case law, history of the invalid citation, post-observation amendments or applicability to a specific transaction.",
           "primary_source": "https://app.leg.wa.gov/rcw/default.aspx?cite=1.80.060",
-          "corrected_name": "Washington Uniform Electronic Transactions Act, chapter 1.80 RCW"
+          "corrected_name": "Washington Uniform Electronic Transactions Act, chapter 1.80 RCW",
+          "reported_access_status": "SOURCE-ESTABLISHED"
         }
       },
       "trade_secrets": {
@@ -126,7 +1849,125 @@
           "primary_source_opened": true,
           "status": "SOURCE-ESTABLISHED",
           "what_was_not_checked": "Other sections, case law, remedies, limitation periods, post-observation amendments or any particular trade-secret claim.",
-          "primary_source": "https://app.leg.wa.gov/rcw/default.aspx?cite=19.108.010"
+          "primary_source": "https://app.leg.wa.gov/rcw/default.aspx?cite=19.108.010",
+          "reported_access_status": "SOURCE-ESTABLISHED"
+        }
+      }
+    },
+    {
+      "state": "West Virginia",
+      "electronic_transactions": {
+        "citation": "West Virginia Code Chapter 39A, Article 1 (Uniform Electronic Transactions Act), W. Va. Code 39A-1-1 et seq.",
+        "url": "https://code.wvlegislature.gov/39A-1-1/",
+        "status": "UNVERIFIED",
+        "note": "Official code.wvlegislature.gov URL for the specific section returned only the full statewide chapter table of contents (ending at a bare \"CHAPTER 39A. ELECTRONIC COMMERCE.\" heading) on two attempts (including a paginated re-fetch), not the actual section text of 39A-1-1.",
+        "search_record": {
+          "query": "West Virginia Uniform Electronic Transactions Act official W. Va. Code Chapter 39A citation",
+          "tool": "web_search + web_fetch (2 attempts, including offset re-fetch)",
+          "scope": "official West Virginia Legislature Code (code.wvlegislature.gov) site",
+          "result_count": 0,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not retrieve the actual substantive text of 39A-1-1 (Short title) in either attempt",
+          "reported_access_status": "not opened",
+          "reported_primary_access": "no",
+          "reported_limit": "yes - 2 attempts, both returned only statewide chapter TOC, not section 39A-1-1 text"
+        }
+      },
+      "trade_secrets": {
+        "citation": "W. Va. Code § 47-22-1 et seq. (Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://code.wvlegislature.gov/47-22-2/",
+        "status": "UNVERIFIED",
+        "note": "Official code.wvlegislature.gov (redirect target of legis.state.wv.us) returned only a minimal 'West Virginia Code | §1-22' scroll-chrome placeholder on web_fetch, and ERR_FAILED on browser navigation. No substantive text opened in two attempts.",
+        "search_record": {
+          "query": "West Virginia Uniform Trade Secrets Act 47-22-2 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official code.wvlegislature.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Did not try a third alternate chapter-index URL; bounded at two.",
+          "reported_access_status": "placeholder chrome only / connection failed"
+        }
+      }
+    },
+    {
+      "state": "Wisconsin",
+      "electronic_transactions": {
+        "citation": "Wisconsin Statutes Chapter 137 (Electronic Transactions and Records), Wis. Stat. 137.11 et seq.",
+        "url": "https://docs.legis.wisconsin.gov/statutes/statutes/137.pdf",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "web_fetch tool returned HTTP 503 from this URL twice; retrieved successfully via ordinary bash curl GET (same public URL, no access control defeated) and extracted real text: Chapter 137 TOC and Section 137.11 Definitions. Wisconsin titles this chapter \"Electronic Transactions and Records\" rather than naming it UETA in the chapter heading, though it tracks the uniform act structure.",
+        "search_record": {
+          "query": "Wisconsin Uniform Electronic Transactions Act official Wis. Stat. Chapter 137 citation",
+          "tool": "web_search + web_fetch(503 x2) + bash curl(success) + pypdf extraction",
+          "scope": "official Wisconsin State Legislature (docs.legis.wisconsin.gov) statutes site",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open full scope/exclusions section (137.12 Application) text in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Wis. Stat. § 134.90 (Uniform Trade Secrets Act) — cited by secondary sources only",
+        "url": "https://docs.legis.wisconsin.gov/statutes/statutes/134/90",
+        "status": "UNVERIFIED",
+        "note": "Official docs.legis.wisconsin.gov domain returned HTTP 503 on web_fetch and ERR_FAILED on browser navigation in two attempts. No substantive text opened.",
+        "search_record": {
+          "query": "Wisconsin Uniform Trade Secrets Act 134.90 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official docs.legis.wisconsin.gov domain",
+          "result_count": 2,
+          "limit_hit": true,
+          "primary_source_opened": false,
+          "status": "UNVERIFIED",
+          "what_was_not_checked": "Site appeared to be rate-limiting or temporarily down across both attempts; did not retry a third time per the bounded-pass rule.",
+          "reported_access_status": "HTTP 503 / connection failed"
+        }
+      }
+    },
+    {
+      "state": "Wyoming",
+      "electronic_transactions": {
+        "citation": "Wyoming Statutes Title 40, Chapter 21 (Uniform Electronic Transactions Act), Wyo. Stat. Ann. 40-21-101 et seq.",
+        "url": "https://wyoleg.gov/Statutes/compress/title40.pdf",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Opened and extracted official wyoleg.gov Title 40 PDF (401 pages): \"CHAPTER 21 - UNIFORM ELECTRONIC TRANSACTIONS ACT. 40-21-101. Short title. This act may be cited as the 'Uniform Electronic Transactions Act.'\" Definitions (40-21-102) also confirmed.",
+        "search_record": {
+          "query": "Wyoming Uniform Electronic Transactions Act official Wyo. Stat. Ann. Title 40 Chapter 21 citation",
+          "tool": "web_search + bash curl + pypdf extraction",
+          "scope": "official Wyoming Legislature (wyoleg.gov) Statutes PDF",
+          "result_count": 1,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not open scope/applicability section (40-21-104) text in this pass",
+          "reported_access_status": "opened",
+          "reported_primary_access": "yes",
+          "reported_limit": "no"
+        }
+      },
+      "trade_secrets": {
+        "citation": "Wyo. Stat. § 40-24-101 et seq. (Uniform Trade Secrets Act)",
+        "url": "https://wyoleg.gov/NXT/gateway.dll/2026%20Wyoming%20Statutes/2026%20Titles/2270/2313?f=templates&fn=document-frameset.htm",
+        "status": "SOURCE-ESTABLISHED",
+        "note": "Official wyoleg.gov NXT document-frameset page opened with full Chapter 24 text (§§40-24-101 through 40-24-110) confirming UTSA-based definitions and full chapter structure.",
+        "search_record": {
+          "query": "Wyoming Uniform Trade Secrets Act 40-24-101 official site",
+          "tool": "web_fetch/browser",
+          "scope": "official wyoleg.gov domain",
+          "result_count": 2,
+          "limit_hit": false,
+          "primary_source_opened": true,
+          "status": "SOURCE-ESTABLISHED",
+          "what_was_not_checked": "Did not independently verify any amendments outside Chapter 24 text shown.",
+          "reported_access_status": "success (after one placeholder-only first attempt)"
         }
       }
     }

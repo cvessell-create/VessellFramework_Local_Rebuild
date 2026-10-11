@@ -163,7 +163,7 @@ def main(argv: list[str] | None = None) -> int:
             raise ValueError("Run requires an existing database, output directory, reviewer and reason")
         if len(args.reviewer) > 2000 or len(args.reason) > 2000:
             raise ValueError("Reviewer and reason must be at most 2000 characters")
-        directory = args.output_dir / uuid.uuid4().hex
+        directory = Path(args.output_dir) / uuid.uuid4().hex
         directory.mkdir(parents=True, exist_ok=False)
         directory.joinpath("request.json").write_text(canonical(request), encoding="utf-8")
         directory.joinpath("source.html").write_text(request["source_html"], encoding="utf-8")

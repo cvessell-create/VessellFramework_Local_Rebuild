@@ -1,0 +1,1272 @@
+{
+  "review_date": "2026-10-10",
+  "scope": "Federal and all 50 states; bounded platform-transparency/accountability discovery, not an exhaustive protection survey. DC and territories excluded.",
+  "completion": "BOUNDED_DISCOVERY_ONLY",
+  "limitations": [
+    "Legal information, not legal advice, complete protection, litigation clearance or an infringement accusation.",
+    "No new rights, license changes, NDA, takedown or complaint submission are created or authorized.",
+    "Source text, enactment, current enforceability, applicability and empirical protection are distinct.",
+    "Search-result counts are researcher-reported discovery observations, not independently audited coverage or corroboration.",
+    "One targeted discovery search per state does not exhaust consumer protection, privacy, publicity, contractual or common-law rights. Broader requested protection mapping remains incomplete.",
+    "Most enforcement mechanisms, private-action requirements, effective dates and litigation restrictions were not verified.",
+    "The Apache license remains unchanged; these references do not prohibit all corporate use or resolve AI-training legality.",
+    "NOT FOUND IN SCOPE is not a statement that a jurisdiction lacks protections."
+  ],
+  "states": [
+    {
+      "state": "Alabama",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Alabama social media platform content moderation censorship transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Alaska",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Alaska SB214 Stop Social Media Censorship Act HB318 enacted content moderation transparency",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Arizona",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Arizona SB1106 social media content moderation transparency statute enacted vetoed",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Arkansas",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Arkansas Act 689 900 social media safety act content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "California",
+      "status": "UNVERIFIED",
+      "citation": "Cal. Business & Professions Code §22675 (AB 587) — definitions section; a separate BPC section (reporting obligations, not independently re-confirmed this pass) reportedly imposes biannual AG reporting",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&sectionNum=22675",
+      "search_record": {
+        "query": "California BPC 22675 official leginfo text (correction pass)",
+        "tool": "web_fetch (2 attempts: leginfo.legislature.ca.gov direct section view, leginfo expanded-branch view)",
+        "scope": "leginfo.legislature.ca.gov official California Legislative Information site only",
+        "result_count": 0,
+        "limit_hit": true,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Exact statutory text of §22675 and the separate reporting-obligation section; current 9th Circuit case status (X Corp v. Bonta); whether AB587 remains in effect or stayed.",
+        "reported_status": "UNVERIFIED"
+      },
+      "additional_references": [
+        {
+          "topic": "California Consumer Privacy Act / CPRA (data-use rights)",
+          "status": "UNVERIFIED",
+          "citation": "Cal. Civ. Code §1798.100 et seq.",
+          "url": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=1.81.5",
+          "search_record": {
+            "query": "California CCPA CPRA private right of action enforcement scope",
+            "tool": "web_search",
+            "scope": "secondary legal summaries; official text not independently re-opened this pass",
+            "result_count": 4,
+            "limit_hit": false,
+            "primary_source_opened": false,
+            "status": "UNVERIFIED",
+            "what_was_not_checked": "Full statute cross-reference beyond headline scope; CPPA enforcement case history."
+          },
+          "source_scope": "Secondary-source lead only; substantive text and applicability not confirmed."
+        }
+      ],
+      "search_outcome": "CANDIDATE LAW FOUND (official text not reconfirmed this pass)",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "Research lead only; no independently confirmed substantive government source for this claim."
+    },
+    {
+      "state": "Colorado",
+      "status": "UNVERIFIED",
+      "citation": "Colorado SB24-158 (enacted session law; final codified C.R.S. section not independently confirmed this pass)",
+      "url": "https://leg.colorado.gov/bills/sb24-158",
+      "search_record": {
+        "query": "Colorado SB24-158 official leg.colorado.gov bill text (correction pass)",
+        "tool": "web_fetch (1 attempt: leg.colorado.gov bill page)",
+        "scope": "leg.colorado.gov official Colorado General Assembly site",
+        "result_count": 1,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Final codified Colorado Revised Statutes section/citation; full bill text past the fetch truncation point; any post-enactment amendment or litigation.; inspected bill landing-page summary is not the enacted substantive provision.",
+        "reported_status": "SOURCE-ESTABLISHED"
+      },
+      "search_outcome": "CANDIDATE LAW FOUND",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "Research lead only; no independently confirmed substantive government source for this claim."
+    },
+    {
+      "state": "Connecticut",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Connecticut SB1295 social media children data content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Delaware",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Delaware social media platform content moderation censorship transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Florida",
+      "status": "SOURCE-ESTABLISHED",
+      "citation": "Fla. Stat. §501.2041 (2026 Florida Statutes, official online edition, flsenate.gov)",
+      "url": "https://www.flsenate.gov/Laws/Statutes/2026/501.2041",
+      "search_record": {
+        "query": "Florida 501.2041 official flsenate.gov statute text (correction pass)",
+        "tool": "web_fetch (1 attempt: flsenate.gov official 2026 Florida Statutes page)",
+        "scope": "flsenate.gov official Florida Legislature statute database",
+        "result_count": 1,
+        "limit_hit": false,
+        "primary_source_opened": true,
+        "status": "SOURCE-ESTABLISHED",
+        "what_was_not_checked": "Full enforcement-mechanism subsections past the fetch truncation point; current 11th Circuit/SCOTUS injunction scope (treated as unverified lead, not confirmed via official opinion).",
+        "reported_status": "SOURCE-ESTABLISHED"
+      },
+      "search_outcome": "CANDIDATE LAW FOUND",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "501.2041 definitions and publication/user-notice provisions opened. Statute text is not confirmation of present enforcement or judicial validity."
+    },
+    {
+      "state": "Georgia",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Georgia SB351 social media children act content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Hawaii",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Hawaii social media minors data deletion act content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Idaho",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Idaho stop addictive social media act content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Illinois",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Illinois HB5511 social media minors design features content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Indiana",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Indiana social media minors age verification law content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Iowa",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Iowa social media platform content moderation censorship transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Kansas",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Kansas social media censorship transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Kentucky",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Kentucky social media sex offender registry act content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Louisiana",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Louisiana social media law content moderation transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Maine",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Maine social media platform content moderation censorship transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Maryland",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Maryland MODPA social media content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "additional_references": [
+        {
+          "topic": "Maryland Online Data Privacy Act (MODPA) — data-use rights",
+          "status": "UNVERIFIED",
+          "citation": "Md. Code, Com. Law §14-4601 et seq.",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4607&enactments=false",
+          "search_record": {
+            "query": "Maryland Online Data Privacy Act MODPA enforcement private right of action",
+            "tool": "web_search",
+            "scope": "secondary legal summaries",
+            "result_count": 3,
+            "limit_hit": false,
+            "primary_source_opened": false,
+            "status": "UNVERIFIED",
+            "what_was_not_checked": "Official MD code text not independently re-opened this pass beyond citation confirmation."
+          },
+          "source_scope": "Secondary-source lead only; substantive text and applicability not confirmed."
+        }
+      ],
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Massachusetts",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Massachusetts social media platform content moderation censorship transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Michigan",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Michigan SB757 SB760 social media minors content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Minnesota",
+      "status": "SOURCE-ESTABLISHED",
+      "citation": "Minn. Stat. §325M.33 (official Minnesota Statutes, Office of the Revisor of Statutes)",
+      "url": "https://www.revisor.mn.gov/statutes/cite/325M.33",
+      "search_record": {
+        "query": "Minnesota 325M.33 official revisor.mn.gov statute text (correction pass)",
+        "tool": "web_fetch (1 attempt: revisor.mn.gov official statute cite page)",
+        "scope": "revisor.mn.gov official Minnesota Office of the Revisor of Statutes",
+        "result_count": 1,
+        "limit_hit": false,
+        "primary_source_opened": true,
+        "status": "SOURCE-ESTABLISHED",
+        "what_was_not_checked": "Enforcement/penalty subsection (not in the cited section's text as returned); whether any minor-specific carve-outs exist elsewhere in Ch. 325M; amendment history.",
+        "reported_status": "SOURCE-ESTABLISHED"
+      },
+      "search_outcome": "CANDIDATE LAW FOUND",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "325M.33 requires public explanations of engagement limits and algorithmic ranking, usage statistics and product experiments. Enforcement, broader chapter exclusions and company coverage not verified."
+    },
+    {
+      "state": "Mississippi",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Mississippi HB1126 social media age verification content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Missouri",
+      "status": "UNVERIFIED",
+      "citation": "Mo. Code Regs. Ann. tit. 15, §60-19 (AG rule on social media 'Big Tech censorship'/user-choice algorithm)",
+      "url": "https://www.sos.mo.gov/cmsimages/adrules/csr/current/15csr/15c60-19.pdf",
+      "search_record": {
+        "query": "Missouri Attorney General 15 CSR 60-19 social media algorithm choice rule",
+        "tool": "web_search",
+        "scope": "secondary news/legal-summary sources describing the AG rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Official sos.mo.gov regulation PDF text not opened; current litigation/stay status; whether rule is in effect or enjoined.",
+        "reported_status": "UNVERIFIED"
+      },
+      "search_outcome": "CANDIDATE LAW FOUND",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "Research lead only; no independently confirmed substantive government source for this claim."
+    },
+    {
+      "state": "Montana",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Montana HB770 social media content moderation transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "additional_references": [
+        {
+          "topic": "Montana Consumer Data Privacy Act — data-use rights",
+          "status": "UNVERIFIED",
+          "citation": "Mont. Code Ann. §30-14-2801 et seq.",
+          "url": "https://leg.mt.gov/bills/mca/title_0300/chapter_0140/part_0280/sections_index.html",
+          "search_record": {
+            "query": "Montana Consumer Data Privacy Act enforcement",
+            "tool": "web_search",
+            "scope": "secondary summaries",
+            "result_count": 2,
+            "limit_hit": false,
+            "primary_source_opened": false,
+            "status": "UNVERIFIED",
+            "what_was_not_checked": "Official MCA text not independently re-opened this pass beyond citation."
+          },
+          "source_scope": "Secondary-source lead only; substantive text and applicability not confirmed."
+        }
+      ],
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Nebraska",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Nebraska LB383 social media minors content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Nevada",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Nevada SB63 social media minors content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "New Hampshire",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "New Hampshire social media platform content moderation censorship transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "New Jersey",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "New Jersey A4738 S861 social media content moderation transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "New Mexico",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "New Mexico social media platform content moderation transparency statute enacted Meta litigation",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "New York",
+      "status": "SOURCE-ESTABLISHED",
+      "citation": "General Business Law, Article 42, sections 1100-1104",
+      "url": "https://www.nysenate.gov/legislation/laws/GBS/A42",
+      "primary_sources": [
+        "https://www.nysenate.gov/legislation/laws/GBS/1100",
+        "https://www.nysenate.gov/legislation/laws/GBS/1101",
+        "https://www.nysenate.gov/legislation/laws/GBS/1102",
+        "https://www.nysenate.gov/legislation/laws/GBS/1103",
+        "https://www.nysenate.gov/legislation/laws/GBS/1104"
+      ],
+      "search_record": {
+        "query": "New York GBS Article 42 Social Media Terms of Service repository use",
+        "tool": "web_search discovery; official web_fetch failed 403; ordinary shared-browser navigation and bounded snapshot reads",
+        "scope": "NY Senate article index and sections 1100-1104, observed October 10, 2026 Pacific",
+        "result_count": 5,
+        "limit_hit": true,
+        "primary_source_opened": true,
+        "status": "SOURCE-ESTABLISHED",
+        "what_was_not_checked": "Section 1102 full details; judicial injunctions, effective-date/session-law changes, current enforceability, platform-specific coverage, private contractual rights or actual use of owner code.",
+        "reported_status": "SOURCE-ESTABLISHED"
+      },
+      "enforceability": "UNVERIFIED",
+      "source_scope": "GBS 1100-1104: TOS disclosure, semiannual reporting and attorney-general-exclusive enforcement. Cloud-storage/file-collaboration exclusions and revenue threshold matter. Full 1102 details, court restrictions and company coverage not verified."
+    },
+    {
+      "state": "North Carolina",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "North Carolina Social Media Accountability Act SB620 enacted content moderation transparency",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "North Dakota",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "North Dakota HB1144 social media content moderation transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Ohio",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Ohio social media parental notification act content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Oklahoma",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Oklahoma HB2548 SB1996 social media content moderation transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Oregon",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Oregon Revised Statutes social media content moderation transparency report requirement",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Pennsylvania",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Pennsylvania social media platform content moderation censorship transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Rhode Island",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Rhode Island H7953 H5291 social media content moderation transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "South Carolina",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "South Carolina HB3431 Social Media Regulation Act content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "South Dakota",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "South Dakota SB111 social media data access interoperability transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "additional_references": [
+        {
+          "topic": "South Dakota SB111 — data access/interoperability (adjacent, not content-moderation/IP)",
+          "status": "UNVERIFIED",
+          "citation": "South Dakota SB111 (session law; statutory citation not independently confirmed this pass)",
+          "url": "",
+          "search_record": {
+            "query": "South Dakota SB111 data access interoperability official bill text sdlegislature.gov",
+            "tool": "web_search",
+            "scope": "secondary legislative-tracking sources only",
+            "result_count": 2,
+            "limit_hit": false,
+            "primary_source_opened": false,
+            "status": "UNVERIFIED",
+            "what_was_not_checked": "Official sdlegislature.gov bill text not opened; exact codified section citation not confirmed."
+          },
+          "source_scope": "Secondary-source lead only; substantive text and applicability not confirmed."
+        }
+      ],
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Tennessee",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Tennessee HB1891 social media minors content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Texas",
+      "status": "UNVERIFIED",
+      "citation": "Tex. Bus. & Com. Code Ch. 120 (enacted via HB 20, 2021) — exact current codified text not reconfirmed this pass",
+      "url": "https://statutes.capitol.texas.gov/Docs/BC/htm/BC.120.htm",
+      "search_record": {
+        "query": "Texas Business Commerce Code Chapter 120 official statutes.capitol.texas.gov text (correction pass)",
+        "tool": "web_fetch (2 attempts: statutes.capitol.texas.gov Ch.120 page, same page with section anchor)",
+        "scope": "statutes.capitol.texas.gov and capitol.texas.gov official Texas Legislature sites only",
+        "result_count": 0,
+        "limit_hit": true,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Exact current codified text of Chapter 120; current 5th Circuit/SCOTUS remand disposition; whether provisions are presently enjoined or in effect.",
+        "reported_status": "UNVERIFIED"
+      },
+      "search_outcome": "CANDIDATE LAW FOUND (official text not reconfirmed this pass)",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "Research lead only; no independently confirmed substantive government source for this claim."
+    },
+    {
+      "state": "Utah",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Utah social media minor protection act content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Vermont",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Vermont S.69 S.71 social media age appropriate design code content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Virginia",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Virginia SB854 social media minors content moderation transparency enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "additional_references": [
+        {
+          "topic": "Virginia Consumer Data Protection Act (VCDPA) — data-use rights",
+          "status": "UNVERIFIED",
+          "citation": "Va. Code §59.1-575 et seq.",
+          "url": "https://law.lis.virginia.gov/vacode/59.1-575/",
+          "search_record": {
+            "query": "Virginia Consumer Data Protection Act enforcement scope",
+            "tool": "web_search",
+            "scope": "secondary summaries",
+            "result_count": 2,
+            "limit_hit": false,
+            "primary_source_opened": false,
+            "status": "UNVERIFIED",
+            "what_was_not_checked": "Official VCDPA text not independently re-opened this pass."
+          },
+          "source_scope": "Secondary-source lead only; substantive text and applicability not confirmed."
+        }
+      ],
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Washington",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Washington state social media platform content moderation censorship transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "additional_references": [
+        {
+          "topic": "Washington Fair Campaign Practices Act — political ad transparency (narrow, election-ads only)",
+          "status": "UNVERIFIED",
+          "citation": "Wash. Rev. Code §42.17A.345 (commercial advertiser political-ad recordkeeping)",
+          "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=42.17A.345",
+          "search_record": {
+            "query": "Washington RCW 42.17A.345 political ad transparency Meta litigation",
+            "tool": "web_search",
+            "scope": "secondary case-law summary (Eric Goldman blog) + statute citation",
+            "result_count": 3,
+            "limit_hit": false,
+            "primary_source_opened": false,
+            "status": "UNVERIFIED",
+            "what_was_not_checked": "Official RCW text not independently re-opened this pass beyond citation confirmation."
+          },
+          "source_scope": "Secondary-source lead only; substantive text and applicability not confirmed."
+        }
+      ],
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "West Virginia",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "West Virginia social media platform content moderation censorship transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Wisconsin",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Wisconsin social media content moderation censorship transparency law enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    },
+    {
+      "state": "Wyoming",
+      "status": "UNVERIFIED",
+      "citation": "NOT FOUND IN SCOPE",
+      "url": "",
+      "search_record": {
+        "query": "Wyoming social media platform content moderation censorship transparency statute enacted",
+        "tool": "web_search",
+        "scope": "one targeted search per bounded-objective rule",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full state code index was not exhaustively browsed; only the targeted search results and any law they identified were reviewed; no official full-code search engine query was run.",
+        "reported_status": "UNVERIFIED (NOT FOUND IN SCOPE)"
+      },
+      "search_outcome": "NOT FOUND IN SCOPE",
+      "enforceability": "UNVERIFIED",
+      "source_scope": "No qualifying direct analogue located in this bounded search; not proof of absence. Broader consumer and privacy protections remain incomplete."
+    }
+  ],
+  "federal": [
+    {
+      "jurisdiction": "Federal",
+      "status": "SOURCE-ESTABLISHED",
+      "citation": "47 U.S.C. §230 (United States Code, 2023 Edition — official GPO/govinfo.gov text)",
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title47/html/USCODE-2023-title47-chap5-subchapII-partI-sec230.htm",
+      "search_record": {
+        "query": "47 U.S.C. 230 official govinfo.gov GPO United States Code text (correction pass)",
+        "tool": "web_fetch (1 attempt: govinfo.gov GPO USCODE 2023 edition page)",
+        "scope": "govinfo.gov official U.S. Government Publishing Office United States Code, 2023 Edition",
+        "result_count": 1,
+        "limit_hit": false,
+        "primary_source_opened": true,
+        "status": "SOURCE-ESTABLISHED",
+        "what_was_not_checked": "Full subsection (c)(2) 'Good Samaritan' text past the fetch truncation point; 2018 FOSTA-SESTA amendment text; case law applying the statute to specific moderation disputes (not independently reviewed via official court opinions this pass).",
+        "reported_status": "SOURCE-ESTABLISHED"
+      },
+      "enforceability": "UNVERIFIED",
+      "source_scope": "Only inspected source text; not current enforceability, applicability, infringement or legal protection. U.S. Code 2023 edition snapshot; limits in the search record remain controlling. Secondary bill-status descriptions are not verified current outcomes."
+    },
+    {
+      "jurisdiction": "Federal",
+      "status": "SOURCE-ESTABLISHED",
+      "citation": "17 U.S.C. §512 (United States Code, 2023 Edition — official GPO/govinfo.gov text)",
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title17/html/USCODE-2023-title17-chap5-sec512.htm",
+      "search_record": {
+        "query": "17 U.S.C. 512 official govinfo.gov GPO United States Code text (correction pass)",
+        "tool": "web_fetch (1 attempt: govinfo.gov GPO USCODE 2023 edition page)",
+        "scope": "govinfo.gov official U.S. Government Publishing Office United States Code, 2023 Edition",
+        "result_count": 1,
+        "limit_hit": false,
+        "primary_source_opened": true,
+        "status": "SOURCE-ESTABLISHED",
+        "what_was_not_checked": "§512(c) notice-content requirements and §512(g) counter-notice subsection text past the fetch truncation point; §512(i) repeat-infringer-policy case law; any pending DMCA-amendment bills (e.g., SMART Copyright Act) were not researched this pass.",
+        "reported_status": "SOURCE-ESTABLISHED"
+      },
+      "enforceability": "UNVERIFIED",
+      "source_scope": "Only inspected source text; not current enforceability, applicability, infringement or legal protection. U.S. Code 2023 edition snapshot; limits in the search record remain controlling. Secondary bill-status descriptions are not verified current outcomes."
+    },
+    {
+      "jurisdiction": "Federal",
+      "status": "SOURCE-ESTABLISHED",
+      "citation": "15 U.S.C. §45 (FTC Act Section 5; United States Code, 2023 Edition — official GPO/govinfo.gov text)",
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap2-subchapI-sec45.htm",
+      "search_record": {
+        "query": "15 U.S.C. 45 official govinfo.gov GPO United States Code text (correction pass)",
+        "tool": "web_fetch (1 attempt: govinfo.gov GPO USCODE 2023 edition page)",
+        "scope": "govinfo.gov official U.S. Government Publishing Office United States Code, 2023 Edition",
+        "result_count": 1,
+        "limit_hit": false,
+        "primary_source_opened": true,
+        "status": "SOURCE-ESTABLISHED",
+        "what_was_not_checked": "Full §45(b)-(n) enforcement-procedure subsections past the fetch truncation point; specific FTC consent-decree case texts (e.g., 2019 Facebook settlement) were not independently re-opened via official FTC.gov order documents this pass.",
+        "reported_status": "SOURCE-ESTABLISHED"
+      },
+      "enforceability": "UNVERIFIED",
+      "source_scope": "Only inspected source text; not current enforceability, applicability, infringement or legal protection. U.S. Code 2023 edition snapshot; limits in the search record remain controlling. Secondary bill-status descriptions are not verified current outcomes."
+    },
+    {
+      "jurisdiction": "Federal",
+      "status": "UNVERIFIED",
+      "citation": "Kids Online Safety Act (KOSA) — S.1748 / H.R.6484, 119th Congress",
+      "url": "https://www.congress.gov/bill/119th-congress/senate-bill/1748",
+      "search_record": {
+        "query": "Kids Online Safety Act KOSA federal status 2024 2025 enacted or pending Congress.gov",
+        "tool": "web_search",
+        "scope": "GovTrack/Congress.gov/GovInfo bill-tracking sources",
+        "result_count": 10,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full bill text provisions; House committee markup detail.",
+        "reported_status": "UNVERIFIED (confirmed-pending, not enacted)"
+      },
+      "enforceability": "UNVERIFIED",
+      "source_scope": "Research lead only; no independently confirmed substantive government source for this claim. U.S. Code 2023 edition snapshot; limits in the search record remain controlling. Secondary bill-status descriptions are not verified current outcomes."
+    },
+    {
+      "jurisdiction": "Federal",
+      "status": "UNVERIFIED",
+      "citation": "Platform Accountability and Transparency Act — S.3292, 119th Congress",
+      "url": "https://www.govtrack.us/congress/bills/119/s3292",
+      "search_record": {
+        "query": "Platform Accountability and Transparency Act federal bill status Congress enacted pending",
+        "tool": "web_search",
+        "scope": "GovTrack/BillTrack50/LegiScan bill-tracking sources",
+        "result_count": 3,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full bill text; companion House bill (if any).",
+        "reported_status": "UNVERIFIED (confirmed-pending, not enacted)"
+      },
+      "enforceability": "UNVERIFIED",
+      "source_scope": "Research lead only; no independently confirmed substantive government source for this claim. U.S. Code 2023 edition snapshot; limits in the search record remain controlling. Secondary bill-status descriptions are not verified current outcomes."
+    },
+    {
+      "jurisdiction": "Federal",
+      "status": "UNVERIFIED",
+      "citation": "NO FAKES Act — H.R.2794 / S.1367, 119th Congress",
+      "url": "https://www.govtrack.us/congress/bills/119/hr2794",
+      "search_record": {
+        "query": "NO FAKES Act digital replica copyright Congress status 2024 2025",
+        "tool": "web_search",
+        "scope": "GovTrack/Wikipedia/Grammy advocacy/Mondaq secondary sources",
+        "result_count": 9,
+        "limit_hit": false,
+        "primary_source_opened": false,
+        "status": "UNVERIFIED",
+        "what_was_not_checked": "Full bill text; House/Senate committee markup activity beyond referral.",
+        "reported_status": "UNVERIFIED (confirmed-pending, not enacted)"
+      },
+      "enforceability": "UNVERIFIED",
+      "source_scope": "Research lead only; no independently confirmed substantive government source for this claim. U.S. Code 2023 edition snapshot; limits in the search record remain controlling. Secondary bill-status descriptions are not verified current outcomes."
+    },
+    {
+      "jurisdiction": "Federal",
+      "status": "SOURCE-ESTABLISHED",
+      "citation": "15 U.S.C. §6501 et seq. (COPPA, Ch. 91; United States Code, 2023 Edition — official GPO/govinfo.gov text)",
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap91.htm",
+      "search_record": {
+        "query": "15 U.S.C. 6501 COPPA official govinfo.gov GPO United States Code text (correction pass)",
+        "tool": "web_fetch (1 attempt: govinfo.gov GPO USCODE 2023 edition page)",
+        "scope": "govinfo.gov official U.S. Government Publishing Office United States Code, 2023 Edition",
+        "result_count": 1,
+        "limit_hit": false,
+        "primary_source_opened": true,
+        "status": "SOURCE-ESTABLISHED",
+        "what_was_not_checked": "Full §6502 (FTC rulemaking) and §6503-6505 subsections past the fetch truncation point.",
+        "reported_status": "SOURCE-ESTABLISHED"
+      },
+      "enforceability": "UNVERIFIED",
+      "source_scope": "Only inspected source text; not current enforceability, applicability, infringement or legal protection. U.S. Code 2023 edition snapshot; limits in the search record remain controlling. Secondary bill-status descriptions are not verified current outcomes."
+    }
+  ]
+}

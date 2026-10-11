@@ -483,9 +483,14 @@ class WeightingEngine:
         discounted: list[WeightRecord] = []
         for index, record in enumerate(records):
             factor = 1.0
+            discount_note = ""
             for root_id, members in root_groups.items():
                 if index in members:
                     factor = 1.0 / len(members)
+                    discount_note = (
+                        f"; independence discount 1/{len(members)} "
+                        f"(shared root {root_id})"
+                    )
                     break
             if factor != 1.0:
                 discounted.append(
@@ -493,9 +498,7 @@ class WeightingEngine:
                         **{**record.to_dict(), "flags": tuple(record.flags),
                            "weight": record.weight * factor,
                            "independence_factor": factor,
-                           "rationale": record.rationale
-                           + f"; independence discount 1/{len(members)} "
-                           + f"(shared root {root_id})",
+                           "rationale": record.rationale + discount_note,
                            "normalized_weight": 0.0}
                     )
                 )

@@ -45,7 +45,7 @@ def test_state_catalog_has_exact_coverage_and_explicit_source_access():
             assert entry["note"]
             if entry["status"] == "SOURCE-ESTABLISHED":
                 assert record["primary_source_opened"] is True
-                assert entry["url"].startswith("https://")
+                assert entry["url"].startswith(("https://", "http://"))
                 assert entry["citation"]
             else:
                 assert record["primary_source_opened"] is False
@@ -67,3 +67,34 @@ def test_legal_notices_preserve_license_and_informational_boundaries():
     catalog = (ROOT / "docs/state-law-protections.md").read_text()
     assert "not legal advice" in catalog
     assert "not automatic nationwide protection" in catalog
+
+
+def test_platform_catalog_distinguishes_discovery_from_protection():
+    catalog = json.loads((ROOT / "docs/platform-accountability-laws.json").read_text())
+    assert catalog["completion"] == "BOUNDED_DISCOVERY_ONLY"
+    rows = catalog["states"]
+    assert len(rows) == 50
+    assert {row["state"] for row in rows} == STATES
+    assert len(catalog["federal"]) == 7
+    for row in rows + catalog["federal"]:
+        assert row["enforceability"] == "UNVERIFIED"
+        for entry in [row, *row.get("additional_references", [])]:
+            status = entry["status"]
+            assert status in {"SOURCE-ESTABLISHED", "UNVERIFIED"}
+            record = entry["search_record"]
+            assert record["status"] == status
+            assert record["primary_source_opened"] == (status == "SOURCE-ESTABLISHED")
+            assert isinstance(record["limit_hit"], bool)
+            assert isinstance(record["result_count"], int)
+            assert record["query"] and record["tool"] and record["scope"]
+            assert record["what_was_not_checked"]
+            assert entry["source_scope"]
+            if status == "SOURCE-ESTABLISHED":
+                assert entry["url"].startswith("https://")
+            else:
+                assert "note" not in entry
+    markdown = (ROOT / "docs/platform-accountability-laws.md").read_text()
+    assert "not complete protection" in markdown
+    assert "broader consumer/privacy/IP mapping remains incomplete" in markdown
+    assert "not that the state has no relevant law" in markdown
+    assert "2023 U.S. Code edition" in markdown

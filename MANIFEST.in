@@ -23,6 +23,8 @@ include docs/game-theory-framework-audit.md
 include docs/civilian-authorship-and-model-interference.md
 include docs/state-law-protections.md
 include docs/state-law-protections.json
+include docs/platform-accountability-laws.md
+include docs/platform-accountability-laws.json
 include docs/washington-rcw-19.74.md
 include docs/trade-secrets-notice.md
 include docs/claim-verifier.md

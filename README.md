@@ -1,12 +1,55 @@
 # VessellFramework
 
-<a href="https://cvessell-create.github.io/VessellFramework/"><img src="https://img.shields.io/badge/Launch-Claim_Verifier-live_app-5aa9ff?style=for-the-badge" alt="Launch the Claim Verifier web app"></a>
+[Run the Claim Verifier](#run-the-claim-verifier-web-app) |
+[Callable specialist](docs/specialist-agent.md) |
+[Review workspace](docs/ambient-workflows.md)
 
-VessellFramework is an auditable Python runtime and a set of doctrine and skill artifacts for evidence, provenance, case analysis, forecasting, and approved remediation control.
+VessellFramework is being developed as a **full-stack SI sub-agent**. Its
+implemented core provides callable, provenance-aware evidence analysis.
+The email-inspired workspace is its **human-facing control plane**, not the
+primary product. Authenticated intake, bounded analysis, durable provenance,
+human review/report release and explicitly authorized execution stay distinct.
+SI is product direction, not demonstrated superintelligence or field efficacy.
+See [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md).
 
 Author: Christopher R. Vessell
 
-Current package state: v3.8.1 rough working candidate prepared for graduate-level review and feedback.
+Current package version: **3.12.0**, as declared in [pyproject.toml](pyproject.toml).
+Versioned v3.8.1 filenames remain historical compatibility artifacts.
+
+Preserve civilian authorship and lawful research scope under the
+[source-preservation caveat](docs/civilian-authorship-and-model-interference.md);
+contested government-interference attribution is not verified.
+
+## Six-pillar inquiry and review boundaries
+
+The analytical architecture has six pillars: PARADOX, BOTTLENECK, DUAL LAYER,
+XFACTOR, KNOWING FIELD and GAME THEORY. Strategic models require supplied actors,
+actions, information, utility units and evidence; missing inputs are NOT_SUPPLIED.
+Human source/preview-bound Knowing Field completion is required before every new
+report release. Record completeness, classification and generated previews do
+not confer source truth, approval or execution authority. Filing metadata must
+retain independent revisions and audit history and must not change confidence.
+CLI analyses remain
+previews until the separate required human completion and release decision.
+Synthetic benchmark fixtures are
+not citations or historical incidents in the author's supplied paper.
+
+The [Search Gate](VesselFramework_Search_Gate_SKILL_v0.1.md) is prospective,
+not validated. Search summaries stay hypotheses; inaccessible sources remain
+unverified. Follow [agent instructions](.github/copilot-instructions.md).
+See the bounded [state-law references](docs/state-law-protections.md) and
+[platform-accountability index](docs/platform-accountability-laws.md) and
+[trade-secret notice](docs/trade-secrets-notice.md); these do not create rights
+or change the [Apache license](LICENSE).
+
+See [KNOWING FIELD](VesselFramework_Knowing_Field_SKILL_v0.1.md),
+[GAME THEORY](VesselFramework_Game_Theory_SKILL_v0.1.md), and the
+[owner-paper reconciliation](docs/paper-source-reconciliation.md).
+The [verifier guide](docs/claim-verifier.md) distinguishes both local interfaces.
+After reviewing and staging source changes, use
+[artifact synchronization](scripts/sync_repository_artifacts.py) to refresh
+tracked distribution hashes; hash agreement does not establish factual truth.
 
 For the complete skill, agent, executable-code, scanner, and authorized remediation map, start with [VesselFramework_Agent.md](VesselFramework_Agent.md). Historical artifacts retain their original `VesselFramework` names; the active Python namespace is `vessell`.
 
@@ -45,7 +88,8 @@ Step-by-step traceability lives in [docs/traceability/doctrine_code_matrix.md](d
 
 ## Foundations — works this builds on
 
-The correction playbook operationalizes three published results. Full
+The owner source remains distinct from later supporting literature. The
+correction playbook draws on three published results. Full
 citations are in [docs/references.md](docs/references.md):
 
 - **Lamport (1978)** — the happens-before relation (*a → b*): every rule of
@@ -60,8 +104,8 @@ citations are in [docs/references.md](docs/references.md):
 - **Redmond, Shen, Vazou & Kuper (2022)** — *Verified causal broadcast with
   Liquid Haskell* (arXiv:2206.14767): the machine-checked guarantee that no
   message is delivered in an order violating causality. The dependents
-  registry is that guarantee in miniature — `CausalOrderingError` instead of
-  silent out-of-order completion.
+  registry checks analogous local ordering with `CausalOrderingError`;
+  these Python checks are not that paper's machine-checked guarantee.
 
 ## Quick start
 
@@ -70,8 +114,11 @@ citations are in [docs/references.md](docs/references.md):
 Three ways to run it straight from GitHub — no clone needed:
 
 1. **In your browser** (nothing to install):
-   **[Launch the Claim Verifier](https://cvessell-create.github.io/VessellFramework/)** —
-   the real `vessell/verify.py` doctrine executes via Pyodide; nothing is uploaded anywhere.
+   [Browser verifier](docs/index.html) — `vessell/verify.py` executes via
+   Pyodide. Runtime and module loading use the network; source URLs supplied
+   for analysis are not authenticated. Live deployment remains unverified.
+   GitHub Pages is intended to publish **master /docs** using branch deployment;
+   the dashboard workflow only tests dashboard code and does not replace that site.
 
 2. **In the cloud** (no local setup):
    open this repo in [GitHub Codespaces](https://github.com/features/codespaces)
@@ -80,7 +127,7 @@ Three ways to run it straight from GitHub — no clone needed:
 
 3. **As an installed package** (Python 3.13+):
    ```powershell
-   pip install git+https://github.com/cvessell-create/VessellFramework.git
+   pip install git+https://github.com/cvessell-create/VessellFramework_Local_Rebuild.git
    python -m vessell.app
    ```
 
@@ -102,14 +149,15 @@ It is the real `vessell/verify.py` doctrine behind a web UI, not a mock:
 - **Ghost-job filter** — paste job-posting sightings; get the ghost verdict
   with its signal details.
 
-Each tab ships a one-click worked example (Wauna earthquake, bridge-closure
-scare, Uline ghost pattern). The same engine is also a JSON API
+Each tab ships an illustrative fixture, not a verified event or job.
+Tiers and official-record flags remain supplied assertions. Results are
+analysis-only, not report release or authorization. The same engine is a JSON API
 (`POST /api/verify`, `/api/planted-news`, `/api/ghost-job`) — see
 `vessell/app/server.py` for the contract.
 
 ### Drive it programmatically
 
-Standard library only — no server process needed:
+Standard-library HTTP client/server in the same process, on a background thread:
 
 ```python
 from vessell.app.client import launch
