@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-13T22:15:47.688789+00:00",
+  "generated_utc": "2026-10-13T22:33:00.801521+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -797,6 +797,10 @@
       "sha256": "7cf0324b20b29cd37c604134b7bb2f442f75eb6910000533661f704a60a53644"
     },
     {
+      "path": "r/loop_model.R",
+      "sha256": "73e66e884ff107dff9b32d91e04fbf79e048f237a163a9750ad44b2ff2111619"
+    },
+    {
       "path": "r/memory_store.R",
       "sha256": "e4bd3813b3076109b3d30e672c032eab028b5a03a380ae91fd37c5742d4f5f34"
     },
@@ -823,6 +827,10 @@
     {
       "path": "r/test_github_observatory.R",
       "sha256": "fe01eeb29ad94288e33c0b804e34a7ac0010c8c7c37b9eca25659ce18a582f21"
+    },
+    {
+      "path": "r/test_loop_model.R",
+      "sha256": "c72de52daf8d319c479d4ab038e906001468b3219f262a172d3e955d8995a6f6"
     },
     {
       "path": "r/test_memory_store.R",
@@ -1181,6 +1189,10 @@
       "sha256": "7ed06dd8e43008c0d12fae1bed97f1d30e01b44e9622ff284dbe18301210d1e7"
     },
     {
+      "path": "tests/test_loop_models.py",
+      "sha256": "a0b078c7f07a104c4410d8b501b8d4e6c6a7dfe65c315984a483d99f30d1ae9f"
+    },
+    {
       "path": "tests/test_malware_triage.py",
       "sha256": "ad736be7ec48026a4c38d98860a0939ceb0408835fd69a04b3aa4299099183ce"
     },
@@ -1286,7 +1298,7 @@
     },
     {
       "path": "tests/test_si_countermeasures.py",
-      "sha256": "42ef1a9b96ef35850d2d1f0030ea88f9c786cbbf4a344f1e882d5ff9bf480094"
+      "sha256": "e75d724e3298abe607c994b4c9c331db8c7e34d40a6ea315365fcfc012431932"
     },
     {
       "path": "tests/test_single_file_evil_twin.py",
@@ -1549,6 +1561,10 @@
       "sha256": "ce33f8adac7e624f9612dff784188462dc753e0a74c41bbe0d993e046d2ad816"
     },
     {
+      "path": "vessell/loop_models.py",
+      "sha256": "f1e28443f2558b39a8fce839e27cf51e45ca64a5691de0d22fa28fe27b78887b"
+    },
+    {
       "path": "vessell/malware_triage.py",
       "sha256": "ee6df76c101d6cd0ace359452919047aad087c4f6d9a425cb7e0ce8c821abb43"
     },
@@ -1670,7 +1686,7 @@
     },
     {
       "path": "vessell/si_algorithm_countermeasures.py",
-      "sha256": "3cb2b939cbe0e0f03dacc3d6232acd100ec892714ce72eca7ef054a9cf5b2305"
+      "sha256": "d3af7c0d8d875a0f21305f5cf67fe3352c808038b0e254d041a96ba74e5275db"
     },
     {
       "path": "vessell/si_chat.py",

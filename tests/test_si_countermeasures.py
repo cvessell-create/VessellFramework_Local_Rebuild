@@ -1,12 +1,9 @@
 # Copyright 2026 Christopher R. Vessell. Licensed under the Apache License, Version 2.0. See LICENSE.
 """Unit tests verifying algorithm and formula countermeasures against Hail-to-the-Analyst."""
 
-import pytest
 
 from vessell.si_algorithm_countermeasures import (
     GameAlgorithmCountermeasures,
-    MeleeCountermeasure,
-    WeaponOptimizationResult,
 )
 
 
