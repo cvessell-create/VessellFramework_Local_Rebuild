@@ -47,7 +47,6 @@ The agent must:
 |---|---|---|
 | `official-record` | an authoritative record affirms | authentic anchor (verdict: `AUTHENTIC`) |
 | `established-denial` | an established-tier source denies, no official affirmation | manufactured (verdict: `LIKELY_PLANTED`) |
-| `synchronized-burst` | >= 4 low-tier outlets publish near-identical text inside a 90-minute window | coordinated push |
 | `text-clone-army` | >= 5 distinct sources carry near-identical wording | not independent reporting |
 | `single-origin-laundering` | every sighting traces to one non-established root | laundering chain, not corroboration |
 | `no-primary-source` | claim circulates with no official record and no established outlet | orphaned claim |
@@ -63,8 +62,6 @@ Verdict ladder: official record -> `AUTHENTIC`; established denial ->
 |---|---|
 | Claim + sightings | `ClaimCheck`, `SourceSighting` (tier, published_at, text, root, denies, is_official_record) |
 | Corroboration scoring | `verify_claim()` — reuses `SOURCE_TIER_WEIGHTS`, one root counts once |
-| Burst detection | `_detect_synchronized_burst()` — sliding 90-min window over low-tier publish times + text clustering |
-| Clone analysis | `_cluster_near_duplicate_texts()` — difflib >= 0.92 |
 | Root tracing | `effective_root()` — shared wire/origin collapses to one ancestor |
 | Full analysis | `analyze_planted_news()` -> `PlantedNewsReport` with `to_dict()` audit record |
 

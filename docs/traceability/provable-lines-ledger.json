@@ -1,0 +1,92 @@
+[
+  {
+    "file": "VesselFramework_Ghost_Job_Filter_SKILL_v0.1.md",
+    "line": 46,
+    "text": "| Repost IDs | >= 3 distinct listing IDs, same text | the \"new\" posting is a re-skin |",
+    "sha256": "107d94182d462dd5271bcd345dfb3600af97dba994ec0040aa2dd8f55b0f302c",
+    "proven_by": [
+      {
+        "value": 3.0,
+        "constant": "GHOST_MIN_LISTING_IDS",
+        "code": "vessell/verify.py:689",
+        "test": "tests/test_doctrine_reconciliation.py"
+      }
+    ]
+  },
+  {
+    "file": "VesselFramework_Ghost_Job_Filter_SKILL_v0.1.md",
+    "line": 48,
+    "text": "| Freshness masking | claimed posted date >= 30 days later than first observation of the same text | repost disguised as new |",
+    "sha256": "9eda294348d89d3000689ed7c42bf63add83600324659127c6c3963b6b11f2f2",
+    "proven_by": [
+      {
+        "value": 30.0,
+        "constant": "GHOST_MIN_FRESHNESS_GAP_DAYS",
+        "code": "vessell/verify.py:691",
+        "test": "tests/test_doctrine_reconciliation.py"
+      }
+    ]
+  },
+  {
+    "file": "VesselFramework_Ghost_Job_Filter_SKILL_v0.1.md",
+    "line": 59,
+    "text": "| Near-duplicate clustering | difflib ratio >= 0.92 merges aggregator-tweaked reposts |",
+    "sha256": "5afaacd36de2cf46574c490a6383b9d3e3a9e9da382b8f9cdfeb3c90d54981e4",
+    "proven_by": [
+      {
+        "value": 0.92,
+        "constant": "NEAR_DUPLICATE_THRESHOLD",
+        "code": "vessell/verify.py:687",
+        "test": "tests/test_doctrine_reconciliation.py"
+      }
+    ]
+  },
+  {
+    "file": "VesselFramework_Planted_News_Intel_SKILL_v0.1.md",
+    "line": 50,
+    "text": "| `synchronized-burst` | >= 4 low-tier outlets publish near-identical text inside a 90-minute window | coordinated push |",
+    "sha256": "1f72f61670799e995b72122fd29da25fd8bd3ca29ce37c7b6bb76d26ce5d5ac0",
+    "proven_by": [
+      {
+        "value": 90.0,
+        "constant": "BURST_WINDOW_MINUTES",
+        "code": "vessell/verify.py:418",
+        "test": "tests/test_doctrine_reconciliation.py"
+      },
+      {
+        "value": 4.0,
+        "constant": "BURST_MIN_SOURCES",
+        "code": "vessell/verify.py:419",
+        "test": "tests/test_doctrine_reconciliation.py"
+      }
+    ]
+  },
+  {
+    "file": "VesselFramework_Planted_News_Intel_SKILL_v0.1.md",
+    "line": 66,
+    "text": "| Burst detection | `_detect_synchronized_burst()` — sliding 90-min window over low-tier publish times + text clustering |",
+    "sha256": "75f04a4f53b1b87653be53c1ff75e4a3bf979646eba28f00f06d19b4dd1d653e",
+    "proven_by": [
+      {
+        "value": 90.0,
+        "constant": "BURST_WINDOW_MINUTES",
+        "code": "vessell/verify.py:418",
+        "test": "tests/test_doctrine_reconciliation.py"
+      }
+    ]
+  },
+  {
+    "file": "VesselFramework_Planted_News_Intel_SKILL_v0.1.md",
+    "line": 67,
+    "text": "| Clone analysis | `_cluster_near_duplicate_texts()` — difflib >= 0.92 |",
+    "sha256": "7b0806bdacd1b84e2663a09ef5ce1ba7c6dfc30ceb51cc4554db08152907f022",
+    "proven_by": [
+      {
+        "value": 0.92,
+        "constant": "NEAR_DUPLICATE_THRESHOLD",
+        "code": "vessell/verify.py:687",
+        "test": "tests/test_doctrine_reconciliation.py"
+      }
+    ]
+  }
+]

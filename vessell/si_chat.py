@@ -26,7 +26,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any, Protocol
 
-from vessell import story_corpus
+from vessell import myth_corpus, story_corpus
 
 ROOT = Path(__file__).resolve().parent.parent
 MODEL_DIR = ROOT / "models" / "Qwen--Qwen2.5-0.5B-Instruct-GGUF"
@@ -60,6 +60,9 @@ PERSONA = (
     "Only mention items, doors, enemies, numbers or objectives that appear in the "
     "game facts or telemetry; never invent places, guards or secrets. Never open "
     "with 'I understand' or polite filler; talk like a terse handler on comms. "
+    "Hidden folklore, when present, is public-domain myth for flavour: you may "
+    "speak of frost spirits, rune-wise giants, hoard dragons or the red dragon of "
+    "Wales as metaphors, but invent no franchise characters. "
     "At most two sentences.\n"
     "Style example: 'That run went down hard, Analyst. Restock before you trust "
     "that corridor.'"
@@ -197,7 +200,7 @@ class OllamaBackend:
 
 class SIChat:
     def __init__(self, backend: Backend | None = None, memory: LoopMemory | None = None,
-                 corpus: dict[str, Any] | None = None) -> None:
+                 corpus: dict[str, Any] | None = None, myth: list[dict[str, Any]] | None = None) -> None:
         self.corpus = corpus or story_corpus.extract()
         problems = story_corpus.verify(self.corpus)
         if problems:
@@ -205,10 +208,11 @@ class SIChat:
         self.retriever = Retriever(self.corpus)
         self.backend = backend if backend is not None else OllamaBackend()
         self.memory = memory or LoopMemory()
+        self.myth = myth_corpus.MythRetriever(myth if myth is not None else myth_corpus.load())
 
     def status(self) -> dict[str, Any]:
         return {"schema": SCHEMA, "backend": self.backend.name, "model_ready": self.backend.available(),
-                "corpus_lines": len(self.corpus["lines"]), "loop": self.memory.summary()}
+                "corpus_lines": len(self.corpus["lines"]), "myth_passages": len(self.myth.items), "loop": self.memory.summary()}
 
     def record_episode(self, episode: dict[str, Any]) -> dict[str, Any]:
         keys = ("generation", "mission", "outcome", "kills", "fitness", "improved", "died", "stage", "seconds")
@@ -217,8 +221,11 @@ class SIChat:
         clean["stage"] = str(clean.get("stage", "intake"))[:20]
         return self.memory.append("episode", clean)
 
-    def _messages(self, message: str, lines: list[dict[str, Any]], loop: dict[str, Any]) -> list[dict[str, str]]:
+    def _messages(self, message: str, lines: list[dict[str, Any]], loop: dict[str, Any],
+                  myth: list[dict[str, Any]] | None = None) -> list[dict[str, str]]:
         notes = "\n".join(f"- {story_corpus.collapse(line['text']).replace('**', '').replace('`', '')}" for line in lines)
+        if myth:
+            notes += "\nHidden folklore:\n" + "\n".join(f"- ({m['tradition']}) {m['text'][:400]}" for m in myth)
         situation = self.situation(loop.get("game_now") or {})
         msgs = [{"role": "system", "content": f"{PERSONA}\n\nHidden briefing notes:\n{notes}\n\n"
                  f"Loop telemetry: {json.dumps(loop, ensure_ascii=False)}\n\n"
@@ -255,7 +262,7 @@ class SIChat:
     def grounded(self, text: str, facts: dict[str, Any], known: str = "") -> bool:
         """Reject repeats, claimed clearances the player lacks, and numbers absent from the facts."""
         low = text.lower()
-        if degenerate(text):
+        if degenerate(text) or re.search(r"\b(briefing notes|hidden notes|folklore|the notes|sources?)\b", low):
             return False
         allowed = set(re.findall(r"\d+", json.dumps(facts) + " " + known))
         if any(n not in allowed for n in re.findall(r"\d+", low)):
@@ -298,18 +305,24 @@ class SIChat:
         lines = self.retriever.search(prompt + " " + stage, stage=stage)
         if not lines:
             lines = self.retriever.search(stage, stage=stage)
+        mission = facts.get("mission")
+        myth = self.myth.search(prompt, mission if isinstance(mission, int) else None)
         sources = [{"id": ln["id"], "cite": f"{ln['source']}:{ln['line_start']}", "sha256": ln["sha256"]}
                    for ln in lines]
+        myth_sources = [{"id": f"myth:{m['source']}", "cite": f"public-domain:{m['source']}", "layer": "myth"}
+                        for m in myth]
         text, kind, error = "", "generated", None
         if self.backend.available():
             try:
                 for _attempt in range(2):
-                    text = self.backend.generate(self._messages(prompt, lines, loop))
+                    text = self.backend.generate(self._messages(prompt, lines, loop, myth))
                     if self.grounded(text, facts, json.dumps(loop) + " " + prompt):
                         break
                     text, error = "", "ungrounded"
             except (urllib.error.URLError, OSError, ValueError) as exc:
                 error = type(exc).__name__
+        if text:
+            sources = sources + myth_sources
         if not text and error == "ungrounded" and facts:
             # The model drifted from the live game state; report that state plainly instead.
             kind, text, sources = "telemetry", self.situation(facts), []

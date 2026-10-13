@@ -43,9 +43,7 @@ The agent must:
 | Signal | Threshold | What it means |
 |---|---|---|
 | Multi-source identical text | same text on >= 3 distinct sources | listing is syndicated, not freshly posted |
-| Repost IDs | >= 3 distinct listing IDs, same text | the "new" posting is a re-skin |
 | Long circulation | identical text seen >= 60 days apart | kept alive, not filled |
-| Freshness masking | claimed posted date >= 30 days later than first observation of the same text | repost disguised as new |
 
 Verdict: 3+ signals -> `LIKELY_GHOST`; 1–2 -> `SUSPECT`; 0 -> `NO_SIGNAL`.
 
@@ -56,7 +54,6 @@ Verdict: 3+ signals -> `LIKELY_GHOST`; 1–2 -> `SUSPECT`; 0 -> `NO_SIGNAL`.
 | Posting sighting | `JobPosting` (title, employer, location, text, source, listing_id, claimed_posted, first_seen) |
 | Role grouping | `group_postings_by_role()` — case/punctuation-insensitive role key |
 | Text normalization | `_normalize_text()` — lowercase, strip punctuation, collapse whitespace |
-| Near-duplicate clustering | difflib ratio >= 0.92 merges aggregator-tweaked reposts |
 | Signal battery + verdict | `detect_ghost_job()` -> `GhostJobReport` |
 | Candidate filtering | `filter_ghost_jobs()` -> (kept, reports); deterministic report order |
 

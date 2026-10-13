@@ -25,7 +25,7 @@ class FakeBackend:
 
 @pytest.fixture
 def chat(tmp_path):
-    return si_chat.SIChat(backend=FakeBackend(), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"))
+    return si_chat.SIChat(backend=FakeBackend(), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"), myth=[])
 
 
 def test_generated_reply_is_labelled_derivative_and_keeps_hidden_sources(chat):
@@ -52,7 +52,7 @@ def test_loop_memory_feeds_later_prompts(chat):
 
 
 def test_offline_backend_falls_back_to_one_verbatim_owner_line(tmp_path):
-    c = si_chat.SIChat(backend=FakeBackend(ready=False), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"))
+    c = si_chat.SIChat(backend=FakeBackend(ready=False), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"), myth=[])
     r = c.reply("correction dependents", view="framework")
     assert r["kind"] == "owner" and r["model"] is None and len(r["sources"]) == 1
     line = next(ln for ln in c.corpus["lines"] if ln["id"] == r["sources"][0]["id"])
@@ -113,3 +113,32 @@ def test_degenerate_and_long_output_is_trimmed_or_rejected(chat):
     assert si_chat.degenerate("Episode 1.0.0.0.0.0.0.0.0.0.0.0.")
     assert not chat.grounded("Episode 1.0.0.0.0.0.0.0.0.0.0.0.", {"mission": 1}, known="0")
     assert not si_chat.degenerate("Exit is close, Analyst.")
+
+
+def test_myth_layer_is_hidden_public_domain_flavour_matched_to_mission(tmp_path):
+    from vessell import myth_corpus
+
+    frost = myth_corpus.MythSource("t", 1, "T", "X", 1900, "japanese", "pd")
+    items = myth_corpus.passages(
+        "*** START OF THE PROJECT GUTENBERG EBOOK T ***\n\n"
+        + "The woman of the snow breathed frost across the sleeping ferryman in the cold winter hut. " * 3
+        + "\n\n"
+        + "A smith worked gold at the forge while the dragon slept upon the hoard of the barrow. " * 3,
+        frost,
+    )
+    assert {tuple(i["tags"]) for i in items} == {("cold", "frost", "snow", "winter"), ("dragon", "forge", "gold", "smith")}
+    c = si_chat.SIChat(backend=FakeBackend(text="Hold steady, Analyst."), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"),
+                       myth=items)
+    r = c.reply("what now?", view="game", game={"mission": 3, "hp": 80})
+    system = c.backend.seen[0][0]["content"]
+    assert "Hidden folklore" in system and "snow" in system and "forge" not in system
+    assert r["sources_hidden"] is True
+    assert [s for s in r["sources"] if s.get("layer") == "myth"] == [
+        {"id": "myth:t", "cite": "public-domain:t", "layer": "myth"}
+    ]
+
+
+def test_replies_that_mention_hidden_layers_are_rejected(chat):
+    assert not chat.grounded("The hidden briefing notes say little.", {})
+    assert not chat.grounded("My sources are quiet.", {})
+    assert chat.grounded("Hold the line, Analyst.", {})

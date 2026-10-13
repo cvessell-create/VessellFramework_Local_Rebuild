@@ -31,3 +31,4 @@ frontend/*.tsbuildinfo
 
 # Local Hugging Face model snapshots (kept out of Git; ~29 GB)
 models/
+data/myth_corpus/cache/

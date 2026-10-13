@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-13T21:11:40.307285+00:00",
+  "generated_utc": "2026-10-13T22:15:47.688789+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -54,7 +54,7 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "3bb61a9a56069728e5aee75c8f6119e41d5b5c2bc438771d25f54dfa6a8a6ccc"
+      "sha256": "5ae5339844d56bf349b6852b0b1b071d89a6e15588ce7f6d2cda93a64449e8c2"
     },
     {
       "path": ".vscode/extensions.json",
@@ -166,7 +166,7 @@
     },
     {
       "path": "VesselFramework_Ghost_Job_Filter_SKILL_v0.1.md",
-      "sha256": "7f046807d813349c6993d750d16edeaf0e9559c2dc88647c20356aad9a54acbb"
+      "sha256": "7b63b7ba36165a4eb2309172203e80c0e955eeb33339a2ff0c9a0c8daaced48b"
     },
     {
       "path": "VesselFramework_Hardening_Patch_Registry_v3.8.md",
@@ -194,7 +194,7 @@
     },
     {
       "path": "VesselFramework_Planted_News_Intel_SKILL_v0.1.md",
-      "sha256": "5cbf322855a462c36aedba689661f9e2c27807a4522143e5fd62433a2bd5d265"
+      "sha256": "2fcc0cdeeebab8371a85b58eecfb6f0eec452ad51cd27fb7be835dc7460ba78a"
     },
     {
       "path": "VesselFramework_Posture_Agent_SKILL_v0.1.md",
@@ -307,6 +307,10 @@
     {
       "path": "dashboard/tests/logic.test.js",
       "sha256": "a1da47d2a0c761accaf2ce39a0c5ff8c573f822779ce403d9397891c63a71556"
+    },
+    {
+      "path": "data/myth_corpus/lock.json",
+      "sha256": "4001ffc382510ec1834a0f0d98dd6280f03f7f6a6d33d95f87e6e8e752534948"
     },
     {
       "path": "data/prompt_session_handoff.json",
@@ -615,6 +619,10 @@
     {
       "path": "docs/traceability/doctrine_code_matrix.md",
       "sha256": "31a42e7429a6ab157823e8bcabe62155a124b9d253e8b235b14ea800a38e6aa8"
+    },
+    {
+      "path": "docs/traceability/provable-lines-ledger.json",
+      "sha256": "5d297e4e05f314ab955306b5d11294b8d87602af12ace8fc88d77072225c1e25"
     },
     {
       "path": "docs/trade-secrets-notice.md",
@@ -965,6 +973,10 @@
       "sha256": "a66492453c346d49f687ba039a6489cb137c858babbec594a9cc39dff695dc3c"
     },
     {
+      "path": "scripts/prune_provable_lines.py",
+      "sha256": "8d19f966e222c9f6c287f885d4e6f9cabc5f4b41e6adbc3dafd891877098b4ee"
+    },
+    {
       "path": "scripts/sync_repository_artifacts.py",
       "sha256": "4b35a04e343b29862d2da8adeaa0ac3c299811e4f64891405380c73d9bc82917"
     },
@@ -1213,6 +1225,10 @@
       "sha256": "a986cf234965fe1c607f47e16dfd7616b6eab1dd0457b2c71a82598613030f04"
     },
     {
+      "path": "tests/test_prune_provable_lines.py",
+      "sha256": "9c5e298ca416e510dbfdb3901105dad00d2bbf081d3d293b616c6aa344395df6"
+    },
+    {
       "path": "tests/test_recognition_gate.py",
       "sha256": "c63174be29a371bb5d7a87f8623666e1ed4cda59ab9f392a994edec54683db0a"
     },
@@ -1266,7 +1282,7 @@
     },
     {
       "path": "tests/test_si_chat.py",
-      "sha256": "bbd236b998b5cec4605a27e8a84328615829198ff26841fb6873eb4678de3597"
+      "sha256": "625aad6a6e64d9e114e29b991bed9ddfd2031f048b7d2535ace1bb580a3eaafc"
     },
     {
       "path": "tests/test_si_countermeasures.py",
@@ -1545,6 +1561,10 @@
       "sha256": "f976db8816b08c7481f00d1b7559f44b035ab8050a72f518cc0302d33ef80910"
     },
     {
+      "path": "vessell/myth_corpus.py",
+      "sha256": "ad7203a8918b127725063c505ca0fd292ced1701da736793cb66464bc1884df3"
+    },
+    {
       "path": "vessell/posture_agent.py",
       "sha256": "91ad1084d7b0d1890b3096c35ee02efb1407948c8960ba982f8effe0d45b081a"
     },
@@ -1654,7 +1674,7 @@
     },
     {
       "path": "vessell/si_chat.py",
-      "sha256": "7504ae1bbeb847009a87dcb36e20f3769037acda59a93ea4b2726bcfe09570ed"
+      "sha256": "1e62e92e10d3624beb67bac3ebe38fce0179dacf058605422c5990ce92f577f8"
     },
     {
       "path": "vessell/source_readers.py",
