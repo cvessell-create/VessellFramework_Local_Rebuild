@@ -1,4 +1,14 @@
-required_packages <- c("readxl", "effsize", "knitr", "rmarkdown")
+source("r/system_readout.R")
+
+run_statistics_smoke_checks <- function() {
+  readout_status <- "failed"
+  r_system_readout_update("statistics_smoke_checks", "invoked")
+  on.exit(
+    r_system_readout_update("statistics_smoke_checks", readout_status),
+    add = TRUE
+  )
+
+required_packages <- "effsize"
 missing <- required_packages[
   !vapply(required_packages, requireNamespace, logical(1), quietly = TRUE)
 ]
@@ -35,4 +45,8 @@ stopifnot(is.finite(wilcox.test(skewed, skewed + 1, exact = FALSE)$p.value))
 stopifnot(is.finite(cor.test(skewed, skewed + 1, method = "spearman",
                           exact = FALSE)$p.value))
 
-cat("R statistics smoke checks passed (synthetic data only).\n")
+  readout_status <- "completed"
+  cat("R statistics smoke checks passed (synthetic data only).\n")
+}
+
+run_statistics_smoke_checks()

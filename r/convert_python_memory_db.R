@@ -1,6 +1,11 @@
 #!/usr/bin/env Rscript
 
 convert_python_memory_db <- function(arguments = commandArgs(trailingOnly = TRUE)) {
+  script_path <- sub("^--file=", "", grep("^--file=", commandArgs(), value = TRUE)[[1L]])
+  source(file.path(dirname(normalizePath(script_path)), "system_readout.R"), local = TRUE)
+  readout_status <- "failed"
+  r_system_readout_update("memory_database_conversion", "invoked")
+  on.exit(r_system_readout_update("memory_database_conversion", readout_status), add = TRUE)
   if (length(arguments) != 2L) {
     stop(
       "Usage: Rscript r/convert_python_memory_db.R SOURCE_PYTHON_DB DESTINATION_R_DB",
@@ -23,7 +28,6 @@ convert_python_memory_db <- function(arguments = commandArgs(trailingOnly = TRUE
     stop("Install R dependencies: install.packages(c('DBI', 'RSQLite', 'jsonlite', 'uuid'))",
          call. = FALSE)
   }
-  script_path <- sub("^--file=", "", grep("^--file=", commandArgs(), value = TRUE)[[1L]])
   source(file.path(dirname(normalizePath(script_path)), "memory_store.R"), local = TRUE)
 
   source_connection <- DBI::dbConnect(RSQLite::SQLite(), source_path)
@@ -106,6 +110,7 @@ convert_python_memory_db <- function(arguments = commandArgs(trailingOnly = TRUE
     ),
     auto_unbox = TRUE, pretty = TRUE
   ), "\n")
+  readout_status <- "completed"
 }
 
 tryCatch(

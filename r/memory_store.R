@@ -1,5 +1,20 @@
 #!/usr/bin/env Rscript
 
+memory_store_file <- tryCatch(sys.frame(1)$ofile, error = function(error) NULL)
+if (is.null(memory_store_file)) {
+  script_argument <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
+  if (length(script_argument)) {
+    memory_store_file <- sub("^--file=", "", script_argument[[1L]])
+  }
+}
+if (is.null(memory_store_file)) {
+  stop("Cannot locate the R system readout helper.", call. = FALSE)
+}
+source(
+  file.path(dirname(normalizePath(memory_store_file)), "system_readout.R"),
+  local = environment()
+)
+
 memory_scopes <- c("user", "repository")
 memory_statuses <- c("pending", "approved", "corrected", "rejected")
 memory_decisions <- c("created", "approved", "corrected", "rejected")
@@ -9,6 +24,9 @@ memory_now <- function() {
 }
 
 memory_db_connect <- function(database) {
+  readout_status <- "failed"
+  r_system_readout_update("memory_db_access", "invoked")
+  on.exit(r_system_readout_update("memory_db_access", readout_status), add = TRUE)
   if (!requireNamespace("DBI", quietly = TRUE) ||
       !requireNamespace("RSQLite", quietly = TRUE)) {
     stop("Install the R dependencies first: install.packages(c('DBI', 'RSQLite', 'jsonlite'))")
@@ -47,6 +65,7 @@ memory_db_connect <- function(database) {
       "reviewer TEXT NOT NULL, note TEXT NOT NULL, occurred_at TEXT NOT NULL)"
     )
   )
+  readout_status <- "completed"
   connection
 }
 
@@ -113,11 +132,14 @@ memory_decode_row <- function(connection, row) {
 }
 
 memory_add <- function(database, memory) {
+  readout_status <- "failed"
+  r_system_readout_update("memory_add", "invoked")
+  on.exit(r_system_readout_update("memory_add", readout_status), add = TRUE)
   memory_validate(memory)
   identifier <- as.character(uuid::UUIDgenerate())
   now <- memory_now()
   connection <- memory_db_connect(database)
-  on.exit(DBI::dbDisconnect(connection))
+  on.exit(DBI::dbDisconnect(connection), add = TRUE)
   DBI::dbWithTransaction(connection, {
     DBI::dbExecute(
       connection,
@@ -141,6 +163,7 @@ memory_add <- function(database, memory) {
       params = list(identifier, now)
     )
   })
+  readout_status <- "completed"
   identifier
 }
 
@@ -150,6 +173,9 @@ memory_add <- function(database, memory) {
 
 memory_review <- function(database, identifier, decision, reviewer = "local-user",
                           note = "", replacement = NULL) {
+  readout_status <- "failed"
+  r_system_readout_update("memory_review", "invoked")
+  on.exit(r_system_readout_update("memory_review", readout_status), add = TRUE)
   if (length(decision) != 1L || !decision %in% c("approve", "reject", "correct")) {
     stop("decision must be approve, reject, or correct.")
   }
@@ -161,8 +187,8 @@ memory_review <- function(database, identifier, decision, reviewer = "local-user
     stop("replacement content is only valid with decision=correct.")
   }
   connection <- memory_db_connect(database)
-  on.exit(DBI::dbDisconnect(connection))
-  DBI::dbWithTransaction(connection, {
+  on.exit(DBI::dbDisconnect(connection), add = TRUE)
+  result <- DBI::dbWithTransaction(connection, {
     row <- DBI::dbGetQuery(
       connection, "SELECT * FROM memories WHERE id = ?", params = list(identifier)
     )
@@ -223,14 +249,19 @@ memory_review <- function(database, identifier, decision, reviewer = "local-user
     }
     replacement_id
   })
+  readout_status <- "completed"
+  result
 }
 
 memory_list <- function(database, status = NULL) {
+  readout_status <- "failed"
+  r_system_readout_update("memory_list", "invoked")
+  on.exit(r_system_readout_update("memory_list", readout_status), add = TRUE)
   if (!is.null(status) && !status %in% memory_statuses) {
     stop("status must be one of: ", paste(memory_statuses, collapse = ", "), ".")
   }
   connection <- memory_db_connect(database)
-  on.exit(DBI::dbDisconnect(connection))
+  on.exit(DBI::dbDisconnect(connection), add = TRUE)
   if (is.null(status)) {
     rows <- DBI::dbGetQuery(connection, "SELECT * FROM memories ORDER BY created_at, id")
   } else {
@@ -239,12 +270,17 @@ memory_list <- function(database, status = NULL) {
       params = list(status)
     )
   }
-  lapply(seq_len(nrow(rows)), function(index) {
+  result <- lapply(seq_len(nrow(rows)), function(index) {
     memory_decode_row(connection, rows[index, , drop = FALSE])
   })
+  readout_status <- "completed"
+  result
 }
 
 memory_retrieve <- function(database, query, scope, limit = 10L) {
+  readout_status <- "failed"
+  r_system_readout_update("memory_retrieve", "invoked")
+  on.exit(r_system_readout_update("memory_retrieve", readout_status), add = TRUE)
   if (length(scope) != 1L || !scope %in% memory_scopes) {
     stop("scope must be one of: user, repository.")
   }
@@ -255,7 +291,7 @@ memory_retrieve <- function(database, query, scope, limit = 10L) {
   terms <- terms[nzchar(terms)]
   if (!length(terms)) stop("query must contain at least one searchable term.")
   connection <- memory_db_connect(database)
-  on.exit(DBI::dbDisconnect(connection))
+  on.exit(DBI::dbDisconnect(connection), add = TRUE)
   rows <- DBI::dbGetQuery(
     connection,
     paste(
@@ -283,13 +319,18 @@ memory_retrieve <- function(database, query, scope, limit = 10L) {
       results[[length(results) + 1L]] <- record
     }
   }
-  if (!length(results)) return(results)
+  if (!length(results)) {
+    readout_status <- "completed"
+    return(results)
+  }
   ordering <- order(
     -vapply(results, `[[`, numeric(1), "relevance"),
     vapply(results, `[[`, character(1), "created_at"),
     vapply(results, `[[`, character(1), "id")
   )
-  results[head(ordering, as.integer(limit))]
+  result <- results[head(ordering, as.integer(limit))]
+  readout_status <- "completed"
+  result
 }
 
 memory_cli <- function(arguments = commandArgs(trailingOnly = TRUE)) {

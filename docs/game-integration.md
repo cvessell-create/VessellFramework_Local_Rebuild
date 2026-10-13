@@ -1,5 +1,8 @@
 # Hail to the Analyst integration (3.9.1)
 
+For the Mac-local model and source-review handoff, see
+[local Hail AI future-run prompt](local-hail-ai-future-run-prompt.md).
+
 Framework-side integration, not a completed game release. The game
 feature build and server are paused at the operator's request. Components are
 reused by the [architecture adaptation skill](../GAME_DEVELOPMENT_SKILL.md)

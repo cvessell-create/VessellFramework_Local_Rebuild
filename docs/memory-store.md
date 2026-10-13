@@ -95,7 +95,10 @@ Rscript r/memory_store.R --database ~/.vessell/memories-r.sqlite3 list
 Run the R regression checks from the repository root using
 `Rscript r/test_memory_store.R`. The R implementation and converter do not
 connect to Copilot or runtime memory services; they only operate on the
-application's local SQLite store.
+application's local SQLite store. R memory operations refresh a private,
+content-free last-use snapshot at `~/.vessell/r-system-readout.md` by default.
+Set `VESSELL_R_SYSTEM_READOUT_PATH` to select another local path; see the
+[R system readout](r-system-readout.md) for the operations and data boundaries.
 
 ## Copilot cloud-agent environment
 

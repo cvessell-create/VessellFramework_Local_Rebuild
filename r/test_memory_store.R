@@ -1,9 +1,12 @@
 #!/usr/bin/env Rscript
 
-source("r/memory_store.R")
-
 temporary_directory <- tempfile("vessell-memory-r-")
 dir.create(temporary_directory)
+readout_path <- file.path(temporary_directory, "system-readout.md")
+readout_environment <- Sys.getenv("VESSELL_R_SYSTEM_READOUT_PATH", unset = NA_character_)
+Sys.setenv(VESSELL_R_SYSTEM_READOUT_PATH = readout_path)
+source("r/memory_store.R")
+
 database <- file.path(temporary_directory, "memories.sqlite3")
 memory <- list(
   statement = "Python 3.12 is supported by this repository.",
@@ -25,6 +28,10 @@ stopifnot(found[[1L]]$id == identifier)
 stopifnot(identical(unlist(found[[1L]]$citations), memory$citations))
 stopifnot(found[[1L]]$review_history[[2L]]$reviewer == "test reviewer")
 stopifnot(length(memory_retrieve(database, "Python", "user")) == 0L)
+successful_readout <- readLines(readout_path, warn = FALSE)
+stopifnot(any(grepl("Latest operation: `memory_retrieve`", successful_readout)))
+stopifnot(any(grepl("Operation status: `completed`", successful_readout)))
+stopifnot(!any(grepl("Python 3.12 is supported by this repository", successful_readout, fixed = TRUE)))
 
 replacement <- list(
   statement = "Python 3.12 is supported and Python 3.13 is tested.",
@@ -130,5 +137,15 @@ source_connection <- DBI::dbConnect(RSQLite::SQLite(), python_database)
 stopifnot(DBI::dbGetQuery(source_connection, "SELECT COUNT(*) AS n FROM memories")$n[[1L]] == 1L)
 DBI::dbDisconnect(source_connection)
 
+readout <- readLines(readout_path, warn = FALSE)
+stopifnot(any(grepl("Latest operation: `memory_database_conversion`", readout)))
+stopifnot(any(grepl("Operation status: `failed`", readout)))
+stopifnot(any(grepl("never copies memory statements", readout)))
+stopifnot(!any(grepl("Python 3.12 is supported by this repository", readout, fixed = TRUE)))
+if (is.na(readout_environment)) {
+  Sys.unsetenv("VESSELL_R_SYSTEM_READOUT_PATH")
+} else {
+  Sys.setenv(VESSELL_R_SYSTEM_READOUT_PATH = readout_environment)
+}
 unlink(temporary_directory, recursive = TRUE)
 cat("R memory-store tests passed.\n")

@@ -4,6 +4,8 @@ if (length(arguments) > 2L) {
   stop("Usage: Rscript r/run_github_observatory.R [output-root] [max-pages]",
        call. = FALSE)
 }
+source("r/system_readout.R")
+r_system_readout_update("github_observatory", "invoked")
 source("r/github_metadata.R")
 source("r/metadata_learning.R")
 metadata_require_json()
@@ -85,3 +87,4 @@ writeLines(c(
 ), file.path(directory, "review-preview.md"))
 cat("Saved read-only metadata and human-review preview to:", directory, "\n")
 cat("Learning status:", learning$status, "\n")
+r_system_readout_update("github_observatory", "completed")

@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-13T21:10:36.263699+00:00",
+  "generated_utc": "2026-10-13T21:11:40.307285+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -34,11 +34,11 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "193362048c7111e289c493bd905b4d9d5f9b7df562b8356e55f08cd9621181f4"
+      "sha256": "2f2ae35d6eab7b66cc40800d2b81fa5f35f5e485e5c79cb14a82c10a30d61010"
     },
     {
       "path": ".github/workflows/copilot-setup-steps.yml",
-      "sha256": "f7d6a3b9710e8f42323e70c48f28b2a8724af4f1eb693b65286cf21777cdb5d4"
+      "sha256": "9b58aad19aaa21ebfa38fee2f3ee27696b88d4e96cffb1b3ba1920d9bfd2385f"
     },
     {
       "path": ".github/workflows/dashboard-pages.yml",
@@ -390,7 +390,7 @@
     },
     {
       "path": "docs/game-integration.md",
-      "sha256": "05795da37c9909c87d229b64f618e73d6762643952d9dd7f214f928dc40552d7"
+      "sha256": "9774019baf1f7a6bae66950ec9987ced60e5c25fa7cb5e9950067dea12561dc2"
     },
     {
       "path": "docs/game-theory-framework-audit.md",
@@ -517,12 +517,16 @@
       "sha256": "dfc536aa634ef71450fe1f83697aa680b9101ee4881d9fa393fb9dcc9a560afa"
     },
     {
+      "path": "docs/local-hail-ai-future-run-prompt.md",
+      "sha256": "939807013a232b1ee2c12cccd54faba01545486805092ead0e891bd0a49eff9d"
+    },
+    {
       "path": "docs/local-vision-weight-candidates.md",
       "sha256": "01f332ed446aa34b08bca508a438c35983245459f9f62ac68b7b16ab6c654ef1"
     },
     {
       "path": "docs/memory-store.md",
-      "sha256": "85f272c2da8c397e2bdac0eb8d1b63f959797bc2236cd7864100419658eb2d00"
+      "sha256": "5463c2e9e1a54540d7755597e496ce84235e999404af4dc2f7c05b458a8b5420"
     },
     {
       "path": "docs/operational-case-studies.md",
@@ -575,6 +579,10 @@
     {
       "path": "docs/python-metadata-observatory.md",
       "sha256": "932da247e5cfab202645009add163c3a8b7dec15b92cb210f94b026289a24117"
+    },
+    {
+      "path": "docs/r-system-readout.md",
+      "sha256": "591ac188f3c1300c594ebf1b522e992dd68ed9e2b297954fa41b256eae387f37"
     },
     {
       "path": "docs/references.md",
@@ -770,7 +778,7 @@
     },
     {
       "path": "r/convert_python_memory_db.R",
-      "sha256": "52527411f004e9300909cbc622d215c3fa66d73474e751809280abb9f7e33af0"
+      "sha256": "5b89f21c333c9a6c51893f4951ff828c1cc3ef24b2e2a999f7428a90c56843c3"
     },
     {
       "path": "r/example_memory.json",
@@ -782,7 +790,7 @@
     },
     {
       "path": "r/memory_store.R",
-      "sha256": "55253eff5153ba9d5d41c5b1282b55e2c8a72657cfc9e910b0276e035951889d"
+      "sha256": "e4bd3813b3076109b3d30e672c032eab028b5a03a380ae91fd37c5742d4f5f34"
     },
     {
       "path": "r/metadata_learning.R",
@@ -790,27 +798,31 @@
     },
     {
       "path": "r/prompt_audit.R",
-      "sha256": "5540077ccbef161c2dbcbd2d270a5b83b909d13eaf1e5e718febbb6f10147a16"
+      "sha256": "a77f1f82afed4627925fa2bfba0a8ff839357b0b7a179ab7d635051159b9497e"
     },
     {
       "path": "r/run_github_observatory.R",
-      "sha256": "b1fc9edf7829c3f7c188446b43dbe6b741888f2234c1364ae751649d894ea186"
+      "sha256": "cd03a75e8b7163739e680f646ab964e2a1ff5c6eedf49e73d2b2e91eeb1be071"
     },
     {
       "path": "r/setup.R",
-      "sha256": "6bcd6da055d6848a7799d8c3c0e5faafff9fc8971b0844cb3e9c922e7b084ac0"
+      "sha256": "fddce5aa10e6fe5e13a0ac1b62eae15f50675c18cd93bf1e5b2c7df477528985"
+    },
+    {
+      "path": "r/system_readout.R",
+      "sha256": "f7c8aee8a487ba839cfb9a3e8296ade0df70df442e12a960f08ccd78fc4040a3"
     },
     {
       "path": "r/test_github_observatory.R",
-      "sha256": "dd1bf607ca371eed653fb0d26501d104423b80521550c3477bf614a289cd5614"
+      "sha256": "fe01eeb29ad94288e33c0b804e34a7ac0010c8c7c37b9eca25659ce18a582f21"
     },
     {
       "path": "r/test_memory_store.R",
-      "sha256": "268e60978ec3ef1180e7cd9b523b3f6bbb66b61198e49af97f1acce03d69e581"
+      "sha256": "3c52fd2b1a74fd7ac66dfac8fcc229d8e12fffab35b4faa0e6cb8f7c0928d90d"
     },
     {
       "path": "r/test_statistics_environment.R",
-      "sha256": "a9f3855040f47222915665612eb7506d2550cfa98933469ada7cf518526de130"
+      "sha256": "01e1475f7286cd78ce9407378f082d21bf7fdcf4627ec934ad5102a5df6265ec"
     },
     {
       "path": "requirements/agent.txt",
