@@ -2,6 +2,33 @@
 
 ## Product vision
 
+### Personal and family protection as the proposed product focus
+
+The owner has requested a broader **personal and family privacy, safety and
+rights agent**, with the existing evidence specialist as a supporting engine
+rather than claim verification defining the whole product. The current phase
+aligns product contracts and adds a bounded public-safe GitHub agent integration;
+it does not implement private family workflows or approve deployment. The owner-oriented
+[protection guide](docs/personal-family-protection-guide.md) is the focal
+working draft, pending owner edits and review; the
+[proposed specification](docs/personal-family-agent-spec.md) translates its
+goals into candidate requirements, not implemented controls.
+
+This proposed direction requires individual consent, safe communications,
+private-data lifecycle design and separate access authority for each person.
+Family membership is not blanket permission. Existing single-owner services
+must not be presented as multiuser-isolated or safe for family sharing.
+Current capabilities and exclusions below remain unchanged until reviewed
+implementation and acceptance gates are met. Preserve the original paper,
+six-pillar boundaries, existing entry points and prior release history.
+
+The initial objective is decision support: understand a voluntarily supplied
+concern, retain minimum necessary evidence, inspect possible rights/processes
+and prepare a safe, proportionate response for human review. No outcome,
+attribution, legal eligibility or physical safety is guaranteed. Real license
+conditions, legal requirements, platform processes and negotiated terms remain
+separate from aspirations in a repository document.
+
 VessellFramework is being developed as a **full-stack SI sub-agent** that provides
 reusable, provenance-aware analytical services to coordinating agents. Its
 implemented core is a **callable evidence specialist** that accepts bounded
@@ -29,6 +56,40 @@ development does not revise that paper's historical account or constitute
 independent evidence of its original incidents.
 
 ## Architectural and governance principles
+
+### Protection-oriented service boundaries
+
+The future personal/family service surrounds the evidence specialist; it does
+not turn a caller credential into permission to read another person's records.
+Before implementation, select storage/deployment, person identity, key custody,
+sharing/revocation, retention and safe notification behavior. These choices
+remain NOT_SELECTED.
+
+```text
+Affected-person consent + safe-channel check (PROPOSED)
+  -> minimum necessary private case and permissions (PROPOSED)
+  -> bounded evidence specialist (EXISTING SUPPORTING CONTRACT)
+  -> source-linked rights/process review and response draft (PROPOSED)
+  -> source/preview-bound human inquiry and separate release decision
+  -> exact-recipient/payload approval before any external action (PROPOSED)
+  -> actual receipt/outcome, retention and deletion review (PROPOSED)
+```
+
+Existing human report-release gates remain mandatory but do not certify the
+new private-case, consent or execution layers. The
+[specialist contract](docs/specialist-agent.md) and
+[GitHub control-panel contract](docs/github-control-panel.md) describe existing
+supporting interfaces and their proposed handoffs separately. The
+[GitHub agent integration](docs/github-agent-integration.md) adds public
+discovery, fixed public-reference search and owner-authorized non-sensitive
+analysis previews using a separate Actions workflow. It does not add a private
+family endpoint, protective execution permission or background collection.
+Remote deployment and external agent adoption remain unverified.
+
+Personal and family safety goals take precedence over optional economic
+experiments. The blockchain roadmap remains separate and prospective; no
+private-case content or identifying digest should become a public receipt or
+anchor merely because that roadmap exists.
 
 ### Civilian authorship and source preservation
 
@@ -120,6 +181,12 @@ distinct from completed tasks.
 
 ## Current release scope
 
+This is the supporting evidence implementation's scope, not a completed
+personal/family protection product. Documentation alignment neither adds
+multiuser isolation nor validates privacy promises. The
+[professor review packet](PROFESSOR_README.md) separately frames the academic
+contribution and validation questions.
+
 - Importable Python specialist client and authenticated, idempotent task API.
 - Bounded inputs, explicit source lineage, conservative confidence ceiling,
   Harm Gate and durable human-reviewed report lifecycle.
@@ -197,7 +264,9 @@ review. No payment or attestation confers analytical truth or execution authorit
 
 ## Instructions for repository agents
 
-1. Prioritize the full-stack sub-agent contract and supporting services.
+1. Prioritize the personal/family protection goals through the full-stack
+   sub-agent contract and supporting services. Use the protection guide as
+   a working requirements source, not an adopted legal agreement or authority.
    Develop the human control plane as a client of that architecture, not
    as a substitute for the analytical product.
 2. Preserve working core behavior, the authoritative paper, license, resource

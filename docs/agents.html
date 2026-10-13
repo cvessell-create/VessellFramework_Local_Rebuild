@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VessellFramework agent integration: public capability discovery, bounded evidence previews, and source-linked reference search.">
+  <link rel="canonical" href="https://cvessell-create.github.io/VessellFramework_Local_Rebuild/agents.html">
+  <link rel="alternate" type="application/json" href="agent-capabilities.json" title="Agent capability contract">
+  <title>VessellFramework | Agent integration and reference search</title>
+  <style>
+    body { font: 1rem/1.6 system-ui, sans-serif; max-width: 850px; margin: auto; padding: 2rem; background: #101624; color: #e8ecf4; }
+    a { color: #8fc5ff; } input, button { font: inherit; padding: .6rem; }
+    input { max-width: 100%; box-sizing: border-box; } li { margin-bottom: 1rem; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; } small { color: #bbc6da; }
+    #status { min-height: 2rem; } code { overflow-wrap: anywhere; }
+  </style>
+  <script defer src="agent-search.js"></script>
+</head>
+<body>
+  <h1>VessellFramework for coordinating agents</h1>
+  <p>Public discovery, bounded analysis previews and source-linked reference search.
+    SI is product direction, not demonstrated superintelligence or safety certification.</p>
+  <p><a href="agent-capabilities.json">Machine-readable capability and schemas</a> |
+    <a href="https://github.com/cvessell-create/VessellFramework_Local_Rebuild/blob/master/docs/github-agent-integration.md">Integration guide and examples</a> |
+    <a href="index.html">Browser verifier</a> |
+    <a href="https://github.com/cvessell-create/VessellFramework_Local_Rebuild/blob/master/PROFESSOR_README.md">Professor review packet</a></p>
+  <h2>Available contract</h2>
+  <ul>
+    <li><strong>Evidence analysis:</strong> source lineage, missing perspectives and optional declared strategic models.</li>
+    <li><strong>Claim, spread and job analysis:</strong> deterministic heuristics over supplied, uncorroborated inputs.</li>
+    <li><strong>Reference search:</strong> fixed public repository documents, not live web research.</li>
+  </ul>
+  <p>Analysis uses a separate owner-authorized GitHub Actions workflow on master.
+    It has no anonymous API, private family intake, URL retrieval, automated
+    report approval or external-action permission. Implementation does not prove
+    this workflow is deployed. Public discovery does not prove search-engine or agent adoption.</p>
+  <h2>Search public reference snapshots</h2>
+  <p>All query tokens must occur on the same line. Maximum ten results, in corpus
+    order. Source digests bind snapshots; matches are not independent corroboration
+    or current-law verification. No private case details belong here.</p>
+  <form id="search-form">
+    <label for="query">Reference terms</label><br>
+    <input id="query" name="query" type="search" maxlength="200" required placeholder="human release">
+    <button id="search-button" type="submit" disabled>Search</button>
+  </form>
+  <p id="status" role="status" aria-live="polite">Loading public reference index...</p>
+  <ol id="results"></ol>
+  <footer><small>Christopher R. Vessell. Original author sources remain distinct from generated
+    derivatives. Human source/preview-bound Knowing Field completion and a separate release
+    decision remain mandatory before any new report release.</small></footer>
+</body>
+</html>

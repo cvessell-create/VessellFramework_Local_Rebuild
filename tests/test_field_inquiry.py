@@ -109,6 +109,8 @@ def test_valid_context_preserves_decline_dissent_and_source_independence(field_a
     case["domain"] = "Synthetic provenance test"
     validate_record(case, "case.schema.json")
     result = run_case_pipeline(case, track_provenance=False)
+    assert result.field_inquiry is not None
+    assert result.field_inquiry.assessment is not None
     assert result.field_inquiry.status == "DOCUMENTED_UNREVIEWED"
     assert result.pillars == PILLARS
     assert result.counts == baseline.counts and result.confidence_ceiling == baseline.confidence_ceiling

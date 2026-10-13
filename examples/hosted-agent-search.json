@@ -1,0 +1,7 @@
+{
+  "contract_version": "1.0",
+  "request_id": "7485a1a4-4d6b-44a8-adbd-1f411bb6b210",
+  "data_classification": "public-non-sensitive",
+  "operation": "reference-search",
+  "payload": {"query": "human release", "limit": 5}
+}

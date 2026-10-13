@@ -1,5 +1,18 @@
 # HTML owner control panel and GitHub App
 
+The separate [public-safe agent workflow](github-agent-integration.md) adds
+discovery, reference search and unreleased analysis artifacts. This panel's
+three-operation allowlist and App permissions are unchanged; it cannot dispatch
+the new workflow through its current interface.
+
+## Supporting infrastructure, not family-case execution
+
+The proposed [personal/family product](personal-family-agent-spec.md) uses the
+[protection guide](personal-family-protection-guide.md) as its focal working
+draft. This GitHub panel remains a separate owner-authenticated development and
+study surface. Documentation alignment adds no legal filing, account recovery,
+private-data collection, household identity or protective workflow dispatch.
+
 The HTML/Next.js panel at `/github` signs the repository owner into a
 repository-scoped GitHub App and dispatches only three named tasks to
 `run-framework.yml` on master. Python executes in GitHub Actions, **not** in
@@ -62,6 +75,14 @@ The panel polls recent matching runs and links to their logs/artifacts and
 actual source SHA. Runs can take time to appear; do not duplicate a request
 merely because it is not visible immediately.
 
+The three operations in [run-framework.yml](../.github/workflows/run-framework.yml)
+remain unchanged. Use repository fixtures, not private family evidence, for
+these studies: run logs/artifacts live on GitHub, and a public repository is
+not a private incident vault. Do not place personal records in a dispatch
+payload, public issue, workflow log or Pages asset to make a protection task
+run. Any future private export or external action needs a different scoped
+contract and explicit owner decisions.
+
 This uses normal GitHub Actions quota/billing, not paid model APIs. No
 autonomous scheduling is added. The remote results are stored on GitHub, not
 silently copied into ambient SQLite or independently corroborated.
@@ -80,3 +101,8 @@ allowlisting and provider errors have automated tests. A live GitHub App
 handshake requires the operator's actual installed App and credentials;
 synthetic tests or CLI workflow dispatch cannot establish that it has worked.
 Missing configuration returns an explicit unavailable state.
+
+GitHub sign-in state, workflow-run status, evidence-report lifecycle and legal
+source-access status are different concepts. HTTP acceptance is not a run
+success; a successful run is not report release, corroboration or proof that a
+legal remedy was obtained.

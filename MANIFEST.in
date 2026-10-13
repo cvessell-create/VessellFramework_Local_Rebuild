@@ -12,6 +12,10 @@ include docs/ambient-workflows.md
 include docs/static-artifact-capture.md
 include docs/local-vision-weight-candidates.md
 include VISION_AND_SCOPE.md
+include PROFESSOR_README.md
+include CANONICAL_REFERENCE.md
+include docs/personal-family-agent-spec.md
+include docs/personal-family-protection-guide.md
 include Knowing_Field_Theory_SKILL_v0.1.md
 include VesselFramework_Knowing_Field_SKILL_v0.1.md
 include VesselFramework_Skill_Creator_SKILL_v0.1.md
@@ -34,6 +38,11 @@ include docs/knowing-field-framework-audit.md
 include docs/specialist-agent.md
 include docs/owner-fourth-person-perspective.md
 include docs/github-control-panel.md
+include docs/github-agent-integration.md
+include docs/agents.html
+include docs/agent-search.js
+include docs/agent-capabilities.json
+include docs/agent-reference-index.json
 include compose.ambient.yml
 recursive-include deploy/ambient *.Dockerfile
 recursive-include deploy/capture Dockerfile *.txt *.py

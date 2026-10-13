@@ -72,6 +72,7 @@
 <body>
 <header>
   <h1>VessellFramework — Claim Verifier</h1>
+  <p><a href="agents.html">Agent integration and public reference search</a></p>
   <p>Analyze supplied records in your browser via Pyodide. Runtime and module loading use the network.
      Source URLs are not fetched or authenticated; tiers and official-record flags remain supplied assertions.
      Results do not release reports or authorize action. Examples are illustrative fixtures, not verified events or jobs.</p>
@@ -165,32 +166,37 @@ def api_ghost(payload_json):
 
 async function boot() {
   const status = document.getElementById("engine-status");
+  let stage = "Python runtime";
   try {
     status.textContent = "Loading Python runtime (first visit downloads ~10 MB)…";
     const pyodide = await loadPyodide();
+    const bundleRoot = pyodide.FS.cwd();
     status.textContent = "Loading doctrine from the GitHub repo…";
     const base = "https://cdn.jsdelivr.net/gh/cvessell-create/VessellFramework_Local_Rebuild@master/";
     const files = [
       "vessell/verify.py",
       "vessell/provenance.py",
+      "vessell/provenance_firewall.py",
       "vessell/weights.py",
-      "vessell/app/__init__.py",
-      "vessell/app/models.py",
-      "vessell/app/pipeline.py",
       "vessell/app/server.py",
       "vesselframework_reference_v1.1_provenance_firewall.py"
     ];
     for (const path of files) {
+      stage = path;
       const resp = await fetch(base + path);
       if (!resp.ok) throw new Error("could not fetch " + path + " (" + resp.status + ")");
-      const dir = path.split("/").slice(0, -1).join("/");
-      if (dir) pyodide.FS.mkdirTree(dir);
-      pyodide.FS.writeFile(path, await resp.text());
+      const destination = bundleRoot + "/" + path;
+      const dir = destination.slice(0, destination.lastIndexOf("/"));
+      pyodide.FS.mkdirTree(dir);
+      pyodide.FS.writeFile(destination, await resp.text());
     }
     // Minimal package init: doctrine modules are imported directly; the real
     // __init__ pulls in optional third-party deps the browser bundle skips.
-    pyodide.FS.writeFile("vessell/__init__.py",
+    pyodide.FS.writeFile(bundleRoot + "/vessell/__init__.py",
       "# Browser-bundle init: doctrine modules (verify/provenance/weights) are the real repo files.\n");
+    pyodide.FS.writeFile(bundleRoot + "/vessell/app/__init__.py",
+      "# Browser-bundle init: only the verifier server's input builders are needed.\n");
+    stage = "Python imports and verifier glue";
     await pyodide.runPythonAsync(GLUE);
     VF = {
       api_verify: pyodide.globals.get("api_verify"),
@@ -201,7 +207,9 @@ async function boot() {
     status.classList.add("ready");
     document.querySelectorAll("button.action").forEach(b => { b.disabled = false; });
   } catch (e) {
-    status.textContent = "Engine failed to load: " + (e && e.message ? e.message : e);
+    const detail = e && (e.message || e.name) ? (e.message || e.name) : String(e);
+    const errno = e && Number.isInteger(e.errno) ? " (errno " + e.errno + ")" : "";
+    status.textContent = "Engine failed to load at " + stage + ": " + detail + errno;
     status.classList.add("failed");
   }
 }

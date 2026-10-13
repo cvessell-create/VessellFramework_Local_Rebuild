@@ -115,6 +115,7 @@ def _date_text(raw: dict[str, Any], name: str, *, posting: bool = False) -> str:
     if value:
         try:
             if posting:
+                datetime.fromisoformat(value)
                 date.fromisoformat(value[:10])
             else:
                 datetime.fromisoformat(value)
@@ -352,8 +353,8 @@ class VerifierHandler(BaseHTTPRequestHandler):
         })
         self._send_json(result)
 
-    def log_message(self, fmt: str, *args: object) -> None:
-        logger.info("%s", fmt % args)
+    def log_message(self, format: str, *args: object) -> None:
+        logger.info("%s", format % args)
 
 
 def run_server(port: int = DEFAULT_PORT, open_browser: bool = True) -> ThreadingHTTPServer:

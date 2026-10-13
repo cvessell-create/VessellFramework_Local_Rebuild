@@ -8,10 +8,12 @@ from typing import Any
 from jsonschema import Draft202012Validator
 from referencing import Registry, Resource
 
-SCHEMA_ROOT = Path(__file__).parents[1] / "schemas"
 PACKAGED_SCHEMA_ROOT = Path(__file__).parent / "_resources" / "schemas"
-if PACKAGED_SCHEMA_ROOT.is_dir():
-    SCHEMA_ROOT = PACKAGED_SCHEMA_ROOT
+SCHEMA_ROOT = (
+    PACKAGED_SCHEMA_ROOT
+    if PACKAGED_SCHEMA_ROOT.is_dir()
+    else Path(__file__).parents[1] / "schemas"
+)
 
 
 def load_schema(name: str) -> dict[str, Any]:

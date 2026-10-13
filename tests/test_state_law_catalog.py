@@ -69,6 +69,24 @@ def test_legal_notices_preserve_license_and_informational_boundaries():
     assert "not automatic nationwide protection" in catalog
 
 
+def test_florida_correction_preserves_superseded_description_and_source_limits():
+    catalog = json.loads((ROOT / "docs/state-law-protections.json").read_text())
+    entry = next(row for row in catalog["states"] if row["state"] == "Florida")[
+        "electronic_transactions"
+    ]
+    assert entry["url"] == "https://www.flsenate.gov/Laws/Statutes/2025/668.50"
+    assert "668.50" in entry["citation"]
+    assert entry["search_record"]["primary_source_opened"] is True
+    assert entry["search_record"]["limit_hit"] is True
+    assert "current amendments" in entry["search_record"]["what_was_not_checked"]
+    previous = entry["correction_history"][0]
+    assert previous["previous_url"].endswith("/668.001")
+    assert "rather than full UETA" in previous["previous_note"]
+    markdown = (ROOT / "docs/state-law-protections.md").read_text()
+    assert entry["url"] in markdown
+    assert "rather than full UETA" not in markdown
+
+
 def test_platform_catalog_distinguishes_discovery_from_protection():
     catalog = json.loads((ROOT / "docs/platform-accountability-laws.json").read_text())
     assert catalog["completion"] == "BOUNDED_DISCOVERY_ONLY"

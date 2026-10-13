@@ -335,22 +335,26 @@
     {
       "state": "Florida",
       "electronic_transactions": {
-        "citation": "Florida Statutes Chapter 668, Part I, Electronic Signature Act of 1996, Fla. Stat. 668.001-668.006",
-        "url": "https://www.flsenate.gov/Laws/Statutes/2025/668.001",
+        "citation": "Fla. Stat. § 668.50, Uniform Electronic Transaction Act (2025 edition), subsections (1)-(7)",
+        "url": "https://www.flsenate.gov/Laws/Statutes/2025/668.50",
         "status": "SOURCE-ESTABLISHED",
-        "note": "Opened official flsenate.gov text of 668.001 (short title). Florida statute is a narrower electronic-signature act (pre-UETA-style) rather than full UETA; scope/exclusion sections not separately opened in this pass.",
+        "note": "Correction: opened official 2025 section 668.50, including title, definitions, scope/exclusions, agreement and electronic-form recognition. Florida has a separately codified Uniform Electronic Transaction Act; the earlier 668.001 short-title-only description did not establish otherwise. Not current-law certification or automatic validity.",
+        "correction_history": [{
+          "date": "2026-10-10",
+          "previous_citation": "Florida Statutes Chapter 668, Part I, Electronic Signature Act of 1996, Fla. Stat. 668.001-668.006",
+          "previous_url": "https://www.flsenate.gov/Laws/Statutes/2025/668.001",
+          "previous_note": "Opened official flsenate.gov text of 668.001 (short title). Florida statute is a narrower electronic-signature act (pre-UETA-style) rather than full UETA; scope/exclusion sections not separately opened in this pass.",
+          "reason": "The narrower-only characterization omitted separately codified 668.50. Corrected after opening substantive primary text; original research description retained here as superseded, not current guidance."
+        }],
         "search_record": {
-          "query": "Florida Electronic Signature Act official Florida Statutes Chapter 668",
-          "tool": "web_search + web_fetch",
-          "scope": "official Florida Senate Statutes site",
+          "query": "Florida 2025 section 668.50 Uniform Electronic Transaction Act, scope, agreement and recognition",
+          "tool": "direct official web_fetch, two bounded excerpts",
+          "scope": "official Florida Senate 2025 Statutes, section 668.50 subsections (1)-(7)",
           "result_count": 1,
-          "limit_hit": false,
+          "limit_hit": true,
           "primary_source_opened": true,
           "status": "SOURCE-ESTABLISHED",
-          "what_was_not_checked": "Did not open 668.002-668.006 individually in this pass; note Florida also separately regulates e-notarization under Ch. 117/118, not checked here",
-          "reported_access_status": "opened",
-          "reported_primary_access": "yes",
-          "reported_limit": "no"
+          "what_was_not_checked": "Subsections (8) onward, current amendments, case law, notarization rules, deadlines and application to a person or transaction were not reviewed."
         }
       },
       "trade_secrets": {

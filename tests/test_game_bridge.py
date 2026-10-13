@@ -31,6 +31,7 @@ def test_game_same_root_does_not_corroborate_and_actual_files_are_recalled(tmp_p
     assert result["correction_files_verified"] == 4
     assert result["stale_consumers"] == 0
     assert result["correction"]["status"] == "UNVERIFIED"
+    assert game.correction is not None
     assert all(json.loads(path.read_text())["id"] == game.correction.id
                for path in game.snapshots)
     assert (game.folder / "evaluation.json").is_file()

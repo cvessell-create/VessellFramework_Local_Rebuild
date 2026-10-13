@@ -1,0 +1,23 @@
+{
+  "contract_version": "1.0",
+  "request_id": "5a7f6360-6504-4cb8-9512-86c13e788228",
+  "data_classification": "public-non-sensitive",
+  "operation": "evidence-analysis",
+  "payload": {
+    "task_id": "synthetic-evidence-example",
+    "caller": "example-coordinator",
+    "timestamp": "2026-10-09T12:00:00Z",
+    "question": "What does this synthetic example establish, and what remains missing?",
+    "evidence": [
+      {
+        "source_id": "illustrative-report",
+        "description": "Synthetic fixture: a report claims a document changed; original bytes are not supplied."
+      },
+      {
+        "source_id": "illustrative-repost",
+        "description": "Synthetic fixture: a second account repeats the first report.",
+        "upstream_of": "illustrative-report"
+      }
+    ]
+  }
+}

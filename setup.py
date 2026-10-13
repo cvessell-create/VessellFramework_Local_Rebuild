@@ -19,6 +19,9 @@ class ResourceBuild(build_py):
         )
         for schema in sorted((ROOT / "schemas").glob("*.json")):
             self.copy_file(str(schema), str(destination / "schemas" / schema.name))
+        self.mkpath(str(destination / "agent"))
+        for name in ("agent-reference-index.json", "agent-capabilities.json"):
+            self.copy_file(str(ROOT / "docs" / name), str(destination / "agent" / name))
 
 
 setup(cmdclass={"build_py": ResourceBuild})

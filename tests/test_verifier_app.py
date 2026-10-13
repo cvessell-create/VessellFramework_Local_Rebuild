@@ -1,5 +1,6 @@
 import json
 
+import pytest
 from fastapi.testclient import TestClient
 
 from vessell.verifier_app import MAX_BODY_BYTES, create_app
@@ -37,6 +38,7 @@ def test_claim_endpoint_uses_framework_verification_functions():
     assert response.status_code == 200
     body = response.json()
     assert body["source_access"] == "NOT_PERFORMED"
+    assert body["release_status"] == "ANALYSIS_ONLY_NOT_RELEASED"
     assert body["verification"]["verdict"] == "VERIFIED"
     assert body["planted_news"]["verdict"] == "AUTHENTIC"
 
@@ -63,6 +65,7 @@ def test_job_endpoint_groups_roles_and_uses_framework_ghost_job_check():
     assert response.status_code == 200
     body = response.json()
     assert body["postings_received"] == 3
+    assert body["release_status"] == "ANALYSIS_ONLY_NOT_RELEASED"
     assert len(body["roles"]) == 1
     assert body["roles"][0]["verdict"] == "LIKELY_GHOST"
     assert body["roles"][0]["distinct_sources"] == 3
@@ -101,3 +104,23 @@ def test_rejects_oversized_request_body():
     )
 
     assert response.status_code == 413
+
+
+@pytest.mark.parametrize("host", ["[invalid", "user@localhost", "localhost:not-a-port"])
+def test_rejects_malformed_loopback_authority(host: str) -> None:
+    response = _client().get("/", headers={"host": host})
+    assert response.status_code == 403
+    assert "error" in response.json()
+
+
+@pytest.mark.parametrize("value", ["2026-09-25garbage", "2026-09-25T99:99:99"])
+def test_rejects_posting_dates_with_invalid_suffix(value: str) -> None:
+    response = _client().post(
+        "/api/v1/verification/jobs",
+        json={"postings": [{
+            "title": "Synthetic role", "employer": "Synthetic employer",
+            "location": "Synthetic location", "description_text": "Synthetic description",
+            "source": "Synthetic board", "claimed_posted": value,
+        }]},
+    )
+    assert response.status_code == 422

@@ -7,7 +7,7 @@ Read the [theory skill](Game_Theory_Theory_SKILL_v0.1.md) and
 models support bounded conditional calculations, not inferred motives or
 empirical efficacy. Human Knowing Field completion and release remain separate.
 
-The current five-pillar application is defined by
+The fifth-pillar human-inquiry adaptation is defined by
 [Knowing Field](VesselFramework_Knowing_Field_SKILL_v0.1.md), grounded in the
 [theory skill](Knowing_Field_Theory_SKILL_v0.1.md) and
 [framework audit](docs/knowing-field-framework-audit.md).

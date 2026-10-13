@@ -1,8 +1,34 @@
 # VessellFramework
 
-[Run the Claim Verifier](#run-the-claim-verifier-web-app) |
+[Protection guide](docs/personal-family-protection-guide.md) |
+[Product specification](docs/personal-family-agent-spec.md) |
+[Professor review packet](PROFESSOR_README.md) |
+[Existing Claim Verifier](#run-the-claim-verifier-web-app) |
 [Callable specialist](docs/specialist-agent.md) |
+[GitHub agent integration](docs/github-agent-integration.md) |
 [Review workspace](docs/ambient-workflows.md)
+
+## Product focus: personal and family protection
+
+VessellFramework's proposed product focus is a **personal and family privacy,
+safety and rights agent**. Its purpose is to help people understand risks,
+organize evidence, research possible rights and prepare proportionate,
+human-reviewed responses. Claim verification is a supporting capability,
+not the whole product.
+
+The owner-oriented [protection guide](docs/personal-family-protection-guide.md)
+is the focal working draft, pending owner editing and review. It separates
+real legal requirements, platform procedures, existing license duties and
+proposed privacy commitments. It does not invent loopholes, bind strangers,
+guarantee a remedy or change the [Apache license](LICENSE).
+
+**Current phase: product-contract alignment and public-safe agent integration.** The
+[product specification](docs/personal-family-agent-spec.md) describes proposed
+consent, safe communications, private-data lifecycle and protective workflows.
+Family isolation, consent-based sharing and rights-response workflows are not
+implemented or validated. Do not put private family cases in public GitHub,
+Pages or research queries, or share the current service credentials across
+mutually untrusted people.
 
 VessellFramework is being developed as a **full-stack SI sub-agent**. Its
 implemented core provides callable, provenance-aware evidence analysis.
@@ -11,6 +37,17 @@ primary product. Authenticated intake, bounded analysis, durable provenance,
 human review/report release and explicitly authorized execution stay distinct.
 SI is product direction, not demonstrated superintelligence or field efficacy.
 See [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md).
+
+### What exists and what remains proposed
+
+| Surface | Role in the proposed product | Present boundary |
+| --- | --- | --- |
+| [Callable evidence specialist](docs/specialist-agent.md) | Supporting analysis engine | Existing task/preview/review contract; not a family case or consent service |
+| [Local verifier](docs/claim-verifier.md) | Bounded assessment of supplied material | Analysis-only; it does not authenticate supplied sources or release a report |
+| [GitHub agent integration](docs/github-agent-integration.md) | Public discovery, reference search and owner-authorized Actions analysis | Non-sensitive unreleased previews only; remote deployment/adoption not verified |
+| [Human review workspace](docs/ambient-workflows.md) | Supporting control plane | Existing single-owner review, not demonstrated family isolation |
+| [Protection guide](docs/personal-family-protection-guide.md) | Rights/process reference and response preparation | Owner-review draft; source access is not a legal eligibility finding |
+| [Personal/family specification](docs/personal-family-agent-spec.md) | Proposed safety, permissions and lifecycle contract | No new runtime, account integration, monitoring or filing capability |
 
 Author: Christopher R. Vessell
 
@@ -57,18 +94,29 @@ For the complete skill, agent, executable-code, scanner, and authorized remediat
 
 If you are reviewing this as an academic rough-working submission, read in this order:
 
-1. `PROFESSOR_README.md` (purpose, contribution, current limits, and requested feedback)
-2. `VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md` (integrated doctrine and methods)
-3. `SKILL.md` (operational analyst execution layer)
-4. `VesselFramework_Forecasting_SKILL_v1.0.md` (forecasting controls and calibration form)
-5. `vesselframework_reference_v1.1_provenance_firewall.py` + `tests/` (executable reference and regression checks)
+1. [PROFESSOR_README.md](PROFESSOR_README.md): research purpose, contribution,
+   current limits and requested critique.
+2. [Vision and scope](VISION_AND_SCOPE.md), [protection guide](docs/personal-family-protection-guide.md)
+   and [product specification](docs/personal-family-agent-spec.md): proposed application.
+3. [Original paper](docs/claim-correction-case-study.md) and
+   [source reconciliation](docs/paper-source-reconciliation.md): preserved authorship.
+4. [Combined framework](VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md),
+   [analyst skill](SKILL.md) and [forecasting skill](VesselFramework_Forecasting_SKILL_v1.0.md):
+   methods, with current six-pillar additions linked above.
+5. [Specialist contract](docs/specialist-agent.md) and [tests](tests/):
+   selected executable controls, not proof of field effectiveness.
 
-For package boundaries and canonical scope, see `CANONICAL_REFERENCE.md`.
+For package boundaries and historical submission scope, see
+[CANONICAL_REFERENCE.md](CANONICAL_REFERENCE.md).
 
 ## Governing doctrine
 
-The claim-correction case study ([docs/claim-correction-case-study.md](docs/claim-correction-case-study.md))
-is the governing spec for this codebase. Its six-step playbook is implemented head-to-toe:
+The [claim-correction case study](docs/claim-correction-case-study.md) remains
+the governing author source for the correction playbook, not a substitute for
+the current product scope or permission to retain private data indefinitely.
+The personal/family application does not rewrite the paper or independently
+verify its historical incidents. Its six-step playbook maps to selected
+executable controls:
 
 1. **Tag at intake** — every claim enters with source, tier, kind (ICD 203 report/assumption/judgment),
    uncertainty, and observation date (`vessell.provenance.intake_claim`; `vessell.validation.require_provenance_fields`).
@@ -79,6 +127,8 @@ is the governing spec for this codebase. Its six-step playbook is implemented he
    named approval + change ticket is the operational equivalent.
 4. **Disavow by supersession, never erasure** — `disavow` keeps the original record and links the
    correction; corrections inherit kind, uncertainty, and revalidation schedule.
+   This analytical lineage rule is not an indefinite private-data retention
+   policy. Future deletion, backups and legal-hold behavior require separate design.
 5. **Propagate, then verify the update landed** — `register_dependent` on every operational use;
    `confirm_dependent_update` / `pending_corrections` close the loop.
 6. **Re-validate on schedule** — `valid_until` + `is_stale` + `revalidate_claim`; stale corroborated
@@ -116,7 +166,9 @@ Three ways to run it straight from GitHub — no clone needed:
 1. **In your browser** (nothing to install):
    [Browser verifier](docs/index.html) — `vessell/verify.py` executes via
    Pyodide. Runtime and module loading use the network; source URLs supplied
-   for analysis are not authenticated. Live deployment remains unverified.
+   for analysis are not authenticated. The browser loader has been repaired and
+   checked locally; the published Pages version has not yet received that fix.
+   Local checks are not confirmation of a new deployment.
    GitHub Pages is intended to publish **master /docs** using branch deployment;
    the dashboard workflow only tests dashboard code and does not replace that site.
 

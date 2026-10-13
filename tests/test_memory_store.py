@@ -47,6 +47,7 @@ def test_correction_versions_original_and_requires_new_approval(tmp_path) -> Non
     replacement_id = review_memory(
         database, identifier, "correct", replacement=replacement, reviewer="reviewer-2"
     )
+    assert replacement_id is not None
     records = {memory["id"]: memory for memory in list_memories(database)}
     assert records[identifier]["status"] == "corrected"
     assert records[replacement_id]["status"] == "pending"

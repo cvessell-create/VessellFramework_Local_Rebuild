@@ -42,6 +42,20 @@ with launch() as client:
 it runs within your process. `VerifierClient` connects to an already-running
 server. Both call the canonical Python verifier.
 
+## Static browser bundle
+
+The [Pages HTML](index.html) runs a separate Pyodide bundle. Runtime and Python
+module downloads use the network; it is not an offline or private family case
+workspace. The loader uses absolute paths in Pyodide's current directory and
+includes the canonical provenance firewall. Minimal browser package initializers
+avoid importing the unrelated case pipeline and its optional dependencies.
+Failures identify the loading stage and filesystem error number where available;
+analysis buttons stay disabled unless imports and glue initialization succeed.
+
+Local browser execution and isolated bundle regressions do not establish that
+the published Pages deployment contains the repair. Source modules still load
+from master, not a pinned snapshot; results remain analysis-only.
+
 ## Optional JSON-input UI
 
 Install the optional FastAPI UI dependencies and start it from a checkout:
@@ -69,3 +83,8 @@ The tool validates request structure and dates but does not establish that
 source names, timestamps, tiers, official-record flags, URLs, or excerpts are
 accurate. Those remain operator-supplied inputs. It has no network access,
 durable evidence store, release action, or execution authority.
+
+Both APIs return `release_status: ANALYSIS_ONLY_NOT_RELEASED`. Posting dates
+may include valid ISO timestamps, but the complete value is checked: trailing
+garbage and impossible times are rejected rather than ignored. Malformed Host
+authorities are rejected explicitly, not allowed to become server errors.

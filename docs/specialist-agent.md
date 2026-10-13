@@ -1,5 +1,18 @@
 # Callable evidence specialist
 
+For public discovery and authorized non-sensitive GitHub Actions previews, see
+the separate [GitHub agent integration](github-agent-integration.md). It reuses
+this analysis kernel but does not inherit this durable store/replay/release
+lifecycle. It does not widen these API credentials or task authority.
+
+## Role in the personal/family product
+
+The [protection guide](personal-family-protection-guide.md) is the focal
+owner-review draft for a proposed personal/family privacy, safety and rights
+agent. This specialist is its existing supporting evidence engine, not a
+completed protective service. This documentation rework does not change the
+task schema, endpoints, credentials or lifecycle.
+
 The [product vision](../VISION_AND_SCOPE.md) defines VessellFramework as a
 full-stack SI sub-agent whose implemented core provides reusable,
 provenance-aware analytical services to coordinating agents. The email-inspired
@@ -24,6 +37,23 @@ the SDK methods and `SpecialistClient.tool_contract()` in your orchestrator;
 this does not silently install a native VS Code/MCP agent or grant host tools.
 
 ## Task contract and Python client
+
+### Existing schema versus proposed protection intake
+
+The existing [SpecialistTask](../vessell/ambient/specialist.py) accepts a task
+identity, caller declaration, timestamp, bounded question/evidence and optional
+inquiry/strategic-model context. It has no family-case permission, consent-grant,
+guardian-proof or legal-remedy field. Do not hide those proposed authorities in
+free text and treat them as enforced controls. Unknown fields remain rejected.
+
+The future protection intake described in the
+[product specification](personal-family-agent-spec.md) must independently
+establish affected-person scope, safe channel, permitted recipients, retention
+and sharing authority before private evidence reaches this supporting engine.
+Caller strings, source IDs and human report approval are not substitutes.
+Until that layer is designed and validated, use illustrative/non-sensitive
+material for protection-workflow development; do not treat this shared
+credential as a family-access boundary.
 
 Optional `game_theory` accepts the
 [sixth-pillar contract](../schemas/game-theory.schema.json). Its `evidence_ids`
@@ -119,6 +149,12 @@ spawn a background polling loop.
 
 ## Execution distinction
 
+Legal/process research and response drafting are proposed downstream services,
+not specialist endpoints. A released evidence report must remain distinct from
+a rights-eligibility assessment, consent decision, sworn filing or account action.
+The [protection guide](personal-family-protection-guide.md) supplies
+human-reviewed request examples, not automatic submissions.
+
 Calling the specialist never authorizes shell commands, webhook builds,
 repository changes or models. GitHub execution is a separate
 [owner-authenticated named-workflow surface](github-control-panel.md).
@@ -126,3 +162,13 @@ Static rendering is a separate
 [operator-approved capture path](static-artifact-capture.md).
 Agents may request work and report evidence; the human retains execution and
 release authority.
+
+## Proposed handoff acceptance
+
+Before a protective integration is released, verify the exact data sent to this
+service, returned preview, human completion, released report and any separately
+approved export. Missing source access or legal elements must remain explicit;
+no lawful-remedy or compensation claim follows from a completed job state.
+Preserve existing replay identities and preview bindings during any future
+schema change. New consent, private-case and execution states must not overload
+PENDING, APPROVED or COMPLETED in this evidence-report lifecycle.

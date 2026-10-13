@@ -25,6 +25,13 @@ that AI training, copying or another specific use violates the license.
 
 ## Evidence boundaries
 
+Jurisdiction names, source-access labels and application workflow states are
+not interchangeable. A SOURCE-ESTABLISHED reference is not a COMPLETED remedy;
+an approved report is not attorney-general action. The
+[protection guide](personal-family-protection-guide.md) and
+[personal/family specification](personal-family-agent-spec.md) preserve these
+distinctions for the proposed product.
+
 **SOURCE-ESTABLISHED** means only inspected substantive government text, not
 current enforceability. **UNVERIFIED** entries are research leads, including
 bills, secondary summaries and unopened sources. Every entry's present

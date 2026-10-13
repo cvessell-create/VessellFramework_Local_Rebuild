@@ -32,6 +32,7 @@ from pathlib import Path
 import pytest
 
 from vessell.provenance import (
+    ClaimRecord,
     ClaimStatus,
     add_corroboration,
     disavow,
@@ -52,9 +53,7 @@ def _clean_lifecycle():
     reset_claim_lifecycle()
 
 
-def _intake_blacklisted(source_root: "str | None" = None) -> "object":
-    from vessell.provenance import ClaimRecord, SourceStatus
-
+def _intake_blacklisted(source_root: str | None = None) -> ClaimRecord:
     record = intake_claim(
         text="Subject is blacklisted from federal hiring, security clearances, "
         "and Intelligence Community paths.",

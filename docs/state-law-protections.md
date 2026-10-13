@@ -23,6 +23,12 @@ common law or amendments after the observation date.
 
 ## How to read the records
 
+The catalog's `state` identifies a jurisdiction, not an application lifecycle
+state. `completion` describes completion of the bounded discovery pass, not
+complete legal protection or verification of all references. The source-access
+totals below retain UNVERIFIED records rather than treating fifty rows as
+fifty confirmed protections.
+
 - **SOURCE-ESTABLISHED**: substantive official source text was opened.
   This establishes only what that text says, not its application or completeness.
 - **UNVERIFIED**: the official text was not confirmed in this pass.
@@ -36,6 +42,12 @@ Each state/subject has an individual SEARCH RECORD in the
 status / what was NOT checked`. These are research provenance records,
 not independent corroboration or a self-verifying legal database.
 
+For the proposed personal/family product, use this as a supporting research
+index alongside the [protection guide](personal-family-protection-guide.md).
+It covers electronic transactions and trade secrets, not a complete household
+privacy, safety, guardianship or consumer-rights survey. No runtime consent,
+sharing or rights-eligibility rule is implemented by this catalog.
+
 ## California and corrected Washington citation
 
 California's opened Civil Code sections 1633.3, 1633.5 and 1633.7 address
@@ -48,6 +60,22 @@ Opened RCW **1.80.040**, **1.80.060** and **1.80.900** support the correction
 to chapter **1.80**, the Uniform Electronic Transactions Act. The historical
 [electronic-transactions document](washington-rcw-19.74.md) keeps its filename,
 not its erroneous citation. See also the [trade-secret notice](trade-secrets-notice.md).
+
+## Florida correction
+
+The prior Florida entry inspected only the short title of section 668.001 and
+overstated a narrower-only characterization. Substantive
+[2025 section 668.50](https://www.flsenate.gov/Laws/Statutes/2025/668.50)
+is now opened: its own title is "Uniform Electronic Transaction Act," and
+subsections (3), (5) and (7) describe scope/exclusions, agreement and
+electronic-form recognition. The superseded description is retained in the
+JSON correction history rather than presented as current guidance.
+
+SEARCH RECORD: Florida 2025 section 668.50 / direct official web_fetch /
+Florida Senate, subsections (1)-(7) / 1 source opened in two excerpts /
+limit hit yes, remaining subsections and current amendments not reviewed /
+primary opened yes / SOURCE-ESTABLISHED for inspected 2025 text only /
+case law, current-law applicability, notarization and individual facts NOT checked.
 
 ## Federal context (2024 U.S. Code edition opened)
 
@@ -83,7 +111,7 @@ Substantive official text opened: **31/50 included states**; **19 included state
 | Colorado | [Colorado Revised Statutes Title 24, Article 71.3 (UETA), C.R.S. 24-71.3-101 et seq.](https://leg.colorado.gov/agencies/office-legislative-legal-services/colorado-revised-statutes) | UNVERIFIED | Official General Assembly statutes page explicitly directs to a Lexis Advance subscription link for the official text; PDF title mirrors on leg.colorado.gov timed out twice. No free primary text opened in bounded pass. |
 | Connecticut | [Connecticut General Statutes Title 1, Chapter 15, Secs. 1-266 to 1-286 (Connecticut UETA)](https://www.cga.ct.gov/current/pub/chap_015.htm) | SOURCE-ESTABLISHED | Opened official cga.ct.gov text: Sec 1-266 short title through definitions (Sec 1-267); confirms Connecticut-specific UETA with added Sec. 1-284 (electronic record presumed not sent/received by consumer) as a consumer-protection variation from uniform act. |
 | Delaware | [Delaware Code Title 6, Chapter 12A (UETA), 6 Del. C. Section 12A-101 et seq.](https://delcode.delaware.gov/title6/c012a/index.html) | SOURCE-ESTABLISHED | Opened official delcode.delaware.gov text including Section 12A-103 Scope, which begins listing exclusions (e.g., wills/codicils) consistent with standard UETA carve-outs; full exclusion list truncated by fetch length limit. |
-| Florida | [Florida Statutes Chapter 668, Part I, Electronic Signature Act of 1996, Fla. Stat. 668.001-668.006](https://www.flsenate.gov/Laws/Statutes/2025/668.001) | SOURCE-ESTABLISHED | Opened official flsenate.gov text of 668.001 (short title). Florida statute is a narrower electronic-signature act (pre-UETA-style) rather than full UETA; scope/exclusion sections not separately opened in this pass. |
+| Florida | [Fla. Stat. § 668.50, Uniform Electronic Transaction Act (2025 edition), subsections (1)-(7)](https://www.flsenate.gov/Laws/Statutes/2025/668.50) | SOURCE-ESTABLISHED | Corrected after opening title, definitions, scope/exclusions, agreement and electronic-form recognition. The earlier short-title-only entry omitted this separate provision; original description retained in JSON correction history. Not current-law certification or automatic validity. |
 | Georgia | [O.C.G.A. Title 10, Chapter 12 (Georgia Electronic Records and Signatures Act / UETA-based)](https://www.legis.ga.gov/legislation/statutes?title=10&chapter=12) | UNVERIFIED | Official Georgia General Assembly statutes portal is a JS single-page app ("Loading..."); static fetch did not return section text within bounded attempts. |
 | Hawaii | [Hawaii Revised Statutes Chapter 489E (Uniform Electronic Transactions Act), HRS 489E-1 et seq.](https://data.capitol.hawaii.gov/sessions/session2017/HRS-Chapter-PDF's/HRS_0489E.pdf) | SOURCE-ESTABLISHED | Opened official capitol.hawaii.gov PDF (downloaded/extracted): confirms Ch. 489E short title and full section table of contents (489E-1 through 489E-19+), matching standard UETA structure. |
 | Idaho | [Idaho Code Title 28, Chapter 50 (Uniform Electronic Transactions Act), I.C. 28-50-101 et seq.](https://legislature.idaho.gov/statutesrules/idstat/Title28/T28CH50/SECT28-50-101/) | SOURCE-ESTABLISHED | Opened official legislature.idaho.gov text of I.C. 28-50-101 (short title, "Uniform Electronic Transactions Act"). Scope/exclusion sections not separately opened. |

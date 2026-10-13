@@ -102,9 +102,10 @@ class PostingInput(_InputModel):
     def validate_date(cls, value: str) -> str:
         if value:
             try:
+                datetime.fromisoformat(value)
                 date.fromisoformat(value[:10])
             except ValueError as error:
-                raise ValueError("must be an ISO date") from error
+                raise ValueError("must be an ISO date or timestamp") from error
         return value
 
     def to_posting(self) -> JobPosting:
@@ -174,8 +175,20 @@ def create_app() -> FastAPI:
         call_next: RequestResponseEndpoint,
     ) -> Response:
         host_header = request.headers.get("host", "")
-        host = urlsplit(f"//{host_header}").hostname
-        if host not in {"127.0.0.1", "localhost"}:
+        try:
+            authority = urlsplit(f"//{host_header}")
+            host = authority.hostname
+            _ = authority.port
+        except ValueError:
+            return JSONResponse({"error": "Invalid loopback Host header."}, status_code=403)
+        if (
+            host not in {"127.0.0.1", "localhost"}
+            or authority.username is not None
+            or authority.password is not None
+            or authority.path
+            or authority.query
+            or authority.fragment
+        ):
             return JSONResponse({"error": "This verifier only accepts loopback requests."}, status_code=403)
         origin = request.headers.get("origin")
         if origin and origin != f"{request.url.scheme}://{host_header}":
@@ -209,6 +222,7 @@ def create_app() -> FastAPI:
         )
         return JSONResponse({
             "source_access": "NOT_PERFORMED",
+            "release_status": "ANALYSIS_ONLY_NOT_RELEASED",
             "note": "Only supplied sightings were analyzed; URLs were not fetched or authenticated.",
             "verification": verify_claim(check).to_dict(),
             "planted_news": analyze_planted_news(check).to_dict(),
@@ -226,6 +240,7 @@ def create_app() -> FastAPI:
         ]
         return JSONResponse({
             "source_access": "NOT_PERFORMED",
+            "release_status": "ANALYSIS_ONLY_NOT_RELEASED",
             "note": "Only supplied postings were analyzed; URLs were not fetched or authenticated.",
             "postings_received": len(postings),
             "roles": role_reports,

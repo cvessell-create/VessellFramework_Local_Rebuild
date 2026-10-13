@@ -54,3 +54,24 @@ def test_readme_preserves_product_boundaries_and_source_references():
         assert source in readme
     assert "CLI analyses remain\npreviews" in readme
     assert "not citations or historical incidents in the author's supplied paper" in readme
+
+
+def test_personal_family_direction_is_a_proposal_not_a_capability_or_license_change():
+    guide = "docs/personal-family-protection-guide.md"
+    spec = "docs/personal-family-agent-spec.md"
+    for target in ("README.md", "VISION_AND_SCOPE.md", "PROFESSOR_README.md",
+                   "CANONICAL_REFERENCE.md", "MANIFEST.in"):
+        text = (ROOT / target).read_text()
+        assert guide in text
+        assert spec in text
+    professor = (ROOT / "PROFESSOR_README.md").read_text()
+    assert "six analytical pillars" in professor
+    assert "docs/claim-correction-case-study.md" in professor
+    assert "not implemented or validated" in professor
+    specification = (ROOT / spec).read_text()
+    assert "NOT IMPLEMENTED / NOT VALIDATED" in specification
+    assert "NOT_SELECTED" in specification
+    assert "Distinct state vocabularies" in specification
+    protection = (ROOT / guide).read_text()
+    assert "OWNER-ORIENTED DRAFT" in protection
+    assert "The [Apache license](../LICENSE) remains unchanged." in protection

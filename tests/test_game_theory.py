@@ -170,6 +170,7 @@ def test_pipeline_reports_legacy_runner_and_agent_load_same_pillar_without_confi
     assert "COMPUTED_CONDITIONAL" in text
     for name in ("Game_Theory_Theory_SKILL_v0.1.md", "VesselFramework_Game_Theory_SKILL_v0.1.md"):
         assert (ROOT / name).read_text() in read_instructions()
+    assert result.game_theory is not None
     original = copy.deepcopy(asdict(result.game_theory))
     value["game_theory"]["model"]["payoffs"][0][0][0] = 99
     assert asdict(result.game_theory) == original

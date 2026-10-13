@@ -10,7 +10,11 @@ from __future__ import annotations
 import ast
 import http.client
 import json
+import logging
 import re
+import shutil
+import subprocess
+import sys
 import threading
 import tomllib
 import urllib.request
@@ -53,6 +57,33 @@ def test_parse_tier_accepts_loose_forms() -> None:
 def test_parse_tier_rejects_unknown() -> None:
     with pytest.raises(ValueError, match="Unknown source tier"):
         parse_tier("TRUST ME BRO")
+
+
+def test_handler_log_message_accepts_base_class_keyword(caplog: pytest.LogCaptureFixture) -> None:
+    handler = VerifierHandler.__new__(VerifierHandler)
+    with caplog.at_level(logging.INFO, logger="vessell.app.server"):
+        handler.log_message(format="Request handled")
+    assert "Request handled" in caplog.text
+
+
+@pytest.mark.parametrize("value", ["2026-09-25garbage", "2026-09-25T99:99:99"])
+def test_build_posting_rejects_invalid_date_suffix(value: str) -> None:
+    with pytest.raises(ValueError, match="ISO date or timestamp"):
+        build_posting({
+            "title": "Synthetic role", "employer": "Synthetic employer",
+            "location": "Synthetic location", "description_text": "Synthetic description",
+            "claimed_posted": value,
+        })
+
+
+def test_build_posting_preserves_valid_timestamp() -> None:
+    value = "2026-09-25T09:30:00-07:00"
+    result = build_posting({
+        "title": "Synthetic role", "employer": "Synthetic employer",
+        "location": "Synthetic location", "description_text": "Synthetic description",
+        "claimed_posted": value,
+    })
+    assert result.claimed_posted == value
 
 
 def test_build_sighting_requires_source_name() -> None:
@@ -429,6 +460,109 @@ def test_pages_bundle_declares_pyodide() -> None:
     html = _docs_html()
     assert "pyodide" in html.lower()
     assert "loadPyodide" in html
+
+
+@pytest.mark.parametrize("failure", ["", "fetch", "filesystem", "imports"])
+def test_pages_bootstrap_uses_absolute_paths_and_reports_failed_stage(failure: str) -> None:
+    node = shutil.which("node")
+    if node is None:
+        pytest.skip("Node is required to execute the browser bootstrap regression")
+    html = _docs_html()
+    bootstrap = html[html.index("async function boot()"):html.index("// --- UI")]
+    script = """
+const assert = require("node:assert/strict");
+const failure = process.argv[1];
+const writes = {};
+const buttons = [{disabled: true}, {disabled: true}, {disabled: true}];
+const classes = new Set();
+const status = {textContent: "", classList: {add(value) { classes.add(value); }}};
+const document = {
+  getElementById() { return status; },
+  querySelectorAll() { return buttons; }
+};
+const GLUE = "";
+let VF = null;
+async function loadPyodide() {
+  return {
+    FS: {
+      cwd() { return "/home/pyodide"; },
+      mkdirTree(path) {
+        assert.ok(path.startsWith("/"), "mkdirTree needs an absolute path");
+        if (failure === "filesystem") throw {name: "ErrnoError", errno: 44};
+      },
+      writeFile(path, text) {
+        assert.ok(path.startsWith("/"), "writeFile needs an absolute path");
+        writes[path] = text;
+      }
+    },
+    async runPythonAsync() {
+      if (failure === "imports") throw new Error("Missing module");
+    },
+    globals: {get(name) { return name; }}
+  };
+}
+async function fetch() {
+  return {ok: failure !== "fetch", status: 503, async text() { return "# module"; }};
+}
+""" + bootstrap + """
+boot().then(() => {
+  if (failure) {
+    assert.ok(classes.has("failed"));
+    assert.ok(!classes.has("ready"));
+    assert.ok(buttons.every(button => button.disabled));
+    assert.equal(VF, null);
+    const stage = failure === "imports" ? "Python imports and verifier glue" : "vessell/verify.py";
+    assert.ok(status.textContent.includes(stage));
+    if (failure === "filesystem") assert.ok(status.textContent.includes("ErrnoError (errno 44)"));
+  } else {
+    assert.ok(classes.has("ready"));
+    assert.ok(buttons.every(button => !button.disabled));
+    assert.ok(writes["/home/pyodide/vessell/provenance_firewall.py"]);
+    assert.ok(writes["/home/pyodide/vessell/app/__init__.py"]);
+    assert.ok(!writes["/home/pyodide/vessell/app/pipeline.py"]);
+    assert.equal(VF.api_verify, "api_verify");
+  }
+}).catch(error => { console.error(error); process.exitCode = 1; });
+"""
+    result = subprocess.run(
+        [node, "-e", script, failure], capture_output=True, text=True, timeout=15, check=False,
+    )
+    assert result.returncode == 0, result.stderr
+
+
+def test_pages_bundle_imports_and_analyzes_without_checkout(tmp_path: Path) -> None:
+    html = _docs_html()
+    paths = set(re.findall(
+        r'"(vessell/[\w/]+\.py|vesselframework_reference[\w.]+\.py)"', html,
+    ))
+    root = DOCS_INDEX.parent.parent
+    for path in paths:
+        destination = tmp_path / path
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_bytes((root / path).read_bytes())
+    for package in ("vessell", "vessell/app"):
+        (tmp_path / package / "__init__.py").write_text("")
+    match = re.search(r"const GLUE = `\n(.*?)`;\n", html, re.DOTALL)
+    assert match
+    script = (
+        "import sys\nsys.path.insert(0, sys.argv[1])\n" + match.group(1) + """
+claim = json.loads(api_verify(json.dumps({"claim": "Illustrative claim", "sightings": []})))
+spread = json.loads(api_planted(json.dumps({"claim": "Illustrative claim", "sightings": []})))
+job = json.loads(api_ghost(json.dumps({"postings": [{
+    "title": "Example", "employer": "Fixture", "location": "Example",
+    "description_text": "Illustrative job", "source": "Fixture"
+}]})))
+for result in (claim, spread, job):
+    assert "error" not in result, result
+    assert result["source_access"] == "NOT_PERFORMED"
+    assert result["release_status"] == "ANALYSIS_ONLY_NOT_RELEASED"
+"""
+    )
+    result = subprocess.run(
+        [sys.executable, "-I", "-c", script, str(tmp_path)],
+        capture_output=True, text=True, timeout=15, cwd=tmp_path, check=False,
+    )
+    assert result.returncode == 0, result.stderr
 
 
 def test_pages_bundle_preserves_analysis_boundaries() -> None:

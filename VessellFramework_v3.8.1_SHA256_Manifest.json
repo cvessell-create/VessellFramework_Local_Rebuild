@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-11T00:34:40.081260+00:00",
+  "generated_utc": "2026-10-11T02:34:38.949806+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -27,6 +27,10 @@
     {
       "path": ".github/skills/r-inferential-workflow/SKILL.md",
       "sha256": "6be34cb83bb8a06fc3a3d53681a72d8ba9ebb0b7a2750043de7ce254001a31d7"
+    },
+    {
+      "path": ".github/workflows/agent-analysis.yml",
+      "sha256": "819c4311df2c72e0cb46d82b9955a240c49124c2cea613caba5153729c81ff91"
     },
     {
       "path": ".github/workflows/ci.yml",
@@ -74,7 +78,7 @@
     },
     {
       "path": "CANONICAL_REFERENCE.md",
-      "sha256": "e28cc0c6c1690dc760ea3d4992ccaf348d51e58cd87630cd0df9ee0a0bd05b67"
+      "sha256": "b8e68d1a004a5600ab8b601dc89482467564d4495adf000ec755b6e521926ee7"
     },
     {
       "path": "CITATION.cff",
@@ -102,7 +106,7 @@
     },
     {
       "path": "MANIFEST.in",
-      "sha256": "564b8d62fa0f5b6382445f4cf1dad2688e7170d96029eb27aaf32134883e7bf3"
+      "sha256": "aefd787c9a5b1834d546bcb09f380342f4a9a4d5cb6325327790e75ab2225093"
     },
     {
       "path": "META_REVIEW_AND_ROADMAP.md",
@@ -114,11 +118,11 @@
     },
     {
       "path": "PROFESSOR_README.md",
-      "sha256": "0bade2b1ef3f9f5c6972440f63b62a8057c93df113a4580ed3f973954d92ce95"
+      "sha256": "e16ce862cf4c9190ae4fddcd1399195ee845022f93e407a969c501c657c07be9"
     },
     {
       "path": "README.md",
-      "sha256": "d0f2b8d35b1a183dd115ea21c40c58f08dedcc8f3b2e4aaaed7a8adb44da7534"
+      "sha256": "394bb4a2f5045b03efc9545dbf4db1a39eff0f432945a2382d9d5226c023e78d"
     },
     {
       "path": "SECURITY.md",
@@ -126,7 +130,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "ec838004e1ceaf7a85f38d3e4148971a10de177a73e5b5465add894b27664ed9"
+      "sha256": "d64ff1ac83082d46094ee1623d8f07869b64fb2a70d21e00fd11ea12eb79db5f"
     },
     {
       "path": "SQL_QUICK_REFERENCE.md",
@@ -138,7 +142,7 @@
     },
     {
       "path": "VISION_AND_SCOPE.md",
-      "sha256": "38f0147267d199460f41e70b047cc6821d4ca114eac75e06d7e90a4431e98e01"
+      "sha256": "5c0c73f94a60d88801800a76a121009aaf345672f180200ced7a868781443875"
     },
     {
       "path": "VesselFramework_Agent.md",
@@ -333,6 +337,22 @@
       "sha256": "237f68beb9e5198d94b217868a1d08f3a26a58f9d9837a10b3ce09bec8a8727f"
     },
     {
+      "path": "docs/agent-capabilities.json",
+      "sha256": "45c880f8340eb3188fe4407c8d99505ef6dab1ccef09c42bca2653a43a001ade"
+    },
+    {
+      "path": "docs/agent-reference-index.json",
+      "sha256": "db4b41f7919a7aba73da7fbb165587bf93252d3ffa9614ee25d15ac402c5d080"
+    },
+    {
+      "path": "docs/agent-search.js",
+      "sha256": "e6f54de0e68dcfa4a603f19de5c515be57c6245e3f872cf5b004aa63fcb83bbb"
+    },
+    {
+      "path": "docs/agents.html",
+      "sha256": "136fb5b0a6e7068e2b966d162e19139a8aac4d52f48ae1099a39f22687e5bc85"
+    },
+    {
       "path": "docs/ambient-workflows.md",
       "sha256": "827ffbb07b83b30b65b33a678ab2c712eb03d186262c04c7a377206732fb82d3"
     },
@@ -354,7 +374,7 @@
     },
     {
       "path": "docs/claim-verifier.md",
-      "sha256": "7e792afc99b85c1ca97a9c6a0cb37c790909feb573211f611e93ecbbe5489b3c"
+      "sha256": "01d25e9ca9ffed794b42747b271d8a86fc1aaf6ea59dbba4b816bfc1389cb1d8"
     },
     {
       "path": "docs/evaluation-methods.md",
@@ -469,8 +489,12 @@
       "sha256": "7513d852710d3a60ea9988132042433ba45bfd1a04f80c9a47995a513ef96daa"
     },
     {
+      "path": "docs/github-agent-integration.md",
+      "sha256": "71c0587448dd6f79f33268868601974c6cb10111075769d7d1b2f909ce2981ca"
+    },
+    {
       "path": "docs/github-control-panel.md",
-      "sha256": "3c2b9bdf553b3259e5b9bdce49a5c68aa3e23c172ef975347a23fd66e65b86aa"
+      "sha256": "9351d81b701b4b4edf392529dc34749af22356db9ce7c59d7cc85c85de959baa"
     },
     {
       "path": "docs/github-metadata-observatory.md",
@@ -482,7 +506,7 @@
     },
     {
       "path": "docs/index.html",
-      "sha256": "4beef498c3e6abbdcca42e7fe901f3993d44dc8afb4711f05954ae01b9153cb5"
+      "sha256": "5e0079feeafb378e760b8b179a28eec3256eb7b5d20f50e3be85ae074ee2a74b"
     },
     {
       "path": "docs/knowing-field-framework-audit.md",
@@ -521,6 +545,14 @@
       "sha256": "9700ce22a59dfa75beb1e779f7d64f283bb4bfcbd14adf754a238d0579e2022a"
     },
     {
+      "path": "docs/personal-family-agent-spec.md",
+      "sha256": "ebb2097a7782c0e2cca6a9fb11c493a08221d51cf4c5a936dd1077dec7382521"
+    },
+    {
+      "path": "docs/personal-family-protection-guide.md",
+      "sha256": "f621b166659958246834cf5da85ba6c41dcb6fdc8f39e0762ee587877ea8fce1"
+    },
+    {
       "path": "docs/pillar-scientific-foundations.md",
       "sha256": "762d156b5bf7b57acf15613073f80f0b905af1d71e070e78386946491f8a912d"
     },
@@ -530,7 +562,7 @@
     },
     {
       "path": "docs/platform-accountability-laws.md",
-      "sha256": "8b21fd6feca2565825c13c660af108ed4e93d5445b98de3385ae5eb30dc2fc72"
+      "sha256": "c18532e3b900d9b3e9cc9ccc66259a6d138adb72ba920d2966fb1f208bf94591"
     },
     {
       "path": "docs/prompt-steering-and-reasoning-audit.md",
@@ -550,15 +582,15 @@
     },
     {
       "path": "docs/specialist-agent.md",
-      "sha256": "b6435cdcad82c1e26e09e40a59b4fb049f41f3ff487bf056b0d810bf32ed09de"
+      "sha256": "c800c89a6e884ffa7ba5878d718d89a562e2253e94b116adc65d487861230da7"
     },
     {
       "path": "docs/state-law-protections.json",
-      "sha256": "796b2f9616c680b054e1c46c1b61d7390df3841d8589c57f4525a1e53a86848e"
+      "sha256": "f3c586190b8f009dfc27ec3a05930ebcd9b421ca2e42c743f1d70d41f1640386"
     },
     {
       "path": "docs/state-law-protections.md",
-      "sha256": "592d626ea2d965e20942c7f7b825aa4b936a4d7ce47dcb77d0f20926170414db"
+      "sha256": "9a234d55f4acd2e4908165dff615d337c2d23d52caa1f98559d979b6460410e3"
     },
     {
       "path": "docs/static-artifact-capture.md",
@@ -603,6 +635,14 @@
     {
       "path": "examples/game-theory-case.json",
       "sha256": "dc543c26bcc6b465521f7950e20ca25c18a79d9a74d3b4b816fb4d611ff41fcd"
+    },
+    {
+      "path": "examples/hosted-agent-evidence.json",
+      "sha256": "4006281a3213d29e39d78ca1175af5d7a9fa6e8444bd0edbc7442bb1d35197b9"
+    },
+    {
+      "path": "examples/hosted-agent-search.json",
+      "sha256": "1c325d994f8caa9d84b93d476bdc2f7d0ab90e6e0744d39c5000ec7df94284b5"
     },
     {
       "path": "examples/organizational_psychology_evidence_catalog.json",
@@ -718,11 +758,11 @@
     },
     {
       "path": "mnt/skills/user/vessel-framework-analyst/SKILL.md",
-      "sha256": "ec838004e1ceaf7a85f38d3e4148971a10de177a73e5b5465add894b27664ed9"
+      "sha256": "d64ff1ac83082d46094ee1623d8f07869b64fb2a70d21e00fd11ea12eb79db5f"
     },
     {
       "path": "pyproject.toml",
-      "sha256": "2abe94b8d3e58c3db3a05ebab9163c010c50aa548cb014cb10390ed06afcf935"
+      "sha256": "4e4ea4445c078c1da49075bf0af6572296172948d88d64ff533b135ddb50aaec"
     },
     {
       "path": "r/convert_python_memory_db.R",
@@ -914,7 +954,7 @@
     },
     {
       "path": "setup.py",
-      "sha256": "d4890d0d3b7e45009f5d75b2ccdff8853565e7238450d9f712c373a07fa83dd3"
+      "sha256": "1b23310bdfe19c5b478f0f50fc8586005c03f81beaa093ac34ea987d5d0af81b"
     },
     {
       "path": "tests/conformance/test_maskirovka_convergence.py",
@@ -1038,7 +1078,7 @@
     },
     {
       "path": "tests/test_civilian_source_preservation.py",
-      "sha256": "84599369a90e79348c404ca3590f9b5fe722c5084aae4fe7756f4593c5909056"
+      "sha256": "cfd83c860905d21601981c03aa7954c5368ba87d25c5ca1fa3028099fc1f26f1"
     },
     {
       "path": "tests/test_claim_lifecycle_api.py",
@@ -1070,7 +1110,7 @@
     },
     {
       "path": "tests/test_field_inquiry.py",
-      "sha256": "9950373178c3566dce900ab5f5fae8ac6d83004801cb6ba4b454914a1b812d9b"
+      "sha256": "b2fc54fafc7b0d9c614673d778844ab70b900a15668f38019626640d732a39cf"
     },
     {
       "path": "tests/test_game_architecture.py",
@@ -1078,11 +1118,11 @@
     },
     {
       "path": "tests/test_game_bridge.py",
-      "sha256": "d71d206eca69e1cb8d07a2dae0dceff49b784b288130362ad83e592e6c6df340"
+      "sha256": "5fe20a44ead8364f56cecdee731e8b2303a7a54535ff5531a449c90dd2955dc1"
     },
     {
       "path": "tests/test_game_theory.py",
-      "sha256": "85348ad40ea553eb0c436607f6659b4849b8fff72815612898986b94bec3a1e8"
+      "sha256": "188a9efd2762bee0ab239bbfbed259da0be861fe2eef3ec2a2a110426c2851f4"
     },
     {
       "path": "tests/test_harm_gate.py",
@@ -1095,6 +1135,10 @@
     {
       "path": "tests/test_hockey_heatmap.py",
       "sha256": "9739b69a387f0b1227adc8a8dd06da73de5aa30b8f417047ddaed9afa290b4fd"
+    },
+    {
+      "path": "tests/test_hosted_agent.py",
+      "sha256": "ae5dd11a8f93833c2b76d9e19b4486852df32ad7ba3d0c6fec6fa8933c629c2d"
     },
     {
       "path": "tests/test_intelligence_filing.py",
@@ -1110,7 +1154,7 @@
     },
     {
       "path": "tests/test_memory_store.py",
-      "sha256": "c1f6c44839b9f16213864413b675d6b3d1ccaac7bd62874207688be2a588ae8c"
+      "sha256": "02c01463d440e47650546358237033f5f1e06ca2d93e4ab9915f75d14401e681"
     },
     {
       "path": "tests/test_metadata_observatory.py",
@@ -1142,7 +1186,7 @@
     },
     {
       "path": "tests/test_provenance.py",
-      "sha256": "99de9e465b298ed37d29399af34d0f02da257a03d4308ea282e582570606eaaf"
+      "sha256": "ae4d83abe07037c82fc1f9d18c405a1a396f63303c5beb4e6e128cb9b11fa8a9"
     },
     {
       "path": "tests/test_provenance_events.py",
@@ -1214,7 +1258,7 @@
     },
     {
       "path": "tests/test_state_law_catalog.py",
-      "sha256": "3b24debd82e57957797dedc75315b8a0c2e7e292c4ecb3819164c0a095b33381"
+      "sha256": "e73b26448200039fe71c00bd84320513972ce2043fedd919cdf3f9fb1dd1abcc"
     },
     {
       "path": "tests/test_static_capture.py",
@@ -1234,7 +1278,7 @@
     },
     {
       "path": "tests/test_verifier_app.py",
-      "sha256": "f2384367d33b194d446dd23aaa92591415a2139235ca409ca9d8e2c039e56017"
+      "sha256": "14c377dc59c4a85171b86f4f0e59812f0c18a44e21a4c4d1d982eb3a1da2cc5c"
     },
     {
       "path": "tests/test_verify.py",
@@ -1242,7 +1286,7 @@
     },
     {
       "path": "tests/test_web_app.py",
-      "sha256": "14b669e8b1a6553f8e30c1c368a7d3e68df09f0ecdef8cccb22794c7861fbcc5"
+      "sha256": "e5a4763b0b188350f153b8d71623cd501237f20aee1d1055ea637b40e93e637e"
     },
     {
       "path": "tests/test_weighter.py",
@@ -1378,7 +1422,7 @@
     },
     {
       "path": "vessell/app/server.py",
-      "sha256": "ce0711a8c455c529714f2532175f87c2569d3bfd1b685be27bd42f7d67d27d67"
+      "sha256": "5fa0ce9131395232a776461625986d6cc491c520b5813d56b7dea1ac296b4a2e"
     },
     {
       "path": "vessell/app/sources/__init__.py",
@@ -1443,6 +1487,10 @@
     {
       "path": "vessell/hockey_heatmap.py",
       "sha256": "135949f1c8ade6c1b2e0c2ce075bff884c253eabb0eae8222c0bf028c09d1817"
+    },
+    {
+      "path": "vessell/hosted_agent.py",
+      "sha256": "9ab01f169161b98d2c311be59407d7c4da9b775ad08699ed2dfd54d6835d0b06"
     },
     {
       "path": "vessell/malware_triage.py",
@@ -1578,11 +1626,11 @@
     },
     {
       "path": "vessell/validation.py",
-      "sha256": "2b6c08eb33529e0c39b67df43b6764a2f134f7b1e2f4fe56d4dbc58d8297f8c3"
+      "sha256": "fc80535dbebc703a14f345b37392ac4360d1b4bc32584f6ab829b65abc545c77"
     },
     {
       "path": "vessell/verifier_app.py",
-      "sha256": "ebac0c369de96c8c78556c3ef1bbe2f3f30a23780b6697ff5dbbbdb919c4e2c1"
+      "sha256": "d26d21e1ff5aa11ea4f5992deee36c06a8720d66d8180fad24bad606a20010dd"
     },
     {
       "path": "vessell/verify.py",
