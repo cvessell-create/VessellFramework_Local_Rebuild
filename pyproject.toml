@@ -51,6 +51,7 @@ vessell-observatory = "vessell.metadata_observatory:main"
 vessell-hosted-agent = "vessell.hosted_agent:main"
 vessell-hf = "vessell.huggingface_integration:main"
 vessell-si = "vessell.si_agent:main"
+vessell-story = "vessell.story_corpus:main"
 
 [tool.setuptools.packages.find]
 include = ["vessell*", "vessel*"]
