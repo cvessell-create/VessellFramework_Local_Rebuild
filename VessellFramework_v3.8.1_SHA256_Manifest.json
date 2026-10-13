@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-11T02:34:38.949806+00:00",
+  "generated_utc": "2026-10-13T04:30:39.218614+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -54,7 +54,7 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "7f184d25f442a76dae0825dda39cb9f0354b5933c72391b9f0812c23f896630b"
+      "sha256": "3bb61a9a56069728e5aee75c8f6119e41d5b5c2bc438771d25f54dfa6a8a6ccc"
     },
     {
       "path": ".vscode/extensions.json",
@@ -505,6 +505,10 @@
       "sha256": "ac41f4dae04a2bb4de474100d06421fbfeaeae591104d47520bd5bbcf384eef3"
     },
     {
+      "path": "docs/huggingface-ai-catalog.json",
+      "sha256": "f6db68d39d4168c4466290ac0e70c2520730339acb868206676c4638171b79f2"
+    },
+    {
       "path": "docs/index.html",
       "sha256": "5e0079feeafb378e760b8b179a28eec3256eb7b5d20f50e3be85ae074ee2a74b"
     },
@@ -762,7 +766,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "4e4ea4445c078c1da49075bf0af6572296172948d88d64ff533b135ddb50aaec"
+      "sha256": "52d506385ebede1bced75bf7dec39ff62072733887f062b7ce76184b73ec4fe5"
     },
     {
       "path": "r/convert_python_memory_db.R",
@@ -1141,6 +1145,10 @@
       "sha256": "ae5dd11a8f93833c2b76d9e19b4486852df32ad7ba3d0c6fec6fa8933c629c2d"
     },
     {
+      "path": "tests/test_huggingface_integration.py",
+      "sha256": "7f168a592c380539f449698f5fd199c7b33e5d76b56e349e016a8733a8dfbc1b"
+    },
+    {
       "path": "tests/test_intelligence_filing.py",
       "sha256": "3eea023f996b66b491c6d1ff9d67c0200db47922e78b6b767d47145f59b1a82a"
     },
@@ -1241,6 +1249,14 @@
       "sha256": "2dd7d302e42a985f27c29e1d05faf4aa9bc8b8cba2be038996cb3a473e2a3eda"
     },
     {
+      "path": "tests/test_si_agent.py",
+      "sha256": "d832be28a2bebf652de0a5ab135e8a75cec0db17262ca65378267a63e8269a7f"
+    },
+    {
+      "path": "tests/test_si_countermeasures.py",
+      "sha256": "42ef1a9b96ef35850d2d1f0030ea88f9c786cbbf4a344f1e882d5ff9bf480094"
+    },
+    {
       "path": "tests/test_single_file_evil_twin.py",
       "sha256": "4a4121992975b1ecc777d19aaed429fb8490c8af466988407a711c9d87babd09"
     },
@@ -1267,6 +1283,10 @@
     {
       "path": "tests/test_static_capture_container.py",
       "sha256": "6cfe544f56b6cc4a335de15f10f3c4909384f313ab5b2d573602f48ebcdb30cf"
+    },
+    {
+      "path": "tests/test_story_corpus.py",
+      "sha256": "009b833c081f6a743e0ed29d168b4a34dd3e2282c7a1c8339835d5ffe038e9a3"
     },
     {
       "path": "tests/test_tooling.py",
@@ -1470,7 +1490,7 @@
     },
     {
       "path": "vessell/game_bridge.py",
-      "sha256": "f064de8fe7bf0cf079582b8e97cfeb1ec8bf89bfa1a5fc9cbdc0e2454a015954"
+      "sha256": "17b73d580602f0a06711755894c0b1f985d56cdf3524cc6b78ab0f360b581eb1"
     },
     {
       "path": "vessell/game_theory.py",
@@ -1491,6 +1511,10 @@
     {
       "path": "vessell/hosted_agent.py",
       "sha256": "9ab01f169161b98d2c311be59407d7c4da9b775ad08699ed2dfd54d6835d0b06"
+    },
+    {
+      "path": "vessell/huggingface_integration.py",
+      "sha256": "ce33f8adac7e624f9612dff784188462dc753e0a74c41bbe0d993e046d2ad816"
     },
     {
       "path": "vessell/malware_triage.py",
@@ -1605,8 +1629,20 @@
       "sha256": "f50f90d2edda8c538c03bc4b41ab91315d39207814f673d36d4ed593bb0862af"
     },
     {
+      "path": "vessell/si_agent.py",
+      "sha256": "178c9b3c605f6bbef5fad2a4fd0d2b9e5f9aed39c2091ce94e6f5aea3ef35cce"
+    },
+    {
+      "path": "vessell/si_algorithm_countermeasures.py",
+      "sha256": "3cb2b939cbe0e0f03dacc3d6232acd100ec892714ce72eca7ef054a9cf5b2305"
+    },
+    {
       "path": "vessell/source_readers.py",
       "sha256": "82af3c2559fab9a4f9f9dfb05d4a75115448457ce06cbc3e6de5e5afd37a7d5a"
+    },
+    {
+      "path": "vessell/story_corpus.py",
+      "sha256": "257f41bb4465935753deb904abaa770eeeb5e5a48d6fb70eb5aaa621f25f6ef3"
     },
     {
       "path": "vessell/tooling/__init__.py",

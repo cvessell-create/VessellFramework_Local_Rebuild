@@ -28,3 +28,6 @@ frontend/*.tsbuildinfo
 /Final Project/
 .Rhistory
 .RData
+
+# Local Hugging Face model snapshots (kept out of Git; ~29 GB)
+models/
