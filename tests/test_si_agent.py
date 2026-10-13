@@ -89,3 +89,13 @@ def test_si_cli_matrix_and_coordinate(capsys: pytest.CaptureFixture[str]) -> Non
     assert ret_coord == 0
     captured_coord = capsys.readouterr()
     assert "SI Level 3 autonomous coordination complete" in captured_coord.out
+
+
+def test_orchestrator_run_autonomous_simulation_loop() -> None:
+    orchestrator = AutonomousSIOrchestrator()
+    res = orchestrator.run_autonomous_simulation_loop(steps=5)
+    assert res["event_chain_verified"] is True
+    assert res["steps_executed"] == 5
+    assert len(res["receipts"]) > 0
+    assert len(res["learning_insights"]) > 0
+
