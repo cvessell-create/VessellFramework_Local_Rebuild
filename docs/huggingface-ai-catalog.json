@@ -1,0 +1,449 @@
+{
+  "catalog_version": "1.0",
+  "generated_at": "2026-10-12T18:25:00Z",
+  "description": "Selected Hugging Face AI application Spaces and models for VessellFramework and hail-to-the-analyst.",
+  "items": [
+    {
+      "id": "jiangjiechen/loren-fact-checking",
+      "type": "space",
+      "category": "fact-checking",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Claim verification against reference corpora and external evidence.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/jiangjiechen/loren-fact-checking"
+    },
+    {
+      "id": "anakin87/fact-checking-rocks",
+      "type": "space",
+      "category": "fact-checking",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Multi-hop automated claim checking and evidence retrieval pipeline.",
+      "sdk": "docker",
+      "url": "https://huggingface.co/spaces/anakin87/fact-checking-rocks"
+    },
+    {
+      "id": "luiscgp/Fact_Checking_Blue_Amazon",
+      "type": "space",
+      "category": "fact-checking",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Domain-specific factual claim verification against official registries.",
+      "sdk": "streamlit",
+      "url": "https://huggingface.co/spaces/luiscgp/Fact_Checking_Blue_Amazon"
+    },
+    {
+      "id": "zhenyundeng/fact-checking-api",
+      "type": "space",
+      "category": "fact-checking",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Lightweight REST API interface for automated claim check ingestion.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/zhenyundeng/fact-checking-api"
+    },
+    {
+      "id": "shikharyashmaurya/fact-checking-using-llms",
+      "type": "space",
+      "category": "fact-checking",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "LLM-assisted claim breakdown into verifiable atomic sub-claims.",
+      "sdk": "streamlit",
+      "url": "https://huggingface.co/spaces/shikharyashmaurya/fact-checking-using-llms"
+    },
+    {
+      "id": "vikrambhat2/Responsible-AI-Fact-Checking-Claims",
+      "type": "space",
+      "category": "fact-checking",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Responsible AI evaluation: confidence calibration and epistemic hedge check.",
+      "sdk": "streamlit",
+      "url": "https://huggingface.co/spaces/vikrambhat2/Responsible-AI-Fact-Checking-Claims"
+    },
+    {
+      "id": "praiselab-picuslab/CER-Fact-Checking",
+      "type": "space",
+      "category": "fact-checking",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Claim-Evidence-Reasoning (CER) framework evaluation.",
+      "sdk": "streamlit",
+      "url": "https://huggingface.co/spaces/praiselab-picuslab/CER-Fact-Checking"
+    },
+    {
+      "id": "Saif004/FactChecking1",
+      "type": "space",
+      "category": "fact-checking",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Streamlined single-claim validation against search results.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/Saif004/FactChecking1"
+    },
+    {
+      "id": "refipsai/LLM_Game_Theory",
+      "type": "space",
+      "category": "game-theory",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Evaluation of LLM agent behavior in strategic games (cooperation vs. defection).",
+      "sdk": "streamlit",
+      "url": "https://huggingface.co/spaces/refipsai/LLM_Game_Theory"
+    },
+    {
+      "id": "SoDa12321/API_13_1-HUG-free-llm-GameTheory_All_Prompts",
+      "type": "space",
+      "category": "game-theory",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Prompt templates for strategic bimatrix evaluation and payoffs.",
+      "sdk": "streamlit",
+      "url": "https://huggingface.co/spaces/SoDa12321/API_13_1-HUG-free-llm-GameTheory_All_Prompts"
+    },
+    {
+      "id": "SoDa12321/API_13_1-HUG-free-llm-GameTheory_All_Prompts_2",
+      "type": "space",
+      "category": "game-theory",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Extended strategic bimatrix prompts and scenario variations.",
+      "sdk": "streamlit",
+      "url": "https://huggingface.co/spaces/SoDa12321/API_13_1-HUG-free-llm-GameTheory_All_Prompts_2"
+    },
+    {
+      "id": "Frikster42/emotional-game-theory-ai",
+      "type": "space",
+      "category": "game-theory",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Emotion and risk tolerance adjustments in repeated games.",
+      "sdk": "streamlit",
+      "url": "https://huggingface.co/spaces/Frikster42/emotional-game-theory-ai"
+    },
+    {
+      "id": "Johnnyboystar/GameTheory",
+      "type": "space",
+      "category": "game-theory",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Matrix payoff input and pure strategy dominance visualizer.",
+      "sdk": "docker",
+      "url": "https://huggingface.co/spaces/Johnnyboystar/GameTheory"
+    },
+    {
+      "id": "Julien6411/game-theory-agentic",
+      "type": "space",
+      "category": "game-theory",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Multi-agent strategic planning with defined action spaces.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/Julien6411/game-theory-agentic"
+    },
+    {
+      "id": "ishery/merger-mavericks-game-theory-unlocked",
+      "type": "space",
+      "category": "game-theory",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Cooperative coalition formation and value distribution.",
+      "sdk": "static",
+      "url": "https://huggingface.co/spaces/ishery/merger-mavericks-game-theory-unlocked"
+    },
+    {
+      "id": "Alogotron/GameTheory-Solver-Demo",
+      "type": "space",
+      "category": "game-theory",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Deterministic Nash equilibrium solver for two-player normal form games.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/Alogotron/GameTheory-Solver-Demo"
+    },
+    {
+      "id": "TacticalSkado/WizLLM",
+      "type": "space",
+      "category": "tactical",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Scenario generation for tactical encounters and mission briefings.",
+      "sdk": "docker",
+      "url": "https://huggingface.co/spaces/TacticalSkado/WizLLM"
+    },
+    {
+      "id": "TacticalHush/MonBilan",
+      "type": "space",
+      "category": "tactical",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Inventory and resource allocation balance sheet.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/TacticalHush/MonBilan"
+    },
+    {
+      "id": "Chujia/tactical-edge-rag",
+      "type": "space",
+      "category": "tactical",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Offline/edge RAG retrieval for tactical rulebooks and weapon specs.",
+      "sdk": "streamlit",
+      "url": "https://huggingface.co/spaces/Chujia/tactical-edge-rag"
+    },
+    {
+      "id": "TacticalHush/brand-tracker",
+      "type": "space",
+      "category": "tactical",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Reputation and faction influence tracker.",
+      "sdk": null,
+      "url": "https://huggingface.co/spaces/TacticalHush/brand-tracker"
+    },
+    {
+      "id": "TacticalHush/ma_marque",
+      "type": "space",
+      "category": "tactical",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Faction marker and territory boundary tracker.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/TacticalHush/ma_marque"
+    },
+    {
+      "id": "ZAZA88888/Tactical-AI",
+      "type": "space",
+      "category": "tactical",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "Turn-based opponent move recommendation and threat assessment.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/ZAZA88888/Tactical-AI"
+    },
+    {
+      "id": "micole66/decisionmaking",
+      "type": "space",
+      "category": "decision-making",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Multi-criteria decision analysis under uncertainty.",
+      "sdk": "static",
+      "url": "https://huggingface.co/spaces/micole66/decisionmaking"
+    },
+    {
+      "id": "micole66/decisionmaking66",
+      "type": "space",
+      "category": "decision-making",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Decision tree exploration and expected utility computation.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/micole66/decisionmaking66"
+    },
+    {
+      "id": "TheVera/decision-making-model",
+      "type": "space",
+      "category": "decision-making",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Cognitive bias identification in structured decision pathways.",
+      "sdk": "docker",
+      "url": "https://huggingface.co/spaces/TheVera/decision-making-model"
+    },
+    {
+      "id": "Hemant0000/Explainable_AI_for_Healthcare_Decision_Making",
+      "type": "space",
+      "category": "decision-making",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Explainable feature attribution (SHAP/LIME) for critical decisions.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/Hemant0000/Explainable_AI_for_Healthcare_Decision_Making"
+    },
+    {
+      "id": "Nyesiga/Decision-making-model",
+      "type": "space",
+      "category": "decision-making",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Risk-weighted choice prioritization.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/Nyesiga/Decision-making-model"
+    },
+    {
+      "id": "trinadhpathuri/AI_Decision_Making",
+      "type": "space",
+      "category": "decision-making",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Automated scenario consequence simulator.",
+      "sdk": "streamlit",
+      "url": "https://huggingface.co/spaces/trinadhpathuri/AI_Decision_Making"
+    },
+    {
+      "id": "kitkeat/effective_argumentative_writing_prediction",
+      "type": "space",
+      "category": "argumentation",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Evaluation of argument effectiveness and persuasive clarity.",
+      "sdk": "streamlit",
+      "url": "https://huggingface.co/spaces/kitkeat/effective_argumentative_writing_prediction"
+    },
+    {
+      "id": "Umarpreet/argument_gate",
+      "type": "space",
+      "category": "argumentation",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Argument validation gate: verifies premise relevance to claim.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/Umarpreet/argument_gate"
+    },
+    {
+      "id": "srivarshan/argumentation-quality-analyzer",
+      "type": "space",
+      "category": "argumentation",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Logical consistency and fallacious reasoning detection.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/srivarshan/argumentation-quality-analyzer"
+    },
+    {
+      "id": "desarrolloasesoreslocales/Argumentos",
+      "type": "space",
+      "category": "argumentation",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Argument classification and premise labeling.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/desarrolloasesoreslocales/Argumentos"
+    },
+    {
+      "id": "desarrolloasesoreslocales/Setfit-Argumentos",
+      "type": "space",
+      "category": "argumentation",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Few-shot premise classification via SetFit.",
+      "sdk": "gradio",
+      "url": "https://huggingface.co/spaces/desarrolloasesoreslocales/Setfit-Argumentos"
+    },
+    {
+      "id": "aimlnerd/predicting-effective-arguments-in-essay",
+      "type": "space",
+      "category": "argumentation",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Argument discourse element detection (Claim, Evidence, Counterclaim, Rebuttal).",
+      "sdk": "docker",
+      "url": "https://huggingface.co/spaces/aimlnerd/predicting-effective-arguments-in-essay"
+    },
+    {
+      "id": "tasksource/deberta-small-long-nli",
+      "type": "model",
+      "category": "nli",
+      "pipeline_tag": "zero-shot-classification",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Natural Language Inference across long documents for provenance corroboration."
+    },
+    {
+      "id": "cross-encoder/nli-deberta-base",
+      "type": "model",
+      "category": "nli",
+      "pipeline_tag": "zero-shot-classification",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Cross-encoder pair scoring for premise-hypothesis entailment."
+    },
+    {
+      "id": "cross-encoder/nli-deberta-v3-base",
+      "type": "model",
+      "category": "nli",
+      "pipeline_tag": "zero-shot-classification",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "High-accuracy DeBERTa v3 base cross-encoder for claim verification."
+    },
+    {
+      "id": "cross-encoder/nli-deberta-v3-large",
+      "type": "model",
+      "category": "nli",
+      "pipeline_tag": "zero-shot-classification",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Large-capacity NLI classifier for complex multi-sentence evidence verification."
+    },
+    {
+      "id": "cross-encoder/nli-deberta-v3-small",
+      "type": "model",
+      "category": "nli",
+      "pipeline_tag": "zero-shot-classification",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Fast lightweight NLI model for real-time verification in verifier UI."
+    },
+    {
+      "id": "cross-encoder/nli-deberta-v3-xsmall",
+      "type": "model",
+      "category": "nli",
+      "pipeline_tag": "zero-shot-classification",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Ultra-lightweight edge/CPU NLI classifier."
+    },
+    {
+      "id": "atharvamundada99/bert-large-question-answering-finetuned-legal",
+      "type": "model",
+      "category": "legal",
+      "pipeline_tag": "question-answering",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Extractive question answering over state and federal legal statutes."
+    },
+    {
+      "id": "nlpaueb/legal-bert-base-uncased",
+      "type": "model",
+      "category": "legal",
+      "pipeline_tag": "fill-mask",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Pretrained legal language model for legal terminology and statutory texts."
+    },
+    {
+      "id": "AmirLGass/clauseguard-legalbert",
+      "type": "model",
+      "category": "legal",
+      "pipeline_tag": "text-classification",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Classification of contract terms, liability disclaimers, and consumer rights clauses."
+    },
+    {
+      "id": "sayan-7/legalbert-contract-risk-classifier",
+      "type": "model",
+      "category": "legal",
+      "pipeline_tag": "text-classification",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Contract and license risk assessment for state law compliance reviews."
+    },
+    {
+      "id": "alexaapo/greek_legal_bert_v1",
+      "type": "model",
+      "category": "legal",
+      "pipeline_tag": null,
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Multilingual EU/international legal terminology reference."
+    },
+    {
+      "id": "alexaapo/greek_legal_bert_v2",
+      "type": "model",
+      "category": "legal",
+      "pipeline_tag": null,
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Updated EU/international statutory language representation."
+    },
+    {
+      "id": "sentence-transformers/all-MiniLM-L6-v2",
+      "type": "model",
+      "category": "embeddings",
+      "pipeline_tag": "sentence-similarity",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Dense passage embeddings for evidence retrieval and research catalog similarity."
+    },
+    {
+      "id": "Xenova/all-MiniLM-L6-v2",
+      "type": "model",
+      "category": "embeddings",
+      "pipeline_tag": "feature-extraction",
+      "target_repo": "hail-to-the-analyst",
+      "use_case": "ONNX-quantized embeddings for direct execution in Node.js and browser runtimes."
+    },
+    {
+      "id": "Qdrant/all-MiniLM-L6-v2-onnx",
+      "type": "model",
+      "category": "embeddings",
+      "pipeline_tag": "sentence-similarity",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "ONNX runtime optimized embeddings for vector indexing."
+    },
+    {
+      "id": "leliuga/all-MiniLM-L6-v2-GGUF",
+      "type": "model",
+      "category": "embeddings",
+      "pipeline_tag": "sentence-similarity",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "GGUF quantized embeddings for llama.cpp / local engine bindings."
+    },
+    {
+      "id": "radames/all-MiniLM-L6-v2-feature-extraction",
+      "type": "model",
+      "category": "embeddings",
+      "pipeline_tag": "feature-extraction",
+      "target_repo": "VessellFramework_Local_Rebuild",
+      "use_case": "Feature extraction endpoint integration for web client embedding generation."
+    }
+  ]
+}

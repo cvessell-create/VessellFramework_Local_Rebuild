@@ -188,3 +188,17 @@ def test_huggingface_cli_error(capsys: pytest.CaptureFixture[str]) -> None:
         assert code == 1
         captured = capsys.readouterr()
         assert "Model offline" in captured.err
+
+
+def test_huggingface_catalog_load(capsys: pytest.CaptureFixture[str]) -> None:
+    client = HuggingFaceClient()
+    cat = client.load_catalog()
+    assert "items" in cat
+    assert len(cat["items"]) >= 37
+
+    code = main(["catalog", "--type", "model", "--json"])
+    assert code == 0
+    captured = capsys.readouterr()
+    models = json.loads(captured.out)
+    assert all(m["type"] == "model" for m in models)
+

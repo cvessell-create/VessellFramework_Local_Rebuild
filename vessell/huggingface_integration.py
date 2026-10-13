@@ -10,7 +10,7 @@ import sys
 from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 try:
     import huggingface_hub
@@ -230,6 +230,25 @@ class HuggingFaceClient:
                 f"Failed to download '{filename}' from repo '{repo_id}': {exc}"
             ) from exc
 
+    def load_catalog(self, path: Path | str | None = None) -> dict[str, Any]:
+        """Load the structured Hugging Face AI apps and models catalog."""
+        target_path = (
+            Path(path)
+            if path
+            else Path(__file__).resolve().parent.parent / "docs" / "huggingface-ai-catalog.json"
+        )
+        if not target_path.is_file():
+            raise HuggingFaceIntegrationError(f"Catalog file not found at: {target_path}")
+        try:
+            data = json.loads(target_path.read_text(encoding="utf-8"))
+            if not isinstance(data, dict):
+                raise HuggingFaceIntegrationError("Catalog file does not contain a JSON object")
+            return cast("dict[str, Any]", data)
+        except HuggingFaceIntegrationError:
+            raise
+        except Exception as exc:
+            raise HuggingFaceIntegrationError(f"Failed to parse catalog JSON: {exc}") from exc
+
 
 def build_parser() -> argparse.ArgumentParser:
     """Build CLI parser for Hugging Face operations."""
@@ -299,6 +318,14 @@ def build_parser() -> argparse.ArgumentParser:
         help="Repository type",
     )
     dl_parser.add_argument("--local-dir", help="Target local destination directory")
+
+    # catalog command
+    cat_parser = subparsers.add_parser(
+        "catalog", parents=[shared], help="Show integrated AI apps and models catalog"
+    )
+    cat_parser.add_argument("--type", choices=["space", "model"], help="Filter by type")
+    cat_parser.add_argument("--category", help="Filter by category")
+    cat_parser.add_argument("--target", help="Filter by target repository")
 
     return parser
 
@@ -374,6 +401,24 @@ def main(argv: Sequence[str] | None = None) -> int:
                 sys.stdout.write(json.dumps({"downloaded_path": str(path)}, indent=2) + "\n")
             else:
                 sys.stdout.write(f"Successfully downloaded to: {path}\n")
+
+        elif args.command == "catalog":
+            cat = client.load_catalog()
+            items = cat.get("items", [])
+            if args.type:
+                items = [i for i in items if i.get("type") == args.type]
+            if args.category:
+                items = [i for i in items if i.get("category") == args.category]
+            if args.target:
+                items = [i for i in items if args.target.lower() in str(i.get("target_repo", "")).lower()]
+
+            if args.json:
+                sys.stdout.write(json.dumps(items, indent=2) + "\n")
+            else:
+                sys.stdout.write(f"=== Hugging Face AI Catalog ({len(items)} items) ===\n")
+                for i in items:
+                    tag = f"[{i['type'].upper()} - {i['category']}]"
+                    sys.stdout.write(f"- {i['id']} {tag} -> {i['use_case']}\n")
 
         return 0
 
