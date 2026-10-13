@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-13T04:30:39.218614+00:00",
+  "generated_utc": "2026-10-13T21:10:36.263699+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -766,7 +766,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "52d506385ebede1bced75bf7dec39ff62072733887f062b7ce76184b73ec4fe5"
+      "sha256": "5c232be51b9556bba82409d76e29a52d3378b4caad657b666da0a88d956b7a04"
     },
     {
       "path": "r/convert_python_memory_db.R",
@@ -1253,6 +1253,10 @@
       "sha256": "d832be28a2bebf652de0a5ab135e8a75cec0db17262ca65378267a63e8269a7f"
     },
     {
+      "path": "tests/test_si_chat.py",
+      "sha256": "bbd236b998b5cec4605a27e8a84328615829198ff26841fb6873eb4678de3597"
+    },
+    {
       "path": "tests/test_si_countermeasures.py",
       "sha256": "42ef1a9b96ef35850d2d1f0030ea88f9c786cbbf4a344f1e882d5ff9bf480094"
     },
@@ -1637,12 +1641,16 @@
       "sha256": "3cb2b939cbe0e0f03dacc3d6232acd100ec892714ce72eca7ef054a9cf5b2305"
     },
     {
+      "path": "vessell/si_chat.py",
+      "sha256": "7504ae1bbeb847009a87dcb36e20f3769037acda59a93ea4b2726bcfe09570ed"
+    },
+    {
       "path": "vessell/source_readers.py",
       "sha256": "82af3c2559fab9a4f9f9dfb05d4a75115448457ce06cbc3e6de5e5afd37a7d5a"
     },
     {
       "path": "vessell/story_corpus.py",
-      "sha256": "257f41bb4465935753deb904abaa770eeeb5e5a48d6fb70eb5aaa621f25f6ef3"
+      "sha256": "e0f57347ca8ae84846fa1cef9e4bbfe67cb40139fa2d505a7423a1760f597a8b"
     },
     {
       "path": "vessell/tooling/__init__.py",
