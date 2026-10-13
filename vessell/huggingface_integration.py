@@ -230,7 +230,8 @@ class HuggingFaceClient:
                 f"Failed to download '{filename}' from repo '{repo_id}': {exc}"
             ) from exc
 
-    def load_catalog(self, path: Path | str | None = None) -> dict[str, Any]:
+    @staticmethod
+    def load_catalog(path: Path | str | None = None) -> dict[str, Any]:
         """Load the structured Hugging Face AI apps and models catalog."""
         target_path = (
             Path(path)
