@@ -10,7 +10,7 @@ import sys
 from dataclasses import asdict, dataclass, field
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 from uuid import uuid4
 
 from vessell.case_study import repair_snapshot, write_snapshot
@@ -34,10 +34,10 @@ class GameSession:
     mode: str
     claim: ClaimRecord
     snapshots: list[Path]
-    sources: set[str] = field(default_factory=set)
-    attempts: list[bool] = field(default_factory=list)
+    sources: set[str] = field(default_factory=set[str])
+    attempts: list[bool] = field(default_factory=list[bool])
     correction: ClaimRecord | None = None
-    snapshot_hashes: dict[str, str] = field(default_factory=dict)
+    snapshot_hashes: dict[str, str] = field(default_factory=dict[str, str])
 
     def action(self, operation: str) -> dict[str, Any]:
         if self.correction is not None:
@@ -73,14 +73,15 @@ class GameSession:
             if not valid:
                 raise ValueError(f"Game event chain failed: {reason}")
         expected = self.correction if self.correction and self.mode == "framework" else self.claim
-        receipts = []
+        receipts: list[dict[str, Any]] = []
         for path in self.snapshots:
-            payload = json.loads(path.read_text())
-            if (not isinstance(payload, dict) or payload.get("id") != expected.id
+            raw_payload = json.loads(path.read_text())
+            payload = cast(dict[str, Any], raw_payload) if isinstance(raw_payload, dict) else None
+            if (payload is None or payload.get("id") != expected.id
                     or sha256(path) != self.snapshot_hashes[path.name]):
                 raise ValueError("Game consumer has drifted from its expected claim version.")
             receipts.append({"consumer": path.stem, "claim_id": payload["id"], "sha256": sha256(path)})
-        result = {
+        result: dict[str, Any] = {
             "evaluation": "Fictional provenance game mission",
             "evidence_scope": "Actual Python lifecycle and local files; synthetic evidence only.",
             "session": self.folder.name, "mode": self.mode,
@@ -214,7 +215,7 @@ def simulate(game_dir: Path, output: Path) -> dict[str, Any]:
         "evidence_scope": "Local engine primary records and scripted proposals; not real source verification.",
         "results": framework_player,
     }, output / "framework-player")
-    provenance = []
+    provenance: list[dict[str, Any]] = []
     for mode in ("baseline", "framework"):
         session = new_session(output, mode)
         session.action("use")
@@ -232,7 +233,7 @@ def simulate(game_dir: Path, output: Path) -> dict[str, Any]:
             "correction_files_verified": after["correction_files_verified"],
             "stale_consumers": after["stale_consumers"],
         })
-    summary = {}
+    summary: dict[str, Any] = {}
     for policy in ("reactive", "planned"):
         runs = [row for row in fps["results"] if row["policy"] == policy]
         summary[policy] = {
@@ -241,7 +242,7 @@ def simulate(game_dir: Path, output: Path) -> dict[str, Any]:
             "mean_intel": sum(row["intel"] for row in runs) / len(runs),
             "hit_fraction": sum(row["hits"] for row in runs) / sum(row["shots"] for row in runs),
         }
-    result = {
+    result: dict[str, Any] = {
         "evaluation": "Connected framework/game comparison",
         "evidence_scope": "Seeded scripted FPS controllers plus actual Python provenance-game operations.",
         "fps": fps, "fps_summary": summary, "provenance": provenance,
