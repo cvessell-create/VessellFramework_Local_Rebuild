@@ -1,4 +1,4 @@
-"""Loopback-only bridge between the framework and the user's fictional game."""
+"""Loopback-only bridge between the framework and the user's real game."""
 
 from __future__ import annotations
 
