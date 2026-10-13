@@ -104,9 +104,12 @@ top-level license.
 > 4. **Keep corpus rights bounded.** Use original owner-created material only
 >    with the owner's approval, or source material whose public-domain status
 >    or license and intended-use permissions have been verified from primary
->    sources. Public accessibility alone is not this project's clearance.
->    Do not scrape social posts, evade access controls or platform terms, or
->    ingest private/personal data. Exclude material of uncertain rights.
+>    sources. Verified public-domain works may be used as model data; record
+>    their source, status, revision and collection method. Public accessibility
+>    alone does not establish public-domain status. Collection must still
+>    respect applicable access restrictions, platform terms and privacy; do
+>    not evade controls or ingest private/personal data. Exclude material of
+>    uncertain rights or provenance.
 >    For pop-culture inspiration, write original frost/ice-themed dialogue and
 >    setting details; do not reproduce character-specific expression,
 >    dialogue, lyrics, movie/game text, likeness, or voice imitation. Preserve
@@ -119,10 +122,13 @@ top-level license.
 >    Send only the minimum allowlisted fictional map/state fields. Treat model
 >    output and retrieved text as untrusted data; bound input/output size and
 >    time, render text safely, and fall back to the existing templates on
->    missing model, timeout, invalid output, or refusal. Do not turn safety
->    controls off or bypass provider/runtime safeguards. The model must not
->    change game actions, evidence, confidence, reports, permissions, or
->    execution.
+>    missing model, timeout, invalid output, or refusal. In this task,
+>    “safety off” means preventing silent Copilot overwrite of owner-authored
+>    work: preserve the original, show proposed edits as a separate diff or
+>    attributed derivative, and require explicit human review/approval before
+>    replacement or release. It does not mean disabling model safety controls
+>    or bypassing provider/runtime safeguards. The model must not change game
+>    actions, evidence, confidence, reports, permissions, or execution.
 >
 > 6. **Evaluate before release.** Compare the deterministic baseline and
 >    optional model on a small owner-approved set of original map situations.
