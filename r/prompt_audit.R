@@ -2,6 +2,8 @@
 
 args <- commandArgs(trailingOnly = TRUE)
 database <- if (length(args) >= 1) args[[1]] else "data/sql_reference.sqlite"
+source("r/system_readout.R")
+r_system_readout_update("prompt_audit", "invoked")
 
 if (!file.exists(database)) {
   stop(sprintf("Prompt audit catalog not found: %s", database), call. = FALSE)
@@ -55,3 +57,4 @@ cat(
   "Scope: selected analyst summaries only; not a full account export, internal model trace,",
   "representative frequency sample, or causal evaluation.\n"
 )
+r_system_readout_update("prompt_audit", "completed")

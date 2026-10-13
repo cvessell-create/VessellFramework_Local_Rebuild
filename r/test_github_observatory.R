@@ -1,3 +1,11 @@
+readout_directory <- tempfile("vessell-observatory-readout-")
+dir.create(readout_directory)
+readout_path <- file.path(readout_directory, "readout.md")
+readout_environment <- Sys.getenv("VESSELL_R_SYSTEM_READOUT_PATH", unset = NA_character_)
+Sys.setenv(VESSELL_R_SYSTEM_READOUT_PATH = readout_path)
+source("r/system_readout.R")
+r_system_readout_update("github_observatory", "invoked")
+
 source("r/github_metadata.R")
 source("r/metadata_learning.R")
 metadata_require_json()
@@ -154,4 +162,14 @@ restored <- jsonlite::fromJSON(path)
 stopifnot(abs(restored$probability - 1 / 3) < 1e-14, is.null(restored$missing))
 unlink(path)
 unlink(directory)
+r_system_readout_update("github_observatory", "completed")
+readout <- readLines(readout_path, warn = FALSE)
+stopifnot(any(grepl("Latest operation: `github_observatory`", readout)))
+stopifnot(any(grepl("Operation status: `completed`", readout)))
+if (is.na(readout_environment)) {
+  Sys.unsetenv("VESSELL_R_SYSTEM_READOUT_PATH")
+} else {
+  Sys.setenv(VESSELL_R_SYSTEM_READOUT_PATH = readout_environment)
+}
+unlink(readout_directory, recursive = TRUE)
 cat("GitHub observatory checks passed: collection, privacy, gradients, chronology, gates, persistence.\n")
