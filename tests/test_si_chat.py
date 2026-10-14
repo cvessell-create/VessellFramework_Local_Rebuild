@@ -180,3 +180,8 @@ def test_web_search_failure_is_silent():
     def boom(q):
         raise OSError("offline")
     assert si_chat.WebSearch(fetch=boom).search("x") == []
+
+
+def test_grounded_rejects_spelled_out_invented_counts(chat):
+    assert not chat.grounded("The next floor is guarded by four guards.", {}, "")
+    assert chat.grounded("Four exits remain.", {}, "four exits remain")

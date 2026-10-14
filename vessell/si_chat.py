@@ -121,6 +121,9 @@ class Retriever:
         return [line for _, _, line in scored[:k]]
 
 
+# Spelled-out counts get the same check as digits ("one" is too common in speech to police).
+NUMBER_WORDS = ("two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve",
+                "dozen", "dozens", "hundred", "hundreds", "thousand", "thousands")
 CAUSAL = (r"(?:\bbecause\b|\bdue to\b|\bresult of\b|\bcaused by\b|\bthanks to\b|\bthe reason\b)"
           r"([^.!?]{0,120})")
 STOPWORDS = {"that", "this", "with", "were", "was", "have", "been", "from", "they", "them", "their",
@@ -340,6 +343,9 @@ class SIChat:
         allowed = set(re.findall(r"\d+", json.dumps(facts) + " " + known))
         if any(n not in allowed for n in re.findall(r"\d+", low)):
             return False
+        context = (json.dumps(facts) + " " + known).lower()
+        if any(re.search(rf"\b{w}\b", low) and not re.search(rf"\b{w}\b", context) for w in NUMBER_WORDS):
+            return False
         known_words = set(re.findall(r"[a-z]{4,}", (json.dumps(facts) + " " + known).lower()))
         for clause in re.findall(CAUSAL, low):
             # An explanation of why something happened must come from owner lines or game state.
@@ -425,7 +431,7 @@ class SIChat:
         }
         self.memory.append("chat", {"message": message or "[episode]", "text": text, "reply_kind": kind,
                                     "stage": stage, "sources": [s["id"] for s in sources],
-                                    "speaker": speaker if speaker in ("player", "rival") else "player"})
+                                    "speaker": speaker if speaker in ("player", "rival", "probe") else "player"})
         return result
 
 

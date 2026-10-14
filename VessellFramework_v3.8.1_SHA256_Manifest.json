@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-14T02:21:34.896543+00:00",
+  "generated_utc": "2026-10-14T02:36:26.660124+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -1306,11 +1306,15 @@
     },
     {
       "path": "tests/test_si_chat.py",
-      "sha256": "7d417bf224371a5b96b4bea7623fa59c75aefeb5880b088552b97ef2b3c7e2b2"
+      "sha256": "d7572727e9df059d082e6130ce3e336a405544053fa9ccc649eb98fab3363365"
     },
     {
       "path": "tests/test_si_countermeasures.py",
       "sha256": "e75d724e3298abe607c994b4c9c331db8c7e34d40a6ea315365fcfc012431932"
+    },
+    {
+      "path": "tests/test_si_levels.py",
+      "sha256": "f4a66658ec22417769284e0fc19a5acc16e9411302b18c79dcb1606a7695e855"
     },
     {
       "path": "tests/test_single_file_evil_twin.py",
@@ -1578,7 +1582,7 @@
     },
     {
       "path": "vessell/idea_loop.py",
-      "sha256": "fa40999676721d3e8d7a73a52014febfa97d17d600141648566149aefdaa10b1"
+      "sha256": "68d99219e0a38df974e65cbf10a046aade37d37f5b27a066d3fe1ccaf8bcdf68"
     },
     {
       "path": "vessell/loop_models.py",
@@ -1710,7 +1714,11 @@
     },
     {
       "path": "vessell/si_chat.py",
-      "sha256": "0e9cd4f4f822bd941ce876d1749d3935b34dbf02eff63fb58cb60d4e69ce78df"
+      "sha256": "fe86b9e80f7943d1ffc7c959fc5170cb19f46833041e77dbe820ea5164a8b652"
+    },
+    {
+      "path": "vessell/si_levels.py",
+      "sha256": "502c3371ae30d4c9bf5fcde07ee9fef0514bc7087e3daacb6ca78b327044aace"
     },
     {
       "path": "vessell/source_readers.py",

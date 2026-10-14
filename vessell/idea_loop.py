@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import time
 import urllib.error
 import urllib.request
@@ -40,7 +41,8 @@ AGENT_ROLE = (
     "You are the VessellFramework analyst agent reviewing a game-design pitch. Be concrete and "
     "brief. Reply in exactly these labelled lines:\n"
     "IDEA: one-sentence refined version of the pitch\n"
-    "EVIDENCE: which loop episodes or SI lines it rests on (cite E# / S# ids), or NOT_SUPPLIED\n"
+    "EVIDENCE: copy the E# / S# ids the pitch names, keeping only ids that appear in the loop log; "
+    "NOT_SUPPLIED if none do\n"
     "ASSUMPTIONS: what must be true for it to work\n"
     "DISCONFIRMER: an autopilot or playtest result that would show it is a bad idea\n"
     "SLICE: smallest buildable first step using existing systems\n"
@@ -65,7 +67,8 @@ def ollama_generate(url: str = OLLAMA_URL, timeout: float = 180) -> Generate:
 def digest(rows: list[dict[str, Any]], n: int = 12) -> tuple[str, dict[str, Any]]:
     """Summarise the loop log with stable ids the agent can cite."""
     episodes = [r for r in rows if r.get("kind") == "episode"]
-    si = [r for r in rows if r.get("kind") == "chat" and r.get("reply_kind") == "generated" and r.get("text")]
+    si = [r for r in rows if r.get("kind") == "chat" and r.get("reply_kind") == "generated" and r.get("text")
+          and r.get("speaker") != "probe"]
     outcomes = Counter((e.get("mission"), e.get("outcome")) for e in episodes)
     lines = [f"Totals: {len(episodes)} runs, " + ", ".join(
         f"mission {m}: {c} {o}" for (m, o), c in sorted(outcomes.items(), key=lambda x: str(x[0])))]
@@ -105,7 +108,8 @@ def run(rounds: int = 3, model: str = DEFAULT_MODEL, generate: Generate | None =
     out_path.parent.mkdir(parents=True, exist_ok=True)
     for r in range(1, rounds + 1):
         ask = ("Pitch ONE new game idea (mechanic, enemy, district beat, gadget or mission) grounded in "
-               "what the loop log shows. Two or three sentences." + (f" Focus: {focus}." if focus else ""))
+               "what the loop log shows. Start with the id of the log line it builds on, e.g. "
+               "'From E3:'. Two or three sentences." + (f" Focus: {focus}." if focus else ""))
         if previous:
             ask += " Do not repeat these: " + " | ".join(previous)
         pitch = gen(model, [{"role": "system", "content": si_system}, {"role": "user", "content": ask}], 160)
@@ -115,7 +119,8 @@ def run(rounds: int = 3, model: str = DEFAULT_MODEL, generate: Generate | None =
         record = {"schema": SCHEMA, "round": r, "at": time.time(), "model": f"ollama:{model}",
                   "status": STATUS, "label": "generated derivative of loop telemetry; not owner text",
                   "si_pitch": pitch, "agent_review": review, "agent_raw": review_text,
-                  "evidence_refs": {k: v for k, v in refs.items() if k in review.get("evidence", "")}}
+                  "evidence_refs": {k: v for k, v in refs.items()
+                                    if re.search(rf"\b{k}\b", review.get("evidence", ""))}}
         with out_path.open("a", encoding="utf-8") as fh:
             fh.write(json.dumps(record, ensure_ascii=False) + "\n")
         results.append(record)
