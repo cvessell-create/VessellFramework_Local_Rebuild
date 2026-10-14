@@ -119,6 +119,13 @@ class Retriever:
         return [line for _, _, line in scored[:k]]
 
 
+CAUSAL = (r"(?:\bbecause\b|\bdue to\b|\bresult of\b|\bcaused by\b|\bthanks to\b|\bthe reason\b)"
+          r"([^.!?]{0,120})")
+STOPWORDS = {"that", "this", "with", "were", "was", "have", "been", "from", "they", "them", "their",
+             "what", "when", "which", "would", "could", "should", "there", "your", "about", "into",
+             "than", "then", "just", "only", "some", "more", "very", "will", "analyst"}
+
+
 @dataclass
 class LoopMemory:
     """Append-only JSONL memory of loop events and chat turns."""
@@ -165,6 +172,10 @@ class LoopMemory:
 
     def recent_chat(self, n: int = 3) -> list[dict[str, Any]]:
         return [r for r in self.load() if r["kind"] == "chat"][-n:]
+
+    def lessons(self, n: int = 3) -> list[str]:
+        """Latest coaching rules from the sparring loop (generated, NOT_VERIFIED style guidance)."""
+        return [str(r.get("lesson", ""))[:160] for r in self.load() if r["kind"] == "lesson" and r.get("lesson")][-n:]
 
 
 class Backend(Protocol):
@@ -240,9 +251,14 @@ class SIChat:
                  f"Situation right now (the only true game facts): {situation}"}]
         # Only the player's earlier questions are replayed; replaying generated replies
         # let a small model reinforce its own invented details.
-        earlier = [t.get("message", "") for t in self.memory.recent_chat() if t.get("message") != "[episode]"]
+        earlier = [t.get("message", "") for t in self.memory.recent_chat()
+                   if t.get("message") != "[episode]" and t.get("speaker", "player") == "player"]
         if earlier:
             msgs[0]["content"] += "\nPlayer asked earlier: " + " | ".join(earlier)
+        coaching = self.memory.lessons()
+        if coaching:
+            # Style rules learned in sparring; they never override the situation facts above.
+            msgs[0]["content"] += "\nCoaching from sparring (style only, not game facts): " + " | ".join(coaching)
         msgs.append({"role": "user", "content": message})
         return msgs
 
@@ -268,13 +284,19 @@ class SIChat:
         return " ".join(parts)
 
     def grounded(self, text: str, facts: dict[str, Any], known: str = "") -> bool:
-        """Reject repeats, claimed clearances the player lacks, and numbers absent from the facts."""
+        """Reject repeats, false clearances, unknown numbers and unsourced causal explanations."""
         low = text.lower()
         if degenerate(text) or re.search(r"\b(briefing notes|hidden notes|folklore|the notes|sources?)\b", low):
             return False
         allowed = set(re.findall(r"\d+", json.dumps(facts) + " " + known))
         if any(n not in allowed for n in re.findall(r"\d+", low)):
             return False
+        known_words = set(re.findall(r"[a-z]{4,}", (json.dumps(facts) + " " + known).lower()))
+        for clause in re.findall(CAUSAL, low):
+            # An explanation of why something happened must come from owner lines or game state.
+            words = [w for w in re.findall(r"[a-z]{4,}", clause) if w not in STOPWORDS]
+            if words and sum(w in known_words for w in words) * 2 < len(words):
+                return False
         last = [t.get("text", "") for t in self.memory.recent_chat(1)]
         if last and last[0].strip().lower() == low.strip():
             return False
@@ -298,7 +320,7 @@ class SIChat:
         return out
 
     def reply(self, message: str, view: str = "game", event: dict[str, Any] | None = None,
-              game: dict[str, Any] | None = None) -> dict[str, Any]:
+              game: dict[str, Any] | None = None, speaker: str = "player") -> dict[str, Any]:
         message = (message or "").strip()[:MAX_MESSAGE]
         if event:
             self.record_episode(event)
@@ -324,7 +346,8 @@ class SIChat:
             try:
                 for _attempt in range(2):
                     text = self.backend.generate(self._messages(prompt, lines, loop, myth))
-                    if self.grounded(text, facts, json.dumps(loop) + " " + prompt):
+                    known = " ".join([json.dumps(loop), prompt] + [ln["text"] for ln in lines])
+                    if self.grounded(text, facts, known):
                         break
                     text, error = "", "ungrounded"
             except (urllib.error.URLError, OSError, ValueError) as exc:
@@ -346,7 +369,8 @@ class SIChat:
             "stage": stage, "view": view, "sources_hidden": view == "game", "sources": sources, "error": error,
         }
         self.memory.append("chat", {"message": message or "[episode]", "text": text, "reply_kind": kind,
-                                    "stage": stage, "sources": [s["id"] for s in sources]})
+                                    "stage": stage, "sources": [s["id"] for s in sources],
+                                    "speaker": speaker if speaker in ("player", "rival") else "player"})
         return result
 
 

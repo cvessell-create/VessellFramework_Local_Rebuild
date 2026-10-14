@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-13T22:33:00.801521+00:00",
+  "generated_utc": "2026-10-14T02:15:26.075597+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -613,6 +613,10 @@
       "sha256": "2b8dd418a6a8e98c5520be39dd309a32a32cc01c911a72fcc5b4cfd501951914"
     },
     {
+      "path": "docs/third-party/nova-chatbot-LICENSE.txt",
+      "sha256": "e28d690f5e638f8e8bac6e58b716aaef99d6b039a3f46ee7664fa8de7ba3dc32"
+    },
+    {
       "path": "docs/tool-integrations.md",
       "sha256": "c77ba46665c013ff8b8dff80c629cbf2bb63f30b9e625ea0d450be8804377449"
     },
@@ -1109,6 +1113,10 @@
       "sha256": "007fb68a2e42d14eaef4849ecddd4a6f9eda600b7e4e7b6e34f4b1924075f9c2"
     },
     {
+      "path": "tests/test_chat_duel.py",
+      "sha256": "e752dfa5dc6f2dccc179d3d8b4afb1c53c5fbf33a9fac0b06a28f607ff520446"
+    },
+    {
       "path": "tests/test_cisa_kev_intake.py",
       "sha256": "1e06f188a0edc0bf22b87444d1b4fdb5b45e1982afcd09a1af89bf3e5e140726"
     },
@@ -1179,6 +1187,10 @@
     {
       "path": "tests/test_huggingface_integration.py",
       "sha256": "7f168a592c380539f449698f5fd199c7b33e5d76b56e349e016a8733a8dfbc1b"
+    },
+    {
+      "path": "tests/test_idea_loop.py",
+      "sha256": "684513bdc7c7835186233ec3ec10ca7dbfe8af06b74e05e40a78ab6b1ebf1196"
     },
     {
       "path": "tests/test_intelligence_filing.py",
@@ -1294,7 +1306,7 @@
     },
     {
       "path": "tests/test_si_chat.py",
-      "sha256": "625aad6a6e64d9e114e29b991bed9ddfd2031f048b7d2535ace1bb580a3eaafc"
+      "sha256": "6699afe13d33f9ac40e24bdcd9c5bbf449b63af22696c19dc57cb787bb9a568c"
     },
     {
       "path": "tests/test_si_countermeasures.py",
@@ -1509,6 +1521,10 @@
       "sha256": "7b760bc63c5c9449f8b4eb128c10032680acb0b9930822200eba6d757e940ae2"
     },
     {
+      "path": "vessell/chat_duel.py",
+      "sha256": "41256a07e2bdc98158af24dce11ff76febf5650c10e4f26d0051b44a3ec6ac45"
+    },
+    {
       "path": "vessell/cli.py",
       "sha256": "64d9349605fff00a8fe2bd86257907859b6b29824ac9ce1ac2d9636744b54102"
     },
@@ -1559,6 +1575,10 @@
     {
       "path": "vessell/huggingface_integration.py",
       "sha256": "ce33f8adac7e624f9612dff784188462dc753e0a74c41bbe0d993e046d2ad816"
+    },
+    {
+      "path": "vessell/idea_loop.py",
+      "sha256": "fa40999676721d3e8d7a73a52014febfa97d17d600141648566149aefdaa10b1"
     },
     {
       "path": "vessell/loop_models.py",
@@ -1690,7 +1710,7 @@
     },
     {
       "path": "vessell/si_chat.py",
-      "sha256": "1e62e92e10d3624beb67bac3ebe38fce0179dacf058605422c5990ce92f577f8"
+      "sha256": "27f478d5e5cbbec0a087d386a11892af0111003f021c9a464e66afb7f64e4bf7"
     },
     {
       "path": "vessell/source_readers.py",

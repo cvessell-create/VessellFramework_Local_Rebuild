@@ -8,8 +8,9 @@ import pytest
 from vessell import si_chat, story_corpus
 
 
-class FakeBackend:
-    name = "fake:llm"
+class SIBackend:
+    """Scripted SI stand-in for tests; the real SI is what we are striving toward."""
+    name = "si:test"
 
     def __init__(self, ready=True, text="Push for the red door, Analyst."):
         self.ready, self.text, self.seen = ready, text, []
@@ -25,7 +26,7 @@ class FakeBackend:
 
 @pytest.fixture
 def chat(tmp_path):
-    return si_chat.SIChat(backend=FakeBackend(), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"), myth=[])
+    return si_chat.SIChat(backend=SIBackend(), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"), myth=[])
 
 
 def test_generated_reply_is_labelled_derivative_and_keeps_hidden_sources(chat):
@@ -52,7 +53,7 @@ def test_loop_memory_feeds_later_prompts(chat):
 
 
 def test_offline_backend_falls_back_to_one_verbatim_owner_line(tmp_path):
-    c = si_chat.SIChat(backend=FakeBackend(ready=False), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"), myth=[])
+    c = si_chat.SIChat(backend=SIBackend(ready=False), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"), myth=[])
     r = c.reply("correction dependents", view="framework")
     assert r["kind"] == "owner" and r["model"] is None and len(r["sources"]) == 1
     line = next(ln for ln in c.corpus["lines"] if ln["id"] == r["sources"][0]["id"])
@@ -92,7 +93,7 @@ def test_situation_and_grounding_guard_reject_invented_clearance(chat):
     facts = {"mission": 2, "hp": 76, "red_clearance": False, "blue_clearance": True, "autopilot_goal": "nav:exit"}
     text = si_chat.SIChat.situation(facts)
     assert "Current objective: exit." in text and "Red clearance NOT held." in text
-    r = chat.reply("next objective?", game=facts)  # fake backend keeps saying "red door"
+    r = chat.reply("next objective?", game=facts)  # SI test backend keeps saying "red door"
     assert r["kind"] == "telemetry" and r["error"] == "ungrounded" and len(chat.backend.seen) == 2
     assert r["text"] == text and r["sources"] == [] and "no model" in r["label"]
     chat.backend.text, chat.backend.seen = ["Exit is close, Analyst.", "Exit is close, Analyst.", "Blue is yours. Move."], []
@@ -127,7 +128,7 @@ def test_myth_layer_is_hidden_public_domain_flavour_matched_to_mission(tmp_path)
         frost,
     )
     assert {tuple(i["tags"]) for i in items} == {("cold", "frost", "snow", "winter"), ("dragon", "forge", "gold", "smith")}
-    c = si_chat.SIChat(backend=FakeBackend(text="Hold steady, Analyst."), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"),
+    c = si_chat.SIChat(backend=SIBackend(text="Hold steady, Analyst."), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"),
                        myth=items)
     r = c.reply("what now?", view="game", game={"mission": 3, "hp": 80})
     system = c.backend.seen[0][0]["content"]
@@ -142,3 +143,10 @@ def test_replies_that_mention_hidden_layers_are_rejected(chat):
     assert not chat.grounded("The hidden briefing notes say little.", {})
     assert not chat.grounded("My sources are quiet.", {})
     assert chat.grounded("Hold the line, Analyst.", {})
+
+
+def test_grounded_rejects_unsourced_causal_backstory(chat):
+    invented = "The manual correction was a result of our reliance on old systems that were not updated."
+    assert not chat.grounded(invented, {}, "manual correction went down hard")
+    assert chat.grounded("Restock because the corridor is hot.", {}, "restock before you trust that corridor hot")
+    assert chat.grounded("Hold the line, Analyst.", {}, "")
