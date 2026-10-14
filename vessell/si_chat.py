@@ -407,7 +407,15 @@ class SIChat:
         myth_sources = [{"id": f"myth:{m['source']}", "cite": f"public-domain:{m['source']}", "layer": "myth"}
                         for m in myth]
         text, kind, error = "", "generated", None
-        if self.backend.available():
+        if re.search(r"\bvessell formula\b|\bphase\s*[01]\b|\bup\s*=\s*not\s+down\b", message, re.I):
+            current = formula_snapshot()
+            kind, sources = "telemetry", []
+            text = (f"Vessell formula: {current['state']}. Phase 1: {current['phase1']}. "
+                    "The strict current-run checks and local receipt are separate from "
+                    "evidence truth, human review and gameplay progression.")
+            if current.get("problems"):
+                text += " " + "; ".join(current["problems"])
+        if not text and self.backend.available():
             try:
                 for _attempt in range(2):
                     text = self.backend.generate(self._messages(prompt, lines, loop, myth, web))
@@ -418,7 +426,7 @@ class SIChat:
                     text, error = "", "ungrounded"
             except (urllib.error.URLError, OSError, ValueError) as exc:
                 error = type(exc).__name__
-        if text:
+        if text and kind == "generated":
             sources = sources + myth_sources + web_sources
         if not text and error == "ungrounded" and facts:
             # The model drifted from the live game state; report that state plainly instead.
@@ -467,6 +475,53 @@ IDEAS_PATH = ROOT / "outputs" / "si_levels" / "ideas.jsonl"
 PHASE0_PATH = ROOT / "outputs" / "phase0" / "latest.json"
 
 
+def formula_snapshot(phase0_path: Path = PHASE0_PATH, now: float | None = None) -> dict[str, Any]:
+    """Sanitized local status; never exports loop text, file paths or keys."""
+    from vessell import formula, receipts
+
+    result: dict[str, Any] = {"schema": formula.SCHEMA, "state": "DOWN",
+                              "phase1": "NOT_AVAILABLE", "anchored": False}
+    try:
+        record = json.loads(phase0_path.read_text("utf-8"))
+        saved = record["formula"]
+        checked = formula.evaluate([f"R{i}" for i in range(1, 12)] + [f"T{i}" for i in range(1, 5)],
+                                   saved["checks"], record["run_id"])
+        age = (time.time() if now is None else now) - record["at"]
+        result.update({"state": checked["state"], "run_id": record["run_id"], "at": record["at"],
+                       "problems": checked["problems"], "max_age_seconds": 3600})
+        if not 0 <= age <= 3600:
+            result["state"] = "DOWN"
+            result["problems"].append("run is stale or future-dated")
+        phase1 = record.get("phase1", {})
+        result["phase1"] = phase1.get("state", "NOT_AVAILABLE")
+        if result["phase1"] == "LOCAL_RECEIPT_VERIFIED":
+            run_id = record["run_id"]
+            if not isinstance(run_id, str) or not re.fullmatch(r"[0-9a-f]{32}", run_id):
+                raise ValueError("invalid receipt run id")
+            snapshot_path = phase0_path.parent / "runs" / f"{run_id}.json"
+            receipt_path = phase0_path.parent / "runs" / f"{run_id}.receipt.json"
+            receipt = json.loads(receipt_path.read_text("utf-8"))
+            problems = receipts.verify(receipt, receipts.load_key(), check_files=True)
+            snapshot_bytes = snapshot_path.read_bytes()
+            snapshot = json.loads(snapshot_bytes)
+            expected_leaves = receipts.file_leaves([snapshot_path])
+            if (receipt["receipt_id"] != phase1["receipt_id"] or phase1["run_id"] != run_id
+                    or receipt["loop_id"] != f"phase0:{run_id}" or receipt["leaves"] != expected_leaves
+                    or snapshot["run_id"] != run_id or snapshot["formula"] != saved
+                    or snapshot["at"] != record["at"]):
+                problems.append("receipt does not match current run")
+            if problems:
+                result["phase1"] = "DOWN"
+                result["state"] = "DOWN"
+                result["problems"].extend(problems)
+            else:
+                result["receipt_id"] = receipt["receipt_id"]
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        result.update({"state": "DOWN", "phase1": "NOT_AVAILABLE",
+                       "problems": [f"formula status unavailable: {type(exc).__name__}"]})
+    return result
+
+
 def _tail_jsonl(path: Path, n: int) -> list[dict[str, Any]]:
     if not path.exists():
         return []
@@ -492,14 +547,15 @@ def loops_snapshot(memory: LoopMemory, levels_path: Path = LEVELS_REPORT,
     if phase0_path.exists():
         try:
             p0 = json.loads(phase0_path.read_text("utf-8"))
-            phase0 = {k: p0.get(k) for k in ("at", "status", "gate", "touch", "phase1_steps")}
+            phase0 = {k: p0.get(k) for k in ("at", "status", "gate", "touch", "phase1_steps", "formula", "phase1")}
             phase0["sources"] = [{k: s.get(k) for k in ("id", "topic", "status", "url")} for s in p0.get("sources", [])]
             phase0["findings"] = (p0.get("rereport") or {}).get("findings", [])
             phase0["merkle_root"] = (p0.get("receipt_preview") or {}).get("merkle_root")
         except (json.JSONDecodeError, OSError):
             phase0 = None
     return {"status": "RECORDED LOOP ACTIVITY", "summary": memory.summary(), "levels": reports[-1] if reports else None,
-            "ideas": _tail_jsonl(ideas_path, 5), "feed": feed, "phase0": phase0}
+            "ideas": _tail_jsonl(ideas_path, 5), "feed": feed, "phase0": phase0,
+            "formula": formula_snapshot(phase0_path)}
 
 
 LOOPS_HTML = """<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -510,12 +566,13 @@ main{padding:12px 14px;max-width:900px}.lv{display:inline-block;margin:4px 6px 4
 .player{border-color:#9cf}.rival{border-color:#f9a}.probe{border-color:#888}.lesson{border-color:#fd7}.episode{border-color:#7cf}
 .t{font-size:11px;color:#7a7}h2{font-size:13px;color:#8c8;margin:16px 0 4px}</style></head><body>
 <header><b>VessellFramework // SI LOOPS</b> <span class="t">auto-refresh 5s · recorded activity · generated proposals require review</span><div id="sum"></div></header>
-<main><h2>PHASE 0 · RESEARCH + READ-ONLY TOUCH</h2><div id="p0">no Phase 0 run yet</div><h2>FIVE LEVELS (latest run)</h2><div id="levels">no run yet</div><h2>LATEST IDEAS</h2><div id="ideas"></div>
+<main><h2>VESSELL FORMULA · CURRENT RUN</h2><div id="formula">no current run</div><h2>PHASE 0 · RESEARCH + READ-ONLY TOUCH</h2><div id="p0">no Phase 0 run yet</div><h2>FIVE LEVELS (latest run)</h2><div id="levels">no run yet</div><h2>LATEST IDEAS</h2><div id="ideas"></div>
 <h2>LIVE FEED (newest first)</h2><div id="feed"></div></main>
 <script>
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
 function when(s){return s?new Date(s*1000).toLocaleTimeString():'';}
 async function tick(){const d=await (await fetch('/loops.json')).json();const s=d.summary;
+const fg=d.formula;document.getElementById('formula').textContent='UP = NOT DOWN: '+fg.state+' · Phase 1: '+fg.phase1+' · local only, unanchored'+(fg.problems.length?' · '+fg.problems.join('; '):'');
 document.getElementById('sum').textContent='episodes '+s.episodes+' · exits '+s.exits+' · deaths '+s.deaths+' · chat turns '+s.chat_turns+' · stage '+s.stage;
 const lv=document.getElementById('levels');lv.textContent='';
 if(d.levels){lv.append(el('div','t','run at '+when(d.levels.at)+' · '+d.levels.model));d.levels.levels.forEach(l=>{const b=el('div','lv '+l.state,l.level+': '+l.state.toUpperCase()+' '+l.passed+'/'+l.trials);
@@ -577,6 +634,8 @@ def make_handler(chat: SIChat) -> type[BaseHTTPRequestHandler]:
                 self._send(200, LOOPS_HTML.encode(), "text/html; charset=utf-8")
             elif self.path == "/loops.json":
                 self._json(200, loops_snapshot(chat.memory))
+            elif self.path == "/formula":
+                self._json(200, formula_snapshot())
             else:
                 self._json(404, {"error": "not found"})
 

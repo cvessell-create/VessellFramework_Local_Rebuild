@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 import pytest
 
@@ -92,3 +93,66 @@ def test_roadmap_drops_echoes_and_single_sided_steps():
             "STEP: Hash each stalled autopilot run into a local receipt batch [R2,L7]")
     steps = p0.roadmap_steps(text, set(ev), ev)
     assert [s["step"] for s in steps] == ["Hash each stalled autopilot run into a local receipt batch"]
+
+
+def test_phase1_immutable_receipt_and_strict_gate(tmp_path):
+    from vessell import receipts
+    mem, levels, ideas = write_inputs(tmp_path)
+    key_path = tmp_path / "key"
+    rec = p0.run(fetch=fake_fetch, out_dir=tmp_path / "out", memory_path=mem,
+                 levels_path=levels, idea_paths=(ideas,), phase1=True, receipt_key_path=key_path)
+    assert rec["formula"]["state"] == "UP"
+    assert rec["phase1"]["state"] == "LOCAL_RECEIPT_VERIFIED"
+    receipt = json.loads(Path(rec["phase1"]["receipt_path"]).read_text())
+    key = receipts.load_key(key_path)
+    assert receipts.verify(receipt, key, check_files=True) == []
+    # Mutable loop inputs and latest.json do not invalidate the immutable run.
+    mem.write_text("changed")
+    (tmp_path / "out" / "latest.json").write_text("{}")
+    assert receipts.verify(receipt, key, check_files=True) == []
+    Path(rec["phase1"]["snapshot_path"]).write_text("{}")
+    assert receipts.verify(receipt, key, check_files=True)
+
+
+def test_one_source_failure_blocks_phase1_despite_policy_pass(tmp_path):
+    mem, levels, ideas = write_inputs(tmp_path)
+    def one_failure(url, body=None):
+        return (0, b"") if url == p0.SOURCES[0]["url"] else fake_fetch(url, body)
+    key_path = tmp_path / "key"
+    rec = p0.run(fetch=one_failure, out_dir=tmp_path / "out", memory_path=mem,
+                 levels_path=levels, idea_paths=(ideas,), phase1=True, receipt_key_path=key_path)
+    assert rec["gate"]["state"].startswith("PHASE 0 COMPLETE")
+    assert rec["formula"]["state"] == "DOWN"
+    assert rec["phase1"]["state"] == "BLOCKED"
+    assert not key_path.exists()
+
+
+def test_formula_status_is_sanitized_and_rejects_stale_run(tmp_path):
+    from vessell.si_chat import formula_snapshot
+    mem, levels, ideas = write_inputs(tmp_path)
+    rec = p0.run(fetch=fake_fetch, out_dir=tmp_path / "out", memory_path=mem,
+                 levels_path=levels, idea_paths=(ideas,))
+    path = tmp_path / "out" / "latest.json"
+    status = formula_snapshot(path, now=rec["at"])
+    assert status["state"] == "UP"
+    assert "sources" not in status and "findings" not in status
+    assert formula_snapshot(path, now=rec["at"] + 3601)["state"] == "DOWN"
+    assert formula_snapshot(path, now=rec["at"] - 1)["state"] == "DOWN"
+    assert formula_snapshot(tmp_path / "missing")["state"] == "DOWN"
+
+
+def test_formula_status_binds_current_checks_to_signed_snapshot(tmp_path, monkeypatch):
+    from vessell import receipts
+    from vessell.si_chat import formula_snapshot
+    mem, levels, ideas = write_inputs(tmp_path)
+    key_path = tmp_path / "key"
+    rec = p0.run(fetch=fake_fetch, out_dir=tmp_path / "out", memory_path=mem,
+                 levels_path=levels, idea_paths=(ideas,), phase1=True, receipt_key_path=key_path)
+    key = receipts.load_key(key_path)
+    monkeypatch.setattr(receipts, "load_key", lambda: key)
+    path = tmp_path / "out" / "latest.json"
+    assert formula_snapshot(path, now=rec["at"])["phase1"] == "LOCAL_RECEIPT_VERIFIED"
+    rec["formula"]["checks"][0]["passed"] = False
+    path.write_text(json.dumps(rec))
+    status = formula_snapshot(path, now=rec["at"])
+    assert status["state"] == "DOWN" and status["phase1"] == "DOWN"

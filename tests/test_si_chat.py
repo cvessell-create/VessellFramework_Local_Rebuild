@@ -206,3 +206,12 @@ def test_web_search_failure_is_silent():
 def test_grounded_rejects_spelled_out_invented_counts(chat):
     assert not chat.grounded("The next floor is guarded by four guards.", {}, "")
     assert chat.grounded("Four exits remain.", {}, "four exits remain")
+def test_formula_question_is_answered_from_observed_status(tmp_path, monkeypatch):
+    from vessell import si_chat
+    monkeypatch.setattr(si_chat, "formula_snapshot", lambda: {
+        "state": "UP", "phase1": "LOCAL_RECEIPT_VERIFIED", "problems": []})
+    si = si_chat.SIChat(backend=SIBackend(text=["must not generate"]), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"))
+    reply = si.reply("How does the Vessell formula move Phase 0 into Phase 1?")
+    assert reply["kind"] == "telemetry"
+    assert "LOCAL_RECEIPT_VERIFIED" in reply["text"]
+    assert reply["sources"] == []

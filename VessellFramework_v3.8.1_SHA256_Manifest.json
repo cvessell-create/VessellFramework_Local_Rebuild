@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-14T20:28:25Z",
+  "generated_utc": "2026-10-14T20:53:29Z",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -70,7 +70,7 @@
     },
     {
       "path": ".vscode/tasks.json",
-      "sha256": "4297fc989fb1c6a0cf067a1096dc9b4389312d24375a6874e598f0730ee17a93"
+      "sha256": "d7bef7beb1f5d318c30891f4b4d248ca3891f9d171b656f04bb3ef37628e0c0a"
     },
     {
       "path": "AGENTS.md",
@@ -566,7 +566,7 @@
     },
     {
       "path": "docs/phase0-restart-and-phase1-roadmap.md",
-      "sha256": "380abd0eca3978f4543850701e555f1a43e5acf80bac5e7882b6484448e835ef"
+      "sha256": "38c266b36190cbc36c880b7acbffe50a9126a01d42fdc14a3a8ae108d028833f"
     },
     {
       "path": "docs/pillar-scientific-foundations.md",
@@ -638,11 +638,11 @@
     },
     {
       "path": "docs/vessell-formula-research-report.md",
-      "sha256": "2c2f9e55566b05ac66886678e175288b146526b5224b5b29de196d113f10576e"
+      "sha256": "ebdfdd0a3cabaef9bf06321db8107952051fd259cbc8b5255ba51da36b7028e9"
     },
     {
       "path": "docs/vessell-formula.md",
-      "sha256": "c5699f5aa7c276aa66e1dac1689fcc04a7706f659e53c662a4bc525f9869e588"
+      "sha256": "44009161b03fc7e27204a615cc926ec0aabbde6d730174beb6c8aaaaa5e58047"
     },
     {
       "path": "docs/washington-rcw-19.74.md",
@@ -1177,6 +1177,10 @@
       "sha256": "a9c431810df8979480dcbd18409224ae06747ba9a352aa9640bb299f9e567fcf"
     },
     {
+      "path": "tests/test_formula.py",
+      "sha256": "5d234effec62c6cb24b8f2623c3a7cf287697e18d4dcc3be508bf7c0c2db3879"
+    },
+    {
       "path": "tests/test_game_architecture.py",
       "sha256": "98d9d564ff69324e5e8655faafb155f5063df894bbfed1523a2606584b3a3f49"
     },
@@ -1254,7 +1258,7 @@
     },
     {
       "path": "tests/test_phase0_loop.py",
-      "sha256": "54fc407d28acad53e82afba8ede0b06bd3563e8a84dbe480f1cf73eea6e1bdc8"
+      "sha256": "a13daae9f7d60c4a7721dd998dc92b4cc67e7a40eb06c0f91b0268eacaf8b730"
     },
     {
       "path": "tests/test_posture_agent.py",
@@ -1334,7 +1338,7 @@
     },
     {
       "path": "tests/test_si_chat.py",
-      "sha256": "2843cea1311e659617b30178c000f82aa2cf976d9aca6b07a29c6294bd41b265"
+      "sha256": "da89d789c6236695a097ce30c65654540d8d8effc8173ba1dfa3b801fbc7068b"
     },
     {
       "path": "tests/test_si_countermeasures.py",
@@ -1585,6 +1589,10 @@
       "sha256": "15c102374c0c214e5e501ac22c70ba250da75f3793f04713375b35f13fadd8b9"
     },
     {
+      "path": "vessell/formula.py",
+      "sha256": "dba1039d5121f2e1eb55ff917a270eb6e129c9b2b7783a81c4770c69c1831245"
+    },
+    {
       "path": "vessell/game_architecture.py",
       "sha256": "9122e2a01a59e3c59788633b4b19a98b8cccc86b894d05dfd47eb5cf8a2006ee"
     },
@@ -1646,7 +1654,7 @@
     },
     {
       "path": "vessell/phase0_loop.py",
-      "sha256": "9704b0631e5832c898315ece384ec1c777a345e09f5d84225b9e135d38be2ad8"
+      "sha256": "d756529903d6b06747b30147fd21d93a79d901cc063ab9d31636199e44951dbd"
     },
     {
       "path": "vessell/posture_agent.py",
@@ -1762,11 +1770,11 @@
     },
     {
       "path": "vessell/si_chat.py",
-      "sha256": "6d93cf7b5350ef8c82a2f193d9f1ea26c2d1948dcd3356667acad99072bc8ab8"
+      "sha256": "8f282d6e83dc39e27aa60127c78337499c0c923c2aadad032d0fe776e294e4d7"
     },
     {
       "path": "vessell/si_levels.py",
-      "sha256": "6e4709cd5ffeb201ec129dacfe0ace0f12cb9f2a9c9cccc4d8606295b695d6c4"
+      "sha256": "56f53aef98321a2d0038b52d6b0e99b0f817a51930bba34f9a9617862f5a01b9"
     },
     {
       "path": "vessell/source_readers.py",

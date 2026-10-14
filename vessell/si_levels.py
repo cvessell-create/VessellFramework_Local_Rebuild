@@ -23,12 +23,14 @@ import math
 import re
 import time
 import urllib.error
+import uuid
 from pathlib import Path
 from typing import Any, Callable
 
 from vessell import chat_duel, idea_loop
 from vessell.idea_loop import DEFAULT_MODEL, Generate, ollama_generate
 from vessell.si_chat import NUMBER_WORDS, ROOT, LoopMemory, SIChat
+from vessell.formula import evaluate
 
 STATUS = "RECORDED TRIAL RESULTS / PENDING_HUMAN_REVIEW"
 REPORT_PATH = ROOT / "outputs" / "si_levels" / "report.jsonl"
@@ -134,7 +136,14 @@ def run(si: SIChat | None = None, generate: Generate | None = None, model: str =
             results.append(step())
         except (urllib.error.URLError, OSError, ValueError, KeyError) as exc:
             results.append([_trial("level ran", False, f"{type(exc).__name__}: {exc}")])
-    report = {"at": time.time(), "model": model, "web": web, "status": STATUS, "levels": gate(results)}
+    run_id = uuid.uuid4().hex
+    required = [f"L{i + 1}:{j}" for i, trials in enumerate(results) for j in range(len(trials))]
+    observations = [{"id": f"L{i + 1}:{j}", "run_id": run_id, "passed": trial["passed"]}
+                    for i, trials in enumerate(results) for j, trial in enumerate(trials)]
+    observations += [{"id": f"L{i + 1}:empty", "run_id": run_id, "passed": False}
+                     for i, trials in enumerate(results) if not trials]
+    report = {"at": time.time(), "run_id": run_id, "model": model, "web": web, "status": STATUS,
+              "levels": gate(results), "formula": evaluate(required, observations, run_id)}
     report_path.parent.mkdir(parents=True, exist_ok=True)
     with report_path.open("a", encoding="utf-8") as fh:
         fh.write(json.dumps(report, ensure_ascii=False) + "\n")

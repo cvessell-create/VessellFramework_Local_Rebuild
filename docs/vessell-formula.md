@@ -111,3 +111,17 @@ limits are assessed separately in the
 [verification and mathematical review](vessell-formula-research-report.md).
 That review does not certify a new cryptographic primitive, multi-factor
 authentication, evidence truth or permission to proceed to another phase.
+
+## Runtime integration (assistant-authored implementation note)
+
+The owner-approved integration adds a strict overlay in
+[`vessell/formula.py`](../vessell/formula.py) and a matching game module.
+The formula compares independently supplied current-run observations, not
+case bits that its own transform has just assigned. Missing, duplicate,
+unknown and mixed-run observations return DOWN.
+
+Phase 0 retains its existing policy gate and adds a separate 15-check strict
+result. With `--phase1`, both must pass before writing an immutable local
+snapshot and HMAC receipt. The dashboard and game display the result
+separately from review or gameplay progression.
+See the [Phase 0/1 execution instructions](phase0-restart-and-phase1-roadmap.md).

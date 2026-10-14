@@ -194,6 +194,18 @@
 			],
 			"isBackground": true,
 			"problemMatcher": []
+		},
+		{
+			"label": "SI formula dashboard",
+			"type": "shell",
+			"command": "${workspaceFolder}/.venv/bin/python",
+			"args": [
+				"-m",
+				"vessell.si_chat",
+				"serve"
+			],
+			"isBackground": true,
+			"problemMatcher": []
 		}
 	],
 	"inputs": [

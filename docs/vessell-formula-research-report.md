@@ -342,3 +342,53 @@ rows and pipeline claim counts were empty. The fixture uses a fixed
 and a lookback window. Neither that test file nor the KEV source was changed
 in this correction. A baseline comparison was not performed; the full-suite
 result remains failing and is not relabeled UP.
+
+## 10. Subsequent owner-approved runtime integration
+
+The owner selected strict checks, local receipts and a visible game/SI gate
+without changes to gameplay progression. The implementation now provides
+`vessell/formula.py`, strict overlays in Phase 0 and five-level reports, a
+local receipt path enabled by `--phase1`, a sanitized `/formula` endpoint and
+a matching `engine/vessell-formula.js` game module. The canonical game source
+and both hosted copies are synchronized. Historical analysis above describes
+the earlier revision and is not rewritten as if this implementation existed
+then.
+
+An actual `--no-llm --phase1` run on 2026-10-14 opened all eleven declared
+sources and passed all four read-only probes: Base Sepolia chain ID 84532,
+block 48121239, Bitcoin explorer tips [971463, 971463], and calendar GET 200.
+Run ID: `c55fddc1fa23402897bb1436e5f828e2`.
+The strict formula returned UP and the local phase state was
+LOCAL_RECEIPT_VERIFIED. Both local HTTP endpoints returned that same run
+and receipt ID after rechecking the saved receipt. No model generation,
+wallet, transaction, public anchor or payment occurred in this run.
+
+SEARCH RECORD: declared URLs and read-only probes / urllib /
+11 primary URLs and 4 probes / 11 source opens and 4 successful probes /
+response reads capped at 600,000 bytes, truncation not measured /
+primary opened yes / SOURCE OPENED and OBSERVATION RECORDED /
+page claims, provider security, economic outcomes and independent chain
+corroboration not checked. Agreement of two Bitcoin explorers is consistency
+about one chain, not two independent chains.
+
+The game formula endpoint is local-only; its display is observational.
+HMAC keys and research text are not sent through the game status route.
+No mission rules, autopilot promotion or owner-source dialogue are changed.
+The strict mathematical domain remains distinct from empirical correctness.
+
+Integration validation: 49 final focused framework tests passed, including
+signed-snapshot binding, tampering, freshness and deterministic SI formula
+answers. Both Python and JavaScript check all 510 binary vectors of lengths
+1-8. The complete game suite passed 198 tests, including local-only proxy
+access and unchanged dialogue/progression. A browser check showed
+"Vessell formula UP | Phase 1 LOCAL_RECEIPT_VERIFIED | local only, unanchored"
+in the actual game channel. The SI dashboard displayed the same current run.
+The local model was not ready; formula answers used measured status without
+model generation, while normal dialogue retained its owner-text fallback.
+
+The full framework run before the final two focused tests returned 1,071
+passed, one skipped and the same two KEV fixture failures described above.
+The final focused run covers the subsequently added answer and receipt-binding
+checks; the whole suite was not rerun after those additions. No full-suite
+success is claimed. Lint passed for the new Python formula module and its
+direct tests.

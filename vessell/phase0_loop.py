@@ -28,11 +28,13 @@ import re
 import time
 import urllib.error
 import urllib.request
+import uuid
 from collections import Counter
 from pathlib import Path
 from typing import Any, Callable
 
 from vessell.si_chat import MEMORY_PATH, OLLAMA_URL, ROOT
+from vessell.formula import evaluate
 
 SCHEMA = "vessell-phase0/v1"
 STATUS = "RESEARCH OBSERVATIONS / PENDING_HUMAN_REVIEW"
@@ -217,7 +219,7 @@ def rereport(memory_path: Path = MEMORY_PATH, levels_path: Path = LEVELS_PATH,
         (f"STALL: {streak['length']} identical episodes in a row (mission {streak['mission']}, {streak['outcome']}, "
          f"kills {streak['kills']}) up to generation {streak.get('last_generation')}"
          if streak["length"] >= 10 else f"No stall: longest identical streak {streak['length']}"),
-        "No loop produces blockchain contact, receipts or anchors; Phase 0 loop is the first.",
+        "Phase 0 records read-only contact; optional Phase 1 records local receipts, never chain anchors.",
     ]
     return {"findings": [{"id": f"L{i}", "text": t} for i, t in enumerate(findings, 1)],
             "counts": {"level_runs": len(levels), "memory": dict(kinds), "lessons": len(lessons),
@@ -313,7 +315,8 @@ def gate(sources: list[dict[str, Any]], probes: list[dict[str, Any]], report: di
 
 def run(fetch: Fetch = http_fetch, generate: Generate | None = None, model: str = DEFAULT_MODEL,
         out_dir: Path = OUT_DIR, memory_path: Path = MEMORY_PATH, levels_path: Path = LEVELS_PATH,
-        idea_paths: tuple[Path, ...] = IDEA_PATHS) -> dict[str, Any]:
+        idea_paths: tuple[Path, ...] = IDEA_PATHS, phase1: bool = False,
+        receipt_key_path: Path | None = None) -> dict[str, Any]:
     out_dir.mkdir(parents=True, exist_ok=True)
     latest = out_dir / "latest.json"
     prev = {}
@@ -335,9 +338,40 @@ def run(fetch: Fetch = http_fetch, generate: Generate | None = None, model: str 
                                 {"role": "user", "content": "Evidence:\n" + "\n".join(evidence)}], 420)
         lookup = {line.split(":", 1)[0]: line for line in evidence}
         steps = roadmap_steps(text, set(lookup), lookup)
-    record = {"schema": SCHEMA, "at": time.time(), "status": STATUS, "model": f"ollama:{model}" if generate else None,
+    run_id = uuid.uuid4().hex
+    observations: list[dict[str, Any]] = [{"id": s["id"], "run_id": run_id, "passed": s["status"] == "SOURCE OPENED"}
+                    for s in sources]
+    observations += [{"id": p["id"], "run_id": run_id, "passed": p["ok"]} for p in probes]
+    formula = evaluate([s["id"] for s in SOURCES] + ["T1", "T2", "T3", "T4"], observations, run_id)
+    record: dict[str, Any] = {"schema": SCHEMA, "run_id": run_id, "at": time.time(), "status": STATUS, "model": f"ollama:{model}" if generate else None,
               "sources": sources, "touch": probes, "rereport": report, "receipt_preview": receipts,
-              "phase1_steps": steps, "gate": gate(sources, probes, report, steps)}
+              "phase1_steps": steps, "gate": gate(sources, probes, report, steps),
+              "formula": formula, "phase1": {"state": "NOT_REQUESTED", "anchored": False}}
+    if phase1:
+        if formula["state"] != "UP" or not record["gate"]["state"].startswith("PHASE 0 COMPLETE"):
+            record["phase1"] = {"state": "BLOCKED", "anchored": False,
+                                "reason": "strict formula and Phase 0 policy must both pass"}
+        else:
+            from vessell import receipts as local_receipts
+
+            key = local_receipts.load_key(receipt_key_path or local_receipts.KEY_PATH, create=True)
+            runs = out_dir / "runs"
+            runs.mkdir(exist_ok=True)
+            snapshot_path = runs / f"{run_id}.json"
+            snapshot_path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", "utf-8")
+            receipt = local_receipts.sign(local_receipts.file_leaves([snapshot_path]), key,
+                                          f"phase0:{run_id}", run_at=record["at"])
+            receipt_path = runs / f"{run_id}.receipt.json"
+            receipt_path.write_text(json.dumps(receipt, indent=2) + "\n", "utf-8")
+            persisted = json.loads(receipt_path.read_text("utf-8"))
+            problems = local_receipts.verify(persisted, key, check_files=True)
+            if problems:
+                raise ValueError("Phase 1 receipt verification failed: " + "; ".join(problems))
+            record["phase1"] = {"state": "LOCAL_RECEIPT_VERIFIED", "anchored": False,
+                                "receipt_id": receipt["receipt_id"], "run_id": run_id,
+                                "receipt_path": str(receipt_path.resolve()),
+                                "snapshot_path": str(snapshot_path.resolve()),
+                                "scope": "HMAC and immutable snapshot digest; not evidence truth"}
     with (out_dir / "report.jsonl").open("a", encoding="utf-8") as fh:
         fh.write(json.dumps(record, ensure_ascii=False) + "\n")
     latest.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", "utf-8")
@@ -348,12 +382,13 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="vessell-phase0", description=__doc__.splitlines()[0])
     ap.add_argument("--model", default=DEFAULT_MODEL)
     ap.add_argument("--no-llm", action="store_true", help="skip generated Phase 1 steps")
+    ap.add_argument("--phase1", action="store_true", help="owner-requested local receipt after strict checks pass")
     ap.add_argument("--forever", action="store_true")
     ap.add_argument("--pause", type=float, default=1800)
     args = ap.parse_args(argv)
     while True:
         try:
-            rec = run(generate=None if args.no_llm else ollama_generate(), model=args.model)
+            rec = run(generate=None if args.no_llm else ollama_generate(), model=args.model, phase1=args.phase1)
         except (urllib.error.URLError, OSError) as exc:
             print(f"Ollama unreachable ({exc}); retry with --no-llm.", flush=True)
             if not args.forever:
@@ -368,6 +403,7 @@ def main(argv: list[str] | None = None) -> int:
             for s in rec["phase1_steps"] or []:
                 print(f"STEP {s['step']}  {s['evidence']}")
             print(f"GATE: {rec['gate']['state']} · Phase 1 authorized: no · {STATUS}", flush=True)
+            print(f"VESSELL FORMULA: {rec['formula']['state']} · PHASE 1: {rec['phase1']['state']}", flush=True)
         if not args.forever:
             return 0
         time.sleep(args.pause)

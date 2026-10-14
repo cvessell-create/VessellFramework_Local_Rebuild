@@ -24,6 +24,37 @@ authorize Phase 1; the owner decides. Parent plan:
    if it cites a real research id (R/T) *and* a loop finding (L) and is not an
    echo of the evidence. Surviving steps are still generated drafts.
 
+## Vessell formula: strict current-run overlay
+
+`vessell/formula.py` implements a nonempty conjunction over declared IDs.
+Missing, duplicate, unknown, failed or mixed-run checks return DOWN.
+The original five-check Phase 0 policy (including 80% retrieval) remains
+separate. The overlay requires all R1-R11 and T1-T4 observations to pass.
+The five-level runner also records a strict formula result alongside its
+existing posterior threshold; it does not reinterpret presence checks as
+answer correctness.
+
+For the owner-approved local Phase 1:
+
+```sh
+python -m vessell.phase0_loop --no-llm --phase1
+```
+
+Both Phase 0 policy and strict formula must pass before a key or receipt is
+created. Each run has a unique ID. The loop writes an immutable research
+snapshot and HMAC receipt under `outputs/phase0/runs/`, reads the receipt back
+and checks its tag and snapshot digest offline. Mutable logs and `latest.json`
+can change without invalidating the saved snapshot. Failures are retained;
+the command does not retry until a preferred answer occurs.
+
+`/formula` exposes only a sanitized status, run ID and receipt ID. Status
+reads recheck the local receipt and reject runs older than one hour or dated
+in the future. The game displays this via the local `/si/formula` proxy,
+with unavailable status DOWN; tunnel players cannot access this route.
+`/loops` displays the overlay and local receipt state separately from review.
+No mission progression, autopilot promotion, authorization, human release
+or blockchain-writing behavior changes.
+
 ## Search record (Oct 14, 2026)
 
 query: declared URLs / tool: urllib GET + curl / scope: 11 primary pages,
