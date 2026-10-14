@@ -407,9 +407,11 @@ class SIChat:
         myth_sources = [{"id": f"myth:{m['source']}", "cite": f"public-domain:{m['source']}", "layer": "myth"}
                         for m in myth]
         text, kind, error = "", "generated", None
+        reply_route: str | None = None
         if re.search(r"\bvessell formula\b|\bphase\s*[01]\b|\bup\s*=\s*not\s+down\b", message, re.I):
             current = formula_snapshot()
             kind, sources = "telemetry", []
+            reply_route = "formula_telemetry"
             text = (f"Vessell formula: {current['state']}. Phase 1: {current['phase1']}. "
                     "The strict current-run checks and local receipt are separate from "
                     "evidence truth, human review and gameplay progression.")
@@ -441,8 +443,10 @@ class SIChat:
             "label": LABELS[kind],
             "text": text, "model": self.backend.name if kind == "generated" else None,
             "stage": stage, "view": view, "sources_hidden": view == "game", "sources": sources, "error": error,
+            "route": reply_route or kind,
         }
         self.memory.append("chat", {"message": message or "[episode]", "text": text, "reply_kind": kind,
+                                    "reply_route": result["route"],
                                     "stage": stage, "sources": [s["id"] for s in sources],
                                     "speaker": speaker if speaker in ("player", "rival", "probe") else "player"})
         return result
@@ -473,6 +477,7 @@ status();setInterval(status,10000);
 LEVELS_REPORT = ROOT / "outputs" / "si_levels" / "report.jsonl"
 IDEAS_PATH = ROOT / "outputs" / "si_levels" / "ideas.jsonl"
 PHASE0_PATH = ROOT / "outputs" / "phase0" / "latest.json"
+SIMULATION_PATH = ROOT / "outputs" / "blockchain_simulation" / "latest.json"
 
 
 def formula_snapshot(phase0_path: Path = PHASE0_PATH, now: float | None = None) -> dict[str, Any]:
@@ -536,7 +541,8 @@ def _tail_jsonl(path: Path, n: int) -> list[dict[str, Any]]:
 
 def loops_snapshot(memory: LoopMemory, levels_path: Path = LEVELS_REPORT,
                    ideas_path: Path = IDEAS_PATH, n: int = 60,
-                   phase0_path: Path = PHASE0_PATH) -> dict[str, Any]:
+                   phase0_path: Path = PHASE0_PATH,
+                   simulation_path: Path = SIMULATION_PATH) -> dict[str, Any]:
     """Read-only loop records; each record retains its own evidence and review status."""
     rows = memory.load()
     feed = [{k: r.get(k) for k in ("kind", "at", "speaker", "message", "text", "reply_kind", "lesson",
@@ -553,9 +559,21 @@ def loops_snapshot(memory: LoopMemory, levels_path: Path = LEVELS_REPORT,
             phase0["merkle_root"] = (p0.get("receipt_preview") or {}).get("merkle_root")
         except (json.JSONDecodeError, OSError):
             phase0 = None
+    simulation = None
+    if simulation_path.exists():
+        try:
+            saved = json.loads(simulation_path.read_text("utf-8"))
+            simulation = {k: saved[k] for k in ("mode", "at", "rounds", "real_onboarding")}
+            simulation["state"] = saved["formula"]["state"]
+            simulation["cases"] = [{"id": row["id"], "passed": row["passed"],
+                                    "observed": row["observed"]["state"]} for row in saved["cases"]]
+            simulation["scope"] = saved["scope"]
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            simulation = {"mode": "OFFLINE_SIMULATION", "state": "DOWN",
+                          "error": f"simulation report unavailable: {type(exc).__name__}"}
     return {"status": "RECORDED LOOP ACTIVITY", "summary": memory.summary(), "levels": reports[-1] if reports else None,
             "ideas": _tail_jsonl(ideas_path, 5), "feed": feed, "phase0": phase0,
-            "formula": formula_snapshot(phase0_path)}
+            "formula": formula_snapshot(phase0_path), "simulation": simulation}
 
 
 LOOPS_HTML = """<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -566,17 +584,24 @@ main{padding:12px 14px;max-width:900px}.lv{display:inline-block;margin:4px 6px 4
 .player{border-color:#9cf}.rival{border-color:#f9a}.probe{border-color:#888}.lesson{border-color:#fd7}.episode{border-color:#7cf}
 .t{font-size:11px;color:#7a7}h2{font-size:13px;color:#8c8;margin:16px 0 4px}</style></head><body>
 <header><b>VessellFramework // SI LOOPS</b> <span class="t">auto-refresh 5s · recorded activity · generated proposals require review</span><div id="sum"></div></header>
-<main><h2>VESSELL FORMULA · CURRENT RUN</h2><div id="formula">no current run</div><h2>PHASE 0 · RESEARCH + READ-ONLY TOUCH</h2><div id="p0">no Phase 0 run yet</div><h2>FIVE LEVELS (latest run)</h2><div id="levels">no run yet</div><h2>LATEST IDEAS</h2><div id="ideas"></div>
+<main><h2>OFFLINE ON-RAMP SIMULATION</h2><div id="simulation">no simulation run</div><h2>VESSELL FORMULA · CURRENT RUN</h2><div id="formula">no current run</div><h2>PHASE 0 · RESEARCH + READ-ONLY TOUCH</h2><div id="p0">no Phase 0 run yet</div><h2>FIVE LEVELS (latest run)</h2><div id="levels">no run yet</div><h2>LATEST IDEAS</h2><div id="ideas"></div>
 <h2>LIVE FEED (newest first)</h2><div id="feed"></div></main>
 <script>
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
 function when(s){return s?new Date(s*1000).toLocaleTimeString():'';}
 async function tick(){const d=await (await fetch('/loops.json')).json();const s=d.summary;
+const sim=document.getElementById('simulation');sim.textContent='';
+if(d.simulation){const x=d.simulation;sim.append(el('div','',x.mode+' · recorded fixture gate '+x.state+' · real onboarding '+(x.real_onboarding||'NOT_PERFORMED')));
+if(x.error)sim.append(el('div','down',x.error));else{x.cases.forEach(c=>sim.append(el('div','row',c.id+' · '+(c.passed?'PASS':'FAIL')+' · '+c.observed)));sim.append(el('div','t',x.scope));}}
+else sim.textContent='no simulation run';
 const fg=d.formula;document.getElementById('formula').textContent='UP = NOT DOWN: '+fg.state+' · Phase 1: '+fg.phase1+' · local only, unanchored'+(fg.problems.length?' · '+fg.problems.join('; '):'');
 document.getElementById('sum').textContent='episodes '+s.episodes+' · exits '+s.exits+' · deaths '+s.deaths+' · chat turns '+s.chat_turns+' · stage '+s.stage;
 const lv=document.getElementById('levels');lv.textContent='';
 if(d.levels){lv.append(el('div','t','run at '+when(d.levels.at)+' · '+d.levels.model));d.levels.levels.forEach(l=>{const b=el('div','lv '+l.state,l.level+': '+l.state.toUpperCase()+' '+l.passed+'/'+l.trials);
 b.title=l.checks.map(c=>(c.passed?'PASS ':'FAIL ')+c.check+(c.detail?' — '+c.detail:'')).join('\\n');lv.append(b);});}
+if(d.levels){d.levels.levels.forEach(l=>{if(!l.judgments)return;
+const j=l.judgments;lv.append(el('div','row',l.level+' · J1 '+j.gate.outcome+' · '+j.gate.boundary));
+lv.append(el('div','row lesson','J2 '+j.measurement.conclusion+' · '+j.measurement.next_evaluation));});}
 const p=document.getElementById('p0');if(d.phase0){const z=d.phase0;p.textContent='';
 p.append(el('div','lv '+(z.gate.phase1_authorized?'up':(z.gate.state.indexOf('COMPLETE')>=0?'up':'down')),z.gate.state+' · Phase 1 authorized: '+(z.gate.phase1_authorized?'yes':'NO (owner decision)')));
 p.append(el('div','t','run at '+when(z.at)+' · '+z.status+' · local merkle preview '+(z.merkle_root||'').slice(0,16)+'… (unsigned, unanchored)'));

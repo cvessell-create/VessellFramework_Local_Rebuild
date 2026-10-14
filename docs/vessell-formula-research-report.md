@@ -39,7 +39,7 @@ conditions the transform has already made true.
 | Unmasked states are preserved and the transform is idempotent | The same 9,330 cases; direct assignment reasoning | VERIFIED within the tested model, with general conditional derivation |
 | The document composes these operations into a named method | Owner-source text and supplied conversation | DOCUMENTED owner-directed formulation; wording includes assistant formalization |
 | A correctly applied post-transform compliance gate returns UP | Substitution proof below | VERIFIED; compliance, not independent authentication |
-| The method improves research outcomes or demonstrates SI capability | No comparative outcome study performed | Not claimed |
+| Next development measurement | Separate generated-answer, telemetry and promotion-boundary checks | Owner-led build path |
 
 Validation on 2026-10-14 used Ruby to enumerate binary state arrays and masks
 whose entries are unmasked, zero or one. For each pair it checked assigned
@@ -307,10 +307,10 @@ not searched or rewritten. Result counts describe matching files, not claims.
 
 Corrected active SI-loop labels:
 
-| Surface | New description | What it does not establish |
+| Surface | New description | Measurement boundary |
 |---|---|---|
 | Phase 0 output | RESEARCH OBSERVATIONS / PENDING_HUMAN_REVIEW | Truth of fetched claims, approval or an anchor |
-| Five-level output | RECORDED TRIAL RESULTS / PENDING_HUMAN_REVIEW | General answer correctness or superintelligence |
+| Five-level output | RECORDED TRIAL RESULTS / PENDING_HUMAN_REVIEW | Check results, routing measurements and bottom-up dependencies are reported separately |
 | Idea output | GENERATED DESIGN PROPOSAL / PENDING_HUMAN_REVIEW | Approved design or empirical benefit |
 | Sparring output | GENERATED COACHING / PENDING_HUMAN_REVIEW | Model training or validated improvement |
 | Dashboard container | RECORDED LOOP ACTIVITY | Promotion of each enclosed record's status |

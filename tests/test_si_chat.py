@@ -103,6 +103,25 @@ def test_loops_page_shows_feed_levels_and_ideas(chat, tmp_path):
         server.shutdown()
 
 
+def test_loops_keeps_offline_simulation_separate_and_sanitised(chat, tmp_path):
+    from vessell.blockchain_simulation import run
+    output = tmp_path / "simulation"
+    run(1, out_dir=output, key_path=tmp_path / "key")
+    snap = si_chat.loops_snapshot(chat.memory, phase0_path=tmp_path / "missing",
+                                  simulation_path=output / "latest.json")
+    sim = snap["simulation"]
+    assert sim["mode"] == "OFFLINE_SIMULATION"
+    assert sim["state"] == "UP" and sim["real_onboarding"] == "NOT_PERFORMED"
+    assert snap["formula"]["state"] == "DOWN"
+    assert len(sim["cases"]) == 12
+    assert str(tmp_path) not in json.dumps(sim)
+    (output / "latest.json").write_text("{")
+    bad = si_chat.loops_snapshot(chat.memory, phase0_path=tmp_path / "missing",
+                                 simulation_path=output / "latest.json")
+    assert bad["simulation"]["state"] == "DOWN"
+    assert "error" in bad["simulation"]
+
+
 def test_game_facts_are_sanitised_into_the_prompt(chat):
     chat.reply("ammo?", game={"hp": 40, "bullets": 7, "red_clearance": True, "autopilot_goal": "nav:ammo",
                               "Bad Key": 1, "nested": {"x": 1}, "nan": float("nan")})
@@ -213,5 +232,7 @@ def test_formula_question_is_answered_from_observed_status(tmp_path, monkeypatch
     si = si_chat.SIChat(backend=SIBackend(text=["must not generate"]), memory=si_chat.LoopMemory(tmp_path / "m.jsonl"))
     reply = si.reply("How does the Vessell formula move Phase 0 into Phase 1?")
     assert reply["kind"] == "telemetry"
+    assert reply["route"] == "formula_telemetry"
     assert "LOCAL_RECEIPT_VERIFIED" in reply["text"]
     assert reply["sources"] == []
+    assert si.memory.load()[-1]["reply_route"] == "formula_telemetry"

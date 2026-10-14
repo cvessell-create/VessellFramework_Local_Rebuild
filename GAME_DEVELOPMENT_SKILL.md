@@ -256,8 +256,9 @@ Transfer narrative at three separate levels:
    event, with measured population and outcome.
 
 The workflow's narrative distinguishes blocked uses, permitted local decisions,
-observed declared roots and verified corrections. It never calls the operator
-a fictional combat hero or claims victory proves SI capability.
+observed declared roots and verified corrections. Keep the operator distinct
+from fictional combat characters; report gameplay and SI development measurements
+separately.
 
 ## 9. Reuse the paused build rather than discard it
 

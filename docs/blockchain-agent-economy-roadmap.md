@@ -3,6 +3,9 @@
 Research checked October 7, 2026. Phase 0 restarted October 14, 2026: see
 [Phase 0 restart and Phase 1 roadmap](phase0-restart-and-phase1-roadmap.md).
 Status: RESEARCH / PROPOSED NEXT STAGE.
+For the researched execution sequence and bounded offline fixtures, see the
+[blockchain on-ramp plan](blockchain-onramp-plan.md). Simulation success is not
+completed onboarding or permission to spend.
 No wallet creation, registration, purchase, staking, mining, payment, public
 deployment or chain transaction was performed. No earnings are claimed.
 Provider documentation describes provider claims, not independently audited

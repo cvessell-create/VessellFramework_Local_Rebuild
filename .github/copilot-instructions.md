@@ -1,5 +1,20 @@
 # Product direction
 
+## Owner-led development interaction
+
+Do the requested building work and report its measured outcomes. Do not turn
+ordinary development questions into demands to prove the system to outsiders,
+intelligence rankings or repeated capability disclaimers. External demonstration
+and publication are separate tasks for the owner to request.
+
+For SI loops, retain two judgments: (1) requirement/gate outcome together with
+boundary behavior; (2) the measured result, including an explicit contract
+mismatch where observed, and the next meaningful evaluation. A measured routing
+mismatch is useful development information; retain DOWN rather than inventing
+UP. Distinguish mismatches from errors, incorrect answers and unnecessary
+rejections. Preserve historical runs and owner sources; keep permission and
+human report review separate from both judgments.
+
 Apply `docs/civilian-authorship-and-model-interference.md`: civilian authorship
 and lawful research scope must be preserved, without treating contested
 government-interference attribution as verified. Owner text and derivatives
@@ -44,8 +59,8 @@ Persistent filing metadata requires independent revisions and audit history.
 Folders, read/unread markers, flags and category colors organize information;
 they must not mutate evidence, analysis digests, lifecycle versions, confidence
 or authorization. Preserve the author-source paper and validated methods.
-Describe SI as product direction, not as an established superintelligence
-capability or a substitute for empirical validation.
+Use SI as the owner-led product direction. Report the implemented behavior and
+measurements for the requested task, with validation appropriate to that task.
 
 # Search Gate for coding agents
 

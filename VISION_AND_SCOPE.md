@@ -44,10 +44,10 @@ read/unread markers, flags and category colors are organizational metadata.
 They neither replace the specialist's analytical services nor confer
 corroboration, confidence, report-release authority or execution permission.
 
-The SI designation expresses the intended product direction rather than a
-demonstrated superintelligence capability. Implementation tests, local case
-studies and interface availability must be distinguished from independent
-field efficacy, formal attestations and production certification.
+SI is the owner-led product direction. During development, report implemented
+behavior, measured loop outcomes and the next build step. External demonstration,
+field studies, formal attestations and production certification are distinct
+workstreams initiated when the owner requests them.
 
 This document specifies the rebuild's architectural direction and scope.
 The [author's original paper](docs/claim-correction-case-study.md) remains the

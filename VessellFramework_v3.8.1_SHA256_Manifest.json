@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-14T20:53:29Z",
+  "generated_utc": "2026-10-14T21:48:16.008391+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -22,7 +22,7 @@
     },
     {
       "path": ".github/copilot-instructions.md",
-      "sha256": "2a1d25bd81ffbfc99a5542b3b88ff5d02e201ddfb0e2e4488867cfb51c942b5d"
+      "sha256": "a1e932dd3f02b2d2159f38c553e12da33f6f765c173000fe70be94a6297aad8b"
     },
     {
       "path": ".github/skills/r-inferential-workflow/SKILL.md",
@@ -90,7 +90,7 @@
     },
     {
       "path": "GAME_DEVELOPMENT_SKILL.md",
-      "sha256": "c05df042ed3fe41bbe2c05390c6274f5608e81fd4c004a6cc7afac1cd5a1e182"
+      "sha256": "c0dc9521bc8c6b71ac025ac6925eb81350e6d86d87d3a3990181fe324ad84cf3"
     },
     {
       "path": "Game_Theory_Theory_SKILL_v0.1.md",
@@ -122,7 +122,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "394bb4a2f5045b03efc9545dbf4db1a39eff0f432945a2382d9d5226c023e78d"
+      "sha256": "db30f559091245d8476b46e860874b3a80ed13d0c2318065859b668b64cd7c14"
     },
     {
       "path": "SECURITY.md",
@@ -130,7 +130,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "d64ff1ac83082d46094ee1623d8f07869b64fb2a70d21e00fd11ea12eb79db5f"
+      "sha256": "372c9fb52b90327de39050607ad940970dc5bd6a65bfc4608f63b9395177079e"
     },
     {
       "path": "SQL_QUICK_REFERENCE.md",
@@ -142,7 +142,7 @@
     },
     {
       "path": "VISION_AND_SCOPE.md",
-      "sha256": "5c0c73f94a60d88801800a76a121009aaf345672f180200ced7a868781443875"
+      "sha256": "6e732259c54c6e4cd1959ccd151e6bda0d2158879c4d00bd18fab24d1f591dc2"
     },
     {
       "path": "VesselFramework_Agent.md",
@@ -342,11 +342,11 @@
     },
     {
       "path": "docs/agent-capabilities.json",
-      "sha256": "45c880f8340eb3188fe4407c8d99505ef6dab1ccef09c42bca2653a43a001ade"
+      "sha256": "ace8b1660c7a4b170c5d2913ebfde3bffba2943cf86d23230f3b99247de7eca9"
     },
     {
       "path": "docs/agent-reference-index.json",
-      "sha256": "db4b41f7919a7aba73da7fbb165587bf93252d3ffa9614ee25d15ac402c5d080"
+      "sha256": "76121ebe65f0c50025eafa65d6d71e300531c46ee4485b2c2402ad02f354407e"
     },
     {
       "path": "docs/agent-search.js",
@@ -358,11 +358,15 @@
     },
     {
       "path": "docs/ambient-workflows.md",
-      "sha256": "827ffbb07b83b30b65b33a678ab2c712eb03d186262c04c7a377206732fb82d3"
+      "sha256": "54c7ff880b5c3d16c4caf5bdd76fb065a9f760d6f9ae38138dc4e25d9e2e2a93"
     },
     {
       "path": "docs/blockchain-agent-economy-roadmap.md",
-      "sha256": "cafbc4851804ec470f514218adf8dde6256dbe9f9eb82113d3c4e2a14abf2335"
+      "sha256": "6a93ad62a502a029cc3c47b93945c9074bbd727b8a48f3a2a16e5bfe842c857b"
+    },
+    {
+      "path": "docs/blockchain-onramp-plan.md",
+      "sha256": "b455499fe2b2130896635d3f387b686725fb323eec5a3d4c1df53d8794b267d1"
     },
     {
       "path": "docs/civilian-authorship-and-model-interference.md",
@@ -601,6 +605,10 @@
       "sha256": "a349796d7bd5a5b87c78cbb8a7967590f9e7c466c01d5b86b0565ea45b68aa65"
     },
     {
+      "path": "docs/si-loop-development-judgments.md",
+      "sha256": "05e3a2406bb835b9157a376daad75fbedab68d56eaa2fd5a139259a2cc7385b4"
+    },
+    {
       "path": "docs/specialist-agent.md",
       "sha256": "c800c89a6e884ffa7ba5878d718d89a562e2253e94b116adc65d487861230da7"
     },
@@ -638,7 +646,7 @@
     },
     {
       "path": "docs/vessell-formula-research-report.md",
-      "sha256": "ebdfdd0a3cabaef9bf06321db8107952051fd259cbc8b5255ba51da36b7028e9"
+      "sha256": "1895f1356d6c68ded8ba6eac77111e096a5e5b67c3e5cf02d1f60d71439992ea"
     },
     {
       "path": "docs/vessell-formula.md",
@@ -794,7 +802,7 @@
     },
     {
       "path": "mnt/skills/user/vessel-framework-analyst/SKILL.md",
-      "sha256": "d64ff1ac83082d46094ee1623d8f07869b64fb2a70d21e00fd11ea12eb79db5f"
+      "sha256": "372c9fb52b90327de39050607ad940970dc5bd6a65bfc4608f63b9395177079e"
     },
     {
       "path": "pyproject.toml",
@@ -1117,6 +1125,10 @@
       "sha256": "61124cf3da8d492053b17fd5018dbe07d0d3c33eadc133dd9622f32b6e042341"
     },
     {
+      "path": "tests/test_blockchain_simulation.py",
+      "sha256": "95124db816d267e6def183fc39079c84a1bcada021db94ba176d153b63742f5c"
+    },
+    {
       "path": "tests/test_case_study.py",
       "sha256": "b70a9087fcf611dffa2b3b73a57984ae55f794526b9e874409b7bb197b12bd22"
     },
@@ -1338,7 +1350,7 @@
     },
     {
       "path": "tests/test_si_chat.py",
-      "sha256": "da89d789c6236695a097ce30c65654540d8d8effc8173ba1dfa3b801fbc7068b"
+      "sha256": "4ad9e6f31c2ef219fb0d6ed07646a78ae91993b4a44fdee6cd9e306f4f728e3e"
     },
     {
       "path": "tests/test_si_countermeasures.py",
@@ -1346,7 +1358,7 @@
     },
     {
       "path": "tests/test_si_levels.py",
-      "sha256": "23e1bd93fa47fa6637efa27eacbff03e33ce7da5840e2554bc44c8d2c93b6525"
+      "sha256": "a95d3d7fb43d19951064719c759742e7b1767325b8062e942e37471fc5cd4a82"
     },
     {
       "path": "tests/test_single_file_evil_twin.py",
@@ -1551,6 +1563,10 @@
     {
       "path": "vessell/attack_surface.py",
       "sha256": "48eb0d68ea09a36f49dab4d22e7f9538eea7da701b59357a0878af2a350cafcf"
+    },
+    {
+      "path": "vessell/blockchain_simulation.py",
+      "sha256": "16da818f2af7fc53f934796a4a2ce2be9325f01a53aea106e470947dcf6199fe"
     },
     {
       "path": "vessell/case_study.py",
@@ -1770,11 +1786,11 @@
     },
     {
       "path": "vessell/si_chat.py",
-      "sha256": "8f282d6e83dc39e27aa60127c78337499c0c923c2aadad032d0fe776e294e4d7"
+      "sha256": "75d0ab67f161cb14f2263345e67c700901ab217acfcb4e0b01e5657c8cb8185c"
     },
     {
       "path": "vessell/si_levels.py",
-      "sha256": "56f53aef98321a2d0038b52d6b0e99b0f817a51930bba34f9a9617862f5a01b9"
+      "sha256": "641015c357773671dd73907dc165fdaef8c9dd2b3bdbfa52fe3c4ee72181e911"
     },
     {
       "path": "vessell/source_readers.py",

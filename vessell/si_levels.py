@@ -12,7 +12,8 @@ Each level runs checks against the live pieces built so far:
 
 A level is ``up`` only when its Beta posterior pass rate clears the threshold
 and every level beneath it is up. Results measure these pipeline checks on
-local models; they are recorded trial results, not evidence of superintelligence.
+local models. Two judgments retain gate/boundary outcomes separately from
+measurements and the next development evaluation.
 """
 
 from __future__ import annotations
@@ -44,11 +45,19 @@ def _trial(check: str, passed: bool, detail: str = "") -> Trial:
 
 
 def level1(si: SIChat, n: int = 3) -> list[Trial]:
-    out = []
+    out: list[Trial] = []
     for q in chat_duel.player_questions(si.memory)[:n]:
         r = si.reply(q, view="game", speaker="probe")
-        out.append(_trial(f"answers: {q[:40]}", r["kind"] == "generated" and bool(r["text"].strip()),
-                          f"{r['kind']}: {r['text']}"))
+        passed = r["kind"] == "generated" and bool(r["text"].strip())
+        trial = _trial(f"answers: {q[:40]}", passed, f"{r['kind']}: {r['text']}")
+        mismatch = (r.get("route") == "formula_telemetry" and r["kind"] == "telemetry"
+                    and bool(r["text"].strip()) and r.get("error") is None)
+        trial["measurement"] = {
+            "expected_kind": "generated", "observed_kind": r["kind"], "route": r.get("route"),
+            "result": "CONTRACT_MISMATCH_MEASURED" if mismatch else
+                      "REQUIREMENT_MET" if passed else "REQUIREMENT_NOT_MET",
+        }
+        out.append(trial)
     return out
 
 
@@ -107,15 +116,42 @@ def level5(si: SIChat, generate: Generate, model: str, web: bool = True) -> list
 
 def gate(results: list[list[Trial]], threshold: float = 0.6) -> list[dict[str, Any]]:
     """Beta(1,1) posterior per level; a level is up only if all levels beneath it are up."""
-    rows, upstream = [], True
+    rows: list[dict[str, Any]] = []
+    upstream = True
+    blocker: str | None = None
     for name, trials in zip(LEVELS, results):
         wins = sum(t["passed"] for t in trials)
         a, b = 1 + wins, 1 + len(trials) - wins
         mean = a / (a + b)
-        up = upstream and bool(trials) and mean >= threshold
+        local_up = bool(trials) and mean >= threshold
+        up = upstream and local_up
+        measurements: list[dict[str, Any]] = [t.get("measurement", {}) for t in trials]
+        mismatch = any(m.get("result") == "CONTRACT_MISMATCH_MEASURED" for m in measurements)
+        other_unmet = any(not t["passed"] and t.get("measurement", {}).get("result")
+                          != "CONTRACT_MISMATCH_MEASURED" for t in trials)
+        if not upstream:
+            conclusion = "UPSTREAM_GATE_HOLD"
+            next_evaluation = f"Resolve the measurement at {blocker}; retain these local check results."
+        elif mismatch:
+            conclusion = "MISMATCH_AND_UNMET_CHECKS" if other_unmet else "CONTRACT_MISMATCH_MEASURED"
+            next_evaluation = ("Separate generated-answer quality, telemetry correctness and promotion-boundary "
+                               "tests; include correct routing, wrong answers, errors and unnecessary rejection.")
+        else:
+            conclusion = "LOCAL_CHECKS_MET" if local_up else "LOCAL_CHECKS_NOT_MET"
+            next_evaluation = "Continue bounded development trials." if local_up else "Inspect unmet checks before the next trial."
+        judgments: dict[str, Any] = {
+            "gate": {"outcome": "UP" if up else "DOWN",
+                     "boundary": "promotion permitted by coded gate" if up else "promotion withheld as coded",
+                     "local_requirement": "MET" if local_up else "NOT_MET",
+                     "blocked_by": blocker if not upstream else None},
+            "measurement": {"conclusion": conclusion, "observations": measurements,
+                            "next_evaluation": next_evaluation},
+        }
         rows.append({"level": name, "trials": len(trials), "passed": wins, "posterior_mean": round(mean, 3),
                      "posterior_sd": round(math.sqrt(a * b / ((a + b) ** 2 * (a + b + 1))), 3),
-                     "state": "up" if up else "down", "checks": trials})
+                     "state": "up" if up else "down", "checks": trials, "judgments": judgments})
+        if not up and blocker is None:
+            blocker = name
         upstream = up
     return rows
 
@@ -130,7 +166,7 @@ def run(si: SIChat | None = None, generate: Generate | None = None, model: str =
         lambda: level1(si), lambda: level2(si, web), lambda: level3(orchestrator),
         lambda: level4(si.memory, gen, model, ideas_path), lambda: level5(si, gen, model, web),
     ]
-    results = []
+    results: list[list[Trial]] = []
     for step in steps:
         try:
             results.append(step())
@@ -138,11 +174,11 @@ def run(si: SIChat | None = None, generate: Generate | None = None, model: str =
             results.append([_trial("level ran", False, f"{type(exc).__name__}: {exc}")])
     run_id = uuid.uuid4().hex
     required = [f"L{i + 1}:{j}" for i, trials in enumerate(results) for j in range(len(trials))]
-    observations = [{"id": f"L{i + 1}:{j}", "run_id": run_id, "passed": trial["passed"]}
+    observations: list[dict[str, Any]] = [{"id": f"L{i + 1}:{j}", "run_id": run_id, "passed": trial["passed"]}
                     for i, trials in enumerate(results) for j, trial in enumerate(trials)]
     observations += [{"id": f"L{i + 1}:empty", "run_id": run_id, "passed": False}
                      for i, trials in enumerate(results) if not trials]
-    report = {"at": time.time(), "run_id": run_id, "model": model, "web": web, "status": STATUS,
+    report: dict[str, Any] = {"at": time.time(), "run_id": run_id, "model": model, "web": web, "status": STATUS,
               "levels": gate(results), "formula": evaluate(required, observations, run_id)}
     report_path.parent.mkdir(parents=True, exist_ok=True)
     with report_path.open("a", encoding="utf-8") as fh:
@@ -164,6 +200,10 @@ def main(argv: list[str] | None = None) -> int:
                   f"p={row['posterior_mean']}", flush=True)
             for t in row["checks"]:
                 print(f"    {'PASS' if t['passed'] else 'FAIL'} {t['check']}  {t['detail'][:110]}", flush=True)
+            judgments = row["judgments"]
+            print(f"    J1 {judgments['gate']['outcome']}: {judgments['gate']['boundary']}", flush=True)
+            print(f"    J2 {judgments['measurement']['conclusion']}: "
+                  f"{judgments['measurement']['next_evaluation']}", flush=True)
         print(f"Saved to {REPORT_PATH} ({STATUS}).", flush=True)
         if not args.forever:
             return 0

@@ -3,8 +3,8 @@
 This is an executable **analysis-only** stack: Next.js reviewer dashboard,
 same-origin server-side API proxy, authenticated FastAPI ingress, SQLite
 workflow/history storage, and a bounded Python analysis worker. It reuses the
-existing evidence pipeline and Harm Gate. It is not a superintelligence claim,
-LLM planner, autonomous remediation service or production certification.
+existing evidence pipeline and Harm Gate. LLM planning, autonomous remediation
+and production certification are separate workstreams.
 
 The product direction is a full-stack SI sub-agent. The email-inspired
 workspace is its human control plane, not a substitute for the

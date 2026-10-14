@@ -52,8 +52,8 @@ owner-authenticated workflow and operator-approved capture boundaries.
 Persistent filing, read/unread markers, flags and category colors support
 information organization and triage through independent revisions and audit
 history. They do not alter evidence, analytical confidence or authorization.
-The SI designation identifies the product vision rather than a demonstrated
-superintelligence capability.
+SI identifies the owner-led product vision. Development work reports measured
+behavior and next steps; external demonstration is a separate owner-requested task.
 
 ## Game architecture adaptation
 

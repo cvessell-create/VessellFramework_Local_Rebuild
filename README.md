@@ -35,7 +35,8 @@ implemented core provides callable, provenance-aware evidence analysis.
 The email-inspired workspace is its **human-facing control plane**, not the
 primary product. Authenticated intake, bounded analysis, durable provenance,
 human review/report release and explicitly authorized execution stay distinct.
-SI is product direction, not demonstrated superintelligence or field efficacy.
+SI is the owner-led product direction; development reports track implemented
+behavior, measured outcomes and the next build step.
 See [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md).
 
 ### What exists and what remains proposed
@@ -104,7 +105,7 @@ If you are reviewing this as an academic rough-working submission, read in this 
    [analyst skill](SKILL.md) and [forecasting skill](VesselFramework_Forecasting_SKILL_v1.0.md):
    methods, with current six-pillar additions linked above.
 5. [Specialist contract](docs/specialist-agent.md) and [tests](tests/):
-   selected executable controls, not proof of field effectiveness.
+   selected executable controls and their development tests.
 
 For package boundaries and historical submission scope, see
 [CANONICAL_REFERENCE.md](CANONICAL_REFERENCE.md).
