@@ -25,6 +25,7 @@ frontend/*.tsbuildinfo
 /build/
 /dist/
 /private-projects/
+/private/
 /Final Project/
 .Rhistory
 .RData

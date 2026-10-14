@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-14T03:02:53Z",
+  "generated_utc": "2026-10-14T04:43:27Z",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -54,7 +54,7 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "5ae5339844d56bf349b6852b0b1b071d89a6e15588ce7f6d2cda93a64449e8c2"
+      "sha256": "53a52c8cac378046ccfef70cf62b9284b386a684af4d4f069d60531daaca4c66"
     },
     {
       "path": ".vscode/extensions.json",
@@ -1157,6 +1157,14 @@
       "sha256": "b2fc54fafc7b0d9c614673d778844ab70b900a15668f38019626640d732a39cf"
     },
     {
+      "path": "tests/test_footprint.py",
+      "sha256": "fd01a9b03a0b73b6d110a6612323035a4d59bc8aee3219de18fc5f48aaea84b2"
+    },
+    {
+      "path": "tests/test_footprint_scanners.py",
+      "sha256": "a9c431810df8979480dcbd18409224ae06747ba9a352aa9640bb299f9e567fcf"
+    },
+    {
       "path": "tests/test_game_architecture.py",
       "sha256": "98d9d564ff69324e5e8655faafb155f5063df894bbfed1523a2606584b3a3f49"
     },
@@ -1549,6 +1557,14 @@
       "sha256": "57dc81bb097003f701121c9b8f90878573994b50bece1d4d06ed6bbf2870ce61"
     },
     {
+      "path": "vessell/footprint.py",
+      "sha256": "b0fd56a29533fcb9a3f790888e631b325b30dd7c16228277de10cd0c6eb23eb9"
+    },
+    {
+      "path": "vessell/footprint_scan.py",
+      "sha256": "15c102374c0c214e5e501ac22c70ba250da75f3793f04713375b35f13fadd8b9"
+    },
+    {
       "path": "vessell/game_architecture.py",
       "sha256": "9122e2a01a59e3c59788633b4b19a98b8cccc86b894d05dfd47eb5cf8a2006ee"
     },
@@ -1603,6 +1619,10 @@
     {
       "path": "vessell/myth_corpus.py",
       "sha256": "ad7203a8918b127725063c505ca0fd292ced1701da736793cb66464bc1884df3"
+    },
+    {
+      "path": "vessell/name_search.py",
+      "sha256": "9ec210a7943fcbba89d1f238aadba00ff06628a84f95a0010f0e0fe5d0d58715"
     },
     {
       "path": "vessell/posture_agent.py",
@@ -1714,7 +1734,7 @@
     },
     {
       "path": "vessell/si_chat.py",
-      "sha256": "395500dce352fc528973724e62d2879df5cfa1a9e131b8c14ab6890be4af429f"
+      "sha256": "796457701ff32515c007ecdca010123640c6eb189b4c950ab8b2855a54dfed5f"
     },
     {
       "path": "vessell/si_levels.py",

@@ -286,6 +286,11 @@ class SIChat:
         clean = {k: episode.get(k) for k in keys if k in episode}
         clean["outcome"] = str(clean.get("outcome", ""))[:20]
         clean["stage"] = str(clean.get("stage", "intake"))[:20]
+        if "footprints" in episode:
+            from vessell.footprint import clean_footprints
+            clean["footprints"] = clean_footprints(episode["footprints"])
+            total = episode.get("footprints_total")
+            clean["footprints_total"] = min(total, 100) if isinstance(total, int) and total >= 0 else len(clean["footprints"])
         return self.memory.append("episode", clean)
 
     def _messages(self, message: str, lines: list[dict[str, Any]], loop: dict[str, Any],
