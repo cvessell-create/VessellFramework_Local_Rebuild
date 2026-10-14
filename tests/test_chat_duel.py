@@ -7,7 +7,11 @@ def _si(tmp_path):
     mem = si_chat.LoopMemory(tmp_path / "m.jsonl")
     mem.append("chat", {"message": "where is the exit?", "text": "x", "reply_kind": "generated"})
     mem.append("chat", {"message": "[episode]", "text": "y", "reply_kind": "owner"})
-    return si_chat.SIChat(backend=SIBackend(), memory=mem, myth=[])
+    calls = []
+    web = si_chat.WebSearch(fetch=lambda q: calls.append(q) or {})
+    si = si_chat.SIChat(backend=SIBackend(), memory=mem, myth=[], web=web)
+    si.web_calls = calls
+    return si
 
 
 def test_clean_lesson_rejects_digits_and_missing_label():
@@ -35,3 +39,5 @@ def test_converse_uses_real_player_question_and_feeds_lessons_back(tmp_path):
     system = si.backend.seen[-1][0]["content"]
     assert "Coaching from sparring" in system and "Name one concrete next move." in system
     assert "Why trust you?" not in system
+    # The playtester's opener never goes to web search; Rook's own follow-up does.
+    assert si.web_calls == ["Why trust you?"]

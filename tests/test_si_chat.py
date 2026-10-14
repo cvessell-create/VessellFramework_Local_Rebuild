@@ -150,3 +150,33 @@ def test_grounded_rejects_unsourced_causal_backstory(chat):
     assert not chat.grounded(invented, {}, "manual correction went down hard")
     assert chat.grounded("Restock because the corridor is hot.", {}, "restock before you trust that corridor hot")
     assert chat.grounded("Hold the line, Analyst.", {}, "")
+
+
+def _web(calls):
+    def fetch(q):
+        calls.append(q)
+        return {"Heading": "Cyberpunk", "AbstractText": "Cyberpunk is a subgenre of science fiction.",
+                "AbstractURL": "https://en.wikipedia.org/wiki/Cyberpunk", "AbstractSource": "Wikipedia",
+                "RelatedTopics": [{"Topics": [{"Text": "Neuromancer - 1984 novel", "FirstURL": "https://duckduckgo.com/Neuromancer"}]},
+                                  {"Text": "bad", "FirstURL": "http://insecure.example"}]}
+    return si_chat.WebSearch(fetch=fetch)
+
+
+def test_web_search_only_when_requested_and_cited(tmp_path):
+    calls = []
+    c = si_chat.SIChat(backend=SIBackend(text=["Hold steady, Analyst.", "Cyberpunk is a subgenre of science fiction."]),
+                       memory=si_chat.LoopMemory(tmp_path / "m.jsonl"), myth=[], web=_web(calls))
+    c.reply("what is cyberpunk", view="game")
+    assert calls == []
+    r = c.reply("what is cyberpunk", view="framework", search=True)
+    assert calls == ["what is cyberpunk"]
+    web = [s for s in r["sources"] if s.get("layer") == "web"]
+    assert [s["cite"] for s in web] == ["https://en.wikipedia.org/wiki/Cyberpunk", "https://duckduckgo.com/Neuromancer"]
+    assert all(s["status"] == "NOT_VERIFIED" for s in web)
+    assert "Hidden web results" in c.backend.seen[-1][0]["content"]
+
+
+def test_web_search_failure_is_silent():
+    def boom(q):
+        raise OSError("offline")
+    assert si_chat.WebSearch(fetch=boom).search("x") == []

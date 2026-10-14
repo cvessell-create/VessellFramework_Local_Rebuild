@@ -19,6 +19,7 @@ import subprocess
 import threading
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from collections import Counter
 from dataclasses import dataclass, field
@@ -35,6 +36,7 @@ GGUF_NAME = "qwen2.5-0.5b-instruct-q4_k_m.gguf"
 GGUF_SHA256 = "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db"
 OLLAMA_MODEL = "vessell-si-qwen2.5-0.5b"
 OLLAMA_URL = "http://127.0.0.1:11434"
+WEB_URL = "https://api.duckduckgo.com/"
 MEMORY_PATH = ROOT / "outputs" / "si_chat" / "memory.jsonl"
 SCHEMA = "vessell-si-chat/v1"
 MAX_MESSAGE = 500
@@ -124,6 +126,47 @@ CAUSAL = (r"(?:\bbecause\b|\bdue to\b|\bresult of\b|\bcaused by\b|\bthanks to\b|
 STOPWORDS = {"that", "this", "with", "were", "was", "have", "been", "from", "they", "them", "their",
              "what", "when", "which", "would", "could", "should", "there", "your", "about", "into",
              "than", "then", "just", "only", "some", "more", "very", "will", "analyst"}
+
+
+class WebSearch:
+    """DuckDuckGo Instant Answer API (free, no key). Snippets are third-party and NOT_VERIFIED."""
+
+    name = "duckduckgo-instant-answer"
+
+    def __init__(self, url: str = WEB_URL, timeout: float = 6, fetch: Any = None) -> None:
+        self.url, self.timeout, self._fetch, self._cache = url, timeout, fetch, {}
+
+    def _get(self, query: str) -> dict[str, Any]:
+        if self._fetch:
+            return self._fetch(query)
+        qs = urllib.parse.urlencode({"q": query, "format": "json", "no_html": 1, "no_redirect": 1,
+                                     "skip_disambig": 1})
+        req = urllib.request.Request(f"{self.url}?{qs}", headers={"User-Agent": "vessell-si/1"})
+        with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+            return json.loads(resp.read(200_000))
+
+    def search(self, query: str, k: int = 3) -> list[dict[str, str]]:
+        query = re.sub(r"\s+", " ", query).strip()[:120]
+        if not query:
+            return []
+        if query not in self._cache:
+            try:
+                data = self._get(query)
+            except (urllib.error.URLError, OSError, ValueError):
+                return []
+            hits = []
+            if data.get("AbstractText"):
+                hits.append({"title": data.get("Heading", ""), "text": data["AbstractText"],
+                             "url": data.get("AbstractURL", ""), "source": data.get("AbstractSource", "")})
+            topics = []
+            for t in data.get("RelatedTopics", []):
+                topics.extend(t.get("Topics", [t]) if "Topics" in t else [t])
+            for t in topics:
+                if t.get("Text") and t.get("FirstURL"):
+                    hits.append({"title": t["Text"].split(" - ")[0][:80], "text": t["Text"],
+                                 "url": t["FirstURL"], "source": "DuckDuckGo"})
+            self._cache[query] = [h | {"text": h["text"][:300]} for h in hits if h["url"].startswith("https://")]
+        return self._cache[query][:k]
 
 
 @dataclass
@@ -219,7 +262,9 @@ class OllamaBackend:
 
 class SIChat:
     def __init__(self, backend: Backend | None = None, memory: LoopMemory | None = None,
-                 corpus: dict[str, Any] | None = None, myth: list[dict[str, Any]] | None = None) -> None:
+                 corpus: dict[str, Any] | None = None, myth: list[dict[str, Any]] | None = None,
+                 web: WebSearch | None = None) -> None:
+        self.web = web or WebSearch()
         self.corpus = corpus or story_corpus.extract()
         problems = story_corpus.verify(self.corpus)
         if problems:
@@ -241,10 +286,14 @@ class SIChat:
         return self.memory.append("episode", clean)
 
     def _messages(self, message: str, lines: list[dict[str, Any]], loop: dict[str, Any],
-                  myth: list[dict[str, Any]] | None = None) -> list[dict[str, str]]:
+                  myth: list[dict[str, Any]] | None = None,
+                  web: list[dict[str, str]] | None = None) -> list[dict[str, str]]:
         notes = "\n".join(f"- {story_corpus.collapse(line['text']).replace('**', '').replace('`', '')}" for line in lines)
         if myth:
             notes += "\nHidden folklore:\n" + "\n".join(f"- ({m['tradition']}) {m['text'][:400]}" for m in myth)
+        if web:
+            notes += "\nHidden web results (third-party, unverified):\n" + "\n".join(
+                f"- {w['text']}" for w in web)
         situation = self.situation(loop.get("game_now") or {})
         msgs = [{"role": "system", "content": f"{PERSONA}\n\nHidden briefing notes:\n{notes}\n\n"
                  f"Loop telemetry: {json.dumps(loop, ensure_ascii=False)}\n\n"
@@ -320,7 +369,8 @@ class SIChat:
         return out
 
     def reply(self, message: str, view: str = "game", event: dict[str, Any] | None = None,
-              game: dict[str, Any] | None = None, speaker: str = "player") -> dict[str, Any]:
+              game: dict[str, Any] | None = None, speaker: str = "player",
+              search: bool = False) -> dict[str, Any]:
         message = (message or "").strip()[:MAX_MESSAGE]
         if event:
             self.record_episode(event)
@@ -339,21 +389,26 @@ class SIChat:
         myth = self.myth.search(prompt, mission if isinstance(mission, int) else None)
         sources = [{"id": ln["id"], "cite": f"{ln['source']}:{ln['line_start']}", "sha256": ln["sha256"]}
                    for ln in lines]
+        # Only owner-side callers opt in; playtester messages never leave this machine.
+        web = self.web.search(message) if search and message else []
+        web_sources = [{"id": f"web:{i}", "cite": w["url"], "layer": "web", "status": "NOT_VERIFIED"}
+                       for i, w in enumerate(web)]
         myth_sources = [{"id": f"myth:{m['source']}", "cite": f"public-domain:{m['source']}", "layer": "myth"}
                         for m in myth]
         text, kind, error = "", "generated", None
         if self.backend.available():
             try:
                 for _attempt in range(2):
-                    text = self.backend.generate(self._messages(prompt, lines, loop, myth))
-                    known = " ".join([json.dumps(loop), prompt] + [ln["text"] for ln in lines])
+                    text = self.backend.generate(self._messages(prompt, lines, loop, myth, web))
+                    known = " ".join([json.dumps(loop), prompt] + [ln["text"] for ln in lines]
+                                     + [w["text"] for w in web])
                     if self.grounded(text, facts, known):
                         break
                     text, error = "", "ungrounded"
             except (urllib.error.URLError, OSError, ValueError) as exc:
                 error = type(exc).__name__
         if text:
-            sources = sources + myth_sources
+            sources = sources + myth_sources + web_sources
         if not text and error == "ungrounded" and facts:
             # The model drifted from the live game state; report that state plainly instead.
             kind, text, sources = "telemetry", self.situation(facts), []
@@ -382,15 +437,15 @@ header{padding:10px 14px;background:#132;border-bottom:1px solid #2a4}#status{fo
 .tag{font-size:11px;color:#7a7}details{font-size:12px;color:#8a8}form{display:flex;border-top:1px solid #2a4}
 input{flex:1;background:#020;color:#cfe;border:0;padding:12px;font:inherit}button{background:#2a4;color:#012;border:0;padding:0 18px;font-weight:bold}</style>
 </head><body><header><b>VessellFramework // SI CHAT</b><div id="status">connecting…</div></header>
-<div id="log"></div><form id="f"><input id="q" maxlength="500" placeholder="Ask SI about the loop, the doctrine, the next objective" autocomplete="off"><button>SEND</button></form>
+<div id="log"></div><form id="f"><input id="q" maxlength="500" placeholder="Ask SI about the loop, the doctrine, the next objective" autocomplete="off"><label class="tag" style="align-self:center;padding:0 10px"><input type="checkbox" id="web" style="flex:none"> web search</label><button>SEND</button></form>
 <script>
 const log=document.getElementById('log'),q=document.getElementById('q'),st=document.getElementById('status');
 function add(cls,who,text,extra){const d=document.createElement('div');d.className='m '+cls;const b=document.createElement('b');b.textContent=who+': ';d.append(b,document.createTextNode(text));if(extra)d.append(extra);log.append(d);log.scrollTop=log.scrollHeight;}
 async function status(){const s=await (await fetch('/status')).json();const l=s.loop;st.textContent=s.backend+(s.model_ready?' ready':' offline (owner-text fallback)')+' · '+s.corpus_lines+' hidden source lines · episodes '+l.episodes+' · exits '+l.exits+' · deaths '+l.deaths+' · stage '+l.stage;}
 document.getElementById('f').onsubmit=async e=>{e.preventDefault();const m=q.value.trim();if(!m)return;q.value='';add('you','YOU',m);
-const r=await (await fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:m,view:'framework'})})).json();
+const r=await (await fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:m,view:'framework',search:document.getElementById('web').checked})})).json();
 const det=document.createElement('details');const sm=document.createElement('summary');sm.textContent=r.label+' · sources ('+r.sources.length+')';det.append(sm);
-r.sources.forEach(s=>{const p=document.createElement('div');p.textContent=s.cite+'  sha256:'+s.sha256.slice(0,12);det.append(p);});
+r.sources.forEach(s=>{const p=document.createElement('div');p.textContent=s.cite+(s.sha256?'  sha256:'+s.sha256.slice(0,12):'  ['+(s.layer||'')+(s.status?' '+s.status:'')+']');det.append(p);});
 add(r.kind==='owner'?'owner':'si',r.kind==='owner'?'AUTHOR':r.kind==='telemetry'?'LOOP':'SI',r.text,det);status();};
 status();setInterval(status,10000);
 </script></body></html>"""
@@ -451,7 +506,8 @@ def make_handler(chat: SIChat) -> type[BaseHTTPRequestHandler]:
             if self.path == "/chat":
                 view = "framework" if body.get("view") == "framework" else "game"
                 game = body.get("game") if isinstance(body.get("game"), dict) else None
-                self._json(200, chat.reply(str(body.get("message", "")), view=view, event=event, game=game))
+                self._json(200, chat.reply(str(body.get("message", "")), view=view, event=event, game=game,
+                                           search=view == "framework" and body.get("search") is True))
             elif self.path == "/event" and event:
                 self._json(200, chat.record_episode(event))
             else:
@@ -483,6 +539,7 @@ def main(argv: list[str] | None = None) -> int:
     sv.add_argument("--port", type=int, default=8790)
     ask = sub.add_parser("ask", help="ask one question from the terminal")
     ask.add_argument("message")
+    ask.add_argument("--web", action="store_true", help="also search DuckDuckGo (sends the question online)")
     sub.add_parser("status")
     args = ap.parse_args(argv)
     if args.cmd == "setup":
@@ -491,7 +548,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "status":
         print(json.dumps(chat.status(), indent=2))
     elif args.cmd == "ask":
-        r = chat.reply(args.message, view="framework")
+        r = chat.reply(args.message, view="framework", search=args.web)
         print(f"[{r['label']}] {r['text']}")
         for s in r["sources"]:
             print(f"  source {s['cite']}")

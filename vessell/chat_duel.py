@@ -53,12 +53,13 @@ def clean_lesson(text: str) -> str | None:
 
 
 def converse(opener: str, si: SIChat, generate: Generate, model: str = DEFAULT_MODEL,
-             turns: int = 3) -> dict[str, Any]:
+             turns: int = 3, web: bool = True) -> dict[str, Any]:
     transcript: list[dict[str, str]] = []
     question = opener
     lessons: list[str] = []
     for turn in range(turns):
-        answer = si.reply(question, view="game", speaker="rival")
+        # Turn 0 is a playtester's verbatim question, so it is never sent to web search.
+        answer = si.reply(question, view="game", speaker="rival", search=web and turn > 0)
         transcript += [{"who": "rook", "text": question}, {"who": "si", "text": answer["text"],
                                                              "kind": answer["kind"]}]
         log = "\n".join(f"{t['who'].upper()}: {t['text']}" for t in transcript)
@@ -77,11 +78,11 @@ def converse(opener: str, si: SIChat, generate: Generate, model: str = DEFAULT_M
 
 
 def run(rounds: int = 2, model: str = DEFAULT_MODEL, generate: Generate | None = None,
-        si: SIChat | None = None, turns: int = 3) -> list[dict[str, Any]]:
+        si: SIChat | None = None, turns: int = 3, web: bool = True) -> list[dict[str, Any]]:
     si = si or SIChat()
     generate = generate or ollama_generate()
     questions = player_questions(si.memory)
-    return [converse(questions[i % len(questions)], si, generate, model, turns) for i in range(rounds)]
+    return [converse(questions[i % len(questions)], si, generate, model, turns, web) for i in range(rounds)]
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -90,11 +91,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--turns", type=int, default=3)
     ap.add_argument("--model", default=DEFAULT_MODEL, help="local Ollama model for Rook")
     ap.add_argument("--forever", action="store_true")
+    ap.add_argument("--no-web", action="store_true", help="keep Rook's follow-ups offline")
     ap.add_argument("--pause", type=float, default=120)
     args = ap.parse_args(argv)
     while True:
         try:
-            for rec in run(args.rounds, args.model, turns=args.turns):
+            for rec in run(args.rounds, args.model, turns=args.turns, web=not args.no_web):
                 print("\n--- opener: " + rec["opener"], flush=True)
                 for t in rec["transcript"]:
                     print(f"  {t['who'].upper()}: {t['text']}", flush=True)
