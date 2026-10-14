@@ -5,7 +5,7 @@ real player questions from the SI loop memory. The SI answers through the
 normal ``SIChat.reply`` pipeline (grounding checks and fallbacks intact). After
 each exchange Rook writes one style rule; the SI retrieves the latest rules
 into its prompt. This is prompt retrieval, not model training. Everything is
-generated, local and NOT_VERIFIED.
+generated and local; coaching suggestions await human review.
 """
 
 from __future__ import annotations
@@ -19,7 +19,7 @@ from typing import Any
 from vessell.idea_loop import DEFAULT_MODEL, Generate, ollama_generate
 from vessell.si_chat import LoopMemory, SIChat
 
-STATUS = "NOT_VERIFIED / PENDING_HUMAN_REVIEW"
+STATUS = "GENERATED COACHING / PENDING_HUMAN_REVIEW"
 ROOK = (
     "You are Rook, a veteran fixer who spars with a younger AI radio operator called the SI in a "
     "cyberpunk shooter. You talk like a player: blunt, curious, a little cynical. Ask one short "

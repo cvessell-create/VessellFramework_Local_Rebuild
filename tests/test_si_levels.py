@@ -43,7 +43,7 @@ def test_run_scripted_end_to_end(tmp_path):
     states = {r["level"]: r["state"] for r in report["levels"]}
     fails = [(r["level"], t) for r in report["levels"] for t in r["checks"] if not t["passed"]]
     assert all(s == "up" for s in states.values()), fails
-    assert report["status"].startswith("NOT_VERIFIED")
+    assert report["status"] == "RECORDED TRIAL RESULTS / PENDING_HUMAN_REVIEW"
     assert json.loads((tmp_path / "r.jsonl").read_text())["levels"][4]["level"] == "L5 Organization"
     # Probe traffic is not treated as playtester questions.
     from vessell import chat_duel

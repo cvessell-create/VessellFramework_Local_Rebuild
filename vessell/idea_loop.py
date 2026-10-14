@@ -4,7 +4,7 @@
 SI (the in-game voice) pitches game ideas from the autopilot loop log; the
 framework agent critiques each pitch with declared assumptions, the episodes it
 rests on and a playtest that could disconfirm it. Everything stays on
-127.0.0.1. Output is generated derivative text: NOT_VERIFIED and pending
+127.0.0.1. Output is generated derivative text: a design proposal pending
 human review, never an approved design or a claim about the owner's intent.
 """
 
@@ -25,7 +25,7 @@ from vessell.si_chat import MEMORY_PATH, OLLAMA_URL, PERSONA, ROOT, LoopMemory
 SCHEMA = "vessell-game-idea/v1"
 IDEAS_PATH = ROOT / "outputs" / "game_ideas" / "ideas.jsonl"
 DEFAULT_MODEL = "llama3.1"
-STATUS = "NOT_VERIFIED / PENDING_HUMAN_REVIEW"
+STATUS = "GENERATED DESIGN PROPOSAL / PENDING_HUMAN_REVIEW"
 
 GAME_BRIEF = (
     "Game: 'Hail to the Analyst', a mature (17+) retro shooter. Isometric 3D city layer "

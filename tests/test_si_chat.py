@@ -89,7 +89,8 @@ def test_loops_page_shows_feed_levels_and_ideas(chat, tmp_path):
     levels.write_text(json.dumps({"at": 1, "model": "si:test", "levels": [{"level": "L1 Chatbot", "state": "up"}]}) + "\n")
     ideas.write_text(json.dumps({"si_pitch": "From E3: recon run"}) + "\n")
     snap = si_chat.loops_snapshot(chat.memory, levels, ideas)
-    assert snap["status"] == "NOT_VERIFIED" and snap["levels"]["levels"][0]["state"] == "up"
+    assert snap["status"] == "RECORDED LOOP ACTIVITY"
+    assert snap["levels"]["levels"][0]["state"] == "up"
     assert snap["ideas"][0]["si_pitch"].startswith("From E3")
     assert [r["kind"] for r in snap["feed"]] == ["chat", "lesson"] and snap["feed"][0]["speaker"] == "player"
     server = ThreadingHTTPServer(("127.0.0.1", 0), si_chat.make_handler(chat))

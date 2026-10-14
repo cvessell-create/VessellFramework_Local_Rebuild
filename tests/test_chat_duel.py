@@ -30,7 +30,8 @@ def test_converse_uses_real_player_question_and_feeds_lessons_back(tmp_path):
     rec = recs[0]
     assert rec["opener"] == "where is the exit?"
     assert [t["who"] for t in rec["transcript"]] == ["rook", "si", "rook", "si"]
-    assert rec["transcript"][2]["text"] == "Why trust you?" and rec["status"].startswith("NOT_VERIFIED")
+    assert rec["transcript"][2]["text"] == "Why trust you?"
+    assert rec["status"] == "GENERATED COACHING / PENDING_HUMAN_REVIEW"
     rows = si.memory.load()
     assert sum(r["kind"] == "lesson" for r in rows) == 2 and rows[-1]["kind"] == "dialogue"
     # Rival turns are not replayed as player questions, and the lesson reaches the SI prompt.

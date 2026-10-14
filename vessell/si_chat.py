@@ -220,7 +220,7 @@ class LoopMemory:
         return [r for r in self.load() if r["kind"] == "chat"][-n:]
 
     def lessons(self, n: int = 3) -> list[str]:
-        """Latest coaching rules from the sparring loop (generated, NOT_VERIFIED style guidance)."""
+        """Latest coaching rules from the sparring loop (generated style suggestions)."""
         return [str(r.get("lesson", ""))[:160] for r in self.load() if r["kind"] == "lesson" and r.get("lesson")][-n:]
 
 
@@ -464,6 +464,7 @@ status();setInterval(status,10000);
 
 LEVELS_REPORT = ROOT / "outputs" / "si_levels" / "report.jsonl"
 IDEAS_PATH = ROOT / "outputs" / "si_levels" / "ideas.jsonl"
+PHASE0_PATH = ROOT / "outputs" / "phase0" / "latest.json"
 
 
 def _tail_jsonl(path: Path, n: int) -> list[dict[str, Any]]:
@@ -479,15 +480,26 @@ def _tail_jsonl(path: Path, n: int) -> list[dict[str, Any]]:
 
 
 def loops_snapshot(memory: LoopMemory, levels_path: Path = LEVELS_REPORT,
-                   ideas_path: Path = IDEAS_PATH, n: int = 60) -> dict[str, Any]:
-    """Read-only view of the running loops for the local /loops page (all generated text is NOT_VERIFIED)."""
+                   ideas_path: Path = IDEAS_PATH, n: int = 60,
+                   phase0_path: Path = PHASE0_PATH) -> dict[str, Any]:
+    """Read-only loop records; each record retains its own evidence and review status."""
     rows = memory.load()
     feed = [{k: r.get(k) for k in ("kind", "at", "speaker", "message", "text", "reply_kind", "lesson",
                                    "mission", "outcome", "kills", "fitness", "stage", "opener")}
             for r in rows if r.get("kind") in ("chat", "lesson", "dialogue", "episode")][-n:]
     reports = _tail_jsonl(levels_path, 1)
-    return {"status": "NOT_VERIFIED", "summary": memory.summary(), "levels": reports[-1] if reports else None,
-            "ideas": _tail_jsonl(ideas_path, 5), "feed": feed}
+    phase0 = None
+    if phase0_path.exists():
+        try:
+            p0 = json.loads(phase0_path.read_text("utf-8"))
+            phase0 = {k: p0.get(k) for k in ("at", "status", "gate", "touch", "phase1_steps")}
+            phase0["sources"] = [{k: s.get(k) for k in ("id", "topic", "status", "url")} for s in p0.get("sources", [])]
+            phase0["findings"] = (p0.get("rereport") or {}).get("findings", [])
+            phase0["merkle_root"] = (p0.get("receipt_preview") or {}).get("merkle_root")
+        except (json.JSONDecodeError, OSError):
+            phase0 = None
+    return {"status": "RECORDED LOOP ACTIVITY", "summary": memory.summary(), "levels": reports[-1] if reports else None,
+            "ideas": _tail_jsonl(ideas_path, 5), "feed": feed, "phase0": phase0}
 
 
 LOOPS_HTML = """<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -497,8 +509,8 @@ main{padding:12px 14px;max-width:900px}.lv{display:inline-block;margin:4px 6px 4
 .up{border:1px solid #4c4}.down{border:1px solid #c44}.row{margin:6px 0;padding:6px 8px;border-left:3px solid #2a4}
 .player{border-color:#9cf}.rival{border-color:#f9a}.probe{border-color:#888}.lesson{border-color:#fd7}.episode{border-color:#7cf}
 .t{font-size:11px;color:#7a7}h2{font-size:13px;color:#8c8;margin:16px 0 4px}</style></head><body>
-<header><b>VessellFramework // SI LOOPS</b> <span class="t">auto-refresh 5s · generated text NOT_VERIFIED</span><div id="sum"></div></header>
-<main><h2>FIVE LEVELS (latest run)</h2><div id="levels">no run yet</div><h2>LATEST IDEAS</h2><div id="ideas"></div>
+<header><b>VessellFramework // SI LOOPS</b> <span class="t">auto-refresh 5s · recorded activity · generated proposals require review</span><div id="sum"></div></header>
+<main><h2>PHASE 0 · RESEARCH + READ-ONLY TOUCH</h2><div id="p0">no Phase 0 run yet</div><h2>FIVE LEVELS (latest run)</h2><div id="levels">no run yet</div><h2>LATEST IDEAS</h2><div id="ideas"></div>
 <h2>LIVE FEED (newest first)</h2><div id="feed"></div></main>
 <script>
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
@@ -508,6 +520,13 @@ document.getElementById('sum').textContent='episodes '+s.episodes+' · exits '+s
 const lv=document.getElementById('levels');lv.textContent='';
 if(d.levels){lv.append(el('div','t','run at '+when(d.levels.at)+' · '+d.levels.model));d.levels.levels.forEach(l=>{const b=el('div','lv '+l.state,l.level+': '+l.state.toUpperCase()+' '+l.passed+'/'+l.trials);
 b.title=l.checks.map(c=>(c.passed?'PASS ':'FAIL ')+c.check+(c.detail?' — '+c.detail:'')).join('\\n');lv.append(b);});}
+const p=document.getElementById('p0');if(d.phase0){const z=d.phase0;p.textContent='';
+p.append(el('div','lv '+(z.gate.phase1_authorized?'up':(z.gate.state.indexOf('COMPLETE')>=0?'up':'down')),z.gate.state+' · Phase 1 authorized: '+(z.gate.phase1_authorized?'yes':'NO (owner decision)')));
+p.append(el('div','t','run at '+when(z.at)+' · '+z.status+' · local merkle preview '+(z.merkle_root||'').slice(0,16)+'… (unsigned, unanchored)'));
+z.touch.forEach(t=>p.append(el('div','lv '+(t.ok?'up':'down'),t.id+' '+t.probe+': '+JSON.stringify(t.value))));
+z.sources.forEach(s=>p.append(el('div','row',s.id+' · '+s.status+' · '+s.topic)));
+z.findings.forEach(f=>p.append(el('div','row lesson',f.id+' · '+f.text)));
+(z.phase1_steps||[]).forEach(s=>p.append(el('div','row episode','PHASE 1 STEP · '+s.step+' ['+s.evidence.join(',')+']')));}
 const id=document.getElementById('ideas');id.textContent='';d.ideas.slice().reverse().forEach(i=>id.append(el('div','row',(i.si_pitch||i.idea||JSON.stringify(i)).slice(0,300))));
 const f=document.getElementById('feed');f.textContent='';d.feed.slice().reverse().forEach(r=>{const who=r.kind==='chat'?(r.speaker||'player'):r.kind;
 const row=el('div','row '+who);row.append(el('div','t',when(r.at)+' · '+who.toUpperCase()+(r.reply_kind?' · '+r.reply_kind:'')));

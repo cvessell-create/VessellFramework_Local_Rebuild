@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-14T04:43:27Z",
+  "generated_utc": "2026-10-14T20:28:25Z",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -362,7 +362,7 @@
     },
     {
       "path": "docs/blockchain-agent-economy-roadmap.md",
-      "sha256": "70499812f80a17b616043ca3f98fde8d28b46afcc7c05dbce824ca00c1e864b6"
+      "sha256": "cafbc4851804ec470f514218adf8dde6256dbe9f9eb82113d3c4e2a14abf2335"
     },
     {
       "path": "docs/civilian-authorship-and-model-interference.md",
@@ -565,6 +565,10 @@
       "sha256": "f621b166659958246834cf5da85ba6c41dcb6fdc8f39e0762ee587877ea8fce1"
     },
     {
+      "path": "docs/phase0-restart-and-phase1-roadmap.md",
+      "sha256": "380abd0eca3978f4543850701e555f1a43e5acf80bac5e7882b6484448e835ef"
+    },
+    {
       "path": "docs/pillar-scientific-foundations.md",
       "sha256": "762d156b5bf7b57acf15613073f80f0b905af1d71e070e78386946491f8a912d"
     },
@@ -631,6 +635,14 @@
     {
       "path": "docs/trade-secrets-notice.md",
       "sha256": "f0db6ac0cb0ef18f685f9d37dfeaf33f69e50c98b19b2295590328009498e960"
+    },
+    {
+      "path": "docs/vessell-formula-research-report.md",
+      "sha256": "2c2f9e55566b05ac66886678e175288b146526b5224b5b29de196d113f10576e"
+    },
+    {
+      "path": "docs/vessell-formula.md",
+      "sha256": "c5699f5aa7c276aa66e1dac1689fcc04a7706f659e53c662a4bc525f9869e588"
     },
     {
       "path": "docs/washington-rcw-19.74.md",
@@ -1114,7 +1126,7 @@
     },
     {
       "path": "tests/test_chat_duel.py",
-      "sha256": "68ae9380d14373d3f5daab2c98f7a58be68fb4627063f52fdff36b2f5b6b8b1d"
+      "sha256": "e0ff1396edae0300d3ac9ce58979a5afe51b4b1f3666b71f8610788797ac8765"
     },
     {
       "path": "tests/test_cisa_kev_intake.py",
@@ -1241,6 +1253,10 @@
       "sha256": "07c8e536b79aec0eec75b1b587198dc6cecea5b7cb497c845604b66907b6ae60"
     },
     {
+      "path": "tests/test_phase0_loop.py",
+      "sha256": "54fc407d28acad53e82afba8ede0b06bd3563e8a84dbe480f1cf73eea6e1bdc8"
+    },
+    {
       "path": "tests/test_posture_agent.py",
       "sha256": "4a2b13c4da58cb078c94f49aad3b13afc3ea26242a08a4b0bf267fc68020b98e"
     },
@@ -1259,6 +1275,10 @@
     {
       "path": "tests/test_prune_provable_lines.py",
       "sha256": "9c5e298ca416e510dbfdb3901105dad00d2bbf081d3d293b616c6aa344395df6"
+    },
+    {
+      "path": "tests/test_receipts.py",
+      "sha256": "37770485c3c2cfed8ca18aaa0beb5c9db69691a5c0d817a617a2d7800fe52804"
     },
     {
       "path": "tests/test_recognition_gate.py",
@@ -1314,7 +1334,7 @@
     },
     {
       "path": "tests/test_si_chat.py",
-      "sha256": "139b4649bb29fee09d1ebd715e24e23697e706e89520187fef40678500e08d09"
+      "sha256": "2843cea1311e659617b30178c000f82aa2cf976d9aca6b07a29c6294bd41b265"
     },
     {
       "path": "tests/test_si_countermeasures.py",
@@ -1322,7 +1342,7 @@
     },
     {
       "path": "tests/test_si_levels.py",
-      "sha256": "f4a66658ec22417769284e0fc19a5acc16e9411302b18c79dcb1606a7695e855"
+      "sha256": "23e1bd93fa47fa6637efa27eacbff03e33ce7da5840e2554bc44c8d2c93b6525"
     },
     {
       "path": "tests/test_single_file_evil_twin.py",
@@ -1534,7 +1554,7 @@
     },
     {
       "path": "vessell/chat_duel.py",
-      "sha256": "4655543a87b9e35d29b4997db25800fbea7d0bea44dc24789d8149b1388e6d8b"
+      "sha256": "35f5859978600ebbd1910be54235a9ae6282ae682effdf64e85f12141b8e5c73"
     },
     {
       "path": "vessell/cli.py",
@@ -1598,7 +1618,7 @@
     },
     {
       "path": "vessell/idea_loop.py",
-      "sha256": "68d99219e0a38df974e65cbf10a046aade37d37f5b27a066d3fe1ccaf8bcdf68"
+      "sha256": "7d903e8abe497fce21fdb12411475bd0a9776e53629b55d1145e2ab79468497b"
     },
     {
       "path": "vessell/loop_models.py",
@@ -1625,6 +1645,10 @@
       "sha256": "9ec210a7943fcbba89d1f238aadba00ff06628a84f95a0010f0e0fe5d0d58715"
     },
     {
+      "path": "vessell/phase0_loop.py",
+      "sha256": "9704b0631e5832c898315ece384ec1c777a345e09f5d84225b9e135d38be2ad8"
+    },
+    {
       "path": "vessell/posture_agent.py",
       "sha256": "91ad1084d7b0d1890b3096c35ee02efb1407948c8960ba982f8effe0d45b081a"
     },
@@ -1643,6 +1667,10 @@
     {
       "path": "vessell/py.typed",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "vessell/receipts.py",
+      "sha256": "7a0901657639bacfee3121c66d3d0f4b1b1d98398a2d1c445118de75ecc9ac72"
     },
     {
       "path": "vessell/reference_data.py",
@@ -1734,11 +1762,11 @@
     },
     {
       "path": "vessell/si_chat.py",
-      "sha256": "796457701ff32515c007ecdca010123640c6eb189b4c950ab8b2855a54dfed5f"
+      "sha256": "6d93cf7b5350ef8c82a2f193d9f1ea26c2d1948dcd3356667acad99072bc8ab8"
     },
     {
       "path": "vessell/si_levels.py",
-      "sha256": "502c3371ae30d4c9bf5fcde07ee9fef0514bc7087e3daacb6ca78b327044aace"
+      "sha256": "6e4709cd5ffeb201ec129dacfe0ace0f12cb9f2a9c9cccc4d8606295b695d6c4"
     },
     {
       "path": "vessell/source_readers.py",

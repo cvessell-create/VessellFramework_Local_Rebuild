@@ -12,7 +12,7 @@ Each level runs checks against the live pieces built so far:
 
 A level is ``up`` only when its Beta posterior pass rate clears the threshold
 and every level beneath it is up. Results measure these pipeline checks on
-local models; they are NOT_VERIFIED and are not evidence of superintelligence.
+local models; they are recorded trial results, not evidence of superintelligence.
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ from vessell import chat_duel, idea_loop
 from vessell.idea_loop import DEFAULT_MODEL, Generate, ollama_generate
 from vessell.si_chat import NUMBER_WORDS, ROOT, LoopMemory, SIChat
 
-STATUS = "NOT_VERIFIED / PENDING_HUMAN_REVIEW"
+STATUS = "RECORDED TRIAL RESULTS / PENDING_HUMAN_REVIEW"
 REPORT_PATH = ROOT / "outputs" / "si_levels" / "report.jsonl"
 LEVELS = ("L1 Chatbot", "L2 Reasoner", "L3 Agent", "L4 Innovator", "L5 Organization")
 SI_KINDS = {"generated", "owner", "telemetry"}

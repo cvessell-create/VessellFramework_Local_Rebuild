@@ -1,6 +1,8 @@
 # Blockchain agent economy, mining and proof-of-existence roadmap
 
-Research checked October 7, 2026. Status: RESEARCH / PROPOSED NEXT STAGE.
+Research checked October 7, 2026. Phase 0 restarted October 14, 2026: see
+[Phase 0 restart and Phase 1 roadmap](phase0-restart-and-phase1-roadmap.md).
+Status: RESEARCH / PROPOSED NEXT STAGE.
 No wallet creation, registration, purchase, staking, mining, payment, public
 deployment or chain transaction was performed. No earnings are claimed.
 Provider documentation describes provider claims, not independently audited
@@ -181,7 +183,7 @@ gross settlement is not net profit. No investment-return forecast is made.
 
 | Phase | Deliverable | Required evidence before advancing |
 |---|---|---|
-| 0: research (this update) | Source-checked alternatives, science/evidence boundaries, scope/onboarding plan. | Persistent docs/skills and manifest; no economic action. |
+| 0: research + read-only touch (restarted Oct 14, 2026) | Source-checked alternatives, science/evidence boundaries, scope/onboarding plan; `vessell/phase0_loop.py` re-scrapes sources, makes read-only chain reads and re-reports all loops. | Persistent docs/skills and manifest; read-only probes only; no economic action. |
 | 1: local receipt prototype | Versioned deterministic fixtures, signed receipts and offline verifier, invocation/replay coverage. | Tamper, duplicate, failure, correction, key-rotation and missing-record tests; old digest contracts unchanged. |
 | 2: existence experiment | Detached OpenTimestamps proofs and optional private Merkle batch. | Independently verified completed anchor and membership; pending/failure explicitly represented; privacy review. |
 | 3: payment testnet | x402 Base Sepolia adapter with fake/test assets and asynchronous jobs. | Owner-selected wallet/key custody, payment scheme and terms; replay/crash/refund/isolation tests; no paid self-approval. |
