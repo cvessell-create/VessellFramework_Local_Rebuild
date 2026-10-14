@@ -82,6 +82,26 @@ def test_http_server_serves_chatbox_and_rejects_foreign_origins(chat):
         server.shutdown()
 
 
+def test_loops_page_shows_feed_levels_and_ideas(chat, tmp_path):
+    chat.reply("where is the exit?", speaker="player")
+    chat.memory.append("lesson", {"lesson": "Answer the question asked."})
+    levels, ideas = tmp_path / "r.jsonl", tmp_path / "i.jsonl"
+    levels.write_text(json.dumps({"at": 1, "model": "si:test", "levels": [{"level": "L1 Chatbot", "state": "up"}]}) + "\n")
+    ideas.write_text(json.dumps({"si_pitch": "From E3: recon run"}) + "\n")
+    snap = si_chat.loops_snapshot(chat.memory, levels, ideas)
+    assert snap["status"] == "NOT_VERIFIED" and snap["levels"]["levels"][0]["state"] == "up"
+    assert snap["ideas"][0]["si_pitch"].startswith("From E3")
+    assert [r["kind"] for r in snap["feed"]] == ["chat", "lesson"] and snap["feed"][0]["speaker"] == "player"
+    server = ThreadingHTTPServer(("127.0.0.1", 0), si_chat.make_handler(chat))
+    threading.Thread(target=server.serve_forever, daemon=True).start()
+    base = f"http://127.0.0.1:{server.server_address[1]}"
+    try:
+        assert b"SI LOOPS" in urllib.request.urlopen(base + "/loops").read()
+        assert "feed" in json.loads(urllib.request.urlopen(base + "/loops.json").read())
+    finally:
+        server.shutdown()
+
+
 def test_game_facts_are_sanitised_into_the_prompt(chat):
     chat.reply("ammo?", game={"hp": 40, "bullets": 7, "red_clearance": True, "autopilot_goal": "nav:ammo",
                               "Bad Key": 1, "nested": {"x": 1}, "nan": float("nan")})

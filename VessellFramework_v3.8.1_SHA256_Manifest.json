@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-14T02:36:26.660124+00:00",
+  "generated_utc": "2026-10-14T03:02:53Z",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -1306,7 +1306,7 @@
     },
     {
       "path": "tests/test_si_chat.py",
-      "sha256": "d7572727e9df059d082e6130ce3e336a405544053fa9ccc649eb98fab3363365"
+      "sha256": "139b4649bb29fee09d1ebd715e24e23697e706e89520187fef40678500e08d09"
     },
     {
       "path": "tests/test_si_countermeasures.py",
@@ -1714,7 +1714,7 @@
     },
     {
       "path": "vessell/si_chat.py",
-      "sha256": "fe86b9e80f7943d1ffc7c959fc5170cb19f46833041e77dbe820ea5164a8b652"
+      "sha256": "395500dce352fc528973724e62d2879df5cfa1a9e131b8c14ab6890be4af429f"
     },
     {
       "path": "vessell/si_levels.py",

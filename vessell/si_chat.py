@@ -457,6 +457,63 @@ status();setInterval(status,10000);
 </script></body></html>"""
 
 
+LEVELS_REPORT = ROOT / "outputs" / "si_levels" / "report.jsonl"
+IDEAS_PATH = ROOT / "outputs" / "si_levels" / "ideas.jsonl"
+
+
+def _tail_jsonl(path: Path, n: int) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    out = []
+    for row in path.read_text("utf-8").splitlines()[-n:]:
+        try:
+            out.append(json.loads(row))
+        except json.JSONDecodeError:
+            continue
+    return out
+
+
+def loops_snapshot(memory: LoopMemory, levels_path: Path = LEVELS_REPORT,
+                   ideas_path: Path = IDEAS_PATH, n: int = 60) -> dict[str, Any]:
+    """Read-only view of the running loops for the local /loops page (all generated text is NOT_VERIFIED)."""
+    rows = memory.load()
+    feed = [{k: r.get(k) for k in ("kind", "at", "speaker", "message", "text", "reply_kind", "lesson",
+                                   "mission", "outcome", "kills", "fitness", "stage", "opener")}
+            for r in rows if r.get("kind") in ("chat", "lesson", "dialogue", "episode")][-n:]
+    reports = _tail_jsonl(levels_path, 1)
+    return {"status": "NOT_VERIFIED", "summary": memory.summary(), "levels": reports[-1] if reports else None,
+            "ideas": _tail_jsonl(ideas_path, 5), "feed": feed}
+
+
+LOOPS_HTML = """<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SI Loops</title><style>body{margin:0;background:#0b0f0c;color:#cfe;font:14px/1.45 system-ui,sans-serif}
+header{padding:10px 14px;background:#132;border-bottom:1px solid #2a4;position:sticky;top:0}#sum{font-size:12px;color:#8a8}
+main{padding:12px 14px;max-width:900px}.lv{display:inline-block;margin:4px 6px 4px 0;padding:6px 10px;border-radius:6px;background:#1a2a1a}
+.up{border:1px solid #4c4}.down{border:1px solid #c44}.row{margin:6px 0;padding:6px 8px;border-left:3px solid #2a4}
+.player{border-color:#9cf}.rival{border-color:#f9a}.probe{border-color:#888}.lesson{border-color:#fd7}.episode{border-color:#7cf}
+.t{font-size:11px;color:#7a7}h2{font-size:13px;color:#8c8;margin:16px 0 4px}</style></head><body>
+<header><b>VessellFramework // SI LOOPS</b> <span class="t">auto-refresh 5s · generated text NOT_VERIFIED</span><div id="sum"></div></header>
+<main><h2>FIVE LEVELS (latest run)</h2><div id="levels">no run yet</div><h2>LATEST IDEAS</h2><div id="ideas"></div>
+<h2>LIVE FEED (newest first)</h2><div id="feed"></div></main>
+<script>
+function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function when(s){return s?new Date(s*1000).toLocaleTimeString():'';}
+async function tick(){const d=await (await fetch('/loops.json')).json();const s=d.summary;
+document.getElementById('sum').textContent='episodes '+s.episodes+' · exits '+s.exits+' · deaths '+s.deaths+' · chat turns '+s.chat_turns+' · stage '+s.stage;
+const lv=document.getElementById('levels');lv.textContent='';
+if(d.levels){lv.append(el('div','t','run at '+when(d.levels.at)+' · '+d.levels.model));d.levels.levels.forEach(l=>{const b=el('div','lv '+l.state,l.level+': '+l.state.toUpperCase()+' '+l.passed+'/'+l.trials);
+b.title=l.checks.map(c=>(c.passed?'PASS ':'FAIL ')+c.check+(c.detail?' — '+c.detail:'')).join('\\n');lv.append(b);});}
+const id=document.getElementById('ideas');id.textContent='';d.ideas.slice().reverse().forEach(i=>id.append(el('div','row',(i.si_pitch||i.idea||JSON.stringify(i)).slice(0,300))));
+const f=document.getElementById('feed');f.textContent='';d.feed.slice().reverse().forEach(r=>{const who=r.kind==='chat'?(r.speaker||'player'):r.kind;
+const row=el('div','row '+who);row.append(el('div','t',when(r.at)+' · '+who.toUpperCase()+(r.reply_kind?' · '+r.reply_kind:'')));
+if(r.kind==='lesson')row.append(el('div','',r.lesson));
+else if(r.kind==='dialogue')row.append(el('div','','Rook sparring round finished · opener: '+(r.opener||'')));
+else if(r.kind==='episode')row.append(el('div','','mission '+r.mission+' · '+r.outcome+' · kills '+r.kills+' · fitness '+r.fitness));
+else{if(r.message)row.append(el('div','','Q: '+r.message));if(r.text)row.append(el('div','','A: '+r.text));}f.append(row);});}
+tick();setInterval(tick,5000);
+</script></body></html>"""
+
+
 def make_handler(chat: SIChat) -> type[BaseHTTPRequestHandler]:
     class Handler(BaseHTTPRequestHandler):
         server_version = "VessellSIChat/1"
@@ -492,6 +549,10 @@ def make_handler(chat: SIChat) -> type[BaseHTTPRequestHandler]:
                 self._send(200, CHATBOX_HTML.encode(), "text/html; charset=utf-8")
             elif self.path == "/status":
                 self._json(200, chat.status())
+            elif self.path == "/loops":
+                self._send(200, LOOPS_HTML.encode(), "text/html; charset=utf-8")
+            elif self.path == "/loops.json":
+                self._json(200, loops_snapshot(chat.memory))
             else:
                 self._json(404, {"error": "not found"})
 
