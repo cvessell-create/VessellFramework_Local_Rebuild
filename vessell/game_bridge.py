@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import select
 import subprocess
@@ -126,6 +127,80 @@ def new_session(output: Path, mode: str) -> GameSession:
         register_dependent(claim.id, "managed-json", str(path), via="provisional game archive")
     return GameSession(folder, mode, claim, snapshots,
                        snapshot_hashes={path.name: sha256(path) for path in snapshots})
+
+
+def homebrew_play(game_dir: Path) -> dict[str, Any]:
+    """Run the original native C slice through the existing synthetic-use gate."""
+    root = game_dir.resolve() / "homebrew"
+    source_hash = sha256(root / "slice.c")
+    build = subprocess.run(
+        ["make", "-C", str(root), "host-worker"], capture_output=True, text=True,
+        check=False, timeout=60,
+    )
+    if build.returncode:
+        raise RuntimeError(f"Homebrew host build failed: {build.stdout}\n{build.stderr}")
+    claim = intake_claim(
+        "The original C slice is the primary record for this fictional engine test.",
+        "Homebrew host test", f"Original slice SHA-256 {source_hash}",
+        SourceStatus.SOURCE_ESTABLISHED, is_official_record=True,
+        uncertainty="Native host execution only; not a Dreamcast or Flycast boot result.",
+    )
+    requests = ["reset"]
+    for dx, dy in [(-1, 0)] + [(1, 0)] * 5 + [(-1, 0)] * 5 + [(0, 1)] * 5 + [(1, 0)] * 5:
+        allowed, reason = gate_for_use(claim, "consequential")
+        if not allowed:
+            raise ValueError(f"Homebrew synthetic action blocked: {reason}")
+        requests.append(f"step {dx} {dy}")
+    worker = root / "build/hail-worker"
+    execution = subprocess.run(
+        [str(worker)], input="\n".join(requests) + "\n", capture_output=True,
+        text=True, check=False, timeout=10,
+    )
+    if execution.returncode:
+        raise RuntimeError(f"Homebrew worker failed: {execution.stderr}")
+    frames: list[dict[str, Any]] = []
+    for line in execution.stdout.splitlines():
+        payload: object = json.loads(line)
+        if not isinstance(payload, dict):
+            raise TypeError("Homebrew worker returned a non-object telemetry value.")
+        frames.append(cast(dict[str, Any], payload))
+    if len(frames) != len(requests):
+        raise ValueError("Homebrew worker response count differs from the action count.")
+    expected_fields = {"engine", "camera", "x", "y", "ticks", "collected", "complete"}
+    for frame in frames:
+        if (set(frame) != expected_fields
+                or frame["engine"] != "hail-homebrew-slice/v1"
+                or frame["camera"] != "third-person-iso"
+                or type(frame["complete"]) is not bool
+                or any(type(frame[key]) is not int for key in ("x", "y", "ticks", "collected"))
+                or not 0 <= frame["ticks"] <= 4294967295
+                or not 0 <= frame["collected"] <= 3
+                or any(not 256 <= frame[key] <= 1536 or frame[key] % 256 for key in ("x", "y"))):
+            raise ValueError("Homebrew worker violated the bounded telemetry contract.")
+    if (frames[0]["x"], frames[0]["y"]) != (256, 256):
+        raise ValueError("Homebrew reset did not reach the expected spawn.")
+    if (frames[1]["x"], frames[1]["y"]) != (256, 256):
+        raise ValueError("Homebrew wall collision allowed movement.")
+    if frames[-1]["collected"] != 3 or frames[-1]["complete"] is not True:
+        raise ValueError("Homebrew fixture did not complete the expected extraction.")
+    return {
+        "evaluation": "Original C homebrew slice bounded replay",
+        "evidence_scope": "Native C execution with synthetic game state; not Dreamcast boot.",
+        "schema": "vessell-homebrew-host-test/v1",
+        "mode": "NATIVE_C_SLICE",
+        "camera": "third-person-iso",
+        "source_sha256": source_hash,
+        "worker_sha256": sha256(worker),
+        "actions": len(requests) - 1,
+        "trace_sha256": hashlib.sha256(
+            json.dumps(frames, sort_keys=True).encode()
+        ).hexdigest(),
+        "wall_blocked": True,
+        "complete": True,
+        "dreamcast": "NOT_EVALUATED_BY_NATIVE_HOST_CHECK",
+        "flycast": "NOT_EVALUATED_BY_NATIVE_HOST_CHECK",
+        "frames": frames,
+    }
 
 
 def framework_play(game_dir: Path, seed: int) -> dict[str, Any]:
@@ -354,11 +429,17 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--game-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
-    parser.add_argument("--simulate", action="store_true")
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument("--simulate", action="store_true")
+    modes.add_argument("--homebrew-slice", action="store_true")
     parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
     try:
-        if args.simulate:
+        if args.homebrew_slice:
+            result = homebrew_play(args.game_dir)
+            write_reports(result, args.output_dir.resolve())
+            print(json.dumps({key: value for key, value in result.items() if key != "frames"}, indent=2))
+        elif args.simulate:
             result = simulate(args.game_dir.resolve(), args.output_dir.resolve())
             print(json.dumps(result["fps_summary"], indent=2))
         else:

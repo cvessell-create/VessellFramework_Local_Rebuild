@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vessell:game-slice-telemetry:v1",
+  "title": "Original homebrew slice telemetry; no review or execution authority",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["engine", "camera", "x", "y", "ticks", "collected", "complete"],
+  "properties": {
+    "engine": {"const": "hail-homebrew-slice/v1"},
+    "camera": {"const": "third-person-iso"},
+    "x": {"type": "integer", "minimum": 256, "maximum": 1536, "multipleOf": 256},
+    "y": {"type": "integer", "minimum": 256, "maximum": 1536, "multipleOf": 256},
+    "ticks": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+    "collected": {"type": "integer", "minimum": 0, "maximum": 3},
+    "complete": {"type": "boolean"}
+  }
+}

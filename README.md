@@ -1,5 +1,28 @@
 # VessellFramework
 
+## Academic review snapshot — October 14, 2026
+
+Start with the [professor review packet](PROFESSOR_README.md), then the
+[original paper](docs/claim-correction-case-study.md), source-linked methods
+and executable tests. This repository and the
+[companion game](https://github.com/cvessell-create/hail-to-the-analyst)
+are public for review. Source history is preserved; this refresh does not
+rewrite the author's paper or claim a finished replacement game engine.
+
+Recent implementation includes the native game-slice bridge, current-run
+Vessell formula integration, separate SI generation/telemetry evaluation
+contracts and reviewed source-export helpers. The game now also contains a
+renderer-independent AI/SI development console and local collectible metadata
+previews. The playable browser game is separate from the proposed modified
+Flycast native engine rebuild. Coinbase, live blockchain transactions and NFT
+minting remain planned, not deployed. No keys or private runtime data are
+included in these updates.
+
+The review validation recorded 1088 passes, one skip, two existing KEV
+failures and one stale generated-discovery failure. Discovery was refreshed;
+the subsequent bridge/SI/discovery selection passed all 81 tests. The two KEV
+failures remain unresolved and are not represented as a clean full-suite pass.
+
 [Protection guide](docs/personal-family-protection-guide.md) |
 [Product specification](docs/personal-family-agent-spec.md) |
 [Professor review packet](PROFESSOR_README.md) |
@@ -316,3 +339,21 @@ Engineering signals: typed Python, mypy + ruff gates, JSON schemas for machine-r
 ## License
 
 Apache License 2.0 — see [LICENSE](LICENSE). Copyright 2026 Christopher R. Vessell.
+## Original homebrew engine bridge
+
+The game bridge can now run the original C engine slice under the existing
+synthetic-game action gate without claiming Dreamcast/Flycast execution:
+
+```sh
+python -m vessell.game_bridge --homebrew-slice \
+  --game-dir ../hail-to-the-analyst --output-dir outputs/homebrew-slice
+node scripts/public-release.js preview
+```
+
+The bounded replay tests a wall block, two collectibles and extraction.
+Its Dreamcast/Flycast fields are scoped to `NOT_EVALUATED_BY_NATIVE_HOST_CHECK`;
+they do not contradict a separate guest-build or emulator-boot experiment.
+Its telemetry schema is the only framework contract in the fixed public export
+alongside the Apache licence. No case records, model outputs, credentials or
+private repository history are exported. Public staging/push requires review
+of exact hashes through the sibling public-access repo's release bridge.

@@ -3,6 +3,25 @@
 Author: Christopher R. Vessell  
 Program context: M.S. Strategic Intelligence (graduate project candidate)
 
+## Current review route — October 14, 2026
+
+Both this research repository and the
+[companion game source](https://github.com/cvessell-create/hail-to-the-analyst)
+are public for review. The
+[browser game](https://cvessell-create.github.io/hail-to-the-analyst/) is the
+current playable implementation, not the proposed high-detail native rebuild.
+Read the game's current README for deployment and backend distinctions.
+
+Recent local work adds a bounded original C engine/native replay bridge,
+current-run formula checks and separate SI generation-versus-telemetry
+evaluation. Tests measure their declared contracts, not an overall
+superintelligence capability. The game service foundation retains chatbot
+reply identity and prepares local run metadata; it does not connect a wallet,
+mint NFTs or publish private records.
+
+Review the original paper, methods and executable implementations separately.
+Research-source documents and historical records have not been deleted.
+
 ## 1) What this project has become
 
 VesselFramework has become a cross-domain analytical framework with three integrated layers:

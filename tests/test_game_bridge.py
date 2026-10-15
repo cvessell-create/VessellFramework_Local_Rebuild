@@ -5,10 +5,12 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from pathlib import Path
 
 import pytest
+from jsonschema import validate
 
-from vessell.game_bridge import framework_play, new_session
+from vessell.game_bridge import framework_play, homebrew_play, new_session
 from vessell.provenance import reset_claim_lifecycle
 
 
@@ -81,6 +83,31 @@ def test_missing_engine_does_not_start_or_orphan_worker(tmp_path, monkeypatch):
     monkeypatch.setattr(subprocess, "Popen", unexpected_worker)
     with pytest.raises(FileNotFoundError):
         framework_play(tmp_path, 42)
+
+
+def test_missing_homebrew_source_fails_before_build(tmp_path, monkeypatch):
+    def unexpected_build(*args, **kwargs):
+        pytest.fail("Build started before validating the original engine source.")
+    monkeypatch.setattr(subprocess, "run", unexpected_build)
+    with pytest.raises(FileNotFoundError):
+        homebrew_play(tmp_path)
+
+
+def test_original_homebrew_slice_has_deterministic_gated_trace():
+    root = Path(__file__).resolve().parents[2] / "hail-to-the-analyst"
+    if not (root / "homebrew/slice.c").is_file():
+        pytest.skip("Original homebrew development checkout is not installed.")
+    first = homebrew_play(root)
+    second = homebrew_play(root)
+    assert first["trace_sha256"] == second["trace_sha256"]
+    assert first["actions"] == 21
+    assert first["wall_blocked"] and first["complete"]
+    assert first["camera"] == "third-person-iso"
+    assert first["dreamcast"] == "NOT_EVALUATED_BY_NATIVE_HOST_CHECK"
+    assert first["flycast"] == "NOT_EVALUATED_BY_NATIVE_HOST_CHECK"
+    schema_path = Path(__file__).resolve().parents[1] / "schemas/game-slice-telemetry.schema.json"
+    for frame in first["frames"]:
+        validate(frame, json.loads(schema_path.read_text()))
 
 
 def test_unknown_modes_and_operations_fail(tmp_path):

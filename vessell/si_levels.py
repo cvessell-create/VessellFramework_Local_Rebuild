@@ -25,37 +25,93 @@ import re
 import time
 import urllib.error
 import uuid
+from collections.abc import Callable
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 from vessell import chat_duel, idea_loop
+from vessell import si_chat as si_chat_module
+from vessell.formula import evaluate
 from vessell.idea_loop import DEFAULT_MODEL, Generate, ollama_generate
 from vessell.si_chat import NUMBER_WORDS, ROOT, LoopMemory, SIChat
-from vessell.formula import evaluate
 
 STATUS = "RECORDED TRIAL RESULTS / PENDING_HUMAN_REVIEW"
 REPORT_PATH = ROOT / "outputs" / "si_levels" / "report.jsonl"
 LEVELS = ("L1 Chatbot", "L2 Reasoner", "L3 Agent", "L4 Innovator", "L5 Organization")
 SI_KINDS = {"generated", "owner", "telemetry"}
 Trial = dict[str, Any]
+FORMULA_TELEMETRY_PROMPT = "Report the current Vessell formula state for Phase 0 to Phase 1."
 
 
 def _trial(check: str, passed: bool, detail: str = "") -> Trial:
     return {"check": check, "passed": bool(passed), "detail": detail[:200]}
 
 
+def generated_response_contract(reply: dict[str, Any]) -> bool:
+    text = reply.get("text")
+    return (reply.get("kind") == "generated" and reply.get("route") == "generated"
+            and reply.get("error") is None and isinstance(text, str) and bool(text.strip()))
+
+
+def generation_fixture_matches(reply: dict[str, Any], required_fragments: tuple[str, ...]) -> bool:
+    """Check a generated answer against explicit fixture expectations, not arbitrary prose."""
+    text = reply.get("text")
+    if (not generated_response_contract(reply)
+            or not required_fragments or any(not fragment.strip() for fragment in required_fragments)):
+        return False
+    normalized = text.casefold()
+    return all(fragment.casefold() in normalized for fragment in required_fragments)
+
+
+def formula_telemetry_matches(reply: dict[str, Any], expected_snapshot: dict[str, Any]) -> bool:
+    """Verify a formula telemetry reply against a supplied, deterministic snapshot."""
+    text = reply.get("text")
+    if (reply.get("kind") != "telemetry" or reply.get("route") != "formula_telemetry"
+            or reply.get("error") is not None or not isinstance(text, str) or not text.strip()):
+        return False
+    state, phase1 = expected_snapshot.get("state"), expected_snapshot.get("phase1")
+    problems = expected_snapshot.get("problems", [])
+    if not isinstance(state, str) or not state.strip() or not isinstance(phase1, str) or not phase1.strip():
+        return False
+    if not isinstance(problems, (list, tuple)) or any(not isinstance(problem, str) for problem in problems):
+        return False
+    normalized = text.casefold()
+    expected_values = [state, phase1, *problems]
+    return all(isinstance(value, str) and value.casefold() in normalized for value in expected_values)
+
+
 def level1(si: SIChat, n: int = 3) -> list[Trial]:
     out: list[Trial] = []
-    for q in chat_duel.player_questions(si.memory)[:n]:
+    generation_slots = max(0, n - 1)
+    questions = [
+        q for q in chat_duel.player_questions(si.memory)
+        if not re.search(r"\bvessell formula\b|\bphase\s*[01]\b|\bup\s*=\s*not\s+down\b", q, re.IGNORECASE)
+    ]
+    questions.extend(q for q in chat_duel.OPENERS if q not in questions)
+    for q in questions[:generation_slots]:
         r = si.reply(q, view="game", speaker="probe")
-        passed = r["kind"] == "generated" and bool(r["text"].strip())
-        trial = _trial(f"answers: {q[:40]}", passed, f"{r['kind']}: {r['text']}")
-        mismatch = (r.get("route") == "formula_telemetry" and r["kind"] == "telemetry"
-                    and bool(r["text"].strip()) and r.get("error") is None)
+        passed = generated_response_contract(r)
+        trial = _trial(f"generated response contract: {q[:40]}", passed, f"{r['kind']}: {r['text']}")
         trial["measurement"] = {
-            "expected_kind": "generated", "observed_kind": r["kind"], "route": r.get("route"),
-            "result": "CONTRACT_MISMATCH_MEASURED" if mismatch else
-                      "REQUIREMENT_MET" if passed else "REQUIREMENT_NOT_MET",
+            "expected_kind": "generated", "expected_route": "generated",
+            "observed_kind": r["kind"], "route": r.get("route"),
+            "result": "REQUIREMENT_MET" if passed else "REQUIREMENT_NOT_MET",
+            "evaluation_dimension": "generation_quality",
+            "content_quality": "NOT_EVALUATED_NO_PREDECLARED_ORACLE",
+        }
+        out.append(trial)
+    if n > 0:
+        expected_snapshot = si_chat_module.formula_snapshot()
+        telemetry = si.reply(FORMULA_TELEMETRY_PROMPT, view="game", speaker="probe")
+        passed = formula_telemetry_matches(telemetry, expected_snapshot)
+        trial = _trial("formula telemetry matches current snapshot", passed,
+                       f"{telemetry.get('kind')}: {telemetry.get('text', '')}")
+        trial["measurement"] = {
+            "expected_kind": "telemetry", "expected_route": "formula_telemetry",
+            "observed_kind": telemetry.get("kind"), "route": telemetry.get("route"),
+            "result": "FORMULA_TELEMETRY_CORRECT" if passed else "FORMULA_TELEMETRY_INCORRECT",
+            "evaluation_dimension": "formula_telemetry_correctness",
+            "semantic_quality": "NOT_EVALUATED_NO_PREDECLARED_ORACLE",
         }
         out.append(trial)
     return out

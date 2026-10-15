@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-14T21:48:16.008391+00:00",
+  "generated_utc": "2026-10-15T01:49:44.851892+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -118,11 +118,11 @@
     },
     {
       "path": "PROFESSOR_README.md",
-      "sha256": "e16ce862cf4c9190ae4fddcd1399195ee845022f93e407a969c501c657c07be9"
+      "sha256": "356636e41461fe4c3b28a0661cda13eea8f091165988f70f23047f0c507d400a"
     },
     {
       "path": "README.md",
-      "sha256": "db30f559091245d8476b46e860874b3a80ed13d0c2318065859b668b64cd7c14"
+      "sha256": "a627c47424cd700338aed0d2634accc41c24a9287a3e4daca6924ba574d102da"
     },
     {
       "path": "SECURITY.md",
@@ -342,11 +342,11 @@
     },
     {
       "path": "docs/agent-capabilities.json",
-      "sha256": "ace8b1660c7a4b170c5d2913ebfde3bffba2943cf86d23230f3b99247de7eca9"
+      "sha256": "52b37fcc26e8e283ad1af07e1813008503cebea9451d5f239198edd5cced3bc5"
     },
     {
       "path": "docs/agent-reference-index.json",
-      "sha256": "76121ebe65f0c50025eafa65d6d71e300531c46ee4485b2c2402ad02f354407e"
+      "sha256": "9f271ffae57b14b41965b42f9b93517a41012160456d8f2ca896dd33b0b85da4"
     },
     {
       "path": "docs/agent-search.js",
@@ -606,7 +606,7 @@
     },
     {
       "path": "docs/si-loop-development-judgments.md",
-      "sha256": "05e3a2406bb835b9157a376daad75fbedab68d56eaa2fd5a139259a2cc7385b4"
+      "sha256": "3268b9d5717407a7c4d0f5e3cb72e7552239820cedbc1394578a2dcd1e0b88bc"
     },
     {
       "path": "docs/specialist-agent.md",
@@ -969,6 +969,10 @@
       "sha256": "db9c0d6ad951a9ce3b5eacbac48bc5899e2b436a9498ce7b8222fbd45cd7aab3"
     },
     {
+      "path": "schemas/game-slice-telemetry.schema.json",
+      "sha256": "c87943624c360c5479c805149646575dc73078dde93dbaad81fc03e70db0078e"
+    },
+    {
       "path": "schemas/game-theory.schema.json",
       "sha256": "ba742d0b061031ee2dc722cb45cc2667a011c80e384338b88ffd261045eb1ba8"
     },
@@ -1007,6 +1011,10 @@
     {
       "path": "scripts/prune_provable_lines.py",
       "sha256": "8d19f966e222c9f6c287f885d4e6f9cabc5f4b41e6adbc3dafd891877098b4ee"
+    },
+    {
+      "path": "scripts/public-release.js",
+      "sha256": "667c0096350024b4c59e0c2d9b29807ba116c98b918511ec743a16aaeb30a335"
     },
     {
       "path": "scripts/sync_repository_artifacts.py",
@@ -1198,7 +1206,7 @@
     },
     {
       "path": "tests/test_game_bridge.py",
-      "sha256": "5fe20a44ead8364f56cecdee731e8b2303a7a54535ff5531a449c90dd2955dc1"
+      "sha256": "04f98ec87c42f59f48ac55b692cc8167975e978852889752d5574bffb4cf95e8"
     },
     {
       "path": "tests/test_game_theory.py",
@@ -1358,7 +1366,7 @@
     },
     {
       "path": "tests/test_si_levels.py",
-      "sha256": "a95d3d7fb43d19951064719c759742e7b1767325b8062e942e37471fc5cd4a82"
+      "sha256": "76d51c4844f3de3684f0aec1b0985925c53f5752a5d38fb4f107d6ef85021141"
     },
     {
       "path": "tests/test_single_file_evil_twin.py",
@@ -1614,7 +1622,7 @@
     },
     {
       "path": "vessell/game_bridge.py",
-      "sha256": "17b73d580602f0a06711755894c0b1f985d56cdf3524cc6b78ab0f360b581eb1"
+      "sha256": "79ae25dfeedf8ed0ff71ffb5dfe55d88029255cc2584235fe927c21ee262ef09"
     },
     {
       "path": "vessell/game_theory.py",
@@ -1790,7 +1798,7 @@
     },
     {
       "path": "vessell/si_levels.py",
-      "sha256": "641015c357773671dd73907dc165fdaef8c9dd2b3bdbfa52fe3c4ee72181e911"
+      "sha256": "d84dd1987d237b83b844de304a883edb3869c0006f03488885724a4e521b7ecf"
     },
     {
       "path": "vessell/source_readers.py",
