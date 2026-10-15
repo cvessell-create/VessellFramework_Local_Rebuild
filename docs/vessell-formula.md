@@ -1,127 +1,176 @@
-# Vessell formula
+# Vessell formula — corrected case-policy transform
 
-## Verification and contribution
+Owner correction supplied 2026-10-15. Sections 1–7 record the corrected method;
+the implementation notes and [research commentary](vessell-formula-research-report.md)
+are separate. A required lowercase letter passes. A mismatch fails.
 
-**MATHEMATICALLY VERIFIED WITHIN THE DECLARED BINARY DOMAIN.**
-This status concerns the equations and properties below, not worldwide
-priority, cryptographic security or the truth of research inputs.
+## 1. Character state
 
-The owner's contribution builds on Boolean logic by composing:
+For a string \(s=c_1c_2\ldots c_n\), using ASCII letters:
 
-1. A character-state representation with an explicit neutral state.
-2. A positional mask expressing the desired case policy.
-3. A deterministic transform applying that policy.
-4. A product of requirement comparisons checking output compliance.
-5. A current-run interpretation of the same conjunction for SI-loop checks.
+\[
+state(c_i)=
+\begin{cases}
+1 & \text{if uppercase}\\
+0 & \text{if lowercase}\\
+\bot & \text{otherwise}
+\end{cases}
+\]
 
-The contribution is the organized method and its intended application, not
-a claim to have invented Boolean complement or conjunction. The casing
-compliance gate and the independently observed research gate are distinct.
+For letters only:
 
-For binary case states and a valid mask, the transform satisfies the mask,
-preserves unmasked positions, and is idempotent. These properties were checked
-across **9,330 input/mask cases** covering all binary inputs and all
-unmasked/0/1 mask assignments of lengths 1-5. Complement cases and **510 binary
-check vectors** of lengths 1-8 were also checked. General conditional proofs
-and the validation scope appear in the
-[verification report](vessell-formula-research-report.md).
+\[
+UP(c_i)=state(c_i),\qquad DOWN(c_i)=1-state(c_i)
+\]
 
-Verification is complete for those stated properties. Further originality
-searches are not a prerequisite for using or documenting this method.
-No runtime loop or authorization policy is changed by this document.
+Thus \(UP(c_i)=1-DOWN(c_i)\). Neutral characters remain unchanged.
 
-## Owner-source formula
+## 2. Required-case mask
 
-The following wording preserves the owner's edited source. Review commentary
-is separate; an apparent factual claim in the source is not automatically
-certified by the mathematical verification above.
+Let \(I\) contain the chosen letter positions. Define:
 
-Owner-supplied method, written as a general formula. No password, string or
-key is stored here. This is a non-cryptographic casing and gating rule for crytography.
+\[
+M_i\in\{0,1\}\qquad(i\in I)
+\]
 
-## 1. State of each character
+Here, \(1\) requires uppercase and \(0\) requires lowercase.
 
-For a string `s = c₁ c₂ … cₙ`:
+## 3. Check the current string
+
+Define each compliance check:
+
+\[
+k_i(s)=[state(c_i)=M_i]
+\]
+
+Then:
+
+\[
+\boxed{G_M(s)=\prod_{i\in I}k_i(s)}
+\]
+
+Brackets equal 1 when true and 0 when false. Therefore:
+
+\[
+G_M(s)=
+\begin{cases}
+1 & \text{all masked positions comply: PASS}\\
+0 & \text{at least one mismatch: FAIL}
+\end{cases}
+\]
+
+**A required lowercase letter passes. A mismatch fails.**
+With no masked positions, the empty product equals 1.
+
+## 4. Correct the string
+
+\[
+T_M(s)_i=
+\begin{cases}
+uppercase(c_i) & i\in I,\ M_i=1\\
+lowercase(c_i) & i\in I,\ M_i=0\\
+c_i & i\notin I
+\end{cases}
+\]
+
+## 5. Repeat and stop
+
+Starting with \(s^{(0)}=s\):
+
+\[
+\boxed{
+\begin{cases}
+\text{STOP and return }s^{(t)} & G_M(s^{(t)})=1\\
+s^{(t+1)}=T_M(s^{(t)}) & G_M(s^{(t)})=0
+\end{cases}}
+\]
+
+For a fixed valid mask:
+
+\[
+G_M(T_M(s))=1,\qquad T_M(T_M(s))=T_M(s)
+\]
+
+The process therefore requires **at most one correction pass**, followed by
+verification.
+
+## 6. Example
+
+With \(I=\{1\}\) and \(M_1=0\), this public, non-secret fixture illustrates
+the same uppercase-to-required-lowercase correction:
 
 ```text
-state(cᵢ) =  1   if cᵢ is uppercase      (UP)
-             0   if cᵢ is lowercase      (DOWN)
-             ⊥   if cᵢ is digit/symbol   (neutral, unchanged)
+Initial:    Review    G = 0 → FAIL
+Corrected:  review    G = 1 → PASS → STOP
 ```
 
-## 2. Rule
+Implementation note: the owner-supplied credential-shaped example is not
+copied into source, tests or research queries. Positions are one-based.
 
-```text
-UP(cᵢ) = 1 − DOWN(cᵢ)          (UP = NOT DOWN)
-```
+## 7. Current-run interpretation
 
-Neutral characters are skipped.
+If retaining “NOW = UP,” define UP here as overall compliance:
 
-## 3. Mask (second factor)
+\[
+\boxed{NOW=UP\iff G_M(s^{(t)})=1}
+\]
 
-`M` assigns a required state to chosen letter positions:
-
-```text
-Mᵢ ∈ {1, 0}    for each masked letter position i
-```
-
-Factor 1 is the base string; factor 2 is the mask. Neither alone gives the result.
-
-## 4. Transform
-
-```text
-yᵢ = Mᵢ          if i is masked
-yᵢ = state(cᵢ)   otherwise
-```
-
-Apply case from `yᵢ` (1 → uppercase, 0 → lowercase); leave `⊥` unchanged.
-
-## 5. Gate
-
-```text
-G = ∏ [ yᵢ = Mᵢ ]   over every masked i
-
-G = 1 → UP        G = 0 → DOWN
-```
-
-The product makes a single DOWN anywhere fail the whole gate.
-
-## 6. Applied to SI loops (NOW = UP)
-
-Replace characters with the checks `k₁ … kₘ` of the current run only:
-
-```text
-NOW = UP  ⇔  G = ∏ UP(kⱼ) = 1
-```
-
-- Phase 0 gate: checks are R1–R11 (sources re-opened) and T1–T4 (read-only
-  chain touch). On 2026-10-14 all 15 were UP, so G = 1.
-- Phase 1 receipts: `vessell.receipts.gate(problems)` returns UP only when the
-  verifier reports zero problems (tag, key, root, duplicates, files).
-
-Passing a gate records integrity of this run.
+This uses only the current run's checks. It describes a deterministic
+correction-and-verification process; it does not by itself establish a
+cryptographic primitive.
 
 ---
 
-## Research commentary (assistant-authored; not part of the owner formula)
+## Implementation notes (assistant-authored)
 
-The sections above preserve the owner's edited wording, apart from the
-requested title and code-block formatting changes. The mathematics and its
-limits are assessed separately in the
-[verification and mathematical review](vessell-formula-research-report.md).
-That review does not certify a new cryptographic primitive, multi-factor
-authentication, evidence truth or permission to proceed to another phase.
+The implementation accepts ASCII strings only and a fixed mask of one-based
+letter positions mapped to integer 0 or 1. Invalid positions, neutral targets,
+non-binary values and non-ASCII strings raise explicit errors. Unicode case
+conversion is outside this contract. Unmasked positions, including digits and
+symbols, are preserved. Masks are not mutated.
 
-## Runtime integration (assistant-authored implementation note)
+| Operation | Python: `vessell/formula.py` | JavaScript: `engine/vessell-formula.js` in the game repository |
+|---|---|---|
+| Character state | `case_state(character)` | `caseState(character)` |
+| Current-string compliance | `case_gate(text, mask)` | `caseGate(text, mask)` |
+| Case transform | `transform_case(text, mask)` | `transformCase(text, mask)` |
+| Check → correct → verify → stop | `correct_case(text, mask)` | `correctCase(text, mask)` |
 
-The owner-approved integration adds a strict overlay in
-[`vessell/formula.py`](../vessell/formula.py) and a matching game module.
-The formula compares independently supplied current-run observations, not
-case bits that its own transform has just assigned. Missing, duplicate,
-unknown and mixed-run observations return DOWN.
+Python masks are mappings such as `{1: 0}`; JavaScript masks are
+`new Map([[1, 0]])`. The correction result contains `text`, `initial_product`,
+`product`, `state` (`PASS`), `mismatches_before` and `correction_passes` (0 or 1).
+These are callable helpers, not a background loop or a player-game feature.
 
-Phase 0 retains its existing policy gate and adds a separate 15-check strict
-result. With `--phase1`, both must pass before writing an immutable local
-snapshot and HMAC receipt. The dashboard and game display the result
-separately from review or gameplay progression.
-See the [Phase 0/1 execution instructions](phase0-restart-and-phase1-roadmap.md).
+### Separate current-run evidence gate
+
+The existing `evaluate(required, observations, run_id)` contract remains
+`vessell-formula/v1`. Its `passed` values mean independently supplied check
+compliance, **not character case**. A case bit of 0 can satisfy a lowercase
+policy; an observation whose `passed` is false still fails the evidence gate.
+Never case-correct evidence, model answers or failed observations into passes.
+
+The empty case mask passes by the empty-product identity. The evidence gate
+still requires nonempty, unique declared IDs, matching observations and the
+same run ID. Empty, missing, duplicate, unknown or mixed-run records remain DOWN.
+This distinction is intentional, not a contradiction.
+
+L1–L5 posterior thresholds, bottom-up promotion, formula-answer routing,
+receipts, human review and execution permission are unchanged. See
+[the two judgments and answer routes](si-loop-development-judgments.md) and
+[the Phase 0/1 instructions](phase0-restart-and-phase1-roadmap.md).
+
+### Contribution and verification scope
+
+The owner-directed contribution combines representation, policy, current-state
+checking, correction and verification into an understandable procedure. Its
+constituent operations are established mathematics. Under the stated domain,
+the transform satisfies the policy, preserves unmasked characters and reaches
+a fixed point after at most one correction pass. Broader novelty and
+cryptographic security remain unestablished.
+
+The Python and JavaScript regression suites enumerate 9,330 input/mask cases
+of lengths 1–5, including required lowercase; they also test empty masks,
+neutral characters, invalid inputs and all 510 nonempty binary evidence vectors
+of lengths 1–8. See the [verification report](vessell-formula-research-report.md)
+for the conditional derivations and primary-source comparisons. Historical
+run outcomes are not rewritten by this correction.

@@ -1,19 +1,22 @@
 # Vessell formula: verified properties and contribution
 
-Research date: 2026-10-14.
+Research dates: 2026-10-14; corrected case-policy review 2026-10-15.
 Status: assistant-authored research draft for owner review, not a released
 framework report or legal opinion. Source:
-[owner-edited Vessell formula](vessell-formula.md), read before the filename
-and code-fence edits. No password, key or derived variant was searched or
-included. The owner's formula and this commentary remain distinct.
+[owner-edited Vessell formula](vessell-formula.md). The 2026-10-15 correction
+checks the current string before correction, separates case bits from
+compliance bits, and supplies a bounded stop condition. No owner-supplied
+credential-shaped example, key or derived variant was searched or included.
+The owner's formula and this commentary remain distinct. Historical
+2026-10-14 measurements below retain their dates and do not certify new runs.
 
 ## Bottom line
 
 **The Vessell formula's binary complement, conjunction and masked-transform
 properties are mathematically verified under their stated assumptions.**
 The owner's contribution is a composed method: character-state encoding,
-neutral-state separation, positional policy, deterministic transformation,
-compliance checking and a current-run interpretation for SI-loop checks.
+neutral-state separation, positional policy, current-state compliance checking,
+deterministic correction, verification and a current-run interpretation.
 Building on established Boolean logic does not invalidate that contribution.
 
 The earlier review put too much emphasis on worldwide originality as though
@@ -26,8 +29,9 @@ Worldwide priority and new cryptographic security are not claimed here.
 The method stacks up well as a readable, deterministic casing convention and
 an all-required-checks predicate. It does not, on its own, supply cryptographic
 authentication, independent evidence, calibrated confidence or demonstrated SI
-capability. Its most important limitation is the post-transform gate: it checks
-conditions the transform has already made true.
+capability. The corrected initial gate detects mismatches; the final gate
+checks the correction's postcondition. Neither gate checks conditions outside
+the declared policy.
 
 ## Contribution and completed verification
 
@@ -57,7 +61,7 @@ fail-closed policy, not a change to the existing runtime.
 | Formula component | Mathematical counterpart | Assessment |
 |---|---|---|
 | `UP = 1 - DOWN` | Boolean complement, with values in `{0,1}` | Established identity, not new. Only valid where UP and DOWN are exhaustive opposites. |
-| `[y_i = M_i]` | Iverson bracket / indicator of a proposition | Established notation. Knuth's 1992 paper explicitly promotes this convention and credits Iverson's earlier work [S1]. |
+| `[state(c_i) = M_i]` | Iverson bracket / indicator of a proposition | A compliance indicator, not the case bit itself. Knuth's 1992 paper explicitly promotes this convention and credits Iverson's earlier work [S1]. |
 | Product of binary indicators | Logical conjunction / AND | Established: a finite product of zeros and ones equals one exactly when every factor equals one. [S1] illustrates products of indicators for combined conditions. |
 | Setting selected case bits to a mask | Deterministic assignment / projection onto constrained states | An ordinary assignment operation. Unicode defines standard case conversion, but not this specific workflow [S2]. |
 | `NOW = UP` for current-run checks | Time-indexed conjunction | A workflow naming convention; evaluating a predicate at a time is not a new logic operation. |
@@ -104,29 +108,25 @@ Proof: a zero factor makes the product zero; with no zero factors every factor
 is one, so the product is one. This is the same truth function as `all(checks)`,
 not evidence that the checks measure the intended property.
 
-### Why the post-transform gate always passes
+### Current-state checking and post-transform verification
 
-Let `I` be the valid masked letter positions. The document defines:
-
-```text
-y_i = M_i                         for every i ∈ I
-G_after = product([y_i = M_i], i ∈ I)
-        = product(1, i ∈ I)
-        = 1
-```
-
-For valid inputs this is true by construction, regardless of the original
-case bits. It can test whether an implementation followed the transform, but
-cannot independently authenticate the input or establish that research passed.
-
-A distinct, optional check of the ORIGINAL input would be:
+Let `I` be the valid masked ASCII-letter positions. The corrected method defines:
 
 ```text
-G_before = product([state(c_i) = M_i], i ∈ I)
+G_M(s) = product([state(c_i) = M_i], i in I)
+G_M(s) = 1 iff all masked positions satisfy their required case
+G_M(T_M(s)) = product([M_i = M_i], i in I) = 1
 ```
 
-That detects initial mask compliance. It is commentary, not a replacement for
-the owner formula, and even this check is not proof of identity or authority.
+The initial gate can fail. In particular, uppercase at a required-lowercase
+position has case bit 1 but compliance bit 0; lowercase there has case bit 0
+but compliance bit 1. The owner correction makes the initial check part of the
+method, not an optional commentary alternative.
+
+The final gate passes after a correct transform for a fixed valid mask.
+That verifies policy compliance, not identity, evidence truth or authority.
+For an empty mask the product is 1; this mathematical identity is separate
+from the runtime evidence gate's nonempty-required-check policy.
 
 ### Idempotence and information loss
 
@@ -180,7 +180,8 @@ For a real research gate, consider these explicit, optional requirements:
 - Keep failures and source limits; passing retrieval is not evidence truth.
 - Human review, phase authorization and execution remain separate decisions.
 
-These are proposed specifications, not changes to runtime behavior.
+These remain evidence-gate requirements, separate from the corrected
+case-policy transform. Subsequent runtime integration is dated in section 10.
 
 ## 5. Actual implementation versus earlier chat claims
 
@@ -206,9 +207,10 @@ does not establish that current files still match the receipt. An HMAC tag
 authenticates a message relative to possession of the shared key, not the
 truth of its statements or an independently certified signing time [S4].
 
-Neither runtime gate applies the character-casing transform or accepts the
-owner's supplied string as an authentication factor. This review edits
-documentation only; it does not modify either gate.
+Neither runtime evidence gate applies the character-casing transform or accepts
+the owner's supplied string as an authentication factor. This section records
+the earlier review; the 2026-10-15 callable case-policy helpers do not change
+either evidence gate.
 
 ## 6. Sources opened and source-access limits
 
@@ -373,7 +375,10 @@ about one chain, not two independent chains.
 
 The game formula endpoint is local-only; its display is observational.
 HMAC keys and research text are not sent through the game status route.
-No mission rules, autopilot promotion or owner-source dialogue are changed.
+At that historical revision no mission rules, autopilot promotion or
+owner-source dialogue were changed. The player-game automation and framework
+dialogue were subsequently removed from the player entry; retaining a
+development formula helper does not reintroduce them.
 The strict mathematical domain remains distinct from empirical correctness.
 
 Integration validation: 49 final focused framework tests passed, including
@@ -392,3 +397,117 @@ The final focused run covers the subsequently added answer and receipt-binding
 checks; the whole suite was not rerun after those additions. No full-suite
 success is claimed. Lint passed for the new Python formula module and its
 direct tests.
+
+## 11. Owner correction: check, correct, verify and stop (2026-10-15)
+
+The owner supplied the corrected seven-part formulation and a web comparison.
+The corrected [owner formula](vessell-formula.md) is authoritative for the new
+method; this section is assistant-authored mathematical commentary. The
+credential-shaped example was replaced with a public synthetic fixture rather
+than copied to the repository or sent to a search provider.
+
+### Domain, equivalences and termination
+
+Assume an ASCII string, one-based positions, a fixed mask targeting only
+letters and required bits in `{0,1}`. All bits and counts are dimensionless.
+Let `x_i` be current case, `b_i` indicate a masked position and `m_i` be the
+required case where masked (its value elsewhere is irrelevant). For letters:
+
+```text
+y_i = (1 - b_i) x_i + b_i m_i
+G_M(x) = AND over masked i of NOT(x_i XOR m_i)
+C_M = {s : every masked position has its required case}
+G_M(s) = 1 iff s is in C_M iff T_M(s) = s
+E_M(s) = sum([state(c_i) != M_i], i in I)
+G_M(s) = 1 iff E_M(s) = 0
+E_M(T_M(s)) = 0
+```
+
+The selector expression retains the original bit when unmasked and selects the
+required bit otherwise: the Boolean multiplexer pattern. The gate is AND of
+XNOR comparisons. A neutral marker is outside the binary case operation; it
+does not by itself define a three-valued logic.
+
+Each masked output letter has its required case. Each unmasked character is
+unchanged. Thus `T_M(s)` belongs to `C_M` and a second transform changes nothing.
+If the initial gate passes, the procedure returns without correction. Otherwise
+one correction reaches the compliant set, and verification passes. The bound is
+zero or one correction pass, not an iterative model/research retry policy.
+
+Every mismatching masked letter must change case in any compliant result.
+This transform changes exactly those letters. It therefore minimizes the
+number of case changes among strings preserving the underlying characters
+and satisfying the mask. This is a conditional combinatorial result, not an
+empirical performance measurement or an error detector outside the policy.
+
+### Established structures and primary sources
+
+| Component | Mathematical comparison | Source scope |
+|---|---|---|
+| Binary case bits / complement | Boolean encoding and NOT | Direct truth-table deduction; SMT-LIB defines bitwise NOT and AND [S7] |
+| Positional policy | Coordinate constraints / masked assignment | Direct deduction from the defined mask |
+| Compliance product | Conjunction of equality indicators / AND of XNOR | Direct deduction; standard bit-vector operators support this expression [S7] |
+| Correction | Idempotent map onto the compliant set, fixing compliant strings | Set-level comparison with `f composed with f = f` [S5]; not necessarily linear projection |
+| Guarded correction and stop | Guarded program and postcondition reasoning | Comparison to guarded commands and termination in Dijkstra [S6]; not an execution of his calculus or a machine-checked proof of this code |
+
+- **S5 — agda-unimath, Idempotent maps:**
+  [canonical page](https://unimath.github.io/agda-unimath/foundation.idempotent-maps.html)
+  and [primary source](https://raw.githubusercontent.com/UniMath/agda-unimath/master/src/foundation/idempotent-maps.lagda.md).
+  The Idea and definition sections were opened. The library uses homotopy
+  notation `f composed with f ~ f` and explicitly relates it to the classical
+  set-level concept. No claim is made that this repository has formalized its
+  formula in Agda or that the higher-type coherence results apply here.
+- **S6 — E. W. Dijkstra, EWD 472 (1975):**
+  [Guarded commands, non-determinacy and formal derivation of programs](https://www.cs.utexas.edu/~EWD/transcriptions/EWD04xx/EWD472.html).
+  The abstract, introduction and guarded-command/repetition definitions were
+  opened. The comparison concerns Boolean guards, assignment and termination.
+- **S7 — SMT-LIB, FixedSizeBitVectors:**
+  [theory declaration](https://smt-lib.org/theories-FixedSizeBitVectors.shtml).
+  The sort/operation declarations and semantic definitions of bitwise NOT,
+  AND and OR were opened. The selector and XNOR equations above are deductions
+  from the formula, not a quotation of an SMT-LIB theorem about this method.
+
+SEARCH RECORD: owner-supplied idempotence, guarded-command and Boolean-operator
+references / direct `web_fetch` lookups / three canonical resources plus one
+primary source file / four distinct resources opened / bounded excerpts;
+initial Agda HTML was navigation-heavy, so the primary source's definition was
+opened; SMT-LIB continued through its semantic definitions / primary opened
+yes / SOURCE-ESTABLISHED for the definitions only / no exhaustive novelty,
+patent search, entire-library proof check or empirical improvement study.
+The supplied web summary is not independent corroboration of its citations.
+
+### Implementation and verification boundary
+
+`vessell/formula.py` and the game's `engine/vessell-formula.js` now provide
+matching ASCII helpers: classify, check, transform and bounded correction.
+They reject invalid masks and non-ASCII strings explicitly. Python uses
+integer-keyed mappings; JavaScript uses `Map`. They preserve unmasked and
+neutral characters and do not mutate masks.
+
+Both suites enumerate 9,330 actual input/mask cases, lengths 1–5. They check
+initial compliance versus fixed points, final compliance, idempotence,
+preservation, exact mismatch/change counts and zero/one correction passes.
+Additional fixtures cover empty masks, required lowercase, digits/symbols,
+invalid positions/values and Unicode rejection. Existing 510 binary
+current-run conjunction vectors and missing/duplicate/mixed-run rejection
+remain tested separately.
+
+Validation on 2026-10-15:
+
+- Focused framework formula, levels, chat and receipt tests: **75 passed**.
+- Full game suite after hosted-copy synchronization: **236 passed**.
+- Exact Python/JavaScript result comparison: **9,333 cases passed**, comprising
+  the 9,330 enumerated cases plus empty, mixed-neutral and ASCII NUL fixtures.
+- Python Ruff and mypy checks passed; Pylance reported no formula-module
+  diagnostics. The edited JavaScript files had no editor diagnostics.
+- Full framework suite: **1,115 passed, 1 skipped, 4 failed**. Two failures
+  concern existing README/review-document wording assertions; two concern KEV
+  fixture provenance rows and pipeline claim counts. Those documents, tests
+  and the KEV implementation are unchanged by this correction. No clean-HEAD
+  baseline run was performed; the full-suite result remains failing.
+
+This adds deterministic helpers; it does not start a loop, load framework AI
+into player gameplay, change L1–L5 thresholds, alter the bottom-up gate, mint
+receipts, publish a report or rewrite past runs. Evidence observations must
+not be corrected into passes. Broader novelty, cryptographic security and
+empirical advantage remain unestablished.

@@ -1,5 +1,13 @@
 # SI loop development: two judgments
 
+The [2026-10-15 case-policy correction](vessell-formula.md) separates character
+case from compliance: required lowercase passes, and correction needs at most
+one pass followed by verification. This is not a rule to alter evidence
+observations, generate answers until they pass, or promote levels. The strict
+evidence gate still rejects empty required-check sets; the mathematical empty
+case mask passes. L1–L5 posterior thresholds, bottom-up holds and
+`formula_telemetry` versus `generated` routing are unchanged.
+
 Owner-directed interpretation, 2026-10-14. This document guides building and
 measurement, not an external demonstration exercise.
 
