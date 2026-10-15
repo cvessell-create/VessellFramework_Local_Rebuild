@@ -7,6 +7,8 @@ validation, scan_reporting, malware_triage, agentic_soc, and the app
 pipeline (scanner adapters, KEV intake, defense planning, reporting).
 """
 
+from datetime import date
+
 import jsonschema
 import pytest
 
@@ -53,6 +55,7 @@ from vessell.weights import WeightingEngine
 EST = SourceStatus.SOURCE_ESTABLISHED
 SYN = SourceStatus.FRAMEWORK_SYNTHESIS
 HYP = SourceStatus.WORKING_HYPOTHESIS
+KEV_FIXTURE_AS_OF = date(2026, 9, 30)
 
 
 @pytest.fixture(autouse=True)
@@ -384,14 +387,14 @@ def _kev_catalog() -> dict:
 
 
 def test_kev_rows_carry_provenance_tags() -> None:
-    case = cisa_kev.build_case_from_kev(_kev_catalog())
+    case = cisa_kev.build_case_from_kev(_kev_catalog(), as_of=KEV_FIXTURE_AS_OF)
     row = case["evidence"][0]
     assert row["provenance"]["source"] == "CISA Known Exploited Vulnerabilities catalog"
     assert row["provenance"]["is_official_record"] is True
 
 
 def test_pipeline_intakes_evidence_and_links_result(tmp_path) -> None:
-    case = cisa_kev.build_case_from_kev(_kev_catalog())
+    case = cisa_kev.build_case_from_kev(_kev_catalog(), as_of=KEV_FIXTURE_AS_OF)
     result = pipeline.run_case_pipeline(case)
     assert isinstance(result, PipelineResult)
     assert len(result.claim_ids) == 1
@@ -406,7 +409,8 @@ def test_pipeline_intakes_evidence_and_links_result(tmp_path) -> None:
 
 
 def test_pipeline_without_provenance_stays_silent() -> None:
-    case = cisa_kev.build_case_from_kev(_kev_catalog())
+    case = cisa_kev.build_case_from_kev(_kev_catalog(), as_of=KEV_FIXTURE_AS_OF)
+    assert len(case["evidence"]) == 1
     result = pipeline.run_case_pipeline(case, track_provenance=False)
     assert result.claim_ids == ()
 

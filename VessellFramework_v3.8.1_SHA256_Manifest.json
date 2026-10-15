@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-15T21:19:36.869793+00:00",
+  "generated_utc": "2026-10-15T21:35:59.995761+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -22,7 +22,7 @@
     },
     {
       "path": ".github/copilot-instructions.md",
-      "sha256": "a1e932dd3f02b2d2159f38c553e12da33f6f765c173000fe70be94a6297aad8b"
+      "sha256": "c98b148d92e80ec61f60bc7ba0e73d8f2df7796b5689a5a6476988e28747dcb7"
     },
     {
       "path": ".github/skills/r-inferential-workflow/SKILL.md",
@@ -74,11 +74,11 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "d77c2f774a73bb2e9679182a28f9215c2b6301403875a67869fccc4c3004bef9"
+      "sha256": "9300b520906d3e805e060dae75674b0e2e2c416394c0c8fb551854f55e144f78"
     },
     {
       "path": "CANONICAL_REFERENCE.md",
-      "sha256": "b8e68d1a004a5600ab8b601dc89482467564d4495adf000ec755b6e521926ee7"
+      "sha256": "55919d943784022f3dd699834f58b09b480f5d7f4d954a8777e1a3805ffa5b91"
     },
     {
       "path": "CITATION.cff",
@@ -90,7 +90,7 @@
     },
     {
       "path": "GAME_DEVELOPMENT_SKILL.md",
-      "sha256": "c0dc9521bc8c6b71ac025ac6925eb81350e6d86d87d3a3990181fe324ad84cf3"
+      "sha256": "c3dedaa2336c23358867721e1c75e3be2cc2088b8984294f859d6c786e261ce8"
     },
     {
       "path": "Game_Theory_Theory_SKILL_v0.1.md",
@@ -106,23 +106,23 @@
     },
     {
       "path": "MANIFEST.in",
-      "sha256": "aefd787c9a5b1834d546bcb09f380342f4a9a4d5cb6325327790e75ab2225093"
+      "sha256": "167e2ff3710cf6f8feb81f030f7bc1dfc5dde964664454814704a3613fe06c0f"
     },
     {
       "path": "META_REVIEW_AND_ROADMAP.md",
-      "sha256": "b0fad4362cfbdc075a6a0d286b89bf22e34153a5e6087964b647b223f64995f8"
+      "sha256": "89faa6a303b3a74e038977f0b99bcf8c9eb59afc37101f31b2536db93c5b820c"
     },
     {
       "path": "PROFESSOR_PACKET_MANIFEST.md",
-      "sha256": "5329e5fdacb7a624a158f602c8c686a2a03a3c064f3833310646832d6cca9ca8"
+      "sha256": "5d48d440bcb785224492f7892f20c42ee735ebd920e0c7d93a1fc4a47db8d5d3"
     },
     {
       "path": "PROFESSOR_README.md",
-      "sha256": "0564f2a19f8d5dc167fbd7392966f1c014c3ae2add6d68fa6146f994443aae1c"
+      "sha256": "a1d3772fbd857c0618e06540e205a230e62ba87384044a68310755798b1b7538"
     },
     {
       "path": "README.md",
-      "sha256": "0126b4a51f33a3470bedd7fcb574fae06ceab2319201078f8ddd4ab6aa4c6a14"
+      "sha256": "8de4d0a764f11d21bdc6ec3d66d1fc9e1c212168eb5b688b4af2d2ca546bffd7"
     },
     {
       "path": "SECURITY.md",
@@ -130,7 +130,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "372c9fb52b90327de39050607ad940970dc5bd6a65bfc4608f63b9395177079e"
+      "sha256": "7db767111ef07c2dd7d5ea01c89dcb09f75774af26235812d30209775f1ec34d"
     },
     {
       "path": "SQL_QUICK_REFERENCE.md",
@@ -142,11 +142,11 @@
     },
     {
       "path": "VISION_AND_SCOPE.md",
-      "sha256": "6e732259c54c6e4cd1959ccd151e6bda0d2158879c4d00bd18fab24d1f591dc2"
+      "sha256": "9b40bca95242a705f197402bbd85938749ac1ba4381c2b849b0a81f3d0ae996e"
     },
     {
       "path": "VesselFramework_Agent.md",
-      "sha256": "8861dce8f1b3b63b719bb485195dffdc0e096e06e1a503b410add88b14faf1aa"
+      "sha256": "4e2536ea482faafe510a46ff0ed2b3536be602e02930fe9e1c5d82236cdf3f04"
     },
     {
       "path": "VesselFramework_Agentic_SOC_Analyst_SKILL_v0.1.md",
@@ -189,10 +189,6 @@
       "sha256": "107c01e92dbec583e9b63196ad5b733cc016dd554a30e26b3d936663ce8362e2"
     },
     {
-      "path": "VesselFramework_Path_Sync_Log_v3.8.md",
-      "sha256": "01aacf2ca3eb852d617f7a05baee6b8b9a3b86a2ad3c715d992b01a3696101bc"
-    },
-    {
       "path": "VesselFramework_Planted_News_Intel_SKILL_v0.1.md",
       "sha256": "2fcc0cdeeebab8371a85b58eecfb6f0eec452ad51cd27fb7be835dc7460ba78a"
     },
@@ -221,14 +217,6 @@
       "sha256": "6217164d9425f96e3938e7f9e00b69d9f864dfd8f9339c654b932f60e88fca91"
     },
     {
-      "path": "VesselFramework_v3.8.1_Stale_State_Correction.md",
-      "sha256": "7844a42d8dc4cedc9ce3ecbb51fe643219f4f4547800fe59f9328339da709e6d"
-    },
-    {
-      "path": "VesselFramework_v3.8_Installation_Manifest.md",
-      "sha256": "425cf29e214b787e6333381d35fc4e13c0ad663b9b321f0f9c406d384b26a895"
-    },
-    {
       "path": "Vessel_Evidence_Assurance_Validation_Orchestrator_SKILL_v0.1.md",
       "sha256": "da6efd21141abf02ccf32c26021ecbc08c2cfed1d14e2637bd5191723796064d"
     },
@@ -245,10 +233,6 @@
       "sha256": "f9fbb0eb9f8021b5f160a2be4ffba72417caa1ab1723fb65566fa6fd69cd2ce7"
     },
     {
-      "path": "VessellFramework_Portfolio_Showcase_SKILL_v1.0.md",
-      "sha256": "5703a9161e4e2c7acea1564eb5fd039824da24530d3007064740951940b3f7bd"
-    },
-    {
       "path": "XP_Cyber_Range_Challenge_Analyst_SKILL_v0.1.md",
       "sha256": "c9b0321ea43bc38ed403ef9f12dad78e6d7cb4b01ee91fba7080309884cdf0ff"
     },
@@ -259,6 +243,38 @@
     {
       "path": "XP_Cyber_Range_Master_Challenge_Skill_v0.2.md",
       "sha256": "ad96b13ff4fec6cdb0de292c6b1494fa45aa75e6d7c253653bf4496289d3945b"
+    },
+    {
+      "path": "archive/README.md",
+      "sha256": "0d9af0f860a52662a47cac9174ca3f13fcf495996ef94ab6e26dd37a6db11fbc"
+    },
+    {
+      "path": "archive/demonstrations/VessellFramework_Portfolio_Showcase_SKILL_v1.0.md",
+      "sha256": "5703a9161e4e2c7acea1564eb5fd039824da24530d3007064740951940b3f7bd"
+    },
+    {
+      "path": "archive/demonstrations/example_case_report.md",
+      "sha256": "85ec0132c0fdfbc2f2867ef27e08c475ae7802b118a564929af7ce0190579904"
+    },
+    {
+      "path": "archive/game/game-integration-v3.9.1.md",
+      "sha256": "9774019baf1f7a6bae66950ec9987ced60e5c25fa7cb5e9950067dea12561dc2"
+    },
+    {
+      "path": "archive/game/local-hail-ai-future-run-prompt.md",
+      "sha256": "939807013a232b1ee2c12cccd54faba01545486805092ead0e891bd0a49eff9d"
+    },
+    {
+      "path": "archive/installation/VesselFramework_Path_Sync_Log_v3.8.md",
+      "sha256": "01aacf2ca3eb852d617f7a05baee6b8b9a3b86a2ad3c715d992b01a3696101bc"
+    },
+    {
+      "path": "archive/installation/VesselFramework_v3.8.1_Stale_State_Correction.md",
+      "sha256": "7844a42d8dc4cedc9ce3ecbb51fe643219f4f4547800fe59f9328339da709e6d"
+    },
+    {
+      "path": "archive/installation/VesselFramework_v3.8_Installation_Manifest.md",
+      "sha256": "425cf29e214b787e6333381d35fc4e13c0ad663b9b321f0f9c406d384b26a895"
     },
     {
       "path": "case_studies/ambient/event.json",
@@ -342,11 +358,11 @@
     },
     {
       "path": "docs/agent-capabilities.json",
-      "sha256": "37949adf35a8aedf50d161decec7729096979881b0cff03bbbb7bf8eae995a96"
+      "sha256": "c7bee4cb019067bbf53cba9ad0c11c9ffbf0d22a10779e3de75b5789655ab958"
     },
     {
       "path": "docs/agent-reference-index.json",
-      "sha256": "107ccb347701a784c74eaa6baddd6ec41b6d06260da5115f70325fa2a0f61878"
+      "sha256": "270021e29b521c7d4526ee3e8e44463f70b4fb181360e56fc51945459f004e2b"
     },
     {
       "path": "docs/agent-search.js",
@@ -358,7 +374,7 @@
     },
     {
       "path": "docs/ambient-workflows.md",
-      "sha256": "54c7ff880b5c3d16c4caf5bdd76fb065a9f760d6f9ae38138dc4e25d9e2e2a93"
+      "sha256": "625005e74a5634cef3a30cd244e41f3c22e1aabc1e1b4afa4f06e446a4ae9862"
     },
     {
       "path": "docs/blockchain-agent-economy-roadmap.md",
@@ -398,7 +414,7 @@
     },
     {
       "path": "docs/game-integration.md",
-      "sha256": "9774019baf1f7a6bae66950ec9987ced60e5c25fa7cb5e9950067dea12561dc2"
+      "sha256": "363faa4dc6dfecc9b9db654ee5f4bc3274d86c358bb77d8c2135647253b31bef"
     },
     {
       "path": "docs/game-theory-framework-audit.md",
@@ -525,10 +541,6 @@
       "sha256": "dfc536aa634ef71450fe1f83697aa680b9101ee4881d9fa393fb9dcc9a560afa"
     },
     {
-      "path": "docs/local-hail-ai-future-run-prompt.md",
-      "sha256": "939807013a232b1ee2c12cccd54faba01545486805092ead0e891bd0a49eff9d"
-    },
-    {
       "path": "docs/local-vision-weight-candidates.md",
       "sha256": "01f332ed446aa34b08bca508a438c35983245459f9f62ac68b7b16ab6c654ef1"
     },
@@ -570,7 +582,7 @@
     },
     {
       "path": "docs/phase0-restart-and-phase1-roadmap.md",
-      "sha256": "38c266b36190cbc36c880b7acbffe50a9126a01d42fdc14a3a8ae108d028833f"
+      "sha256": "1f2d598599121500f0ed33b681fb051948e1af1619dc87350a5045f2b8c720a1"
     },
     {
       "path": "docs/pillar-scientific-foundations.md",
@@ -594,7 +606,7 @@
     },
     {
       "path": "docs/r-system-readout.md",
-      "sha256": "591ac188f3c1300c594ebf1b522e992dd68ed9e2b297954fa41b256eae387f37"
+      "sha256": "f011c355e4e638eb867cbcebe0afc92b061f7255c7aa052b59af0d46f9cda97a"
     },
     {
       "path": "docs/references.md",
@@ -603,6 +615,10 @@
     {
       "path": "docs/replay-lab.md",
       "sha256": "a349796d7bd5a5b87c78cbb8a7967590f9e7c466c01d5b86b0565ea45b68aa65"
+    },
+    {
+      "path": "docs/repository-maintenance.md",
+      "sha256": "e6c150f21d2207f579873411bcd74cdd7a0d0fe6ad9ea6289175eca9b57c271c"
     },
     {
       "path": "docs/si-loop-development-judgments.md",
@@ -646,7 +662,7 @@
     },
     {
       "path": "docs/vessell-formula-research-report.md",
-      "sha256": "627c9309aa8460e98dd01e6b4b3f69def2320147ca51ae09b9f0c7cc5477cf78"
+      "sha256": "9cdf23c5af43b73577a4ecf25b3f18e78be6963ea3476723c825444e5f2fd3cc"
     },
     {
       "path": "docs/vessell-formula.md",
@@ -663,10 +679,6 @@
     {
       "path": "example_case.json",
       "sha256": "df9a2a69ba8d43f3d18adfc522141a43bec1e51a3c63495716957942737d908e"
-    },
-    {
-      "path": "example_case_report.md",
-      "sha256": "85ec0132c0fdfbc2f2867ef27e08c475ae7802b118a564929af7ce0190579904"
     },
     {
       "path": "example_event_checks.json",
@@ -802,7 +814,7 @@
     },
     {
       "path": "mnt/skills/user/vessel-framework-analyst/SKILL.md",
-      "sha256": "372c9fb52b90327de39050607ad940970dc5bd6a65bfc4608f63b9395177079e"
+      "sha256": "7db767111ef07c2dd7d5ea01c89dcb09f75774af26235812d30209775f1ec34d"
     },
     {
       "path": "pyproject.toml",
@@ -1154,7 +1166,7 @@
     },
     {
       "path": "tests/test_civilian_source_preservation.py",
-      "sha256": "cfd83c860905d21601981c03aa7954c5368ba87d25c5ca1fa3028099fc1f26f1"
+      "sha256": "ecbf303cd0af1e9c1a03a04b797aa05f3eea0cfe369bdb6314f84ddd5a35f13d"
     },
     {
       "path": "tests/test_claim_lifecycle_api.py",
@@ -1174,7 +1186,7 @@
     },
     {
       "path": "tests/test_doctrine_reconciliation.py",
-      "sha256": "ffb7d48c2fe4981e4f8db481d430203e2db3245efa4dbc883c2c0e9df08ec408"
+      "sha256": "d95227ff9d590273f4a4bd07fab5acacb5ee8f2e2e4640a1c69d795db6367a2b"
     },
     {
       "path": "tests/test_evaluation.py",
@@ -1319,6 +1331,10 @@
     {
       "path": "tests/test_replay_lab.py",
       "sha256": "91044d4f158ec28cdfb8a789be2caa3037e390b55e370c9b181bb4ddc7bed687"
+    },
+    {
+      "path": "tests/test_repository_archive.py",
+      "sha256": "2666376b6a3603f3d650b544e7c22fffcc118bfae347b4ead9e5b7c92885fefd"
     },
     {
       "path": "tests/test_repository_artifacts.py",

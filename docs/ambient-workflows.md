@@ -276,7 +276,9 @@ performance claims. Both idempotency **and regression tests** are needed.
 The original paper and source reconciliation remain canonical; this feature
 does not expand the author's historical claims. No course files, personal
 records or the pasted source are uploaded as implementation evidence.
-The game build remains paused and separate.
+The human-controlled browser game is separate from this workspace. Earlier
+paused integration notes are retained in the [archive](../archive/README.md);
+see [current game boundaries](game-integration.md).
 
 Run `pytest -q tests/test_ambient.py`, strict Mypy/Ruff for
 `vessell/ambient`, and `npm run test`, `npm run typecheck`, `npm run build`

@@ -506,6 +506,33 @@ Validation on 2026-10-15:
   and the KEV implementation are unchanged by this correction. No clean-HEAD
   baseline run was performed; the full-suite result remains failing.
 
+Follow-up on 2026-10-15: the owner approved updating the stale tests rather
+than deleting active files. README/review assertions now check the current
+wording for control-plane separation, human review, source preservation and
+unfinished family workflows. The synthetic KEV integration fixture uses an
+explicit 2026-09-30 evaluation date so its selection does not age out; provenance
+and pipeline assertions remain intact. No runtime policy or source was deleted.
+The follow-up focused suite passed **43 tests**; the full framework suite
+passed **1,119 tests, with 1 skipped and no failures**. Ruff passed for both
+edited test files. This later run does not rewrite the earlier failing result.
+
+Archive cleanup on 2026-10-15 separated superseded setup, demonstration and
+game handoffs from active guidance. See the [archive index](../archive/README.md)
+and [maintenance guide](repository-maintenance.md). Seven framework records
+were preserved byte-for-byte; active links, reference discovery and source
+packaging were checked. Current skills and review guides distinguish the
+human-controlled campaign from development services and preserved experiments.
+No original paper, owner account, licence or source/audit log was changed.
+
+The first archive full run found a cross-repository dependency on
+`scripts/autonomous-interop.js`; the game now retains a compatibility entry
+point to its archived development implementation. Its framework integration
+test passed after restoration. Final framework suite: **1,140 passed, 1 skipped**.
+Game cleanup validation: **242 passed**, plus the C slice checks, as reported
+by the game cleanup worker. New framework archive tests and changed stale
+tests passed Ruff; the archive test module had no Pylance diagnostics.
+Neither native/WASM deployment nor remote CI was checked in this cleanup.
+
 This adds deterministic helpers; it does not start a loop, load framework AI
 into player gameplay, change L1–L5 thresholds, alter the bottom-up gate, mint
 receipts, publish a report or rewrite past runs. Evidence observations must

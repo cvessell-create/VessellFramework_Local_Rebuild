@@ -1,4 +1,4 @@
-# Professor Packet Manifest (Rough Working Version)
+# Research review packet
 
 ## Send these files first
 
@@ -9,6 +9,8 @@
 5. `SKILL.md`
 6. `VesselFramework_Forecasting_SKILL_v1.0.md`
 7. `README.md`
+8. [Corrected formula](docs/vessell-formula.md) and
+   [research report](docs/vessell-formula-research-report.md).
 
 ## Optional supporting files
 
@@ -18,12 +20,16 @@
 - `tests/test_provenance.py`
 - `tests/test_validation.py`
 
-## Not required for first-pass faculty review
+## Historical and maintenance material
 
 - Installer and path-sync artifacts
 - Compatibility/launcher scripts
 - Cached/generated runtime artifacts
-- Historical superseded references not bundled in this package
+- [Archived setup, demonstrations and earlier game handoffs](archive/README.md)
+
+The archive is not the current setup path. Original sources, licence notices
+and source/audit records remain preserved. Current game behavior is described
+in the [integration guide](docs/game-integration.md), not paused-build notes.
 
 ## Submission note
 

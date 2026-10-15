@@ -29,13 +29,20 @@ The high-detail native engine rebuild is planned.
 - Evidence-analysis API and human review workspace.
 - [GitHub agent integration](docs/github-agent-integration.md) for reference
   searches and owner-requested analysis previews.
-- Native C game bridge and current-run Vessell formula checks.
+- Corrected ASCII case-policy checking, bounded correction and verification.
 - Separate tests for generated chat responses and formula telemetry.
-- Local game console for AI/SI requests and collectible metadata previews.
+- Human-controlled browser campaign; local game/AI tools remain separate
+  development interfaces, not player automation.
 
-Coinbase integration and NFT minting are planned. Family isolation, safe
+The native engine rebuild and economic experiments are separate future work.
+Family isolation, safe
 sharing and protective workflows are unfinished. Existing services are
 single-owner.
+
+Start with the current guides below. Earlier demonstrations, setup notes and
+generated examples are retained in the [archive](archive/README.md), not the
+active review path. The [formula report](docs/vessell-formula-research-report.md)
+keeps dated validation outcomes, including failures and later corrections.
 
 ## Methods and sources
 

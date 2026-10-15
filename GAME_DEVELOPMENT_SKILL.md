@@ -1,5 +1,16 @@
 # Game Development and Analyst Workflow Reconstruction Skill
 
+## Current scope
+
+Use this skill for the pinned original-game reconstruction and preserved
+Signal Recall research below, not as the current campaign manual.
+The live browser campaign is human-controlled; framework chat, formula
+services and automation are not player features. See the
+[current integration guide](docs/game-integration.md) and
+[archive index](archive/README.md) for superseded setup and AI handoffs.
+Keep development experiments separate from gameplay. The selected native
+direct-game rebuild remains future work.
+
 ## Purpose and authority
 
 Use this skill to explain how **Hail to the Analyst** works, retain every
@@ -24,7 +35,8 @@ function plus presentation, content, callbacks, evaluation and paused additions.
 **Knowledge boundary:** source proves the current mechanism, not the exact
 prompts, editor actions, authoring dates or order in which the author wrote it.
 The build sequence below is a reproducible reconstruction, not invented history.
-Retain Apache-2.0 attribution and license when moving actual source. Do not
+Check the exact file's licence and retain its attribution when moving source;
+the framework's licence does not relicense the separate game. Do not
 recreate third-party art, recordings or protected characters just because the
 game README calls its visual style a homage.
 
@@ -360,4 +372,5 @@ replacement of all subsystem architectures. Existing real-world connectors,
 crash recovery, concurrent-writer handling, authenticated source provenance,
 prospective labels and independent evaluators remain distinct needs.
 Game art/audio mechanics are documented rather than needlessly runtime-ported.
-The game build/server stays paused until the operator resumes it.
+The pause recorded above belongs to this reconstruction's historical snapshot,
+not the current playable browser campaign.

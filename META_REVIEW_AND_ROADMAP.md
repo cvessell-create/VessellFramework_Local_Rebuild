@@ -1,45 +1,47 @@
-# Meta-Level Review and Forward Roadmap
+# Research and development roadmap
 
 ## Current identity of the project
 
-VesselFramework is currently best understood as:
+Use [vision and scope](VISION_AND_SCOPE.md) for product decisions.
+Current work has three distinct layers:
 
-- A methodological framework for disciplined evidence-to-decision analysis.
-- A doctrine-plus-runtime experiment in translating qualitative tradecraft into auditable controls.
-- A graduate-level synthesis artifact that is partially executable and partially doctrinal.
+- Proposed personal/family privacy, safety and rights workflows.
+- Existing callable evidence specialist, source history and human review.
+- Six-pillar methods and source-bounded research, with code-level tests.
+
+The human-controlled game is a separate simulation setting. Its development
+services and preserved bridge experiments are not player automation.
+See [game integration](docs/game-integration.md).
 
 ## Strengths
 
-1. Strong evidence-status taxonomy (source-established vs synthesis vs hypothesis vs illustrative).
-2. Explicit provenance firewall and independence logic.
-3. Useful separation of assessment confidence from action posture.
-4. Operator exposure and harm controls improve real-world defensibility.
-5. Cross-domain portability is architecturally explicit.
+1. Explicit source-status taxonomy and provenance lineage.
+2. Separate intake, analysis, human review, report release and execution.
+3. Preserved author sources and source-linked conditional calculations.
+4. Tests for selected code contracts, including case-policy correction.
+
+These are design features and testable behaviors, not evidence of field efficacy.
 
 ## Weaknesses and risks
 
-1. Version identity can be confusing without reviewer orientation.
-2. Historical references in long-form doctrine can look over-extended for a rough submission.
-3. Some claims remain synthesis and require clearer empirical validation boundaries.
-4. Package still contains operational scaffolding that can distract from scholarly core if unframed.
+1. Family isolation, consent-based sharing and safe protective workflows remain
+   unfinished; current services are single-owner.
+2. Empirical usefulness, legal applicability and model efficacy need their own
+   source-bounded evaluations.
+3. Historical snapshots must not be presented as current features or pass counts.
 
 ## What to move forward with now
 
-1. Keep and defend:
-- Evidence Assurance model
-- Decision Provenance Chain
-- Harm Gate and Forward Posture controls
-- Primary/Reference Maskirovka check architecture
-
-2. Tighten next:
-- Formal validation plan with explicit hypotheses, metrics, and failure criteria
-- Version governance and release labeling
-- Reviewer-facing concise statement of novelty and scope limits
-
-3. Defer until after advisor feedback:
-- Broader automation claims
-- Production-canonical build assertions
-- Expansion to additional domain packs without validation baselines
+1. Keep the evidence specialist, human release policy, six-pillar source
+   records and current entry points stable.
+2. Resolve the proposed product's person identity, consent, safe-channel,
+   storage, retention and revocation choices before adding private workflows.
+3. Evaluate with declared hypotheses, units, alternatives and failure criteria;
+   retain adverse outcomes.
+4. Keep the selected native game rebuild and economic experiments as separate
+   future work. They do not authorize downloads, network actions or payments.
+5. Use the [archive](archive/README.md) for superseded setup and demonstrations;
+   use [maintenance](docs/repository-maintenance.md) for artifact refreshes.
 
 ## Suggested advisor feedback prompts
 
@@ -50,9 +52,6 @@ VesselFramework is currently best understood as:
 
 ## Scholarship positioning (practical)
 
-Most competitive framing is likely:
-- methodological innovation + traceable risk controls + validation roadmap,
-not
-- finished product/platform claim.
-
-Prioritize clarity of research question, measurable validation path, and demonstrated intellectual discipline over feature breadth.
+Present the methods, implemented contracts, measured outcomes and remaining
+questions. Do not substitute a demonstration, pass count or archived showcase
+for a field study. Start review with [the current packet](PROFESSOR_README.md).

@@ -1,5 +1,12 @@
 # Agent instructions
 
+Use [current scope](VISION_AND_SCOPE.md) and
+[maintenance](docs/repository-maintenance.md) for active work. The
+[archive](archive/README.md) contains superseded setup, showcase skills and game
+handoffs, not active instructions. Preserve author sources, licences and audit
+history. Keep working entry points and compatibility code until dependencies
+are migrated; do not restore development automation to the player campaign.
+
 Consult [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md) before architectural changes.
 Follow the [civilian authorship caveat](docs/civilian-authorship-and-model-interference.md).
 Preserve owner sources and lawful research scope; record contested attribution

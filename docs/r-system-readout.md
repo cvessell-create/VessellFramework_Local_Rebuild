@@ -28,11 +28,10 @@ checked against the cited source and implementation; accepted proposals still
 need regression tests and authorized human review before a change is merged or
 released. The usage readout itself does not run models or make changes.
 
-This repository does not currently implement two independent AI agents, an
-automatic code-change loop, or a connected Hail game runtime. The Hail
-integration guide states that its build is paused and requires assets not
-included in this repository. Deterministic scripts and synthetic tests are not
-described as independent AI review or Hail evidence.
+This readout does not run independent AI reviews, change code or start the
+Hail game. [Game integration](game-integration.md) separates the human-controlled
+campaign from preserved development bridges. Deterministic scripts and
+synthetic tests are not independent AI review or gameplay evidence.
 
 ## Startup and cache boundaries
 

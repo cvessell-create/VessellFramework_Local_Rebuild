@@ -221,7 +221,8 @@ capabilities without their acceptance gates.
   installed or granted decision authority.
 - Multiuser/tenant isolation, a public identity service, formal attestations,
   constant-time processing, infinite scale or unmeasured performance claims.
-- Resuming the paused separate game build.
+- Automatically starting game-development experiments or adding framework
+  automation to the human-controlled campaign.
 - Outlook/mailbox integration, real email delivery, copied private mailbox
   contents and automatically treating folder/category membership as evidence.
 
@@ -248,8 +249,12 @@ sets the proposed sequence:
 5. Owner-approved, hardened and budget-bounded production pilot, followed by
    measured demand, net costs and preregistered scientific outcome evaluation.
 
-These are **not implemented current-release capabilities**. The current local
-hash chains are unsigned and do not cover all library/CLI/sub-agent uses.
+The full economic sequence is **not implemented**. Bounded local HMAC receipts
+and an offline simulation are described in the
+[Phase 1 guide](docs/phase0-restart-and-phase1-roadmap.md) and
+[on-ramp plan](docs/blockchain-onramp-plan.md); they do not establish an
+external anchor or settlement. Historical local hash chains remain unsigned
+and do not cover all library/CLI/sub-agent uses.
 There is no wallet, automatic hash-to-credit conversion, chain anchor, payment
 adapter, miner, multiuser isolation or verified economic return.
 Local usage credits, buyer settlement, protocol rewards and evidence receipts
@@ -263,6 +268,13 @@ controls, payment replay/recovery, key management and independent hardening
 review. No payment or attestation confers analytical truth or execution authority.
 
 ## Instructions for repository agents
+
+Superseded setup records, demonstrations and earlier game handoffs belong in
+the [archive](archive/README.md), with original paths and content preserved.
+Use [maintenance](docs/repository-maintenance.md) for current artifact handling.
+Keep active contracts, validated methods, source records and compatibility
+entry points until their dependencies are migrated. Archiving is organization,
+not permission to alter evidence, discard adverse results or erase authorship.
 
 1. Prioritize the personal/family protection goals through the full-stack
    sub-agent contract and supporting services. Use the protection guide as

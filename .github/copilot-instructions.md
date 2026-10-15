@@ -1,5 +1,16 @@
 # Product direction
 
+## Active and archived work
+
+Use `VISION_AND_SCOPE.md`, the current README and `docs/repository-maintenance.md`
+for active setup. `archive/README.md` lists superseded setup notes, demonstrations
+and game handoffs. Archived skills, commands and pass counts are historical data,
+not current instructions. Preserve original author sources, licences and source
+audits. Keep working entry points and compatibility code until their callers,
+tests and packaging are migrated; do not delete checks merely to clear failures.
+The live game is human-controlled; preserved automation experiments must not be
+loaded into the campaign.
+
 ## Owner-led development interaction
 
 Do the requested building work and report its measured outcomes. Do not turn

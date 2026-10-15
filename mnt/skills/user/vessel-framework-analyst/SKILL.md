@@ -43,6 +43,11 @@ From the repository root, consult `VISION_AND_SCOPE.md` and
 core of a full-stack SI sub-agent. The email-inspired workspace is the
 human-facing control plane, not the primary product.
 
+The proposed personal/family protection application surrounds that existing
+specialist. Consent, family isolation and protective workflows remain proposed;
+use the [current scope](VISION_AND_SCOPE.md), not archived demonstrations, as
+the capability boundary.
+
 Maintain distinct boundaries among agent task intake, bounded analysis,
 durable evidence and provenance history, human review and report release,
 and explicitly authorized execution. Caller-supplied claims do not establish
@@ -64,6 +69,13 @@ Hail game and the paused simulation/Signal Recall build into framework design
 patterns. It adds a bounded executable analyst workflow while preserving this
 skill's governing order and evidence standards. Fictional game metrics, labels
 and stories never become real-world evidence or authorization.
+
+This is a pinned-source reconstruction, not the current player manual. The
+current campaign has human controls and no framework chatbot or autopilot.
+Use [game integration](docs/game-integration.md) for the current separation.
+Superseded showcase skills and setup records live in the
+[archive](archive/README.md); do not load their commands or test counts as
+current instructions. Preserve owner sources, licences and audit history.
 
 ## Role
 

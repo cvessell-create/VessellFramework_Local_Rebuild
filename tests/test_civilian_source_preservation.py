@@ -40,7 +40,9 @@ def test_readme_preserves_product_boundaries_and_source_references():
     version = tomllib.loads((ROOT / "pyproject.toml").read_text())["project"]["version"]
     assert f"**{version}**" in readme
     assert "**full-stack SI sub-agent**" in readme
-    assert "**human-facing control plane**" in readme
+    assert "[Human review workspace](docs/ambient-workflows.md)" in readme
+    assert "Supporting control plane" in readme
+    assert "Intake, analysis, report release and\nexecution have separate permissions." in readme
     for source in (
         "VISION_AND_SCOPE.md",
         "VesselFramework_Knowing_Field_SKILL_v0.1.md",
@@ -52,8 +54,8 @@ def test_readme_preserves_product_boundaries_and_source_references():
         "scripts/sync_repository_artifacts.py",
     ):
         assert source in readme
-    assert "CLI analyses remain\npreviews" in readme
-    assert "not citations or historical incidents in the author's supplied paper" in readme
+    assert "Every report needs human Knowing Field completion against its sources and\npreview" in readme
+    assert "Test fixtures stay separate from\nthe original paper's incidents." in readme
 
 
 def test_personal_family_direction_is_a_proposal_not_a_capability_or_license_change():
@@ -67,7 +69,8 @@ def test_personal_family_direction_is_a_proposal_not_a_capability_or_license_cha
     professor = (ROOT / "PROFESSOR_README.md").read_text()
     assert "six analytical pillars" in professor
     assert "docs/claim-correction-case-study.md" in professor
-    assert "not implemented or validated" in professor
+    assert "Family isolation, safe\nsharing and protective workflows are unfinished." in professor
+    assert "Empirical usefulness and transfer\nto personal/family protection still need study." in professor
     specification = (ROOT / spec).read_text()
     assert "NOT IMPLEMENTED / NOT VALIDATED" in specification
     assert "NOT_SELECTED" in specification

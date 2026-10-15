@@ -14,6 +14,8 @@ include docs/local-vision-weight-candidates.md
 include VISION_AND_SCOPE.md
 include PROFESSOR_README.md
 include CANONICAL_REFERENCE.md
+include docs/repository-maintenance.md
+recursive-include archive *.md
 include docs/personal-family-agent-spec.md
 include docs/personal-family-protection-guide.md
 include Knowing_Field_Theory_SKILL_v0.1.md

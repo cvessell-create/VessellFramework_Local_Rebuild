@@ -49,8 +49,9 @@ the command does not retry until a preferred answer occurs.
 
 `/formula` exposes only a sanitized status, run ID and receipt ID. Status
 reads recheck the local receipt and reject runs older than one hour or dated
-in the future. The game displays this via the local `/si/formula` proxy,
+in the future. The development server retains a local `/si/formula` proxy,
 with unavailable status DOWN; tunnel players cannot access this route.
+The human-controlled campaign does not load that service or display.
 `/loops` displays the overlay and local receipt state separately from review.
 No mission progression, autopilot promotion, authorization, human release
 or blockchain-writing behavior changes.
@@ -102,6 +103,10 @@ git-ignored `private/`; step 6 is open. Gate rule:
    digest contracts unchanged.
 6. **Loop honesty fixes the receipts will expose**: L1/L2 correctness checks,
    autopilot timeout scoring (the mission 4 stall), St. Louis brief for ideas.
+
+The stall and campaign wording above are historical run observations, not
+current player features or pending instructions to restore automation.
+Player automation was removed; consult [current game boundaries](game-integration.md).
 
 Exit to Phase 2 (OpenTimestamps) requires the owner's privacy and exposure
 decision. Phase 3 (x402 on Base Sepolia) requires owner-chosen custody,

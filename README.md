@@ -1,20 +1,22 @@
 # VessellFramework
 
-## Academic review snapshot — October 14, 2026
+## Current research and development
 
 Start with the [review packet](PROFESSOR_README.md) and
 [original paper](docs/claim-correction-case-study.md).
 This repository and the [game](https://github.com/cvessell-create/hail-to-the-analyst)
 are public for review.
 
-Recent work: native game bridge, Vessell formula checks, separate SI
-generation/telemetry tests and source-export tools. The game includes a local
-AI/SI console and collectible metadata previews. The replacement native engine,
-Coinbase connection and NFT minting are planned.
+Current work: callable evidence analysis, human review, the corrected
+[Vessell formula](docs/vessell-formula.md) and separate SI
+generation/telemetry tests. The game campaign is human-controlled;
+local AI/SI services are development tools, not campaign features.
+See [game boundaries](docs/game-integration.md).
 
-Tests: 1088 passed, one skipped, two existing KEV failures and one stale
-discovery failure. After refreshing discovery, all 81 bridge/SI/discovery
-tests passed. The KEV failures remain open.
+Use the current test run for validation; dated results are retained in the
+[formula research report](docs/vessell-formula-research-report.md).
+Superseded setup notes, demonstration skills and reports are in the
+[archive](archive/README.md), not the active setup path.
 
 [Protection guide](docs/personal-family-protection-guide.md) |
 [Product specification](docs/personal-family-agent-spec.md) |
@@ -294,28 +296,15 @@ Optional dependencies are listed in `requirements/`.
 ## License
 
 Apache License 2.0 — see [LICENSE](LICENSE). Copyright 2026 Christopher R. Vessell.
-## Archive
+## Archive and maintenance
 
-Earlier launchers and experiments remain available for reference. They are
-not the current setup path. Their source and tests have not been removed.
+The [archive index](archive/README.md) records relocated material and its
+original paths. It is reference history, not a list of current features.
+The [maintenance guide](docs/repository-maintenance.md) covers validation,
+discovery, packaged skill synchronization and checksums.
 
-| Item | Reference |
-| --- | --- |
-| v3.8.1 flat case launcher | [vesselframework_case_runner.py](vesselframework_case_runner.py) |
-| KEV intake example; two tests currently fail | [run_live_kev_case.py](run_live_kev_case.py) |
-| Single-file identity/recognition tool | [VesselFramework_SingleFile_EvilTwin_v0.2.py](VesselFramework_SingleFile_EvilTwin_v0.2.py) |
-| Earlier demonstration guide | [Portfolio showcase](VessellFramework_Portfolio_Showcase_SKILL_v1.0.md) |
-
-### Original homebrew engine bridge
-
-This experiment runs a small C engine through the synthetic-game action gate:
-
-```sh
-python -m vessell.game_bridge --homebrew-slice \
-  --game-dir ../hail-to-the-analyst --output-dir outputs/homebrew-slice
-node scripts/public-release.js preview
-```
-
-The replay checks a wall block, two collectibles and extraction. It measures
-host C execution. The current game rebuild uses a direct-game engine instead.
-The export tool requires review before staging or pushing public files.
+Working compatibility launchers, the installer, KEV intake and recognition
+tools retain their entry points and tests. The original paper, source logs,
+six-pillar skills and licences remain at their established paths.
+Historical game experiments are described separately in
+[game integration](docs/game-integration.md); they are not the live campaign.

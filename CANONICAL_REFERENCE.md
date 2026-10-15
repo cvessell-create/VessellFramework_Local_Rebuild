@@ -1,4 +1,4 @@
-# Canonical Reference Scope (Submission Package)
+# Current reference map
 
 The current six-pillar application includes
 [KNOWING FIELD](VesselFramework_Knowing_Field_SKILL_v0.1.md), the
@@ -17,8 +17,8 @@ human-facing control plane, not the primary product. Agent intake, analysis,
 durable evidence history, human review and report release, and execution
 authority retain distinct boundaries; organizational metadata does not
 establish evidentiary truth or confer authorization.
-The older academic submission/version scope below is historical, not the
-current executable package version or a reason to treat it as demo-only.
+Superseded setup notes and demonstration material are in the
+[archive](archive/README.md), not the active review or setup path.
 
 The [protection guide](docs/personal-family-protection-guide.md) is an
 owner-review working draft, and the
@@ -28,14 +28,20 @@ amends the [license](LICENSE), establishes current legal applicability or
 implements family isolation. The [professor packet](PROFESSOR_README.md)
 frames scholarly review separately from the product-contract rework.
 
-## Canonical artifacts in this package
+## Active methods and services
 
-- `VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md`
-- `SKILL.md`
-- `VesselFramework_Forecasting_SKILL_v1.0.md`
-- `vesselframework_reference_v1.1_provenance_firewall.py`
-- `vesselframework_case_runner.py`
-- `vessell/schemas/` and `tests/`
+- [Combined doctrine](VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md)
+  and [analyst skill](SKILL.md).
+- [Forecasting](VesselFramework_Forecasting_SKILL_v1.0.md), the six-pillar
+  application skills and their source audits.
+- [Callable specialist](docs/specialist-agent.md),
+  [human workspace](docs/ambient-workflows.md) and
+  [GitHub agent contract](docs/github-agent-integration.md).
+- [Corrected case-policy formula](docs/vessell-formula.md) and its
+  [research/validation history](docs/vessell-formula-research-report.md).
+- [Code](vessell/), [schemas](schemas/) and [tests](tests/).
+- [Game boundaries](docs/game-integration.md): human-controlled campaign
+  separate from development services and historical bridges.
 
 ## Operational version statement
 
@@ -44,12 +50,17 @@ candidate for graduate review. The current executable package version is
 declared in [pyproject.toml](pyproject.toml); historical artifact filenames
 are not a current version or capability statement.
 
-## Non-canonical / maintenance or compatibility artifacts
+## Maintenance, compatibility and history
 
-- Installer/synchronization artifacts (`install_vesselframework_v3_8.py`, path-sync logs, managed payload blocks).
-- Single-file compatibility runtime (`VesselFramework_SingleFile_EvilTwin_v0.2.py`).
-- Legacy or superseded references discussed historically in framework text but not required for evaluating this submission.
+The [maintenance guide](docs/repository-maintenance.md) documents source hashes,
+discovery and optional private-path synchronization. Installer and compatibility
+entry points remain because active callers or tests depend on them; they do
+not define the product. The [archive index](archive/README.md) records moved
+files and original paths. Original paper, owner accounts, source logs, licences
+and audit records remain preserved at their established locations.
 
 ## Review boundary
 
-Evaluate doctrine quality, evidence discipline, provenance controls, and implementation alignment using the canonical artifacts above. Treat maintenance and synchronization files as operational scaffolding, not core scholarly claims.
+Evaluate methods, evidence discipline, provenance controls and implementation
+alignment using the current sources above. Treat archived demonstrations as
+dated history, not instructions, current pass counts or evidence of capability.

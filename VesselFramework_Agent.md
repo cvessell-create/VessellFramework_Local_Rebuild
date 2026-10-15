@@ -6,6 +6,12 @@ full-stack SI sub-agent whose implemented core provides callable,
 provenance-aware evidence analysis to coordinating agents. The email-inspired
 workspace is its human-facing control plane, not the primary product.
 
+The proposed personal/family protection application surrounds the existing
+specialist; it does not add family isolation or consent workflows by description.
+Superseded setup and demonstrations live in the [archive](archive/README.md).
+Use [maintenance](docs/repository-maintenance.md) for current source/artifact
+operations; do not run an archived showcase as the product setup.
+
 Agent task intake, bounded analysis, durable evidence and provenance history,
 human review and report release, and explicitly authorized execution retain
 distinct functional and authorization boundaries. Persistent filing supports
@@ -24,8 +30,9 @@ paused game components. `python -m vessell.workflow` runs the adapted bounded
 analyst workflow; `python -m vessell.game_architecture` inventories the pinned
 game and paused source snapshots without executing game code.
 
-The [Hail game integration](docs/game-integration.md) adds local seeded
-autonomous FPS comparison and a Python-backed provenance/correction game.
+The [Hail game integration](docs/game-integration.md) separates the current
+human-controlled campaign from preserved local seeded comparisons and the
+Python-backed provenance/correction experiment.
 Run `python -m vessell.game_bridge --help` for the loopback server and
 comparison runner. This is fictional local game play, not a production or
 external-action connector.
@@ -83,7 +90,7 @@ The model agent, public-web OSINT, and vendor/product correlation may supply lea
 Use the workspace Python environment:
 
 ```bash
-.venv313/bin/python -m pytest
+.venv/bin/python -m pytest
 ```
 
 ### Run the Master Safely
@@ -91,7 +98,7 @@ Use the workspace Python environment:
 The Markdown file is the operational guide; this paired launcher executes its non-destructive stages in sequence: live CISA KEV intake, evidence report creation, and an approval-gated defense plan. It never starts a scanner, approves an action, dispatches a webhook, or starts the remediation service.
 
 ```bash
-.venv313/bin/python run_operational_master.py --run-tests
+.venv/bin/python run_operational_master.py --run-tests
 ```
 
 Use the `Run Operational Master` VS Code task or launch profile for the same workflow.
@@ -101,7 +108,7 @@ Use the `Run Operational Master` VS Code task or launch profile for the same wor
 Run the preflight before starting the Control Room or any live endpoint:
 
 ```bash
-.venv313/bin/python run_preflight.py --strict
+.venv/bin/python run_preflight.py --strict
 ```
 
 It checks the Python runtime, orchestrator dependencies, Trivy/OSV-Scanner availability, authorized inventory state, non-placeholder local secrets, and Microsoft Intune credentials when an authorized asset selects that provider. It performs no scan, network dispatch, or credential output. A nonzero exit means the service is not live-ready.
@@ -109,13 +116,13 @@ It checks the Python runtime, orchestrator dependencies, Trivy/OSV-Scanner avail
 ### 1. Deterministic Case Analysis
 
 ```bash
-.venv313/bin/python -m vessell.app.main --input example_case.json
+.venv/bin/python -m vessell.app.main --input example_case.json
 ```
 
 ### 2. Live Exploited-Vulnerability Intake
 
 ```bash
-.venv313/bin/python run_live_kev_case.py
+.venv/bin/python run_live_kev_case.py
 ```
 
 This fetches CISA's official KEV JSON catalog and writes evidence-classified reports under `outputs/case_runs/`.
@@ -123,7 +130,7 @@ This fetches CISA's official KEV JSON catalog and writes evidence-classified rep
 ### 3. Scanner Evidence Ingestion
 
 ```bash
-.venv313/bin/python run_scanner_ingest.py \
+.venv/bin/python run_scanner_ingest.py \
 	--inventory example_asset_inventory.json \
 	--asset-id YOUR_AUTHORIZED_ASSET_ID \
 	--source greenbone \
@@ -135,7 +142,7 @@ Supported source labels: `greenbone`, `trivy`, `osv-scanner`, and `wazuh`. Scann
 ### 4. Active Defense Plan
 
 ```bash
-.venv313/bin/python run_active_defense.py --inventory example_asset_inventory.json
+.venv/bin/python run_active_defense.py --inventory example_asset_inventory.json
 ```
 
 The output is a reviewable plan. Vendor-only and vendor/product correlations are `REVIEW_REQUIRED`; only `scanner_confirmed_cve` actions can become `PENDING_APPROVAL`.
@@ -145,7 +152,7 @@ The output is a reviewable plan. Vendor-only and vendor/product correlations are
 Copy `.env.example` to `.env` and replace every placeholder with local secrets. The `.env` file is ignored by Git.
 
 ```bash
-.venv313/bin/vf-remediator
+.venv/bin/vf-remediator
 ```
 
 The service binds to `127.0.0.1:8000` by default. It fails closed if required configuration is missing. Approval requires an authenticated token and change ticket. Webhook assets use HMAC-signed, idempotent dispatch to the configured HTTPS allowlist. Assets configured with `remediation_provider: microsoft-intune` require an `intune_device_id` plus local Microsoft tenant, application ID, and client-secret settings; their approved action requests a Microsoft Graph `syncDevice` operation, while patch policy remains Intune-owned. Completion requires scanner verification.
@@ -157,7 +164,7 @@ Open `http://127.0.0.1:8000/` for the **Control Room**. It displays the action q
 `vesselframework_agent.py` supports bounded, read-only public-web analysis. It does not execute local commands, authenticate to remote systems, bypass access controls, or establish facts without provenance.
 
 ```bash
-.venv313/bin/python vesselframework_agent.py --dry-run --case example_case.json
+.venv/bin/python vesselframework_agent.py --dry-run --case example_case.json
 ```
 
 Configure `VESSELFRAMEWORK_API_KEY`, plus optional `VESSELFRAMEWORK_MODEL` and `VESSELFRAMEWORK_BASE_URL`, only in your local environment. Use `/reset` for a new interactive context and `/quit` to leave it.
