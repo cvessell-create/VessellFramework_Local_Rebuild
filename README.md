@@ -2,26 +2,19 @@
 
 ## Academic review snapshot — October 14, 2026
 
-Start with the [professor review packet](PROFESSOR_README.md), then the
-[original paper](docs/claim-correction-case-study.md), source-linked methods
-and executable tests. This repository and the
-[companion game](https://github.com/cvessell-create/hail-to-the-analyst)
-are public for review. Source history is preserved; this refresh does not
-rewrite the author's paper or claim a finished replacement game engine.
+Start with the [review packet](PROFESSOR_README.md) and
+[original paper](docs/claim-correction-case-study.md).
+This repository and the [game](https://github.com/cvessell-create/hail-to-the-analyst)
+are public for review.
 
-Recent implementation includes the native game-slice bridge, current-run
-Vessell formula integration, separate SI generation/telemetry evaluation
-contracts and reviewed source-export helpers. The game now also contains a
-renderer-independent AI/SI development console and local collectible metadata
-previews. The playable browser game is separate from the proposed modified
-Flycast native engine rebuild. Coinbase, live blockchain transactions and NFT
-minting remain planned, not deployed. No keys or private runtime data are
-included in these updates.
+Recent work: native game bridge, Vessell formula checks, separate SI
+generation/telemetry tests and source-export tools. The game includes a local
+AI/SI console and collectible metadata previews. The replacement native engine,
+Coinbase connection and NFT minting are planned.
 
-The review validation recorded 1088 passes, one skip, two existing KEV
-failures and one stale generated-discovery failure. Discovery was refreshed;
-the subsequent bridge/SI/discovery selection passed all 81 tests. The two KEV
-failures remain unresolved and are not represented as a clean full-suite pass.
+Tests: 1088 passed, one skipped, two existing KEV failures and one stale
+discovery failure. After refreshing discovery, all 81 bridge/SI/discovery
+tests passed. The KEV failures remain open.
 
 [Protection guide](docs/personal-family-protection-guide.md) |
 [Product specification](docs/personal-family-agent-spec.md) |
@@ -33,33 +26,24 @@ failures remain unresolved and are not represented as a clean full-suite pass.
 
 ## Product focus: personal and family protection
 
-VessellFramework's proposed product focus is a **personal and family privacy,
-safety and rights agent**. Its purpose is to help people understand risks,
-organize evidence, research possible rights and prepare proportionate,
-human-reviewed responses. Claim verification is a supporting capability,
-not the whole product.
+VessellFramework is being developed as a **personal and family privacy,
+safety and rights agent**. It will organize evidence, research options and
+prepare responses for human review. Evidence analysis is its supporting engine.
 
-The owner-oriented [protection guide](docs/personal-family-protection-guide.md)
-is the focal working draft, pending owner editing and review. It separates
-real legal requirements, platform procedures, existing license duties and
-proposed privacy commitments. It does not invent loopholes, bind strangers,
-guarantee a remedy or change the [Apache license](LICENSE).
+The [protection guide](docs/personal-family-protection-guide.md) is a working
+draft covering legal requirements, platform procedures and privacy commitments.
+It offers no guarantee of a remedy.
 
-**Current phase: product-contract alignment and public-safe agent integration.** The
+**Current work: product design and GitHub agent integration.** The
 [product specification](docs/personal-family-agent-spec.md) describes proposed
 consent, safe communications, private-data lifecycle and protective workflows.
-Family isolation, consent-based sharing and rights-response workflows are not
-implemented or validated. Do not put private family cases in public GitHub,
-Pages or research queries, or share the current service credentials across
-mutually untrusted people.
+Family isolation, consent-based sharing and rights-response workflows are
+unfinished. Keep private family cases out of public GitHub and research queries.
+Current service credentials are single-owner.
 
-VessellFramework is being developed as a **full-stack SI sub-agent**. Its
-implemented core provides callable, provenance-aware evidence analysis.
-The email-inspired workspace is its **human-facing control plane**, not the
-primary product. Authenticated intake, bounded analysis, durable provenance,
-human review/report release and explicitly authorized execution stay distinct.
-SI is the owner-led product direction; development reports track implemented
-behavior, measured outcomes and the next build step.
+The **full-stack SI sub-agent** combines an evidence-analysis API, source
+history and a human review workspace. Intake, analysis, report release and
+execution have separate permissions. SI is the development goal.
 See [VISION_AND_SCOPE.md](VISION_AND_SCOPE.md).
 
 ### What exists and what remains proposed
@@ -84,21 +68,17 @@ contested government-interference attribution is not verified.
 
 ## Six-pillar inquiry and review boundaries
 
-The analytical architecture has six pillars: PARADOX, BOTTLENECK, DUAL LAYER,
-XFACTOR, KNOWING FIELD and GAME THEORY. Strategic models require supplied actors,
-actions, information, utility units and evidence; missing inputs are NOT_SUPPLIED.
-Human source/preview-bound Knowing Field completion is required before every new
-report release. Record completeness, classification and generated previews do
-not confer source truth, approval or execution authority. Filing metadata must
-retain independent revisions and audit history and must not change confidence.
-CLI analyses remain
-previews until the separate required human completion and release decision.
-Synthetic benchmark fixtures are
-not citations or historical incidents in the author's supplied paper.
+The six pillars are PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR, KNOWING FIELD
+and GAME THEORY. Strategic models declare actors, actions, information,
+utility units and evidence; missing inputs remain NOT_SUPPLIED.
+Every report needs human Knowing Field completion against its sources and
+preview, followed by a release decision. Filing metadata has its own history
+and cannot change confidence or permissions. Test fixtures stay separate from
+the original paper's incidents.
 
-The [Search Gate](VesselFramework_Search_Gate_SKILL_v0.1.md) is prospective,
-not validated. Search summaries stay hypotheses; inaccessible sources remain
-unverified. Follow [agent instructions](.github/copilot-instructions.md).
+The [Search Gate](VesselFramework_Search_Gate_SKILL_v0.1.md) requires source
+checks before claims; its effectiveness remains unvalidated.
+Follow [agent instructions](.github/copilot-instructions.md).
 See the bounded [state-law references](docs/state-law-protections.md) and
 [platform-accountability index](docs/platform-accountability-laws.md) and
 [trade-secret notice](docs/trade-secrets-notice.md); these do not create rights
@@ -110,7 +90,7 @@ See [KNOWING FIELD](VesselFramework_Knowing_Field_SKILL_v0.1.md),
 The [verifier guide](docs/claim-verifier.md) distinguishes both local interfaces.
 After reviewing and staging source changes, use
 [artifact synchronization](scripts/sync_repository_artifacts.py) to refresh
-tracked distribution hashes; hash agreement does not establish factual truth.
+tracked file checksums.
 
 For the complete skill, agent, executable-code, scanner, and authorized remediation map, start with [VesselFramework_Agent.md](VesselFramework_Agent.md). Historical artifacts retain their original `VesselFramework` names; the active Python namespace is `vessell`.
 
@@ -185,14 +165,13 @@ citations are in [docs/references.md](docs/references.md):
 
 ### Run the Claim Verifier web app
 
-Three ways to run it straight from GitHub — no clone needed:
+Three ways to run it:
 
 1. **In your browser** (nothing to install):
    [Browser verifier](docs/index.html) — `vessell/verify.py` executes via
    Pyodide. Runtime and module loading use the network; source URLs supplied
-   for analysis are not authenticated. The browser loader has been repaired and
-   checked locally; the published Pages version has not yet received that fix.
-   Local checks are not confirmation of a new deployment.
+   for analysis are not authenticated. The loader repair was checked locally
+   and pushed; deployment has not been checked.
    GitHub Pages is intended to publish **master /docs** using branch deployment;
    the dashboard workflow only tests dashboard code and does not replace that site.
 
@@ -214,7 +193,7 @@ python -m vessell.app
 ```
 
 This starts the Claim Verifier at http://127.0.0.1:8765/ and opens your browser.
-It is the real `vessell/verify.py` doctrine behind a web UI, not a mock:
+The web UI runs `vessell/verify.py`:
 
 - **Verify a claim** — enter a claim plus its source sightings; get the
   tier-weighted, independence-discounted verdict (VERIFIED → CONTRADICTED)
@@ -283,17 +262,6 @@ Validate a case record:
 python -m vessell.cli example_case.json --schema case.schema.json
 ```
 
-Run the Identity & Recognition Provenance Gate:
-
-```powershell
-python VesselFramework_SingleFile_EvilTwin_v0.2.py selftest
-python VesselFramework_SingleFile_EvilTwin_v0.2.py recognition --subject "Alex Cvessell" --evidence example_recognition_evidence.json
-```
-
-The recognition gate quarantines name-only matches, classifies recognition
-stages, and counts independent provenance roots rather than search-result
-quantity.
-
 Use it as a library:
 
 ```python
@@ -320,29 +288,27 @@ for record in weighted.records:
     print(record.source_id, round(record.normalized_weight, 3))
 ```
 
-The original flat launchers and doctrine files remain the compatibility layer for version 3.8.1. New executable functionality belongs in `vessell/`, machine-readable contracts belong in `schemas/`, and regression tests belong in `tests/`. Optional integrations are separated into `requirements/agent.txt`, `documents.txt`, and `research.txt`.
-
-## What this demonstrates
-
-Five-minute tour (see `VessellFramework_Portfolio_Showcase_SKILL_v1.0.md` for the guided version):
-
-1. `python -m vessell.app` — the working Claim Verifier web app: verify claims, analyze hostile spread, and filter ghost jobs through the real doctrine, in your browser.
-2. `python -m pytest tests/ -q` — 206-test regression suite: provenance, validation, scanner adapters, malware triage, defense planning, remediation orchestration, agentic SOC, EvilTwin gate, Llama evidence weighting, planted-news verification, hostile-spread intel, ghost-job filtering, the claim-correction doctrine reconciliation (`tests/test_doctrine_reconciliation.py`), live-event verification (`tests/test_live_event_verification.py`), cross-domain maskirovka convergence benchmarks (`tests/conformance/test_maskirovka_convergence.py`), and end-to-end output snapshots (`tests/conformance/test_output_snapshot.py`).
-2. `python vesselframework_case_runner.py example_case.json` — structured case intake: provenance firewall, deception (maskirovka) checks, harm gate, analyst-ready report.
-3. `python run_live_kev_case.py` — live CISA Known Exploited Vulnerabilities intake through the same pipeline.
-4. `python VesselFramework_SingleFile_EvilTwin_v0.2.py selftest` — identity/recognition provenance gate.
-5. `python -m pytest tests/test_weights.py tests/test_weighter.py -q` — Llama-calibrated evidence weighting with per-weight provenance.
-6. `python -m pytest tests/test_verify.py -q` — planted-news corroboration checks, hostile-spread intel (burst/clone-army/laundering detection), and ghost-job filtering, each verdict shipping its audit record.
-
-Engineering signals: typed Python, mypy + ruff gates, JSON schemas for machine-readable contracts, SHA-256 integrity manifest (`python verify_manifest.py`), CI on Python 3.13, Apache-2.0 licensed.
+Current code lives in `vessell/`, contracts in `schemas/` and tests in `tests/`.
+Optional dependencies are listed in `requirements/`.
 
 ## License
 
 Apache License 2.0 — see [LICENSE](LICENSE). Copyright 2026 Christopher R. Vessell.
-## Original homebrew engine bridge
+## Archive
 
-The game bridge can now run the original C engine slice under the existing
-synthetic-game action gate without claiming Dreamcast/Flycast execution:
+Earlier launchers and experiments remain available for reference. They are
+not the current setup path. Their source and tests have not been removed.
+
+| Item | Reference |
+| --- | --- |
+| v3.8.1 flat case launcher | [vesselframework_case_runner.py](vesselframework_case_runner.py) |
+| KEV intake example; two tests currently fail | [run_live_kev_case.py](run_live_kev_case.py) |
+| Single-file identity/recognition tool | [VesselFramework_SingleFile_EvilTwin_v0.2.py](VesselFramework_SingleFile_EvilTwin_v0.2.py) |
+| Earlier demonstration guide | [Portfolio showcase](VessellFramework_Portfolio_Showcase_SKILL_v1.0.md) |
+
+### Original homebrew engine bridge
+
+This experiment runs a small C engine through the synthetic-game action gate:
 
 ```sh
 python -m vessell.game_bridge --homebrew-slice \
@@ -350,10 +316,6 @@ python -m vessell.game_bridge --homebrew-slice \
 node scripts/public-release.js preview
 ```
 
-The bounded replay tests a wall block, two collectibles and extraction.
-Its Dreamcast/Flycast fields are scoped to `NOT_EVALUATED_BY_NATIVE_HOST_CHECK`;
-they do not contradict a separate guest-build or emulator-boot experiment.
-Its telemetry schema is the only framework contract in the fixed public export
-alongside the Apache licence. No case records, model outputs, credentials or
-private repository history are exported. Public staging/push requires review
-of exact hashes through the sibling public-access repo's release bridge.
+The replay checks a wall block, two collectibles and extraction. It measures
+host C execution. The current game rebuild uses a direct-game engine instead.
+The export tool requires review before staging or pushing public files.

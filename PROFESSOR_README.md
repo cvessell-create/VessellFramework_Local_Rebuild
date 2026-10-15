@@ -1,163 +1,98 @@
-# VesselFramework Graduate Review Packet (Rough Working Version)
+# Graduate research review
 
-Author: Christopher R. Vessell  
-Program context: M.S. Strategic Intelligence (graduate project candidate)
+Christopher R. Vessell
 
-## Current review route — October 14, 2026
+M.S. Strategic Intelligence — working project
 
-Both this research repository and the
-[companion game source](https://github.com/cvessell-create/hail-to-the-analyst)
-are public for review. The
-[browser game](https://cvessell-create.github.io/hail-to-the-analyst/) is the
-current playable implementation, not the proposed high-detail native rebuild.
-Read the game's current README for deployment and backend distinctions.
+## Project
 
-Recent local work adds a bounded original C engine/native replay bridge,
-current-run formula checks and separate SI generation-versus-telemetry
-evaluation. Tests measure their declared contracts, not an overall
-superintelligence capability. The game service foundation retains chatbot
-reply identity and prepares local run metadata; it does not connect a wallet,
-mint NFTs or publish private records.
+VessellFramework combines analytical methods, source tracking and executable
+evidence-analysis tools. Its proposed application is a personal and family
+privacy, safety and rights agent.
 
-Review the original paper, methods and executable implementations separately.
-Research-source documents and historical records have not been deleted.
+The framework has three parts:
 
-## 1) What this project has become
+1. **Methods:** six analytical pillars, decision provenance, Harm Gate and
+   Maskirovka checks.
+2. **Workflows:** analyst and forecasting guides for source assessment,
+   alternatives and correction.
+3. **Software:** evidence intake, weighting, source-lineage checks, correction
+   propagation and human report review.
 
-VesselFramework has become a cross-domain analytical framework with three integrated layers:
+The [game](https://github.com/cvessell-create/hail-to-the-analyst) provides a
+simulation setting for testing methods, formulas and decision processes.
+[Play the current browser version](https://cvessell-create.github.io/hail-to-the-analyst/).
+The high-detail native engine rebuild is planned.
 
-1. Doctrine layer: six analytical pillars (PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR, KNOWING FIELD, GAME THEORY), Decision Provenance Chain, Harm Gate, and Maskirovka check architecture.
-2. Operational skill layer: analyst and forecasting execution guides that enforce evidence-status discipline, provenance checks, alternatives testing, and calibrated posture language.
-3. Executable reference layer: provenance/firewall logic and deterministic case intake tooling that operationalize selected controls for repeatability and regression testing.
+## Current work
 
-This package is submitted as a rough working candidate for critique, not as a finished production platform.
+- Evidence-analysis API and human review workspace.
+- [GitHub agent integration](docs/github-agent-integration.md) for reference
+  searches and owner-requested analysis previews.
+- Native C game bridge and current-run Vessell formula checks.
+- Separate tests for generated chat responses and formula telemetry.
+- Local game console for AI/SI requests and collectible metadata previews.
 
-The proposed application is now a **personal and family privacy, safety and
-rights agent**, with evidence verification as a supporting capability. The
-[vision](VISION_AND_SCOPE.md), owner-oriented
-[protection guide](docs/personal-family-protection-guide.md) and
-[product specification](docs/personal-family-agent-spec.md) distinguish this
-application from the methods it reuses. The current rework aligns documentation
-and product contracts and adds a bounded
-[GitHub agent integration](docs/github-agent-integration.md) for public discovery,
-fixed reference search and authorized non-sensitive analysis previews.
-Family isolation and protective workflows are
-not implemented or validated.
+Coinbase integration and NFT minting are planned. Family isolation, safe
+sharing and protective workflows are unfinished. Existing services are
+single-owner.
 
-The [original claim-correction paper](docs/claim-correction-case-study.md) and
-[reconciliation record](docs/paper-source-reconciliation.md) remain authoritative
-for what the owner wrote, not independent verification of historical external
-claims. The legal guide is a separate derivative working draft pending owner
-editing and review. It neither changes that paper nor creates legal rights.
+## Methods and sources
 
-The fifth pillar adapts Scharmer and Pomeroy's (2024) fourth-person knowing
-theory through human-led inquiry and a mandatory pre-release completion record.
-The [source skill](Knowing_Field_Theory_SKILL_v0.1.md),
+The pillars are PARADOX, BOTTLENECK, DUAL LAYER, XFACTOR, KNOWING FIELD and
+GAME THEORY.
+
+Knowing Field draws on Scharmer and Pomeroy's (2024) fourth-person knowing.
+It requires human inquiry before report release; AI does not perform
+presencing. See the [source skill](Knowing_Field_Theory_SKILL_v0.1.md),
 [audit](docs/knowing-field-framework-audit.md) and
-[combined skill](VesselFramework_Knowing_Field_SKILL_v0.1.md) distinguish the
-external theory, framework synthesis and owner-selected release policy.
-It is not empirically validated and does not assert AI presencing.
+[application](VesselFramework_Knowing_Field_SKILL_v0.1.md).
 
-The [sixth-pillar application](VesselFramework_Game_Theory_SKILL_v0.1.md)
-uses optional declared actors, actions, information, utility units and evidence.
-The other five pillars constrain and then recheck its conditional outputs.
-Missing strategic inputs remain NOT_SUPPLIED; models do not establish motives,
-calibrate real-world utility or authorize a response.
+Game Theory uses declared actors, actions, information, utility units and
+evidence. The other pillars constrain the model and challenge its results.
+See the [application](VesselFramework_Game_Theory_SKILL_v0.1.md).
 
-## 2) What this project can become
+The [original paper](docs/claim-correction-case-study.md) is preserved.
+[Source reconciliation](docs/paper-source-reconciliation.md) separates the
+author's account from later research and software.
+[Civilian authorship guidance](docs/civilian-authorship-and-model-interference.md)
+preserves reported concerns without treating contested attribution as fact.
 
-Near-term (course and committee relevance):
-- A defensible graduate capstone framework for evidence-to-decision analysis under uncertainty.
-- A structured method for distinguishing source-established facts from synthesis and hypotheses.
-- A testable doctrine/code alignment case study for intelligence-method rigor.
-- A prospective study of whether source-aware, human-reviewed response planning
-  improves decision quality without increasing privacy exposure or unsafe action.
+## Evaluation
 
-Medium-term (research and applied value):
-- A validated comparative framework for cross-domain analytical failures (governance, authority, efficacy, and operator-risk errors).
-- A reproducible teaching artifact for analytic tradecraft and calibration discipline.
-- A candidate publication pipeline once empirical validation and external review milestones are completed.
+The software tests specific code behavior. Empirical usefulness and transfer
+to personal/family protection still need study.
 
-## 3) How to describe it (short form)
+A proposed study would compare a source-linked checklist with the assistant
+on a defined synthetic or consented case set. Score source accuracy, routing,
+unsupported legal claims, disclosure, unsafe actions and reviewer comprehension.
+Set the rubric, units, sample, adjudication and stop criteria before testing.
 
-VesselFramework is an authorial analytical-method synthesis and executable
-evidence specialist being developed toward a personal/family protection agent.
-It supports source-aware inquiry and human-reviewed decisions under uncertainty;
-it is not demonstrated legal protection, a safety certification or a prediction
-oracle.
+Include conflicting evidence, missing consent, unavailable sources, expired
+permissions and compromised devices. Retain adverse results. Sensitive family
+data requires reviewed participant and storage safeguards.
+See the [scientific evidence method](VesselFramework_Scientific_Evidence_SKILL_v0.1.md).
 
-## 4) How to describe it (long form)
+## Feedback requested
 
-VesselFramework is an authorial synthesis that translates qualitative and mixed-source evidence into auditable analytical posture decisions. It enforces source-status tagging, provenance independence checks, alternatives testing, and harm-aware decision controls before consequential recommendations. It is not a prediction oracle; it is a disciplined reasoning architecture with explicit confidence and exposure boundaries.
+1. Are the methods coherent and teachable?
+2. Are the source and provenance rules suitable for graduate research?
+3. Which contributions are original, and which need clearer attribution?
+4. What study would best test usefulness and failure modes?
+5. What should be refined before publication?
+6. Does the proposed application preserve consent and personal agency?
+7. Which findings would challenge the transfer from analytical methods to
+   personal/family protection?
 
-## 5) Current limits (important for academic review)
+## Reading order
 
-- Some historical artifacts cited by legacy sections are intentionally not bundled in this submission package.
-- Not all framework claims are empirically validated; parts remain synthesis requiring prospective calibration.
-- The executable layer is partial by design and should be evaluated as implementation evidence, not constitutional doctrine.
-- Existing services are single-owner, not evidence of private family isolation.
-  Per-person authority, deployment, key custody and safe sharing remain undecided.
-- Agent discovery and reproducible preview contracts are implementation surfaces,
-  not evidence of agent adoption, search-engine indexing, live deployment or
-  independent analytical efficacy. Actions artifacts are not released reports.
-- Legal/FTC references are source-bounded research: older editions, allegations,
-  proposed settlements and platform policies are not current eligibility findings
-  or promised compensation.
-- Documentation quality, test results, hash agreement, conditional mathematics
-  and measured real-world effects are distinct evidence types.
-- The [civilian authorship caveat](docs/civilian-authorship-and-model-interference.md)
-  preserves the owner account while keeping contested attribution unverified.
-
-### Proposed evaluation design, not a completed study
-
-Compare a defined baseline (such as a source-linked checklist) with the proposed
-assistant on a bounded, consented or synthetic case set. Separate source accuracy,
-correct route selection, unsupported legal claims, unnecessary disclosure,
-unsafe notification/action suggestions and reviewer comprehension. Specify
-population, units, scoring rubric, adjudicator roles, sample rationale,
-uncertainty and stop criteria before collecting outcomes.
-
-Include absent consent, conflicting reports, adverse evidence, unavailable
-sources, expired permissions and compromised-device scenarios, not only
-successful examples. Avoid real sensitive family data until custody and
-participant safeguards are reviewed. Freeze versions and retain null/adverse
-results. No study, effect size or participant account is supplied by this packet.
-Use the [scientific evidence method](VesselFramework_Scientific_Evidence_SKILL_v0.1.md)
-to distinguish proposed measurement from empirical validation.
-
-## 6) Requested feedback from professor/reviewer
-
-1. Conceptual coherence: Is the doctrine internally consistent and teachable?
-2. Methodological rigor: Are the evidence/provenance gates defensible for graduate-level work?
-3. Novelty boundaries: Which elements appear genuinely original vs derivative synthesis?
-4. Validation design: What empirical design would best test utility and failure modes?
-5. Publication pathway: What should be refined first for scholarship competitiveness?
-6. Application ethics: Does personal/family protection preserve affected-person
-   agency without becoming surveillance, unauthorized legal action or a promise
-   of safety?
-7. Transfer validity: Which analytical controls plausibly transfer to this
-   application, and what evidence would disconfirm that transfer?
-
-## 7) Suggested reading order
-
-1. [Canonical boundaries](CANONICAL_REFERENCE.md) and [vision](VISION_AND_SCOPE.md).
+1. [Canonical reference](CANONICAL_REFERENCE.md) and [vision](VISION_AND_SCOPE.md).
 2. [Original paper](docs/claim-correction-case-study.md) and
-   [source reconciliation](docs/paper-source-reconciliation.md).
+   [reconciliation](docs/paper-source-reconciliation.md).
 3. [Protection guide](docs/personal-family-protection-guide.md) and
-   [product specification](docs/personal-family-agent-spec.md): proposed application.
+   [specification](docs/personal-family-agent-spec.md).
 4. [Combined framework](VesselFramework_MetaMatrix_Framework_v3.8_v3.9_Combined.md),
-   [analyst skill](SKILL.md), [Knowing Field](VesselFramework_Knowing_Field_SKILL_v0.1.md)
-   and [Game Theory](VesselFramework_Game_Theory_SKILL_v0.1.md): current methods
-   versus historical versions.
-5. [Forecasting skill](VesselFramework_Forecasting_SKILL_v1.0.md) and
-   [research roadmap](META_REVIEW_AND_ROADMAP.md): calibration and prospective work.
-6. [Specialist contract](docs/specialist-agent.md) and [tests](tests/):
-   selected executable controls and their limits.
-
-## 8) Package intent
-
-This is a rough working version prepared for critical feedback, method refinement, and supervised maturation into a graduate-quality research artifact.
-
-The personal/family focus does not erase the cross-domain methods or redefine
-the original paper's incidents. Product goals, scholarly claims, demonstrated
-software behavior and future research are reviewed separately.
+   [analyst skill](SKILL.md), Knowing Field and Game Theory links above.
+5. [Forecasting](VesselFramework_Forecasting_SKILL_v1.0.md) and
+   [research roadmap](META_REVIEW_AND_ROADMAP.md).
+6. [API contract](docs/specialist-agent.md) and [tests](tests/).

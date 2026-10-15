@@ -1,6 +1,6 @@
 {
   "package_version": "3.12.0",
-  "generated_utc": "2026-10-15T01:49:44.851892+00:00",
+  "generated_utc": "2026-10-15T01:58:34.040317+00:00",
   "runtime_state_claim": "UNVERIFIED/NOT APPLIED",
   "runtime_state_scope": "Historical private assistant-skill installation; distinct from verified local 3.12.0 software.",
   "files": [
@@ -118,11 +118,11 @@
     },
     {
       "path": "PROFESSOR_README.md",
-      "sha256": "356636e41461fe4c3b28a0661cda13eea8f091165988f70f23047f0c507d400a"
+      "sha256": "0564f2a19f8d5dc167fbd7392966f1c014c3ae2add6d68fa6146f994443aae1c"
     },
     {
       "path": "README.md",
-      "sha256": "a627c47424cd700338aed0d2634accc41c24a9287a3e4daca6924ba574d102da"
+      "sha256": "0126b4a51f33a3470bedd7fcb574fae06ceab2319201078f8ddd4ab6aa4c6a14"
     },
     {
       "path": "SECURITY.md",
@@ -342,11 +342,11 @@
     },
     {
       "path": "docs/agent-capabilities.json",
-      "sha256": "52b37fcc26e8e283ad1af07e1813008503cebea9451d5f239198edd5cced3bc5"
+      "sha256": "37949adf35a8aedf50d161decec7729096979881b0cff03bbbb7bf8eae995a96"
     },
     {
       "path": "docs/agent-reference-index.json",
-      "sha256": "9f271ffae57b14b41965b42f9b93517a41012160456d8f2ca896dd33b0b85da4"
+      "sha256": "107ccb347701a784c74eaa6baddd6ec41b6d06260da5115f70325fa2a0f61878"
     },
     {
       "path": "docs/agent-search.js",
